@@ -1,0 +1,14 @@
+black
+coverage
+django-filter-stubs
+django-stubs
+djangorestframework-stubs
+docformatter
+factory_boy
+flake8
+isort
+mypy
+pre-commit
+pylint
+types-pytz
+types-requests
