@@ -1,0 +1,24 @@
+{% extends 'admin/base_site.html' %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+  :root {
+    --primary: #181818;
+    --secondary: #181818;
+    --accent: #e01272; /* Same as frontend */
+    --header-color: #1fb393; /* Same as frontend */
+  }
+
+  #header {
+    border-bottom: 1px solid var(--accent);
+  }
+</style>
+{% endblock %}
+
+{% block branding %}
+<a href="{% url 'admin:index' %}" id="site-name">
+  <img src="https://jordan-kowal.github.io/assets/jkdev/logo.png" alt="logo" height="25">
+</a>
+{{ block.super }}
+{% endblock %}
