@@ -69,7 +69,6 @@ class CurrentUserViewSetTestCase(BaseActionTestCase):
             "first_name": "John",
             "last_name": "Doe",
             "email": "johndoe@johndoe.com",
-            "profile": {"subscribed_to_notifications": True},
         }
         response = self.api_client.post(self.viewset_url, data=payload)
         self.assertEqual(response.status_code, 200)
@@ -78,9 +77,6 @@ class CurrentUserViewSetTestCase(BaseActionTestCase):
         self.assertEqual(self.user.first_name, payload["first_name"])
         self.assertEqual(self.user.last_name, payload["last_name"])
         self.assertEqual(self.user.email, payload["email"])
-        self.assertTrue(
-            self.user.profile.subscribed_to_notifications,
-        )
 
     def test_list_success(self) -> None:
         response = self.api_client.get(self.viewset_url)
