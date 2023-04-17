@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import { Auth, CurrentUser } from './endpoints';
 
 class Api {
@@ -8,14 +9,25 @@ class Api {
 
 const api = new Api();
 
-const apiCall = async (endpoint, method, data = {}) => {
+const apiCall = async (
+  endpoint,
+  method,
+  data = {},
+  successMessage,
+  errorMessage
+) => {
   const call = api[endpoint][method];
   try {
-    return await call(data);
+    const response = await call(data);
+    if (successMessage) message.success(successMessage);
+    return response;
   } catch (error) {
     if (import.meta.env.NODE_ENV === 'development') {
-      // eslint-disable-next-line no-console
-      console.error(error);
+      console.error(error); // eslint-disable-line no-console
+    }
+    if (error.status !== 400 && errorMessage) {
+      message.error(errorMessage);
+      return {};
     }
     return Promise.reject(error);
   }

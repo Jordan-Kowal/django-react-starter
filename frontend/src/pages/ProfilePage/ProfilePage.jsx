@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useState } from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { message } from 'antd';
 import {
   IconCard,
   PageBanner,
@@ -13,27 +12,29 @@ import { apiCall } from '@/services/api';
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState(1);
 
-  const onProfileUpdate = useCallback(async (values) => {
-    try {
-      await apiCall('currentUser', 'updateCurrentUser', values);
-      message.success('Votre profil a été mis à jour');
-    } catch {
-      message.error(
+  const onProfileUpdate = useCallback(
+    async (values) =>
+      apiCall(
+        'currentUser',
+        'updateCurrentUser',
+        values,
+        'Votre profil a été mis à jour',
         'Une erreur est survenue lors de la mise à jour de votre profil'
-      );
-    }
-  }, []);
+      ),
+    []
+  );
 
-  const onPasswordUpdate = useCallback(async (values) => {
-    try {
-      await apiCall('currentUser', 'updatePassword', values);
-      message.success('Votre mot de passe a été mis à jour');
-    } catch {
-      message.error(
+  const onPasswordUpdate = useCallback(
+    async (values) =>
+      apiCall(
+        'currentUser',
+        'updatePassword',
+        values,
+        'Votre mot de passe a été mis à jour',
         'Une erreur est survenue lors de la mise à jour de votre mot de passe'
-      );
-    }
-  }, []);
+      ),
+    []
+  );
 
   const showProfileForm = useCallback(() => setActiveTab(1), []);
   const showPasswordForm = useCallback(() => setActiveTab(2), []);
