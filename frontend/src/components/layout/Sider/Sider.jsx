@@ -1,9 +1,5 @@
 import React, { memo } from 'react';
-import {
-  HomeOutlined,
-  LogoutOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { HomeOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { Logo } from '@/components/ui';
 import { useCurrentRoute, useNav } from '@/hooks';

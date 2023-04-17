@@ -12,8 +12,8 @@ class CurrentUser extends Endpoint {
     return this.serializer.deserializeUser(response);
   };
 
-  updateCurrentUser = async ({ email, firstName, lastName }) => {
-    return this.fetch(`${this.mainRoute}/`, {
+  updateCurrentUser = async ({ email, firstName, lastName }) =>
+    this.fetch(`${this.mainRoute}/`, {
       method: 'post',
       data: keysToSnake({
         email,
@@ -21,7 +21,6 @@ class CurrentUser extends Endpoint {
         lastName,
       }),
     });
-  };
 
   updatePassword = async ({ currentPassword, password, confirmPassword }) =>
     this.fetch(`${this.mainRoute}/update_password/`, {
