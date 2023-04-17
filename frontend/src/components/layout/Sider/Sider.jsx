@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import {
-  CalendarOutlined,
+  HomeOutlined,
   LogoutOutlined,
   UserOutlined,
 } from '@ant-design/icons';
@@ -21,7 +21,7 @@ const Sider = () => {
     {
       label: 'Accueil',
       key: 'home',
-      icon: <CalendarOutlined />,
+      icon: <HomeOutlined />,
       onClick: navigateToHome,
     },
     {

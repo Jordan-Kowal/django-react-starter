@@ -12,15 +12,13 @@ class CurrentUser extends Endpoint {
     return this.serializer.deserializeUser(response);
   };
 
-  updateCurrentUser = async ({ email, firstName, lastName, profile }) => {
-    const { subscribedToNotifications } = profile;
+  updateCurrentUser = async ({ email, firstName, lastName }) => {
     return this.fetch(`${this.mainRoute}/`, {
       method: 'post',
       data: keysToSnake({
         email,
         firstName,
         lastName,
-        profile: { subscribedToNotifications },
       }),
     });
   };
