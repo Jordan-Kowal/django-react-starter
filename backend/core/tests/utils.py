@@ -1,5 +1,5 @@
 # Built-in
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 
 # Third-party
 from jklib.dj.tests import APITestCase, ImprovedTestCase

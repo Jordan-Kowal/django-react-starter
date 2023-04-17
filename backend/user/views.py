@@ -14,7 +14,6 @@ from rest_framework.response import Response
 # Application
 from user.serializers import LoginSerializer, UpdatePasswordSerializer, UserSerializer
 
-
 User = get_user_model()
 
 

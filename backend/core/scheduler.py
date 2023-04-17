@@ -10,7 +10,6 @@ from django.contrib.auth import get_user_model
 from django.utils import timezone
 from django_apscheduler.jobstores import DjangoJobStore
 
-
 if TYPE_CHECKING:
     # Application
     from user.models import User as UserType

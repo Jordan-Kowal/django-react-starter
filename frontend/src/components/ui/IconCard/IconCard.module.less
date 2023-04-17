@@ -1,0 +1,22 @@
+@import url('src/styles/variables');
+
+@dimensions: 70px;
+
+.iconCard {
+  width: @dimensions * 2;
+  height: @dimensions * 2;
+  text-align: center;
+
+  &.active {
+    border-color: @color-primary;
+    color: @color-primary;
+
+    .text {
+      color: @color-primary;
+    }
+  }
+
+  span:global(.anticon) svg {
+    font-size: @dimensions;
+  }
+}

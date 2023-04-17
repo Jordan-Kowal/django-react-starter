@@ -38,4 +38,6 @@ urlpatterns = [
 
 # Admin config
 admin.site.site_header = mark_safe("<strong>Interface d'administration</strong>")
-admin.site.index_title = "Bienvenue sur l'interface d'administration de Django React Starter"
+admin.site.index_title = (
+    "Bienvenue sur l'interface d'administration de Django React Starter"
+)

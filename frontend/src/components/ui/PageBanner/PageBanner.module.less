@@ -1,0 +1,19 @@
+@import url('src/styles/variables');
+
+.pageBanner {
+  position: relative;
+  left: -@layout-padding;
+  width: calc(100% + @layout-padding * 2);
+  height: @page-banner-height;
+  padding: 0 @layout-padding;
+  background-color: @color-primary;
+
+  .pageBannerContent {
+    margin: auto;
+
+    .titleText {
+      margin: 0;
+      color: @color-bg-base;
+    }
+  }
+}

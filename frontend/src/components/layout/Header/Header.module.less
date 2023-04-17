@@ -1,0 +1,26 @@
+@import url('src/styles/variables');
+
+.header {
+  position: relative;
+  height: @header-height !important;
+  padding: 0 @layout-padding !important;
+  background-color: @color-bg-base !important;
+  text-align: center;
+
+  .menuIcon {
+    position: absolute;
+    top: 12px;
+    left: @layout-padding;
+
+    &.siderVisible {
+      z-index: 2001; // 1 more than sider
+      left: 150px;
+    }
+  }
+
+  .icons {
+    position: absolute;
+    top: 0;
+    right: @layout-padding;
+  }
+}

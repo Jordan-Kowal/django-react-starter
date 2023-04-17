@@ -1,9 +1,9 @@
 # Built-in
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 # Django
 from django import forms
-from django.contrib import admin, messages
+from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserCreationForm
@@ -33,8 +33,8 @@ class ImprovedUserCreationForm(UserCreationForm):
 class ProfileInlineAdmin(admin.StackedInline):
     model = Profile
     fk_name = "user"
-    readonly_fields = []
-    fields = []
+    readonly_fields: List[str] = []
+    fields: List[str] = []
     can_delete = False
     extra = 0
     verbose_name = "Profile"

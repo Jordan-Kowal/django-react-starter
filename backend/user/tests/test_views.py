@@ -1,9 +1,3 @@
-# Built-in
-from unittest.mock import Mock, patch
-
-# Third-party
-from requests import Response
-
 # Django
 from django.contrib.auth import get_user_model
 

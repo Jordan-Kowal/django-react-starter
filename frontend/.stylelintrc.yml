@@ -1,0 +1,15 @@
+extends:
+  - stylelint-prettier
+  - stylelint-config-standard
+  - stylelint-config-idiomatic-order
+  - stylelint-config-css-modules
+  - stylelint-config-prettier
+customSyntax: postcss-less
+rules:
+  function-name-case: null
+  value-keyword-case: null
+  declaration-colon-newline-after: null
+  selector-class-pattern: null
+  string-quotes: null
+  color-function-notation: null
+  alpha-value-notation: null

@@ -8,9 +8,7 @@ from jklib.dj.managers import NoBulkManager
 # Django
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser, UserManager
-from django.db import IntegrityError, models
-
-
+from django.db import models
 
 LOGGER = logging.getLogger("default")
 

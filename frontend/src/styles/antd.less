@@ -1,0 +1,15 @@
+/* Global overrides for Ant Design */
+
+// Datepicker presets moves below the dates on very small screens
+@media (max-width: 500px) {
+  .ant-picker-panel-layout {
+    flex-flow: column-reverse;
+
+    .ant-picker-presets {
+      width: 100%;
+      min-width: unset !important;
+      max-width: unset !important;
+      height: 140px;
+    }
+  }
+}
