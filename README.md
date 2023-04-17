@@ -11,6 +11,7 @@ Simply follow these steps to get started:
   - Use the `README.example.md` file as a template for your own `README.md` file
   - Use the `CHANGELOG.example.md` file as a template for your own `CHANGELOG.md` file
   - Update the `LICENSE` file
+  - Remove `yarn.lock` file
 - Update the code:
   - Replace all occurrences of `django_react_starter` with `your_project_name`
   - Replace all occurrences of `django-react-starter` with `your-project-name`
@@ -20,3 +21,10 @@ Simply follow these steps to get started:
 - Start coding!
 
 ## Features
+- Django backend with DRF with existing endpoints
+- React frontend with functional UI and pages
+- `docker-compose` for local development
+- `Dockerfile` to build the entire application
+- CI/CD pipeline using GitHub Actions for QA, build, and deployment
+- `pre-commit` hooks for linting and formatting
+- `fly.toml` for deployment to [Fly.io](https://fly.io)
