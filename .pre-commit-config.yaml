@@ -9,12 +9,6 @@ repos:
         args: [--settings-path, backend/.isort.cfg]
         exclude: '(migrations)'
 
-  - repo: https://github.com/myint/docformatter
-    rev: v1.5.1
-    hooks:
-      - id: docformatter
-        exclude: '(migrations)'
-
   - repo: https://github.com/ambv/black
     rev: 23.1.0
     hooks:
