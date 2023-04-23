@@ -2,7 +2,7 @@
 
 ## [v???] - ???
 
-**Techincal**
+**Technical**
 
 - Updated pre-commit and python config
 
