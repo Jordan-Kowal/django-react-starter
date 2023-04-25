@@ -1,4 +1,8 @@
-## Editor
+## VSCode
 .vscode/
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+## Jetbrains
 .idea/
-venv/
