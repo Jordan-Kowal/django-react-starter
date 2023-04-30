@@ -33,6 +33,12 @@ repos:
             'types-pytz',
             'djangorestframework-stubs',
             'django-stubs',
+            'djangorestframework',
+            'django-filter',
+            'drf-spectacular',
+            'django-apscheduler',
+            'django-cleanup',
+            'jklib',
           ]
         args:
           [

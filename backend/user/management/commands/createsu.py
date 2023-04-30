@@ -21,5 +21,5 @@ class Command(BaseCommand):
         if User.objects.filter(email=email).exists():
             print(f"Superuser '{email}' already exists")
         else:
-            User.objects.create_superuser(email, email, password)  # type: ignore
+            User.objects.create_superuser(email, email, password)
             print(f"Superuser '{email}' successfully created")

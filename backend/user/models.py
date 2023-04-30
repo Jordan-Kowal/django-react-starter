@@ -25,7 +25,7 @@ class User(AbstractUser):
     objects = CustomUserManager()
 
     def save(self, *args: Any, **kwargs: Any) -> None:
-        if self.username != self.email:  # type: ignore
+        if self.username != self.email:
             self.username = self.email
         super().save(*args, **kwargs)
 
