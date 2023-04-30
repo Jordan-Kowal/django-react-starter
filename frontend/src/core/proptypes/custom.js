@@ -1,7 +1,7 @@
-import dayjs from 'dayjs';
+import { Dayjs } from 'dayjs';
 import PropTypes from 'prop-types';
 
-export const DayjsPropType = PropTypes.instanceOf(dayjs);
+export const DayjsPropType = PropTypes.instanceOf(Dayjs);
 
 export const RoutePropShape = PropTypes.shape({
   component: PropTypes.elementType.isRequired,

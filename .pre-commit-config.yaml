@@ -10,7 +10,7 @@ repos:
         exclude: '(migrations)'
 
   - repo: https://github.com/ambv/black
-    rev: 23.1.0
+    rev: 23.3.0
     hooks:
       - id: black
         exclude: '(migrations)'
@@ -23,11 +23,17 @@ repos:
         exclude: '(migrations)'
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.0.1
+    rev: v1.2.0
     hooks:
       - id: mypy
         additional_dependencies:
-          ['types-requests', 'types-PyYAML', 'types-pytz']
+          [
+            'types-requests',
+            'types-PyYAML',
+            'types-pytz',
+            'djangorestframework-stubs',
+            'django-stubs',
+          ]
         args:
           [
             --ignore-missing-imports,
@@ -76,7 +82,7 @@ repos:
         exclude: '(html)|(md)|(txt)$'
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 'v8.34.0'
+    rev: 'v8.39.0'
     hooks:
       - id: eslint
         args: [--config, frontend/.eslintrc.yml, --max-warnings=0]

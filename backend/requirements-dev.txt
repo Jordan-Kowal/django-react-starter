@@ -1,4 +1,4 @@
-black
+black[d]
 coverage
 django-filter-stubs
 django-stubs

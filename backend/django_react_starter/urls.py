@@ -33,7 +33,7 @@ urlpatterns = [
     ),
     path(API_V1, include(router.urls)),
     # Match all and forward to react router on the front-end app.
-    re_path(r"^(?:.*)/?$", index),
+    re_path(r"^(.*)/?$", index),
 ]
 
 # Admin config

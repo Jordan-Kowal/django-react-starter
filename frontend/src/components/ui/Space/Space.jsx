@@ -10,7 +10,7 @@ const Space = ({
   block,
   centered,
   className,
-  size = 'small',
+  size = 8,
   split,
   vertical,
   wrap,
