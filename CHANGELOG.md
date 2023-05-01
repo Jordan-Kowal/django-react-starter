@@ -1,6 +1,6 @@
 # Changelog
 
-## [v1.1.0] - ????-??-??
+## [v1.1.0] - 2023-05-01
 
 - Updated linters and formatters settings
 - Updated pre-commits (specifically mypy)
