@@ -7,7 +7,7 @@ import styles from './IconButton.module.less';
 const IconButton = ({
   icon,
   isActive,
-  isTextButton,
+  isText,
   onClick,
   size = 'large',
   tooltip,
@@ -19,7 +19,7 @@ const IconButton = ({
         [styles.isActiveIcon]: isActive,
       })}
       shape="circle"
-      type={isTextButton ? 'text' : 'default'}
+      type={isText ? 'text' : 'default'}
       icon={icon}
       size={size}
       onClick={onClick}
@@ -31,7 +31,7 @@ const IconButton = ({
 IconButton.propTypes = {
   icon: PropTypes.node.isRequired,
   isActive: PropTypes.bool,
-  isTextButton: PropTypes.bool,
+  isText: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.string,
   tooltip: PropTypes.string.isRequired,

@@ -21,14 +21,14 @@ const HeaderNavigation = () => {
       <IconButton
         tooltip="Profil"
         icon={<UserOutlined />}
-        isTextButton
+        isText
         onClick={navigateToProfile}
         isActive={routeConfig.profile.path === currentRoute?.path}
       />
       <IconButton
         tooltip="Déconnexion"
         icon={<LogoutOutlined />}
-        isTextButton
+        isText
         onClick={logout}
       />
     </Space>

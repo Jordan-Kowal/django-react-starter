@@ -25,7 +25,7 @@ const Header = () => {
             [styles.siderVisible]: !siderCollapsed,
           })}
           icon={siderCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-          isTextButton
+          isText
           onClick={toggleSider}
           tooltip="Menu"
         />

@@ -8,6 +8,7 @@ import { AppLayout } from './components';
 import { Routes } from './routes';
 import { theme } from './styles';
 import './styles/antd.less';
+import './styles/global.less';
 
 const themeConfig = {
   algorithm: antdTheme.defaultAlgorithm,

@@ -1,5 +1,11 @@
 # Changelog
 
+## [v?] - ???
+
+- Flagged frontend as web-resource for idea projects
+- Added `global.less` and imported it in `App`
+- Renamed `IconButton`'s prop `isTextButton` to `isText`
+
 ## [v1.1.0] - 2023-05-01
 
 - Updated linters and formatters settings
