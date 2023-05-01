@@ -17,7 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/backend" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/frontend/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.11 (django-react-starter)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Remote Python 3.10.8 Docker Compose (django)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
