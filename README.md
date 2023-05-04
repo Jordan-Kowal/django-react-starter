@@ -1,6 +1,6 @@
 # Django React Starter
 
-Django-React application starter template for easy web application development.
+Django-React starter with Docker support for fast and easy web development.
 
 ## Get started
 
