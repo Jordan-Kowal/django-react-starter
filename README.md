@@ -1,7 +1,6 @@
 # Django React Starter
 
-Django-React application starter template.
-Simply fork this repository and start building your application.
+Django-React application starter template for easy web application development.
 
 ## Get started
 
