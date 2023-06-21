@@ -1,6 +1,7 @@
 /* Global overrides for Ant Design */
 
-// Datepicker presets moves below the dates on very small screens
+// DATEPICKER
+// Presets moves below the dates on very small screens
 @media (max-width: 500px) {
   .ant-picker-panel-layout {
     flex-flow: column-reverse;
@@ -10,6 +11,24 @@
       min-width: unset !important;
       max-width: unset !important;
       height: 140px;
+    }
+  }
+}
+
+// CAROUSEL
+.slick-dots {
+  bottom: -20px !important;
+
+  > li {
+    width: 20px !important;
+
+    &.slick-active {
+      width: 40px !important;
+    }
+
+    > button {
+      height: 5px !important;
+      background-color: white !important;
     }
   }
 }

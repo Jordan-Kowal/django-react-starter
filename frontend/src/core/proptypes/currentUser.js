@@ -10,8 +10,5 @@ export const CurrentUserPropShape = PropTypes.shape({
   cannotRefreshUntil: DayjsPropType,
   profile: PropTypes.shape({
     user: PropTypes.number,
-    resourceId: PropTypes.string,
-    lastScheduleUpdate: DayjsPropType,
-    subscribedToNotifications: PropTypes.bool,
   }),
 });

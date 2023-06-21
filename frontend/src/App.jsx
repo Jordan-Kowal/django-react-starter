@@ -11,7 +11,7 @@ import './styles/antd.less';
 import './styles/global.less';
 
 const themeConfig = {
-  algorithm: antdTheme.defaultAlgorithm,
+  algorithm: antdTheme.darkAlgorithm,
   token: theme,
 };
 

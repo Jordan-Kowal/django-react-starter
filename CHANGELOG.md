@@ -1,11 +1,13 @@
 # Changelog
 
-## [v?] - ???
+## [v1.2.0] - 2023-21-06
 
 - Frontend
+  - Changed theme to `dark` and updated theme colors
   - Flagged frontend as web-resource for idea projects
   - Added `global.less` and imported it in `App`
   - Renamed `IconButton`'s prop `isTextButton` to `isText`
+  - Fixed user proptypes and serialization
 - JetBrains
   - Removed ` Run backend server locally` from the available run configurations
   - Renamed run configurations

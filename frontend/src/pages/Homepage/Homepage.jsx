@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
-import { Col, Row } from 'antd';
+import { Col, Row, Typography } from 'antd';
 import { PageBanner, Space } from '@/components';
+
+const { Text } = Typography;
 
 const Homepage = () => (
   <Space block vertical size={20}>
@@ -9,7 +11,9 @@ const Homepage = () => (
       description="La page d'accueil de l'application."
     />
     <Row>
-      <Col span={24}>Homepage</Col>
+      <Col span={24}>
+        <Text>Homepage</Text>
+      </Col>
     </Row>
   </Space>
 );

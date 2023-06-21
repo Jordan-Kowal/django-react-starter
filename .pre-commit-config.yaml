@@ -59,6 +59,7 @@ repos:
             frontend/.stylelintrc.yml,
             --ignore-path,
             frontend/.stylelintignore,
+            --fix,
           ]
         additional_dependencies:
           - stylelint@14.16.1
