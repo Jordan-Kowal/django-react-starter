@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.2.1] - 2023-22-06
+
+- Fixed theme in django admin
+- Fixed theme in email templates
+
 ## [v1.2.0] - 2023-21-06
 
 - Frontend

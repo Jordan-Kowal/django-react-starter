@@ -6,8 +6,8 @@
   :root {
     --primary: #181818;
     --secondary: #181818;
-    --accent: #e01272; /* Same as frontend */
-    --header-color: #1fb393; /* Same as frontend */
+    --accent: #ff5d5f; /* Same as frontend */
+    --header-color: #edb048; /* Same as frontend */
   }
 
   #header {
@@ -18,7 +18,7 @@
 
 {% block branding %}
 <a href="{% url 'admin:index' %}" id="site-name">
-  <img src="https://jordan-kowal.github.io/assets/jkdev/logo.png" alt="logo" height="25">
+  <img src="https://jordan-kowal.github.io/assets/jkdev/logo.png" alt="logo" height="25" style="margin-right: 8px;">
 </a>
 {{ block.super }}
 {% endblock %}
