@@ -1,8 +1,13 @@
 # Built-in
+import os
+import shutil
 from typing import TYPE_CHECKING
 
 # Third-party
 from jklib.dj.tests import APITestCase, ImprovedTestCase
+
+# Django
+from django.conf import settings
 
 # Application
 from user.tests.factories import UserFactory
@@ -14,6 +19,13 @@ if TYPE_CHECKING:
 
 class BaseTestCase(ImprovedTestCase):
     user: "UserType"
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
+        media_root = settings.MEDIA_ROOT or ""
+        if os.path.exists(media_root) and media_root.endswith("test"):
+            shutil.rmtree(media_root)
 
 
 class BaseActionTestCase(BaseTestCase, APITestCase):

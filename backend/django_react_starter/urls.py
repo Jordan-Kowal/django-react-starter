@@ -1,4 +1,6 @@
 # Django
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path, re_path
 from django.utils.safestring import mark_safe
@@ -6,17 +8,17 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework import routers
 
 # Application
-from core.views import index, ping, robots_txt
+from core.views import AppViewSet, index, ping, robots_txt
 from user.views import AuthViewSet, CurrentUserViewSet
 
 # Router
 router = routers.DefaultRouter()
+router.register(r"app", AppViewSet, "app")
 router.register(r"auth", AuthViewSet, "auth")
 router.register(r"self", CurrentUserViewSet, "self")
 
 # Using variables to make testing easier
-API_ROOT = "api/"
-API_V1 = f"{API_ROOT}v1/"
+API_ROOT = "api"
 
 # URLs
 urlpatterns = [
@@ -24,14 +26,15 @@ urlpatterns = [
     path("ping/", ping),
     path("robots_txt/", robots_txt),
     path("admin/", admin.site.urls),
+    *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     # API
-    path(f"{API_ROOT}schema/", SpectacularAPIView.as_view(), name="schema"),
+    path(f"{API_ROOT}/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
-        f"{API_ROOT}swagger/",
+        f"{API_ROOT}/swagger/",
         SpectacularSwaggerView.as_view(url_name="schema"),
         name="swagger-ui",
     ),
-    path(API_V1, include(router.urls)),
+    path(f"{API_ROOT}/v1/", include(router.urls)),
     # Match all and forward to react router on the front-end app.
     re_path(r"^(.*)/?$", index),
 ]
