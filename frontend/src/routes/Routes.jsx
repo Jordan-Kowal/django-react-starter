@@ -1,6 +1,7 @@
 import React, { memo, useEffect } from 'react';
 import { useMount } from 'react-use';
 import { Spin } from '@/components';
+import { useToggleLayout } from '@/hooks';
 import { useAppConfig, useAuthStore } from '@/stores';
 import RouteList from './RouteList';
 import {
@@ -16,6 +17,8 @@ const Routes = () => {
   const hasFetchedUserOnce = useAuthStore((state) => state.hasFetchedUserOnce);
   const isAppConfigLoaded = useAppConfig((state) => state.isAppConfigLoaded());
   const fetchAppConfig = useAppConfig((state) => state.fetchAppConfig);
+
+  useToggleLayout();
 
   useMount(fetchUser);
 

@@ -13,8 +13,7 @@ export default defineConfig({
     port: 3000,
     cors: true,
     proxy: {
-      // '^/(api)|(media)|(static)/': {
-      '/api': {
+      '^/(api)|(media)|(static)/': {
         target: 'http://127.0.0.1:8000',
         changeOrigin: true,
       },
