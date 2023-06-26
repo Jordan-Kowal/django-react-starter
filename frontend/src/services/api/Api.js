@@ -1,7 +1,9 @@
 import { message } from 'antd';
-import { Auth, CurrentUser } from './endpoints';
+import { App, Auth, CurrentUser } from './endpoints';
 
 class Api {
+  app = new App();
+
   auth = new Auth();
 
   currentUser = new CurrentUser();

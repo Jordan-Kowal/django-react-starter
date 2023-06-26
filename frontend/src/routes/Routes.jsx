@@ -2,7 +2,7 @@ import React, { memo, useEffect } from 'react';
 import { useMount } from 'react-use';
 import { Spin } from '@/components';
 import { useToggleLayout } from '@/hooks';
-import { useAuthStore } from '@/stores';
+import { useAppConfig, useAuthStore } from '@/stores';
 import RouteList from './RouteList';
 import {
   authenticatedRoutes,
@@ -15,11 +15,14 @@ const Routes = () => {
   const fetchUser = useAuthStore((state) => state.fetchUser);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated());
   const hasFetchedUserOnce = useAuthStore((state) => state.hasFetchedUserOnce);
+  const isAppConfigLoaded = useAppConfig((state) => state.isAppConfigLoaded());
+  const fetchAppConfig = useAppConfig((state) => state.fetchAppConfig);
 
   useToggleLayout();
 
   useMount(fetchUser);
 
+  /** Periodically check if the user is still authenticated */
   useEffect(() => {
     let interval;
     if (isAuthenticated) {
@@ -27,6 +30,13 @@ const Routes = () => {
     }
     return () => clearInterval(interval);
   }, [checkAuth, isAuthenticated]);
+
+  /** Fetch the app config once the user is authenticated */
+  useEffect(() => {
+    if (isAuthenticated && !isAppConfigLoaded) {
+      fetchAppConfig();
+    }
+  }, [fetchAppConfig, isAppConfigLoaded, isAuthenticated]);
 
   if (!hasFetchedUserOnce)
     return <Spin text="Récupération des informations utilisateur..." />;
@@ -38,6 +48,9 @@ const Routes = () => {
         config={nonAuthenticatedRoutes}
       />
     );
+
+  if (!isAppConfigLoaded)
+    return <Spin text="Récupération des informations de l'application..." />;
 
   return (
     <RouteList defaultRoute={routeConfig.home} config={authenticatedRoutes} />

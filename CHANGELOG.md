@@ -1,5 +1,24 @@
 # Changelog
 
+## [v1.3.0] - TBD
+
+- Backend:
+  - Handles and serves media files:
+    - Updated `MEDIA_ROOT`, `MEDIA_URL` and `urls.py`
+    - Updated **production** settings to store media files on the **fly** volume
+    - Updated **test** settings to use a different folder and delete it after tests
+  - New `AppViewSet` to provide app-wide information
+    - Added `config` endpoint to provide app settings data to frontend
+  - Updated API tests to use `reverse` urls
+  - Updated all dependencies
+- Frontend:
+  - Handles the new `AppViewSet.config` endpoint:
+    - New API endpoints to fetch the app settings
+    - New store `useAppConfig` to share the app settings across the app
+    - Automatically fetched after login
+  - Updated `vite` config to proxy **media** and **static** files as well
+  - Updated all dependencies 
+
 ## [v1.2.1] - 2023-22-06
 
 - Fixed theme in django admin
