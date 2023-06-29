@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { DayjsPropType } from './custom';
 
 export const CurrentUserPropShape = PropTypes.shape({
   id: PropTypes.number,
@@ -7,7 +6,8 @@ export const CurrentUserPropShape = PropTypes.shape({
   lastName: PropTypes.string,
   email: PropTypes.string,
   isActive: PropTypes.bool,
-  cannotRefreshUntil: DayjsPropType,
+  isStaff: PropTypes.bool,
+  isSuperuser: PropTypes.bool,
   profile: PropTypes.shape({
     user: PropTypes.number,
   }),

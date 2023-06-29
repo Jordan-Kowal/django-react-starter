@@ -112,9 +112,11 @@ class UserSerializer(serializers.ModelSerializer):
             "last_name",
             "email",
             "is_active",
+            "is_staff",
+            "is_superuser",
             "profile",
         ]
-        read_only_fields = ["id", "is_active"]
+        read_only_fields = ["id", "is_active", "is_staff", "is_superuser"]
         extra_kwargs = {
             "first_name": {"required": True},
             "last_name": {"required": True},

@@ -2,7 +2,10 @@
 
 ## [v1.3.0] - TBD
 
-- Backend:
+- **Deploy:**
+  - Fixed `deploy.yml` indentation for triggers
+  - Updated `README.example.md` to provide a step-by-step guide to deploy the app with `fly`
+- **Backend:**
   - Handles and serves media files:
     - Updated `MEDIA_ROOT`, `MEDIA_URL` and `urls.py`
     - Updated **production** settings to store media files on the **fly** volume
@@ -11,13 +14,16 @@
     - Added `config` endpoint to provide app settings data to frontend
   - Updated API tests to use `reverse` urls
   - Updated all dependencies
-- Frontend:
+  - Updated `robots.txt` route pattern and the catch-all route as well
+  - `UserSerializer` now provides more fields like `is_staff` and `is_superuser` as read-only
+- **Frontend:**
   - Handles the new `AppViewSet.config` endpoint:
     - New API endpoints to fetch the app settings
     - New store `useAppConfig` to share the app settings across the app
     - Automatically fetched after login
   - Updated `vite` config to proxy **media** and **static** files as well
-  - Updated all dependencies 
+  - Updated all dependencies
+  - Removed Cascadia Code font
 
 ## [v1.2.1] - 2023-22-06
 

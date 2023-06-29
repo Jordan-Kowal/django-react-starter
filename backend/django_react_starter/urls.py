@@ -24,7 +24,7 @@ API_ROOT = "api"
 urlpatterns = [
     # Django
     path("ping/", ping),
-    path("robots_txt/", robots_txt),
+    path("robots.txt/", robots_txt),
     path("admin/", admin.site.urls),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     # API
@@ -36,7 +36,7 @@ urlpatterns = [
     ),
     path(f"{API_ROOT}/v1/", include(router.urls)),
     # Match all and forward to react router on the front-end app.
-    re_path(r"^(.*)/?$", index),
+    re_path(r"^.*/?$", index),
 ]
 
 # Admin config
