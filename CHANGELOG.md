@@ -5,6 +5,7 @@
 - **Deploy:**
   - Fixed `deploy.yml` indentation for triggers
   - Updated `README.example.md` to provide a step-by-step guide to deploy the app with `fly`
+  - QA improvements with separate jobs
 - **Backend:**
   - Improved Postgres integration:
     - `depends_on` postgres in `docker-compose.yml`

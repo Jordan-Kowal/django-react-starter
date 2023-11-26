@@ -1,0 +1,22 @@
+name: Tests frontend
+
+on:
+  pull_request:
+    branches: ['main']
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 19.6.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: '19.6.0'
+      - name: Install dependencies
+        run: yarn install
+      - name: Run tests
+        run: yarn test
