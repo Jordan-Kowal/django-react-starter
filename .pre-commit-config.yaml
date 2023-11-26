@@ -10,20 +10,20 @@ repos:
         exclude: '(migrations)'
 
   - repo: https://github.com/ambv/black
-    rev: 23.3.0
+    rev: 23.11.0
     hooks:
       - id: black
         exclude: '(migrations)'
 
   - repo: https://github.com/pycqa/flake8
-    rev: 6.0.0
+    rev: 6.1.0
     hooks:
       - id: flake8
         args: [--config, backend/.flake8]
         exclude: '(migrations)'
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.2.0
+    rev: v1.7.1
     hooks:
       - id: mypy
         additional_dependencies:
@@ -40,13 +40,7 @@ repos:
             'django-cleanup',
             'jklib',
           ]
-        args:
-          [
-            --ignore-missing-imports,
-            --disallow-untyped-defs,
-            --config,
-            backend/mypy.ini,
-          ]
+        args: [--config, backend/mypy.ini]
         exclude: '(test_*)|(settings.py)|(manage.py)|(migrations)'
 
   - repo: https://github.com/awebdeveloper/pre-commit-stylelint

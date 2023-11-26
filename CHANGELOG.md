@@ -6,6 +6,11 @@
   - Fixed `deploy.yml` indentation for triggers
   - Updated `README.example.md` to provide a step-by-step guide to deploy the app with `fly`
 - **Backend:**
+  - Improved Postgres integration:
+    - `depends_on` postgres in `docker-compose.yml`
+    - `wait_for_db.py` and its usage in `run-app.sh` and `run-scheduler.sh`
+  - Improved `makefile` to better for with `docker-compose`
+  - Moved logs to a subfolder
   - Handles and serves media files:
     - Updated `MEDIA_ROOT`, `MEDIA_URL` and `urls.py`
     - Updated **production** settings to store media files on the **fly** volume
@@ -13,7 +18,7 @@
   - New `AppViewSet` to provide app-wide information
     - Added `config` endpoint to provide app settings data to frontend
   - Updated API tests to use `reverse` urls
-  - Updated all dependencies
+  - Updated all dependencies and pre-commits
   - Updated `robots.txt` route pattern and the catch-all route as well
   - `UserSerializer` now provides more fields like `is_staff` and `is_superuser` as read-only
 - **Frontend:**

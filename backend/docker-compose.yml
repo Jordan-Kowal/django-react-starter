@@ -1,16 +1,18 @@
 version: '3'
 
 services:
-  django:
-    image: django_react_starter_django
-    container_name: django_react_starter_django
+  api:
+    image: django_react_starter_api
+    container_name: django_react_starter_api
     build:
       context: ../
       dockerfile: ./Dockerfile
     env_file:
       - .env
+    #    depends_on:
+    #      - postgres
     networks:
-      - django_react_starter
+      - django_react_starter_api
     ports:
       - '8000:8000'
     volumes:
@@ -26,12 +28,12 @@ services:
 #      - POSTGRES_USER=${POSTGRES_USER}
 #      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 #    networks:
-#      - django_react_starter
+#      - django_react_starter_api
 #    ports:
 #      - 5432:5432
 #    volumes:
 #      - ./data/postgres:/var/lib/postgresql/data
 
 networks:
-  django_react_starter:
+  django_react_starter_api:
     driver: bridge

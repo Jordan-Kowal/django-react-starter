@@ -90,7 +90,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media-files")
 # --------------------------------------------------------------------------------
 # > Database
 # --------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 # POSTGRES_HOST = os.getenv("POSTGRES_HOST", "postgres")
 # POSTGRES_PORT = os.getenv("POSTGRES_PORT", 5432)
 # POSTGRES_USER = os.getenv("POSTGRES_USER")
@@ -107,13 +108,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media-files")
 #         "NAME": POSTGRES_DB,
 #     }
 # }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # --------------------------------------------------------------------------------
@@ -179,6 +180,7 @@ REST_FRAMEWORK = {
 # --------------------------------------------------------------------------------
 MAX_SIZE = 1_000_000  # 1Mo
 BACKUP_COUNT = 2
+LOG_FOLDER = os.path.join(BASE_DIR, "logs")
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -201,7 +203,7 @@ LOGGING = {
             "level": "INFO",
             "class": "logging.handlers.RotatingFileHandler",
             "formatter": "simple",
-            "filename": os.path.join(BASE_DIR, "console.log"),
+            "filename": os.path.join(LOG_FOLDER, "console.log"),
             "maxBytes": MAX_SIZE,
             "backupCount": BACKUP_COUNT,
         },
@@ -214,12 +216,6 @@ LOGGING = {
         },
     },
 }
-
-
-# --------------------------------------------------------------------------------
-# > Test
-# --------------------------------------------------------------------------------
-TEST_RUNNER = "jklib.dj.test_runner.CustomTestRunner"
 
 
 # --------------------------------------------------------------------------------

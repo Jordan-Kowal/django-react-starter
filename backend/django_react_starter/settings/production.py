@@ -56,8 +56,9 @@ DATABASES = {
 # --------------------------------------------------------------------------------
 # > Logging
 # --------------------------------------------------------------------------------
+LOG_FOLDER = os.path.join(FLY_VOLUME_DIR, "logs")
 LOGGING["handlers"]["console.log"]["filename"] = os.path.join(  # type: ignore
-    FLY_VOLUME_DIR, "console.log"
+    LOG_FOLDER, "console.log"
 )
 
 

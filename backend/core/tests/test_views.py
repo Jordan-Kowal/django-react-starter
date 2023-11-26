@@ -17,6 +17,12 @@ class CoreViewsTestCase(BaseActionTestCase):
         self.assertEqual(response["Content-Type"], "text/plain")
         self.assertEqual(response.content, b"User-agent: *\nDisallow: /")
 
+    def test_ping(self) -> None:
+        response = self.client.get("/ping/")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response["Content-Type"], "text/plain")
+        self.assertEqual(response.content, b"pong")
+
 
 class AppViewSetTestCase(BaseActionTestCase):
     def test_config_success(self) -> None:

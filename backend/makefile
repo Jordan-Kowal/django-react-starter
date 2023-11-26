@@ -2,41 +2,29 @@
 SHELL:= /bin/bash
 .SHELLFLAGS += -e
 
+# Args
+cmd=
+settings=development
+opts=
 
-CONTAINER_NAME="django_react_starter_django_tmp"
-SERVICE_NAME="django"
-SETTINGS_DEVELOPMENT="django_react_starter.settings.development"
-SETTINGS_TEST="django_react_starter.settings.test"
+run:
+	@docker exec -it django_react_starter_api bash -c "\
+		cd backend && \
+		python manage.py $(cmd) \
+		--settings=django_react_starter.settings.$(settings) \
+		$(opts)"
 
-# run_docker_command(command: str)
-define run_docker_command
-	docker-compose run --rm --name ${CONTAINER_NAME} ${SERVICE_NAME} ${1}
-endef
-
-# run_django_command(command: str)
-define run_django_command
-	docker-compose run --rm --name ${CONTAINER_NAME} ${SERVICE_NAME} bash -c "cd backend && python manage.py ${1} --settings=${SETTINGS_DEVELOPMENT}"
-endef
-
-# run_django_command_test(command: str)
-define run_django_command_test
-	docker-compose run --rm --name ${CONTAINER_NAME} ${SERVICE_NAME} bash -c "cd backend && python manage.py ${1} --settings=${SETTINGS_TEST}"
-endef
-
-bash:
-	$(call run_docker_command, 'bash')
-
-collectstatic:
-	$(call run_django_command, 'collectstatic')
-
-makemigrations:
-	$(call run_django_command, 'makemigrations')
-
-migrate:
-	$(call run_django_command, 'migrate')
-
-shell:
-	$(call run_django_command, 'shell')
-
-test:
-	$(call run_django_command_test, 'test')
+help:
+	@echo "Available commands: help, run"
+	@echo ""
+	@echo "help:"
+	@echo "Shows this text in the terminal"
+	@echo ""
+	@echo "run:"
+	@echo "Runs a Django command within the running docker container with the given settings and options"
+	@echo "  cmd       ->   (required) The django command"
+	@echo "  settings  ->   (optional) The settings to use. Defaults to development"
+	@echo "  opts      ->   (optional) Additional command-line options for your command"
+	@echo "Examples:"
+	@echo "  make run cmd=makemigrations"
+	@echo "  make run cmd=test settings=test opts=\"--verbosity 0\""
