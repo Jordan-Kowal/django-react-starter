@@ -1,6 +1,6 @@
 # Changelog
 
-## [v1.3.0] - TBD
+## [v1.3.0] - 2023-11-26
 
 - **Deploy:**
   - Fixed `deploy.yml` indentation for triggers
@@ -31,12 +31,12 @@
   - Updated all dependencies
   - Removed Cascadia Code font
 
-## [v1.2.1] - 2023-22-06
+## [v1.2.1] - 2023-06-22
 
 - Fixed theme in django admin
 - Fixed theme in email templates
 
-## [v1.2.0] - 2023-21-06
+## [v1.2.0] - 2023-06-21
 
 - Frontend
   - Changed theme to `dark` and updated theme colors
