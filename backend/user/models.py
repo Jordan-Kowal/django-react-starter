@@ -2,27 +2,18 @@
 import logging
 from typing import Any
 
-# Third-party
-from jklib.dj.managers import NoBulkManager
-
 # Django
 from django.conf import settings
-from django.contrib.auth.models import AbstractUser, UserManager
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 LOGGER = logging.getLogger("default")
-
-
-class CustomUserManager(NoBulkManager, UserManager):
-    pass
 
 
 class User(AbstractUser):
     profile: "Profile"
 
     email = models.EmailField(unique=True, null=False, blank=False)
-
-    objects = CustomUserManager()
 
     def save(self, *args: Any, **kwargs: Any) -> None:
         if self.username != self.email:
@@ -43,8 +34,6 @@ class Profile(models.Model):
         related_name="profile",
         primary_key=True,
     )
-
-    objects: models.Manager = NoBulkManager()
 
     class Meta:
         ordering = ["user"]

@@ -124,7 +124,7 @@ DATABASES = {
 AUTH_USER_MODEL = "user.User"
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -221,7 +221,7 @@ LOGGING = {
 # --------------------------------------------------------------------------------
 # > Email
 # --------------------------------------------------------------------------------
-DEFAULT_FROM_EMAIL = "kowaljordan@gmail.com"
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "fake-email@fake_domain.fake")
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 

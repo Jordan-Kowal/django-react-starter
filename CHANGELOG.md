@@ -1,5 +1,11 @@
 # Changelog
 
+## [v?.?.?] - TBD
+
+- Updated `.flake8` config
+- Updated dev/test secret keys
+- Added `DEFAULT_FROM_EMAIL` env variable
+
 ## [v1.3.0] - 2023-11-26
 
 - **Deploy:**
@@ -11,7 +17,7 @@
     - `depends_on` postgres in `docker-compose.yml`
     - `wait_for_db.py` and its usage in `run-app.sh` and `run-scheduler.sh`
   - Improved `makefile` to better for with `docker-compose`
-  - Moved logs to a subfolder
+  - Moved logs to a sub-folder
   - Handles and serves media files:
     - Updated `MEDIA_ROOT`, `MEDIA_URL` and `urls.py`
     - Updated **production** settings to store media files on the **fly** volume

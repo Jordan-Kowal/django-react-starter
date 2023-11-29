@@ -11,6 +11,6 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000/",
 ]
 # Env override
-SECRET_KEY = "django-insecure-cb7(pt2v*1*=%kgz(e(vm9q+wlm4olyz_!(bef$3nlwp)xi)g*"
+SECRET_KEY = "yq-^$c^8r-^zebn#n+ilw3zegt9^9!b9@)-sv1abpca3i%hrko"
 DJANGO_SUPERUSER_EMAIL = "kowaljordan@gmail.com"
 DJANGO_SUPERUSER_PASSWORD = "password"
