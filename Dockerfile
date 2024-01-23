@@ -4,7 +4,7 @@ WORKDIR /front
 ADD ./frontend /front
 RUN yarn install && yarn build
 
-FROM python:3.10.8-slim as builder
+FROM python:3.12.0-slim
 
 # Python environment variables
 ENV PYTHONUNBUFFERED 1
@@ -12,7 +12,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 # Update OS
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends build-essential libpq-dev supervisor nano \
+    && apt-get install -y --no-install-recommends \
+    build-essential \
+    libpq-dev \
+    supervisor \
+    nano \
+    gdal-bin \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
@@ -33,7 +38,7 @@ RUN ln -sf /home/app/frontend /home/app/backend/frontend
 
 # Change ownership
 RUN chown -R app:app /home/app
-USER app
+#USER app
 
 # Run the app
 EXPOSE 8000

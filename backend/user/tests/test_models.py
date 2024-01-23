@@ -20,14 +20,18 @@ TODAY = date.today()
 
 
 class UserTestCase(BaseTestCase):
-    def test_signal_create_profile(self) -> None:
+    def test_str(self) -> None:
+        user = UserFactory(email="fake-email@fake-domain.org")
+        self.assertEqual(str(user), "fake-email@fake-domain.org")
+
+    def test_save_create_profile(self) -> None:
         user = UserFactory()
         self.assertEqual(Profile.objects.count(), 1)
         profile = Profile.objects.first()
         self.assertEqual(user.profile, profile)
         self.assertEqual(profile.user, user)
 
-    def test_save_user(self) -> None:
+    def test_save_email_override(self) -> None:
         user = UserFactory()
         email = "random-email@random-domain.com"
         user.email = email
@@ -43,4 +47,6 @@ class UserTestCase(BaseTestCase):
 
 
 class ProfileTestCase(BaseTestCase):
-    pass
+    def test_str(self) -> None:
+        user = UserFactory(email="fake-email@fake-domain.org")
+        self.assertEqual(str(user.profile), "Profile of fake-email@fake-domain.org")

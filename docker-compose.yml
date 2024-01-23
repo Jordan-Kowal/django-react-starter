@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  api:
+    image: django_react_starter_api
+    container_name: django_react_starter_api
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - USER_ID=${USER_ID}
+        - GROUP_ID=${GROUP_ID}
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - postgres
+    networks:
+      - django_react_starter_network
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./backend:/home/app/backend
+
+  front:
+    image: node:18.13.0
+    container_name: django_react_starter_front
+    networks:
+      - django_react_starter_network
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend:/home/app/frontend
+
+  postgres:
+    container_name: django_react_starter_postgres
+    image: postgis/postgis:16-3.4-alpine
+    env_file:
+      - ./backend/.env
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - django_react_starter_network
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+
+networks:
+  django_react_starter_network:
+    driver: bridge

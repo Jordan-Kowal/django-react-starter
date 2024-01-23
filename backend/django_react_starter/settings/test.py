@@ -1,5 +1,5 @@
 # Built-in
-import os
+# import os
 
 # Local
 from .base import *  # noqa type: ignore
@@ -18,9 +18,25 @@ DJANGO_SUPERUSER_PASSWORD = "random-password-for-test"
 MEDIA_ROOT = MEDIA_ROOT + "-test"
 
 # Database
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR.parent, "test.sqlite3"),
-    }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": os.path.join(BASE_DIR.parent, "test.sqlite3"),
+#     }
+# }
+
+# Logging: Logs are still captured but none are displayed in the console
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "CRITICAL",  # To hide info/warning/error logs from test console
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "INFO",
+    },
 }

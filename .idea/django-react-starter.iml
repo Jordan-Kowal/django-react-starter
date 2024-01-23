@@ -17,7 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/backend" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/frontend" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="django-react-starter (local)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.12 (drs)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

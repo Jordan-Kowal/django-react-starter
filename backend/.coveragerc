@@ -1,0 +1,18 @@
+[run]
+omit =
+    # Django
+    manage.py
+    django_react_starter/*
+    */__init__.py
+    */migrations/*
+    */tests/*
+    */admin.py
+    # Scheduler
+    *scheduler.py
+    # Others
+    wait_for_db.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if TYPE_CHECKING:

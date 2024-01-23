@@ -92,29 +92,30 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media-files")
 # --------------------------------------------------------------------------------
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# POSTGRES_HOST = os.getenv("POSTGRES_HOST", "postgres")
-# POSTGRES_PORT = os.getenv("POSTGRES_PORT", 5432)
-# POSTGRES_USER = os.getenv("POSTGRES_USER")
-# POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-# POSTGRES_DB = os.getenv("POSTGRES_DB")
-#
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "HOST": POSTGRES_HOST,
-#         "PORT": POSTGRES_PORT,
-#         "USER": POSTGRES_USER,
-#         "PASSWORD": POSTGRES_PASSWORD,
-#         "NAME": POSTGRES_DB,
-#     }
-# }
+POSTGRES_HOST = os.getenv("POSTGRES_HOST", "postgres")
+POSTGRES_PORT = os.getenv("POSTGRES_PORT", 5432)
+POSTGRES_USER = os.getenv("POSTGRES_USER")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+POSTGRES_DB = os.getenv("POSTGRES_DB")
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": POSTGRES_HOST,
+        "PORT": POSTGRES_PORT,
+        "USER": POSTGRES_USER,
+        "PASSWORD": POSTGRES_PASSWORD,
+        "NAME": POSTGRES_DB,
     }
 }
+
+# SQLite
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#     }
+# }
 
 
 # --------------------------------------------------------------------------------

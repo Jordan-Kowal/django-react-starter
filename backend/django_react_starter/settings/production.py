@@ -5,6 +5,9 @@ import os
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
+# Django
+import dj_database_url
+
 # Local
 from .base import *  # noqa
 from .base import LOGGING  # noqa
@@ -46,11 +49,20 @@ MEDIA_ROOT = os.path.join(FLY_VOLUME_DIR, "media-files")
 # > Database
 # --------------------------------------------------------------------------------
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(FLY_VOLUME_DIR, "db.sqlite3"),
-    }
+    "default": dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),  # type: ignore
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
+
+# SQLite
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": os.path.join(FLY_VOLUME_DIR, "db.sqlite3"),
+#     }
+# }
 
 
 # --------------------------------------------------------------------------------
@@ -78,12 +90,10 @@ ANYMAIL = {
 # --------------------------------------------------------------------------------
 # > Sentry
 # --------------------------------------------------------------------------------
-SENTRY_KEY = os.getenv("SENTRY_SDK_SECRET_KEY")
-SENTRY_INGESTION_FQDN = os.getenv("SENTRY_INGESTION_FQDN")
-SENTRY_PROJECT = os.getenv("SENTRY_PROJECT")
-if SENTRY_KEY and SENTRY_PROJECT and SENTRY_INGESTION_FQDN:
+SENTRY_DSN = os.getenv("SENTRY_DSN")
+if SENTRY_DSN:
     sentry_sdk.init(
-        dsn=f"https://{SENTRY_KEY}@{SENTRY_INGESTION_FQDN}/{SENTRY_PROJECT}",
+        dsn=SENTRY_DSN,
         integrations=[DjangoIntegration()],
         traces_sample_rate=1,
         send_default_pii=True,

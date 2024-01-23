@@ -39,6 +39,9 @@ repos:
             'django-apscheduler',
             'django-cleanup',
             'jklib',
+            'psycopg2-binary',
+            'sentry-sdk',
+            'dj_database_url',
           ]
         args: [--config, backend/mypy.ini]
         exclude: '(test_*)|(settings.py)|(manage.py)|(migrations)'
