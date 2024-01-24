@@ -21,7 +21,6 @@
 
 TODO:
 
-- Backend dependencies
 - Frontend container
 - Frontend dependencies
 - Test CI
