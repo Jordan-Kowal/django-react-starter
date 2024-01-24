@@ -1,6 +1,6 @@
 # Changelog
 
-## [v1.4.0] - 2024-01-24
+## [v1.4.0] - TBD
 
 - **Deploy:**
     - Updated the `fly.example.toml` file to use the new `flyctl` CLI
