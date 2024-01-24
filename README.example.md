@@ -1,91 +1,67 @@
 # Django React Starter
 
-## Installation
+## Summary
 
-This project is made of 3 parts:
+TBD
 
-- A shared base with pre-commit hooks and the main Dockerfile
-- The frontend, which is a React application
-- The backend, which is a Django application
+## Structure
 
-Do note that the application, when built using the Dockerfile,
-will result in only one app, as the React app will be nested
-within the Django app.
+This project contains both the frontend and backend of the application:
 
-### Setting up the base
+- `/backend`: Django application
+- `/frontend`: React application
 
-You'll simply need to install a virtual environment and pre-commit
-hooks. To do so, run the following commands:
+Note that when building and deploying the application, the frontend is built
+and served by the backend directly, meaning we only deploy 1 application.
+
+## Getting started
+
+The application can be entirely run using the `docker-compose.yml` file located at the root.
+
+- Copy the `.env.sample` file to `.env` and update the values
+- Run `docker-compose up` to start the application
+
+If you don't want to use docker, you can run the application manually:
+
+- First, copy the `.env.sample` file to `.env` and update the values.
+- Then, start your postgres server. Finally, run the following commands
+- to setup your backend AND your frontend:
 
 ```bash
+# Backend
+cd backend
 python3 -m venv venv
-source venv/bin/activate
-pip install pre-commit
-pre-commit install
+pip install -r requirements.txt -r requirements-dev.txt
+python manage.py migrate
+python manage.py runserver
 ```
 
-### Setting up the frontend
-
-The frontend is a React application, so you'll need to install
-its dependencies and build it. To do so, run the following commands:
-
 ```bash
+# Frontend
 cd frontend
 yarn install
+yarn start
 ```
-
-Then simply run `yarn start` to start the app in development mode.
-
-### Setting up the backend
-
-The backend is a Django application which uses either PostgreSQL or SQLite as its
-database. We've provided a few tools to help you along the way:
-
-- A `docker-compose.yml` file to run a both Django and the Postgres database
-- A `makefile` to provide shortcuts to common commands (it also preloads the .env file)
-- A `.env.sample` that lists the expected environment variables
-
-```bash
-cd backend
-cp .env.sample .env  # then edit the file to match your environment
-docker-compose up
-```
-
-_Note that postgres is optional, and the default setup will use SQLite.
-To use postgres, simply uncomment the lines in the `docker-compose.yml` and `settings/base.py` files._
 
 ## QA and CI/CD
 
-We use GitHub actions to build and deploy the application. We currently have 2 main pipelines:
+We use GitHub actions to verify, build, and deploy the application. We currently have 5 main jobs:
 
-- [QA](.github/workflows/qa.yml): Checks linters/formatters and run tests for both frontend and backend
-- [deploy](.github/workflows/deploy.yml): Builds the application and deploys it to the production server
+- [pre-commits](.github/workflows/pre-commits.yml): runs the pre-commit hooks for both backend and frontend
+- [test-backend](.github/workflows/test-backend.yml): runs the backend tests
+- [test-frontend](.github/workflows/test-frontend.yml): runs the frontend tests
+- [rebase-check](.github/workflows/rebase-check.yml): checks if the current branch can be rebased on `main`
+- [deploy](.github/workflows/deploy.yml): deploys the application on **fly.io**
 
 ## Deploying for the first time
 
-To deploy to fly, we'll need to:
-
-- Create a fly app
-- Create a fly volume
-- Set the secrets
-
-```shell
-cp fly.example.toml fly.toml
-fly secrets set --app='django-react-starter' \
-  DJANGO_SUPERUSER_EMAIL='[Your email]' \
-  DJANGO_SUPERUSER_PASSWORD='[Your password]' \
-  SECRET_KEY='[Your secret key]' \
-  SENTRY_INGESTION_FQDN='[Your sentry FQDN].ingest.sentry.io' \
-  SENTRY_PROJECT='[Your project ID]' \
-  SENTRY_SDK_SECRET_KEY='[Your sentry key]'
-fly volumes create django_react_starter_data --region cdg --no-encryption --size 1
-
-# You might need to scale the app:
-fly scale show
-fly scale memory 512
-```
-
-Don't forget to set the `FLY_ACCESS_TOKEN` secret in the GitHub repository.
+To deploy the application, you will need to:
+- Create an account on [fly.io](https://fly.io)
+- Install the `flyctl` CLI
+- Run `fly launch` to create a new application
+- Configure it however you want
+- Make sure to set the `FLY_ACCESS_TOKEN` secret in the GitHub repository
+- Then create a new release to trigger the deploy github action
 
 ## Made by JKDev
 

@@ -17,9 +17,10 @@ Simply follow these steps to get started:
   - Replace all occurrences of `django_react_starter` with `your_project_name`
   - Replace all occurrences of `django-react-starter` with `your-project-name`
   - Replace all occurrences of `Django React Starter` with `Your Project Name`
+  - Update whatever you see fit
+  - Use `docker-compose up` to run the application locally
 - Deployment:
   - Create your own **fly.toml** file using `fly launch` (see [Fly.io](https://fly.io) for more information)
-  - Update the GitHub action `deploy.yml` to be triggered on release
 - Start coding!
 
 ## Features
@@ -34,6 +35,8 @@ with Django+DRF and React, and comes with many features included.
   - A default/catch-all route that serves the React frontend (`index` view)
   - Authentication API (`login`, `logout`, `check`)
   - Current user API (`get`, `update`, `update_password`)
+  - Others (`config`)
+  - A swagger API documentation
 - Database:
   - Flexible database management (SQLite or PostgreSQL)
   - A custom user model following best practices
@@ -72,10 +75,14 @@ with Django+DRF and React, and comes with many features included.
 **Tools for local development:**
 
 - `Dockerfile` to build the final Django image that includes the React frontend
-- `docker-compose` file to run the backend and database easily
+- `docker-compose` to run the application locally (frontend + backend + database)
 - `pre-commit` hooks for both backend and frontend
 
 **CI/CD ready to go:**
 
-- QA job that runs linters and tests
-- Deployment job that uses the `fly.toml` to deploy to [Fly.io](https://fly.io)
+Provides 5 different jobs:
+- [pre-commits](.github/workflows/pre-commits.yml): runs the pre-commit hooks for both backend and frontend
+- [test-backend](.github/workflows/test-backend.yml): runs the backend tests
+- [test-frontend](.github/workflows/test-frontend.yml): runs the frontend tests
+- [rebase-check](.github/workflows/rebase-check.yml): checks if the current branch can be rebased on `main`
+- [deploy](.github/workflows/deploy.yml): deploys the application on **fly.io**
