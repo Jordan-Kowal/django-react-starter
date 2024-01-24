@@ -7,9 +7,6 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-      args:
-        - USER_ID=${USER_ID}
-        - GROUP_ID=${GROUP_ID}
     env_file:
       - ./backend/.env
     depends_on:
@@ -24,12 +21,14 @@ services:
   front:
     image: node:18.13.0
     container_name: django_react_starter_front
+    working_dir: /app
+    command: bash -c "yarn install && yarn start --host"
     networks:
       - django_react_starter_network
     ports:
       - '3000:3000'
     volumes:
-      - ./frontend:/home/app/frontend
+      - ./frontend:/app
 
   postgres:
     container_name: django_react_starter_postgres

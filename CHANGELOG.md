@@ -1,12 +1,12 @@
 # Changelog
 
-## [v1.4.0] - TBD
+## [v1.4.0] - 2024-01-24
 
 - **Deploy:**
     - Updated the `fly.example.toml` file to use the new `flyctl` CLI
     - Added and implemented script that checks if the database is up before running the app
 - **DX**:
-    - `docker-compose.yml` has been moved to the root folder and also runs the frontend
+    - `docker-compose.yml` has been moved to the root folder
     - Added `.tool-versions` for `asdf` compatibility
 - **Backend**:
     - Postgres (with postgis) as default database
@@ -14,17 +14,14 @@
     - Added `dj-database-url` to the dependencies for easier database configuration in production
     - New `.env.test.example` file for test settings
     - Added `DEFAULT_FROM_EMAIL` env variable
+    - Updated dependencies
+- **Frontend**:
+    - Updated all dependencies
+    - `docker-compose.yml` now runs the frontend as well
 - **CI/CD**:
     - Updated jobs to match the new configuration (python 3.12, postgres, etc.)
     - Backend test now run with `coverage`
     - Updated pre-commit hooks configuration
-
-TODO:
-
-- Frontend container
-- Frontend dependencies
-- Test CI
-- Readme update
 
 ## [v1.3.0] - 2023-11-26
 

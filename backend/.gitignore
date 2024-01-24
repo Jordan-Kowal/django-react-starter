@@ -1,11 +1,13 @@
+# Database
 data/
+db.sqlite3
+test.sqlite3
 
 # Django
 *.log
 *.pot
 *.pyc
 __pycache__
-db.sqlite3
 media
 static-files/
 media-files/

@@ -5,10 +5,10 @@ import { routeConfig } from '@/routes';
 const useCurrentRoute = () => {
   const location = useLocation();
   const routes = useMemo(
-    () => matchRoutes(routeConfig, location.pathname),
-    [location.pathname]
+    () => matchRoutes(Object.values(routeConfig), location.pathname),
+    [location.pathname],
   );
-  return routes ? routes[0].route : undefined;
+  return useMemo(() => routes && routes[0].route, [routes]);
 };
 
 export default useCurrentRoute;

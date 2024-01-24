@@ -3,7 +3,11 @@ from .base import *  # noqa type: ignore
 
 DEBUG = True
 ENVIRONMENT = "development"
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "api",  # Name of the django service in docker-compose.yml, used by frontend
+]
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
     "http://127.0.0.1",
