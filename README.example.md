@@ -24,8 +24,8 @@ The application can be entirely run using the `docker-compose.yml` file located 
 If you don't want to use docker, you can run the application manually:
 
 - First, copy the `.env.sample` file to `.env` and update the values.
-- Then, start your postgres server. Finally, run the following commands
-- to setup your backend AND your frontend:
+- Then, start your postgres server
+- Finally, run the following commands to setup your backend AND your frontend:
 
 ```bash
 # Backend
