@@ -3,11 +3,13 @@ import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import eslint from 'vite-plugin-eslint';
+import StylelintWebpackPlugin from 'stylelint-webpack-plugin';
 
 export default defineConfig({
   plugins: [
     react(),
     eslint({ failOnWarning: false, failOnError: false, cache: false }),
+    new StylelintWebpackPlugin({ files: '**/*.less' }),
   ],
   server: {
     port: 3000,
