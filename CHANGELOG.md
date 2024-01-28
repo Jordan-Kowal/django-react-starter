@@ -24,6 +24,7 @@
     - Updated jobs to match the new configuration (python 3.12, postgres, etc.)
     - Backend test now run with `coverage`
     - Updated pre-commit hooks configuration
+    - All workflows can now be triggered manually
 
 ## [v1.3.0] - 2023-11-26
 

@@ -1,6 +1,7 @@
 name: Tests backend
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: ['main']
 
