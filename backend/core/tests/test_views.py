@@ -1,5 +1,9 @@
+# Built-in
+from unittest.mock import Mock, patch
+
 # Django
 from django.conf import settings
+from django.http import HttpResponse
 from rest_framework.reverse import reverse
 
 # Local
@@ -7,9 +11,14 @@ from .utils import BaseActionTestCase
 
 
 class CoreViewsTestCase(BaseActionTestCase):
-    def test_index(self) -> None:
-        # /!\ Cannot test this view because the file is generated after a build
-        pass
+    @patch("core.views.render")
+    def test_index(self, render_mock: Mock) -> None:
+        render_mock.return_value = HttpResponse(content="<h1>Hello</h1>")
+        response = self.client.get("/")
+        args, kwargs = render_mock.call_args
+        self.assertEqual(args[1], "dist/index.html")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.content, b"<h1>Hello</h1>")
 
     def test_robots_txt(self) -> None:
         response = self.client.get("/robots.txt/")
