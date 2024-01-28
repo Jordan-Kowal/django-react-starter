@@ -6,7 +6,7 @@ const useCurrentRoute = () => {
   const location = useLocation();
   const routes = useMemo(
     () => matchRoutes(Object.values(routeConfig), location.pathname),
-    [location.pathname],
+    [location.pathname]
   );
   return useMemo(() => routes && routes[0].route, [routes]);
 };

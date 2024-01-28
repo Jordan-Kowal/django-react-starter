@@ -16,9 +16,12 @@ class User(AbstractUser):
     email = models.EmailField(unique=True, null=False, blank=False)
 
     def save(self, *args: Any, **kwargs: Any) -> None:
+        created = self.pk is None
         if self.username != self.email:
             self.username = self.email
         super().save(*args, **kwargs)
+        if created:
+            Profile.objects.create(user=self)
 
     class Meta:
         ordering = ["id"]

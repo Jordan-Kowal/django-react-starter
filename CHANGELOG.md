@@ -15,9 +15,11 @@
     - New `.env.test.example` file for test settings
     - Added `DEFAULT_FROM_EMAIL` env variable
     - Updated dependencies
+    - `User` model now overrides `save` instead of using signals to create the `Profile` instance
 - **Frontend**:
     - Updated all dependencies
     - `docker-compose.yml` now runs the frontend as well
+    - Updated `prettier` config
 - **CI/CD**:
     - Updated jobs to match the new configuration (python 3.12, postgres, etc.)
     - Backend test now run with `coverage`
