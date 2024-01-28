@@ -19,7 +19,7 @@
 - **Frontend**:
     - Updated all dependencies
     - `docker-compose.yml` now runs the frontend as well
-    - Updated `prettier` config
+    - Updated `prettier, eslint, stylelint` configs
 - **CI/CD**:
     - Updated jobs to match the new configuration (python 3.12, postgres, etc.)
     - Backend test now run with `coverage`
