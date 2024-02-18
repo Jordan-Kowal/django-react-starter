@@ -19,6 +19,7 @@
     - `User` model now overrides `save` instead of using signals to create the `Profile` instance
     - Changed router to `SimpleRouter` and swagger/schemas routes are no longer included in production
     - Updated Sentry configuration with profiler, traces, release, and GDPR settings
+    - Added prometheus metrics inside the Django app so that fly.io can scrape them
 - **Frontend**:
     - Updated node to `20.11.1`
     - Updated all dependencies

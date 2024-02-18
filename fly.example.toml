@@ -17,6 +17,7 @@ console_command = '/home/app/backend/manage.py shell'
   FLY_VOLUME_DIR = '/home/app/data' # like the mount destination
   GUNICORN_WORKERS = '4'
   HOST_DNS_NAMES = 'django-react-starter.fly.dev,django-react-starter.jkdev.app'
+  INTERNAL_IPS = ''  # Add prometheus internal IP
   PORT = '8000'
   # >>> Secrets (fly secrets list) <<<
   # DATABASE_URL
@@ -44,3 +45,7 @@ console_command = '/home/app/backend/manage.py shell'
 [mounts]
   source='django_react_starter_data'
   destination='/home/app/data'
+
+[metrics]
+  port = 8000
+  path = "/metrics"

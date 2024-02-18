@@ -6,11 +6,12 @@ from typing import Any
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django_prometheus.models import ExportModelOperationsMixin
 
 LOGGER = logging.getLogger("default")
 
 
-class User(AbstractUser):
+class User(ExportModelOperationsMixin("user"), AbstractUser):  # type: ignore
     profile: "Profile"
 
     email = models.EmailField(unique=True, null=False, blank=False)

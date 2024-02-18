@@ -1,4 +1,5 @@
 # Built-in
+from datetime import timezone
 from typing import TYPE_CHECKING
 
 # Third-party
@@ -7,7 +8,6 @@ from apscheduler.schedulers.background import BlockingScheduler
 
 # Django
 from django.contrib.auth import get_user_model
-from django.utils import timezone
 from django_apscheduler.jobstores import DjangoJobStore
 
 if TYPE_CHECKING:

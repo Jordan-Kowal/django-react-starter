@@ -38,6 +38,7 @@ repos:
             'drf-spectacular',
             'django-apscheduler',
             'django-cleanup',
+            'django_prometheus',
             'jklib',
             'psycopg2-binary',
             'sentry-sdk',

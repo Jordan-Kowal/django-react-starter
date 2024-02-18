@@ -28,6 +28,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     path(f"{API_ROOT}/v1/", include(router.urls)),
+    path("", include("django_prometheus.urls")),
     # Match all and forward to react router on the front-end app.
     re_path(r"^.*/?$", index),
 ]

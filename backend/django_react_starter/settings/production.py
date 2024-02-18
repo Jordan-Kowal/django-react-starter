@@ -19,11 +19,8 @@ FLY_VOLUME_DIR = os.getenv("FLY_VOLUME_DIR")
 # > HTTP
 # --------------------------------------------------------------------------------
 HOST_DNS_NAMES = os.getenv("HOST_DNS_NAMES", "").split(",")
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    *HOST_DNS_NAMES,
-]
+INTERNAL_IPS = os.getenv("INTERNAL_IPS", "").split(",")
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", *HOST_DNS_NAMES, *INTERNAL_IPS]
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
     "http://127.0.0.1",
@@ -44,12 +41,16 @@ MEDIA_ROOT = os.path.join(FLY_VOLUME_DIR, "media-files")
 # --------------------------------------------------------------------------------
 # > Database
 # --------------------------------------------------------------------------------
+db_config = dj_database_url.config(
+    default=os.getenv("DATABASE_URL"),
+    conn_max_age=600,
+    conn_health_checks=True,
+)
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL"),  # type: ignore
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
+    "default": {
+        **db_config,  # type: ignore
+        "ENGINE": "django_prometheus.db.backends.postgis",
+    }
 }
 
 # SQLite

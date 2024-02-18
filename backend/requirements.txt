@@ -1,13 +1,14 @@
 apscheduler==3.10.4
-django==4.2.9
+django==5.0.2
 django-apscheduler==0.6.2
 djangorestframework==3.14.0
 django-anymail[sendinblue]==10.2
 django-cleanup==8.0.0
 django-filter==23.5
+django-prometheus==2.3.1
 dj-database-url==2.1.0
 drf-spectacular==0.27.1
-jklib==5.0.0
+jklib==5.0.2
 gunicorn==21.2.0
 pillow==10.2.0
 psycopg2-binary==2.9.9
