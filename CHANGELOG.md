@@ -8,6 +8,7 @@
 - **DX**:
     - `docker-compose.yml` has been moved to the root folder
     - Added `.tool-versions` for `asdf` compatibility
+    - Updated `README.example.md` to provide a step-by-step guide to use the app
 - **Backend**:
     - Postgres (with postgis) as default database
     - Added `coverage` to the dev dependencies and the `coverage` command to the `makefile`
@@ -16,7 +17,10 @@
     - Added `DEFAULT_FROM_EMAIL` env variable
     - Updated dependencies
     - `User` model now overrides `save` instead of using signals to create the `Profile` instance
+    - Changed router to `SimpleRouter` and swagger/schemas routes are no longer included in production
+    - Updated Sentry configuration with profiler, traces, release, and GDPR settings
 - **Frontend**:
+    - Updated node to `20.11.1`
     - Updated all dependencies
     - `docker-compose.yml` now runs the frontend as well
     - Updated `prettier, eslint, stylelint` configs

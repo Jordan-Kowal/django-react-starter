@@ -2,7 +2,10 @@
 
 Django-React starter with Docker support for fast and easy web development.
 
-## Get started
+- [Getting started](#getting-started)
+- [Features](#features)
+
+## Getting started
 
 Simply follow these steps to get started:
 
