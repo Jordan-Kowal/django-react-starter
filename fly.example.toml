@@ -1,22 +1,23 @@
-# fly.toml app configuration file generated for django-react-starter on 2024-01-19T15:51:44+01:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+# PRODUCTION CONFIGURATION
 
-app = "django-react-starter"
-primary_region = "cdg"
-console_command = "/home/app/django_react_starter/manage.py shell"
+app = 'django-react-starter'
+primary_region = 'cdg'
+console_command = '/home/app/backend/manage.py shell'
 
 [build]
-  dockerfile = "Dockerfile
+  dockerfile = 'Dockerfile'
+  ignorefile = '.dockerignore'
+
 [deploy]
+  strategy = 'rolling'
+
 [env]
-  DJANGO_SETTINGS_MODULE = "django_react_starter.settings.production"
-  ENVIRONMENT = "production"
-  FLY_VOLUME_DIR = "/home/app/data" # like the mount destination
-  GUNICORN_WORKERS = "4"
-  HOST_DNS_NAMES = "django-react-starter.fly.dev,django-react-starter.jkdev.app"
-  PORT = "8000"
+  DJANGO_SETTINGS_MODULE = 'django_react_starter.settings.production'
+  ENVIRONMENT = 'production'
+  FLY_VOLUME_DIR = '/home/app/data' # like the mount destination
+  GUNICORN_WORKERS = '4'
+  HOST_DNS_NAMES = 'django-react-starter.fly.dev,django-react-starter.jkdev.app'
+  PORT = '8000'
   # >>> Secrets (fly secrets list) <<<
   # DATABASE_URL
   # DEFAULT_FROM_EMAIL
@@ -24,6 +25,8 @@ console_command = "/home/app/django_react_starter/manage.py shell"
   # DJANGO_SUPERUSER_PASSWORD
   # SECRET_KEY
   # SENTRY_DSN
+  # >>> Generated during GitHub actions <<<
+  # APP_VERSION
 
 [http_service]
   internal_port = 8000
@@ -31,13 +34,13 @@ console_command = "/home/app/django_react_starter/manage.py shell"
   auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 0
-  processes = ["app"]
+  processes = ['app']
 
 [[vm]]
-  cpu_kind = "shared"
+  cpu_kind = 'shared'
   cpus = 1
   memory_mb = 512
 
 [mounts]
-  source="django_react_starter_data"
-  destination="/home/app/data"
+  source='django_react_starter_data'
+  destination='/home/app/data'

@@ -12,7 +12,7 @@ from core.views import AppViewSet, index, ping, robots_txt
 from user.views import AuthViewSet, CurrentUserViewSet
 
 # Router
-router = routers.DefaultRouter()
+router = routers.SimpleRouter()
 router.register(r"app", AppViewSet, "app")
 router.register(r"auth", AuthViewSet, "auth")
 router.register(r"self", CurrentUserViewSet, "self")
@@ -27,17 +27,21 @@ urlpatterns = [
     path("robots.txt/", robots_txt),
     path("admin/", admin.site.urls),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
-    # API
-    path(f"{API_ROOT}/schema/", SpectacularAPIView.as_view(), name="schema"),
-    path(
-        f"{API_ROOT}/swagger/",
-        SpectacularSwaggerView.as_view(url_name="schema"),
-        name="swagger-ui",
-    ),
     path(f"{API_ROOT}/v1/", include(router.urls)),
     # Match all and forward to react router on the front-end app.
     re_path(r"^.*/?$", index),
 ]
+
+# Only add swagger info in specific environments
+if settings.ENVIRONMENT in ["development", "staging", "test"]:
+    urlpatterns += [
+        path(f"{API_ROOT}/schema/", SpectacularAPIView.as_view(), name="schema"),
+        path(
+            f"{API_ROOT}/swagger/",
+            SpectacularSwaggerView.as_view(url_name="schema"),
+            name="swagger-ui",
+        ),
+    ]
 
 # Admin config
 admin.site.site_header = mark_safe("<strong>Interface d'administration</strong>")

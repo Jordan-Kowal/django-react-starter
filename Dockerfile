@@ -1,4 +1,4 @@
-FROM node:18.13.0 as app-react-image
+FROM node:20.11.1 as app-react-image
 
 WORKDIR /front
 ADD ./frontend /front

@@ -10,13 +10,9 @@ import dj_database_url
 
 # Local
 from .base import *  # noqa
-from .base import LOGGING  # noqa
+from .base import APP_VERSION, ENVIRONMENT, LOGGING  # noqa
 
 FLY_VOLUME_DIR = os.getenv("FLY_VOLUME_DIR")
-
-DEBUG = False
-SECRET_KEY = os.getenv("SECRET_KEY")
-ENVIRONMENT = os.getenv("ENVIRONMENT")
 
 
 # --------------------------------------------------------------------------------
@@ -68,9 +64,8 @@ DATABASES = {
 # --------------------------------------------------------------------------------
 # > Logging
 # --------------------------------------------------------------------------------
-LOG_FOLDER = os.path.join(FLY_VOLUME_DIR, "logs")
 LOGGING["handlers"]["console.log"]["filename"] = os.path.join(  # type: ignore
-    LOG_FOLDER, "console.log"
+    FLY_VOLUME_DIR, "console.log"
 )
 
 
@@ -94,10 +89,12 @@ SENTRY_DSN = os.getenv("SENTRY_DSN")
 if SENTRY_DSN:
     sentry_sdk.init(
         dsn=SENTRY_DSN,
-        integrations=[DjangoIntegration()],
-        traces_sample_rate=1,
-        send_default_pii=True,
         environment=ENVIRONMENT,
+        integrations=[DjangoIntegration()],
+        send_default_pii=False,  # GDPR
+        traces_sample_rate=0.3,
+        profiles_sample_rate=0.3,
+        release=f"rainly-api@{APP_VERSION}",
     )
     SENTRY_INITIALIZED = True
 else:

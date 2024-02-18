@@ -1,4 +1,4 @@
-name: Deploy to fly.io
+name: Deploy to production
 
 on:
   workflow_dispatch:

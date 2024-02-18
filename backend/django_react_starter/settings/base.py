@@ -10,8 +10,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # > Application
 # --------------------------------------------------------------------------------
 APP_NAME = "django_react_starter"
+APP_VERSION = os.getenv("APP_VERSION", "")
 SESSION_COOKIE_NAME = f"{APP_NAME}-sessionid"
 CSRF_COOKIE_NAME = f"{APP_NAME}-csrftoken"
+
+DEBUG = False
+SECRET_KEY = os.getenv("SECRET_KEY")
+ENVIRONMENT = os.getenv("ENVIRONMENT")
 
 INSTALLED_APPS = [
     # Django
