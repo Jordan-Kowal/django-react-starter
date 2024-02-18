@@ -7,7 +7,7 @@ django-cleanup==8.0.0
 django-filter==23.5
 dj-database-url==2.1.0
 drf-spectacular==0.27.1
-jklib==4.0.0
+jklib==5.0.0
 gunicorn==21.2.0
 pillow==10.2.0
 psycopg2-binary==2.9.9
