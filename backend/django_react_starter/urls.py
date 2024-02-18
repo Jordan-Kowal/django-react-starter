@@ -10,12 +10,14 @@ from rest_framework import routers
 # Application
 from core.views import AppViewSet, index, ping, robots_txt
 from user.views import AuthViewSet, CurrentUserViewSet
+from health.views import HealthViewSet
 
 # Router
 router = routers.SimpleRouter()
 router.register(r"app", AppViewSet, "app")
 router.register(r"auth", AuthViewSet, "auth")
 router.register(r"self", CurrentUserViewSet, "self")
+router.register("health", HealthViewSet, basename="health")
 
 # Using variables to make testing easier
 API_ROOT = "api"

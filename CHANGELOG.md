@@ -1,25 +1,29 @@
 # Changelog
 
-## [v1.4.0] - TBD
+## [v2.0.0] - 2024-02-18
 
 - **Deploy:**
     - Updated the `fly.example.toml` file to use the new `flyctl` CLI
     - Added and implemented script that checks if the database is up before running the app
+    - Scrapes prometheus metrics from the app on fly.io
+    - Use new healthchecks through fly.io
 - **DX**:
     - `docker-compose.yml` has been moved to the root folder
+    - `docker-compose.yml` now runs the frontend as well
     - Added `.tool-versions` for `asdf` compatibility
     - Updated `README.example.md` to provide a step-by-step guide to use the app
 - **Backend**:
+    - Updated dependencies
     - Postgres (with postgis) as default database
     - Added `coverage` to the dev dependencies and the `coverage` command to the `makefile`
     - Added `dj-database-url` to the dependencies for easier database configuration in production
     - New `.env.test.example` file for test settings
     - Added `DEFAULT_FROM_EMAIL` env variable
-    - Updated dependencies
     - `User` model now overrides `save` instead of using signals to create the `Profile` instance
     - Changed router to `SimpleRouter` and swagger/schemas routes are no longer included in production
-    - Updated Sentry configuration with profiler, traces, release, and GDPR settings
-    - Added prometheus metrics inside the Django app so that fly.io can scrape them
+    - **MAJOR**: Updated Sentry configuration with profiler, traces, release, and GDPR settings
+    - **MAJOR**: Added prometheus metrics inside the Django app so that fly.io can scrape them
+    - **MAJOR**: Added healthchecks for the app and the database
 - **Frontend**:
     - Updated node to `20.11.1`
     - Updated all dependencies
@@ -29,7 +33,6 @@
     - Updated jobs to match the new configuration (python 3.12, postgres, etc.)
     - Backend test now run with `coverage`
     - Updated pre-commit hooks configuration
-    - All workflows can now be triggered manually
 
 ## [v1.3.0] - 2023-11-26
 

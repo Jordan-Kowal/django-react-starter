@@ -37,6 +37,27 @@ console_command = '/home/app/backend/manage.py shell'
   min_machines_running = 0
   processes = ['app']
 
+[[http_service.checks]]
+  grace_period = "15s"
+  interval = "60s"
+  method = "GET"
+  timeout = "5s"
+  path = "/api/v1/health/api/"
+
+[[http_service.checks]]
+  grace_period = "15s"
+  interval = "60s"
+  method = "GET"
+  timeout = "5s"
+  path = "/api/v1/health/database/"
+
+[[http_service.checks]]
+  grace_period = "15s"
+  interval = "60s"
+  method = "GET"
+  timeout = "5s"
+  path = "/api/v1/health/scheduler/"
+
 [[vm]]
   cpu_kind = 'shared'
   cpus = 1

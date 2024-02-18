@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "django_prometheus",
     # Custom
     "core",
+    "health",
     "user",
     # Other third party
     "django_cleanup.apps.CleanupConfig",
@@ -178,7 +179,6 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "DEFAULT_RENDERER_CLASSES": (
         "rest_framework.renderers.JSONRenderer",  # Must be first
-        "rest_framework.renderers.BrowsableAPIRenderer",
     ),
     "DEFAULT_PARSER_CLASSES": ("rest_framework.parsers.JSONParser",),
     "TEST_REQUEST_DEFAULT_FORMAT": "json",

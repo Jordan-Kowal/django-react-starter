@@ -27,11 +27,6 @@ def robots_txt(request: HttpRequest) -> HttpResponse:
     return HttpResponse("\n".join(lines), content_type="text/plain")
 
 
-@require_GET
-def ping(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("pong", content_type="text/plain")
-
-
 class AppViewSet(ImprovedViewSet):
     default_permission_classes = [permissions.IsAuthenticated]
     serializer_class_per_action = {

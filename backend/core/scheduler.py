@@ -17,6 +17,7 @@ if TYPE_CHECKING:
 
 User: "UserType" = get_user_model()  # type: ignore
 
+IS_RUNNING_CACHE_KEY = "scheduler_is_running"
 
 # Create scheduler and register jobs
 scheduler = BlockingScheduler(
