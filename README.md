@@ -34,14 +34,15 @@ with Django+DRF and React, and comes with many features included.
 **A fully working a customizable Django/DRF:**
 
 - Views:
-  - Basic Django views for good measures: `ping`, `robots.txt`
+  - Basic Django views for good measures: `robots.txt`
   - A default/catch-all route that serves the React frontend (`index` view)
   - Authentication API (`login`, `logout`, `check`)
   - Current user API (`get`, `update`, `update_password`)
+  - Health check API (`api`, `db`, `scheduler`)
   - Others (`config`)
   - A swagger API documentation
 - Database:
-  - Flexible database management (SQLite or PostgreSQL)
+  - Flexible database management (SQLite or PostgreSQL with postgis)
   - A custom user model following best practices
 - QA:
   - Configuration files for `isort`, `flake8`, `black`, and `mypy`

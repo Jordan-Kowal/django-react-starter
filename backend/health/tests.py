@@ -7,8 +7,8 @@ from django.db import DatabaseError
 from rest_framework.reverse import reverse
 
 # Application
-from core import scheduler
 from core.tests import BaseActionTestCase
+from scheduler import scheduler
 
 
 class HealthViewSetTestCase(BaseActionTestCase):

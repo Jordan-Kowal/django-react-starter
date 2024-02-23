@@ -11,7 +11,7 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_500_INTERNAL_SERVER_ERROR
 
 # Application
-from core import scheduler
+from scheduler import scheduler
 
 User = get_user_model()
 
@@ -22,10 +22,7 @@ class HealthViewSet(ImprovedViewSet):
 
     @action(detail=False, methods=["get"])
     def api(self, _request: Request) -> Response:
-        try:
-            return Response(status=HTTP_200_OK, data="API up")
-        except Exception:
-            return Response(status=HTTP_500_INTERNAL_SERVER_ERROR, data="API down")
+        return Response(status=HTTP_200_OK, data="API up")
 
     @action(detail=False, methods=["get"])
     def database(self, _request: Request) -> Response:

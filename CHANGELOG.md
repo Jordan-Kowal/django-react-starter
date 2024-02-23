@@ -1,5 +1,11 @@
 # Changelog
 
+## [v2.0.1] - 2024-02-23
+
+- Updated `coverage` config
+- Moved `scheduler` into its own app, rather than being part of the `core` app
+- Fixed deprecated `ping` route import in `urls.py`
+
 ## [v2.0.0] - 2024-02-18
 
 - **Deploy:**

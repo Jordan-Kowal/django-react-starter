@@ -6,6 +6,7 @@ from typing import Any
 from apscheduler.schedulers import SchedulerNotRunningError
 
 # Django
+from django.core.cache import cache
 from django.core.management import BaseCommand
 
 LOGGER = logging.getLogger("default")
@@ -16,11 +17,12 @@ class Command(BaseCommand):
 
     def handle(self, *args: Any, **options: Any) -> None:
         # Application
-        from core.scheduler import scheduler
+        from scheduler.scheduler import IS_RUNNING_CACHE_KEY, blocking_scheduler
 
         try:
+            cache.set(IS_RUNNING_CACHE_KEY, False)
             LOGGER.info("[core] Stopping scheduler...")
-            scheduler.shutdown()
+            blocking_scheduler.shutdown()
             LOGGER.info("[core] Scheduler shut down successfully!")
         except SchedulerNotRunningError:
             LOGGER.error("[core] No scheduler currently running...")

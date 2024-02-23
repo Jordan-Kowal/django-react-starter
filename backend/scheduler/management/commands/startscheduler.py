@@ -14,15 +14,14 @@ class Command(BaseCommand):
 
     def handle(self, *args: Any, **options: Any) -> None:
         # Application
-        from core.scheduler import IS_RUNNING_CACHE_KEY, scheduler
+        from scheduler.scheduler import IS_RUNNING_CACHE_KEY, blocking_scheduler
 
         try:
-            cache.set(IS_RUNNING_CACHE_KEY, False)
             LOGGER.info("[core] Starting scheduler...")
             cache.set(IS_RUNNING_CACHE_KEY, True)
-            scheduler.start()
+            blocking_scheduler.start()
         except KeyboardInterrupt:
             LOGGER.info("[core] Stopping scheduler...")
             cache.set(IS_RUNNING_CACHE_KEY, False)
-            scheduler.shutdown()
+            blocking_scheduler.shutdown()
             LOGGER.info("[core] Scheduler shut down successfully!")

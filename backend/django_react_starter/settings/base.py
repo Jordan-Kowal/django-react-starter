@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     # Custom
     "core",
     "health",
+    "scheduler",
     "user",
     # Other third party
     "django_cleanup.apps.CleanupConfig",

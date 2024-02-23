@@ -8,7 +8,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework import routers
 
 # Application
-from core.views import AppViewSet, index, ping, robots_txt
+from core.views import AppViewSet, index, robots_txt
 from health.views import HealthViewSet
 from user.views import AuthViewSet, CurrentUserViewSet
 
@@ -25,7 +25,6 @@ API_ROOT = "api"
 # URLs
 urlpatterns = [
     # Django
-    path("ping/", ping),
     path("robots.txt/", robots_txt),
     path("admin/", admin.site.urls),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),

@@ -1,14 +1,18 @@
 [run]
 omit =
-    # Django
+    # [Django] Server
     manage.py
-    django_react_starter/*
+    django_react_starter/settings/development.py
+    django_react_starter/settings/production.py
+    django_react_starter/asgi.py
+    django_react_starter/wsgi.py
+    # [Django] Scheduler
+    scheduler/management/**
+    # [Django] Common files
     */__init__.py
     */migrations/*
     */tests/*
     */admin.py
-    # Scheduler
-    *scheduler.py
     # Others
     wait_for_db.py
 

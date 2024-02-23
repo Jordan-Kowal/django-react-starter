@@ -20,7 +20,7 @@ User: "UserType" = get_user_model()  # type: ignore
 IS_RUNNING_CACHE_KEY = "scheduler_is_running"
 
 # Create scheduler and register jobs
-scheduler = BlockingScheduler(
+blocking_scheduler = BlockingScheduler(
     jobstores={"default": DjangoJobStore()},
     executors={"default": ThreadPoolExecutor(10)},
     timezone=timezone.utc,
