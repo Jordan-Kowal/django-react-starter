@@ -1,5 +1,9 @@
 # Changelog
 
+## [v2.0.2] - TBD
+
+- Simplified `Dockerfile`
+
 ## [v2.0.1] - 2024-02-23
 
 - Updated `coverage` config

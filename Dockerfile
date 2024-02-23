@@ -27,18 +27,17 @@ RUN pip install --upgrade pip \
     && rm -rf /tmp/requirments.txt /tmp/requirments-dev.txt
 
 # Create dir and user
-RUN mkdir -p /home/app/backend && mkdir -p /home/app/frontend && mkdir -p /home/app/logs
+RUN mkdir -p /home/app/backend && mkdir -p /home/app/logs
 RUN addgroup --system app && adduser --system --group app
 WORKDIR /home/app
 
-# Copy backend and frontend, then set frontend within backend with a symlink
+# Copy backend and frontend, then set frontend within backend
 COPY ./backend ./backend
-COPY --chown=app:app --from=app-react-image /front/dist /home/app/frontend/dist
-RUN ln -sf /home/app/frontend /home/app/backend/frontend
+COPY --chown=app:app --from=app-react-image /front/dist /home/app/backend/frontend
 
 # Change ownership
 RUN chown -R app:app /home/app
-#USER app
+USER app
 
 # Run the app
 EXPOSE 8000
