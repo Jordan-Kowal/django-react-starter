@@ -3,6 +3,7 @@
 ## [v2.0.2] - TBD
 
 - Simplified `Dockerfile`
+- Fix catch-all route in `urls.py`
 
 ## [v2.0.1] - 2024-02-23
 

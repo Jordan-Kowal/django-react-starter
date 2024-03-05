@@ -30,8 +30,6 @@ urlpatterns = [
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     path(f"{API_ROOT}/v1/", include(router.urls)),
     path("", include("django_prometheus.urls")),
-    # Match all and forward to react router on the front-end app.
-    re_path(r"^.*/?$", index),
 ]
 
 # Only add swagger info in specific environments
@@ -44,6 +42,9 @@ if settings.ENVIRONMENT in ["development", "staging", "test"]:
             name="swagger-ui",
         ),
     ]
+
+# Match all and forward to react router on the front-end app.
+urlpatterns += [re_path(r"^.*$", index)]
 
 # Admin config
 admin.site.site_header = mark_safe("<strong>Interface d'administration</strong>")
