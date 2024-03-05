@@ -4,6 +4,7 @@
 
 - Simplified `Dockerfile`
 - Fix catch-all route in `urls.py`
+- Update `Makefile` documentation and test commands
 
 ## [v2.0.1] - 2024-02-23
 

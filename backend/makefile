@@ -15,7 +15,10 @@ run:
 		$(opts)"
 
 test:
-	@$(MAKE) -s run cmd=test env_file='.env.test'
+	@$(MAKE) -s run cmd=test env_file='.env.test' opts="--exclude-tag=integration"
+
+integration:
+	@$(MAKE) -s run cmd=test env_file='.env.test' opts="--tag=integration"
 
 migrate:
 	@$(MAKE) -s run cmd=migrate
@@ -35,22 +38,18 @@ coverage:
 		coverage html"
 
 help:
-	@echo "Available commands: help, run"
+	@echo "Usage: make [TARGET] [cmd=''] [env_file='.env'] [opts='']"
+	@echo "All commands are run in the django container"
 	@echo ""
-	@echo "help:"
-	@echo "Shows this text in the terminal"
+	@echo "The `run` target is used to run any custom django command"
+	@echo "While other targets are shortcuts to common commands"
 	@echo ""
-	@echo "run:"
-	@echo "Runs a Django command within the running docker container with the given settings and options"
-	@echo "  cmd       ->   (required) The django command"
-	@echo "  env_file  ->   (optional) The env file to use. Defaults to .env"
-	@echo "  opts      ->   (optional) Additional command-line options for your command"
-	@echo "Examples:"
-	@echo "  make run cmd=makemigrations"
-	@echo "  make run cmd=test env_file=.env.test opts=\"--verbosity 0\""
-	@echo ""
-	@echo "test | migrate | makemigrations | shell:"
-	@echo "Shortcuts for the run command with the right cmd and env_file args"
-	@echo ""
-	@echo "coverage:"
-	@echo "Runs the test command with coverage and generates a report"
+	@echo "Targets:"
+	@echo "  run                       Run a custom django command"
+	@echo "  test                      Run all tests except integration tests"
+	@echo "  integration               Run integration tests"
+	@echo "  migrate                   Run migrations"
+	@echo "  makemigrations            Make migrations"
+	@echo "  shell                     Open a django shell"
+	@echo "  coverage                  Run tests and generate coverage report"
+	@echo "  help                      Prints this help message"
