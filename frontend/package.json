@@ -10,8 +10,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@ant-design/icons": "5.2.6",
-    "antd": "5.13.2",
+    "@ant-design/icons": "5.3.4",
+    "antd": "5.15.3",
     "classnames": "2.5.1",
     "dayjs": "1.11.10",
     "jkscript": "3.0.1",
