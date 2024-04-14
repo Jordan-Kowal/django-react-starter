@@ -8,7 +8,7 @@ env_file='.env'
 opts=
 
 run:
-	@docker exec -it django_react_starter_api bash -c "\
+	@docker exec -it hubby_api bash -c "\
 		cd backend && \
 		source $(env_file) && \
 		python manage.py $(cmd) \
@@ -17,8 +17,19 @@ run:
 test:
 	@$(MAKE) -s run cmd=test env_file='.env.test' opts="--exclude-tag=integration"
 
-integration:
+test_debug:
+	@$(MAKE) -s run cmd=test env_file='.env.test' opts="--tag=debug"
+
+test_integration:
 	@$(MAKE) -s run cmd=test env_file='.env.test' opts="--tag=integration"
+
+test_coverage:
+	@docker exec -it hubby_api bash -c "\
+		cd backend && \
+		source .env.test && \
+		coverage run --source='.' manage.py test && \
+		coverage report && \
+		coverage html"
 
 migrate:
 	@$(MAKE) -s run cmd=migrate
@@ -28,14 +39,6 @@ makemigrations:
 
 shell:
 	@$(MAKE) -s run cmd=shell
-
-coverage:
-	@docker exec -it django_react_starter_api bash -c "\
-		cd backend && \
-		source .env.test && \
-		coverage run --source='.' manage.py test && \
-		coverage report && \
-		coverage html"
 
 help:
 	@echo "Usage: make [TARGET] [cmd=''] [env_file='.env'] [opts='']"
@@ -47,9 +50,10 @@ help:
 	@echo "Targets:"
 	@echo "  run                       Run a custom django command"
 	@echo "  test                      Run all tests except integration tests"
-	@echo "  integration               Run integration tests"
+	@echo "  test_debug                Run tests with debug tag"
+	@echo "  test_integration          Run integration tests"
+	@echo "  test_coverage             Run tests and generate coverage report"
 	@echo "  migrate                   Run migrations"
 	@echo "  makemigrations            Make migrations"
 	@echo "  shell                     Open a django shell"
-	@echo "  coverage                  Run tests and generate coverage report"
 	@echo "  help                      Prints this help message"
