@@ -8,7 +8,7 @@ django-filter==23.5
 django-prometheus==2.3.1
 dj-database-url==2.1.0
 drf-spectacular==0.27.1
-jklib==5.0.2
+jklib==5.1.0
 gunicorn==21.2.0
 pillow==10.2.0
 psycopg2-binary==2.9.9
