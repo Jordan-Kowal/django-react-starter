@@ -1,11 +1,15 @@
 # Changelog
 
-## [v2.0.2] - TBD
+## [v2.2.0] - TBD
 
-- Simplified `Dockerfile`
-- Fix catch-all route in `urls.py`
-- Update `Makefile` documentation and test commands
-- Fixed prettier config with plugins
+- **DX**
+  - Simplified `Dockerfile`
+  - Update `Makefile` documentation and test commands
+- **Frontend**
+  - Fixed prettier config with plugins
+  - Update store calls with `useShallow()`
+- **Backend**
+  - Fix catch-all route in `urls.py`
 
 ## [v2.0.1] - 2024-02-23
 

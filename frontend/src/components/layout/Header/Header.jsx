@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Grid, Layout } from 'antd';
 import classNames from 'classnames';
-import { shallow } from 'zustand/shallow';
+import { useShallow } from 'zustand/react/shallow';
 import { IconButton, Logo } from '@/components/ui';
 import { useLayoutStore } from '@/stores';
 import HeaderNavigation from '../HeaderNavigation';
@@ -12,9 +12,11 @@ const { useBreakpoint } = Grid;
 
 const Header = () => {
   const { lg } = useBreakpoint();
-  const [siderCollapsed, toggleSider] = useLayoutStore(
-    (state) => [state.siderCollapsed, state.toggleSider],
-    shallow
+  const { siderCollapsed, toggleSider } = useLayoutStore(
+    useShallow((state) => ({
+      siderCollapsed: state.siderCollapsed,
+      toggleSider: state.toggleSider,
+    }))
   );
 
   return (

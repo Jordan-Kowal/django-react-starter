@@ -2,7 +2,7 @@ import React, { memo, useEffect } from 'react';
 import { Grid, Layout } from 'antd';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { shallow } from 'zustand/shallow';
+import { useShallow } from 'zustand/react/shallow';
 import { useLayoutStore } from '@/stores';
 import styles from './AppLayout.module.less';
 import Footer from './Footer';
@@ -13,9 +13,11 @@ const { useBreakpoint } = Grid;
 
 const AppLayout = ({ children }) => {
   const { lg } = useBreakpoint();
-  const [showLayout, setSiderCollapsed] = useLayoutStore(
-    (state) => [state.showLayout, state.setSiderCollapsed],
-    shallow
+  const { showLayout, setSiderCollapsed } = useLayoutStore(
+    useShallow((state) => ({
+      showLayout: state.showLayout,
+      setSiderCollapsed: state.setSiderCollapsed,
+    }))
   );
 
   useEffect(() => {
