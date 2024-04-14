@@ -9,6 +9,7 @@
   - Fixed prettier config with plugins
   - Updated store calls with `useShallow()`
   - Increased `authCheck` interval to 5 minutes
+  - Reworked imports for components and pages
 - **Backend**
   - Fix catch-all route in `urls.py`
 

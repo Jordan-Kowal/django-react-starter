@@ -1,7 +1,8 @@
 import React, { memo, useCallback, useState } from 'react';
 import { Col, Image, Row, Typography } from 'antd';
 import { jkdevLogoUrl } from '@/assets';
-import { LoginForm, Spin } from '@/components';
+import { LoginForm } from '@/components/forms';
+import { Spin } from '@/components/ui';
 import { useAuthStore } from '@/stores';
 import styles from './LoginPage.module.less';
 

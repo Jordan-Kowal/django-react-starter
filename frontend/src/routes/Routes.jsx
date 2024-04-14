@@ -1,7 +1,7 @@
 import React, { memo, useEffect } from 'react';
 import { useMount } from 'react-use';
 import { useShallow } from 'zustand/react/shallow';
-import { Spin } from '@/components';
+import { Spin } from '@/components/ui';
 import { useToggleLayout } from '@/hooks';
 import { useAppConfig, useAuthStore } from '@/stores';
 import RouteList from './RouteList';

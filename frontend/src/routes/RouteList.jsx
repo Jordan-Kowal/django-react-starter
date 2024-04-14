@@ -1,6 +1,6 @@
 import React, { Suspense, memo } from 'react';
 import { Navigate, Route, Routes as RouterRoutes } from 'react-router-dom';
-import { Spin } from '@/components';
+import { Spin } from '@/components/ui';
 import { RouteConfigPropShape, RoutePropShape } from '@/core/proptypes';
 import { routeConfig } from './routeConfig';
 

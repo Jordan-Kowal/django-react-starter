@@ -4,7 +4,7 @@ import 'antd/dist/reset.css';
 import frFR from 'antd/locale/fr_FR';
 import { BrowserRouter } from 'react-router-dom';
 import '@/services/dates/config';
-import { AppLayout } from './components';
+import { AppLayout } from './components/layout';
 import { Routes } from './routes';
 import { theme } from './styles';
 import './styles/antd.less';

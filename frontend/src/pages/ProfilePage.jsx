@@ -1,12 +1,7 @@
 import React, { memo, useCallback, useState } from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import {
-  IconCard,
-  PageBanner,
-  PasswordForm,
-  ProfileForm,
-  Space,
-} from '@/components';
+import { PasswordForm, ProfileForm } from '@/components/forms';
+import { IconCard, PageBanner, Space } from '@/components/ui';
 import { apiCall } from '@/services/api';
 
 const ProfilePage = () => {

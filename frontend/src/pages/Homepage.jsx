@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Col, Row, Typography } from 'antd';
-import { PageBanner, Space } from '@/components';
+import { PageBanner, Space } from '@/components/ui';
 
 const { Text } = Typography;
 
