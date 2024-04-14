@@ -7,7 +7,8 @@
   - Update `Makefile` documentation and test commands
 - **Frontend**
   - Fixed prettier config with plugins
-  - Update store calls with `useShallow()`
+  - Updated store calls with `useShallow()`
+  - Increased `authCheck` interval to 5 minutes
 - **Backend**
   - Fix catch-all route in `urls.py`
 

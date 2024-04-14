@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import { useMount } from 'react-use';
-import { useShallow } from "zustand/react/shallow";
+import { useShallow } from 'zustand/react/shallow';
 import { Spin } from '@/components';
 import { useToggleLayout } from '@/hooks';
 import { useAppConfig, useAuthStore } from '@/stores';
@@ -37,7 +37,7 @@ const Routes = () => {
   useEffect(() => {
     let interval;
     if (isAuthenticated) {
-      interval = setInterval(checkAuth, 60000);
+      interval = setInterval(checkAuth, 1000 * 60 * 5);
     }
     return () => clearInterval(interval);
   }, [checkAuth, isAuthenticated]);
