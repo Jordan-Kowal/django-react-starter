@@ -4,8 +4,7 @@ import { Form, Input } from 'antd';
 import PropTypes from 'prop-types';
 import { required } from '@/core/forms';
 import { useSafeSubmit } from '@/hooks';
-import FormCard from '../FormCard';
-import NonFieldErrors from '../NonFieldErrors';
+import { FormCard, NonFieldErrors } from './components';
 
 const labelCol = { flex: '300px' };
 

@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 import { useShallow } from 'zustand/react/shallow';
 import { useLayoutStore } from '@/stores';
 import styles from './AppLayout.module.less';
-import Footer from './Footer';
-import Header from './Header';
-import Sider from './Sider';
+import { Footer, Header, Sider } from './components';
 
 const { useBreakpoint } = Grid;
 
