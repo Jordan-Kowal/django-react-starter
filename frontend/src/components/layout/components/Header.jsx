@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import { useShallow } from 'zustand/react/shallow';
 import { IconButton, Logo } from '@/components/ui';
 import { useLayoutStore } from '@/stores';
-import HeaderNavigation from '../HeaderNavigation';
 import styles from './Header.module.less';
+import HeaderNavigation from './HeaderNavigation';
 
 const { useBreakpoint } = Grid;
 

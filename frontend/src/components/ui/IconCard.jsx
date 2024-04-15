@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 import { Card, Typography } from 'antd';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import Space from '../Space';
 import styles from './IconCard.module.less';
+import Space from './Space';
 
 const { Text } = Typography;
 
