@@ -1,15 +1,16 @@
 import React, { memo } from 'react';
 import { Image } from 'antd';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { jkdevLogoUrl } from '@/assets';
 import { useNav } from '@/hooks';
 import styles from './Logo.module.less';
 
-const Logo = ({ height }) => {
+const Logo = ({ className, height }) => {
   const { navigateToHome } = useNav();
   return (
     <Image
-      className={styles.logo}
+      className={classNames(styles.logo, className)}
       preview={false}
       src={jkdevLogoUrl}
       alt="Logo"
@@ -21,6 +22,7 @@ const Logo = ({ height }) => {
 
 Logo.propTypes = {
   height: PropTypes.number,
+  className: PropTypes.string,
 };
 
 export default memo(Logo);

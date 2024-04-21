@@ -1,6 +1,6 @@
 # Changelog
 
-## [v2.2.0] - TBD
+## [v2.1.0] - TBD
 
 - **DX**
   - Simplified `Dockerfile`
@@ -10,6 +10,9 @@
   - Updated store calls with `useShallow()`
   - Increased `authCheck` interval to 5 minutes
   - Reworked imports for components and pages
+  - Updated theme colors
+  - Update design for page banner and other small components
+  - Added some new components (`Autocomplete`, `GhostTag`, `Section`, `Switch`)
 - **Backend**
   - Fix catch-all route in `urls.py`
 

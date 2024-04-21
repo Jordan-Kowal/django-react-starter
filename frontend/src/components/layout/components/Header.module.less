@@ -4,12 +4,12 @@
   position: relative;
   height: @header-height !important;
   padding: 0 @layout-padding !important;
-  background-color: @color-bg-layout-darker !important;
+  background-color: @color-bg-base !important;
   text-align: center;
 
   .menuIcon {
     position: absolute;
-    top: 12px;
+    top: 2px;
     left: @layout-padding;
 
     &.siderVisible {
@@ -18,9 +18,14 @@
     }
   }
 
+  .logo {
+    position: relative;
+    top: -12px;
+  }
+
   .icons {
     position: absolute;
-    top: 0;
+    top: -10px;
     right: @layout-padding;
   }
 }

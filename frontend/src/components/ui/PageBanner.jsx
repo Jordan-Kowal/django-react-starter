@@ -3,28 +3,21 @@ import { Col, Row, Typography } from 'antd';
 import PropTypes from 'prop-types';
 import styles from './PageBanner.module.less';
 
-const { Text, Title } = Typography;
+const { Title } = Typography;
 
-const PageContent = ({ description, label }) => (
+const PageBanner = ({ icon, label }) => (
   <Row className={styles.pageBanner}>
-    <Col className={styles.pageBannerContent} span={24}>
-      <Row align="middle">
-        <Col xs={24} sm={12}>
-          <Title className={styles.titleText}>{label}</Title>
-        </Col>
-        <Col xs={24} sm={12}>
-          <Text className={styles.titleText} italic>
-            {description}
-          </Text>
-        </Col>
-      </Row>
+    <Col span={24}>
+      <Title level={2} className={styles.titleText}>
+        {icon && icon} {label}
+      </Title>
     </Col>
   </Row>
 );
 
-PageContent.propTypes = {
-  description: PropTypes.string.isRequired,
+PageBanner.propTypes = {
+  icon: PropTypes.node,
   label: PropTypes.string.isRequired,
 };
 
-export default memo(PageContent);
+export default memo(PageBanner);

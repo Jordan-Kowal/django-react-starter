@@ -32,7 +32,7 @@ const Header = () => {
           tooltip="Menu"
         />
       )}
-      {!lg && <Logo height={28} />}
+      {!lg && <Logo height={20} className={styles.logo} />}
       <div className={styles.icons}>
         <HeaderNavigation />
       </div>

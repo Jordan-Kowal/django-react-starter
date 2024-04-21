@@ -36,10 +36,7 @@ const ProfilePage = () => {
 
   return (
     <Space block vertical size={40}>
-      <PageBanner
-        label="Profil"
-        description="Mettez à jour vos informations personnelles"
-      />
+      <PageBanner label="Profil" icon={<UserOutlined />} />
       <Space block centered size={20}>
         <IconCard
           icon={<UserOutlined />}

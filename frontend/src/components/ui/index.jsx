@@ -1,8 +1,12 @@
+export { default as Autocomplete } from './Autocomplete';
+export { default as GhostTag } from './GhostTag';
 export { default as IconButton } from './IconButton';
 export { default as IconCard } from './IconCard';
 export { default as Logo } from './Logo';
 export { default as MasonryLayout } from './MasonryLayout';
 export { default as PageBanner } from './PageBanner';
 export { default as Ribbon } from './Ribbon';
+export { default as Section } from './Section';
 export { default as Space } from './Space';
 export { default as Spin } from './Spin';
+export { default as Switch } from './Switch';
