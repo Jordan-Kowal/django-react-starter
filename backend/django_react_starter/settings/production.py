@@ -12,7 +12,7 @@ import dj_database_url
 from .base import *  # noqa
 from .base import APP_VERSION, ENVIRONMENT, LOGGING  # noqa
 
-FLY_VOLUME_DIR = os.getenv("FLY_VOLUME_DIR")
+FLY_VOLUME_DIR = os.getenv("FLY_VOLUME_DIR", None)
 
 
 # --------------------------------------------------------------------------------
@@ -35,7 +35,8 @@ SECURE_SSL_REDIRECT = False  # Handled by fly.io and necessary for healthchecks
 # --------------------------------------------------------------------------------
 # > Media
 # --------------------------------------------------------------------------------
-MEDIA_ROOT = os.path.join(FLY_VOLUME_DIR, "media-files")
+if FLY_VOLUME_DIR is not None:
+    MEDIA_ROOT = os.path.join(FLY_VOLUME_DIR, "media-files")
 
 
 # --------------------------------------------------------------------------------
@@ -65,9 +66,10 @@ DATABASES = {
 # --------------------------------------------------------------------------------
 # > Logging
 # --------------------------------------------------------------------------------
-LOGGING["handlers"]["console.log"]["filename"] = os.path.join(  # type: ignore
-    FLY_VOLUME_DIR, "console.log"
-)
+if FLY_VOLUME_DIR is not None:
+    LOGGING["handlers"]["console.log"]["filename"] = os.path.join(  # type: ignore
+        FLY_VOLUME_DIR, "console.log"
+    )
 
 
 # --------------------------------------------------------------------------------

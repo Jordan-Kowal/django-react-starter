@@ -33,7 +33,7 @@ WORKDIR /home/app
 
 # Copy backend and frontend, then set frontend within backend
 COPY ./backend ./backend
-COPY --chown=app:app --from=app-react-image /front/dist /home/app/backend/frontend
+COPY --chown=app:app --from=app-react-image /front/dist /home/app/backend/frontend/dist
 
 # Change ownership
 RUN chown -R app:app /home/app

@@ -14,7 +14,10 @@
   - Update design for page banner and other small components
   - Added some new components (`Autocomplete`, `GhostTag`, `Section`, `Switch`)
 - **Backend**
-  - Fix catch-all route in `urls.py`
+  - Fixed catch-all route in `urls.py`
+  - Fixed Dockerfile not copying correctly the frontend build
+  - Conditional handling of the `FLY_VOLUME` in settings
+  - Removed the `wait_for_db.py` script
 
 ## [v2.0.1] - 2024-02-23
 

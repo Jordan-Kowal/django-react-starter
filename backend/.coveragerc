@@ -13,8 +13,6 @@ omit =
     */migrations/*
     */tests/*
     */admin.py
-    # Others
-    wait_for_db.py
 
 [report]
 exclude_lines =
