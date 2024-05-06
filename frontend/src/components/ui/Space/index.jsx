@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Space as AntdSpace } from 'antd';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './Space.module.less';
+import styles from './styles.module.less';
 
 /** Extend the <Space/> component from Ant Design with the 'block' property */
 const Space = ({

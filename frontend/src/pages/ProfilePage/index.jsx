@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useState } from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { PasswordForm, ProfileForm } from '@/components/forms';
+import { PasswordForm, ProfileForm } from '@/components/features/User';
 import { IconCard, PageBanner, Space } from '@/components/ui';
 import { apiCall } from '@/services/api';
 

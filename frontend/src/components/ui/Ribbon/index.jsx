@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Badge } from 'antd';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './Ribbon.module.less';
+import styles from './styles.module.less';
 
 const Ribbon = ({ children, color, placement = 'end', show, text }) => {
   const safeShow = text && show;

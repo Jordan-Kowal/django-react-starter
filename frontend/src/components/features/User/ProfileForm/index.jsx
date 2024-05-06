@@ -2,10 +2,11 @@ import React, { memo } from 'react';
 import { GlobalOutlined, UserOutlined } from '@ant-design/icons';
 import { Form, Input } from 'antd';
 import PropTypes from 'prop-types';
+import { NonFieldErrors } from '@/components/forms';
 import { required } from '@/core/forms';
 import { useSafeSubmit } from '@/hooks';
 import { useAuthStore } from '@/stores';
-import { FormCard, NonFieldErrors } from './components';
+import FormCard from '../FormCard';
 
 const labelCol = { flex: '150px' };
 

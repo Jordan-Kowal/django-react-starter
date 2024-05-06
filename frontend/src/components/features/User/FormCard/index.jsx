@@ -3,7 +3,7 @@ import { CheckOutlined } from '@ant-design/icons';
 import { Button, Card } from 'antd';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './FormCard.module.less';
+import styles from './styles.module.less';
 
 const FormCard = ({ children, className, isLoading, title, submitText }) => (
   <Card

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { jkdevLogoUrl } from '@/assets';
 import { useNav } from '@/hooks';
-import styles from './Logo.module.less';
+import styles from './styles.module.less';
 
 const Logo = ({ className, height }) => {
   const { navigateToHome } = useNav();

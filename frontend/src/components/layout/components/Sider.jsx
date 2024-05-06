@@ -1,7 +1,12 @@
 import React, { memo } from 'react';
-import { HomeOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import {
+  LogoutOutlined,
+  ProductOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { Logo } from '@/components/ui';
+import { SortedProjectValues } from '@/core/enums';
 import { useCurrentRoute, useNav } from '@/hooks';
 import { useAuthStore, useLayoutStore } from '@/stores';
 import styles from './Sider.module.less';
@@ -10,16 +15,23 @@ const Sider = () => {
   const logout = useAuthStore((state) => state.logout);
   const siderCollapsed = useLayoutStore((state) => state.siderCollapsed);
 
-  const { navigateToHome, navigateToProfile } = useNav();
+  const { navigateToHome, navigateToProfile, navigateToProject } = useNav();
   const currentRoute = useCurrentRoute();
 
   const menuItems = [
     {
-      label: 'Accueil',
+      label: 'Hub',
       key: 'home',
-      icon: <HomeOutlined />,
+      icon: <ProductOutlined />,
       onClick: navigateToHome,
     },
+    ...SortedProjectValues.map((project) => ({
+      label: project.label,
+      key: project.routeKey,
+      icon: project.icon,
+      onClick: () => navigateToProject(project.routeKey),
+      disabled: !project.isAvailable,
+    })),
     {
       label: 'Profil',
       key: 'profile',

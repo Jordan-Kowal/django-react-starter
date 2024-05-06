@@ -3,7 +3,7 @@ import React, { memo, useEffect, useState } from 'react';
 import { Grid } from 'antd';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './MasonryLayout.module.less';
+import styles from './styles.module.less';
 
 const { useBreakpoint } = Grid;
 

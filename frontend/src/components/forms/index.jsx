@@ -1,3 +1,4 @@
-export { default as LoginForm } from './LoginForm';
-export { default as PasswordForm } from './PasswordForm';
-export { default as ProfileForm } from './ProfileForm';
+export { default as Autocomplete } from './Autocomplete';
+export { default as InputNumber } from './InputNumber';
+export { default as NonFieldErrors } from './NonFieldErrors';
+export { default as Switch } from './Switch';

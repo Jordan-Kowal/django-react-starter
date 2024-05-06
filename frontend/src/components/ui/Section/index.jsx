@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Space } from '@/components/ui';
-import styles from './Section.module.less';
+import styles from './styles.module.less';
 
 const Section = ({ children }) => (
   <Space block className={styles.section} size={20} vertical>
