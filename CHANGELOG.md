@@ -13,6 +13,7 @@
   - Updated theme colors
   - Update design for page banner and other small components
   - Added some new components (`Autocomplete`, `GhostTag`, `Section`, `Switch`, `InputNumber`)
+  - Added `millionjs` for better performance
 - **Backend**
   - Fixed catch-all route in `urls.py`
   - Fixed Dockerfile not copying correctly the frontend build
