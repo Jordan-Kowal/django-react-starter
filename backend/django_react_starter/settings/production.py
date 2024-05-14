@@ -9,9 +9,9 @@ from sentry_sdk.integrations.django import DjangoIntegration
 import dj_database_url
 
 # Local
+from ..sentry import traces_sampler
 from .base import *  # noqa
 from .base import APP_VERSION, ENVIRONMENT, LOGGING  # noqa
-from ..sentry import traces_sampler
 
 FLY_VOLUME_DIR = os.getenv("FLY_VOLUME_DIR", None)
 
