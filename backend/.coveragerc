@@ -6,6 +6,7 @@ omit =
     django_react_starter/settings/production.py
     django_react_starter/asgi.py
     django_react_starter/wsgi.py
+    django_react_starter/sentry.py
     # [Django] Scheduler
     scheduler/management/**
     # [Django] Common files
