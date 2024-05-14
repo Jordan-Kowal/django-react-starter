@@ -4,6 +4,7 @@ from unittest.mock import Mock, patch
 # Django
 from django.conf import settings
 from django.http import HttpResponse
+from django.test import override_settings
 from rest_framework.reverse import reverse
 
 # Local
@@ -28,6 +29,7 @@ class CoreViewsTestCase(BaseActionTestCase):
 
 
 class AppViewSetTestCase(BaseActionTestCase):
+    @override_settings(APP_VERSION="v0.0.0")
     def test_config_success(self) -> None:
         url = reverse("app-config")
         response = self.api_client.get(url)
@@ -35,3 +37,4 @@ class AppViewSetTestCase(BaseActionTestCase):
         self.assertEqual(response.data["debug"], False)
         self.assertEqual(response.data["media_url"], settings.MEDIA_URL)
         self.assertEqual(response.data["static_url"], settings.STATIC_URL)
+        self.assertEqual(response.data["app_version"], "v0.0.0")

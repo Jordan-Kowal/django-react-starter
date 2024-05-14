@@ -3,6 +3,7 @@ from .base import *  # noqa type: ignore
 
 DEBUG = True
 ENVIRONMENT = "development"
+APP_VERSION = "v0.0.0"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",

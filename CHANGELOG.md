@@ -7,6 +7,8 @@
   - Update `Makefile` documentation and test commands
 - **Frontend**
   - Fixed prettier config with plugins
+  - Correctly fetches app config after login
+  - Displays app version in the footer
   - Updated store calls with `useShallow()`
   - Increased `authCheck` interval to 5 minutes
   - Reworked imports for components and pages

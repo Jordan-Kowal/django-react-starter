@@ -24,7 +24,7 @@ const Routes = () => {
 
   const { isAppConfigLoaded, fetchAppConfig } = useAppConfig(
     useShallow((state) => ({
-      isAppConfigLoaded: state.isAppConfigLoaded,
+      isAppConfigLoaded: state.isAppConfigLoaded(),
       fetchAppConfig: state.fetchAppConfig,
     }))
   );
