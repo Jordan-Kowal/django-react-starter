@@ -11,6 +11,7 @@ import dj_database_url
 # Local
 from .base import *  # noqa
 from .base import APP_VERSION, ENVIRONMENT, LOGGING  # noqa
+from ..sentry import traces_sampler
 
 FLY_VOLUME_DIR = os.getenv("FLY_VOLUME_DIR", None)
 
@@ -95,8 +96,8 @@ if SENTRY_DSN:
         environment=ENVIRONMENT,
         integrations=[DjangoIntegration()],
         send_default_pii=False,  # GDPR
-        traces_sample_rate=0.3,
-        profiles_sample_rate=0.3,
+        traces_sampler=traces_sampler,
+        profiles_sample_rate=0.2,
         release=f"rainly-api@{APP_VERSION}",
     )
     SENTRY_INITIALIZED = True

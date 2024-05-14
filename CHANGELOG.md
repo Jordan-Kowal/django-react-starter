@@ -19,6 +19,7 @@
   - Fixed Dockerfile not copying correctly the frontend build
   - Conditional handling of the `FLY_VOLUME` in settings
   - Removed the `wait_for_db.py` script
+  - Updated sentry tracing to only trace the `api` app
 
 ## [v2.0.1] - 2024-02-23
 
