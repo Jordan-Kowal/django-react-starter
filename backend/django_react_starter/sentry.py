@@ -3,7 +3,7 @@ from typing import Any, Dict
 
 
 def traces_sampler(sampling_context: Dict[str, Any]) -> float:
-    path_info = sampling_context.get("wsgi_environ", {}).get("PATH_INFO")
+    path_info = sampling_context.get("wsgi_environ", {}).get("PATH_INFO") or ""
     # Ignore anything not related to the API
     if not path_info.startswith("/api/v1/"):
         return 0.0
