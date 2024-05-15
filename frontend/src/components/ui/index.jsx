@@ -6,5 +6,6 @@ export { default as MasonryLayout } from './MasonryLayout';
 export { default as PageBanner } from './PageBanner';
 export { default as Ribbon } from './Ribbon';
 export { default as Section } from './Section';
+export { default as SingleCollapse } from './SingleCollapse';
 export { default as Space } from './Space';
 export { default as Spin } from './Spin';

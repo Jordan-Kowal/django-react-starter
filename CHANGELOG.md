@@ -14,7 +14,7 @@
   - Reworked imports for components and pages
   - Updated theme colors
   - Update design for page banner and other small components
-  - Added some new components (`Autocomplete`, `GhostTag`, `Section`, `Switch`, `InputNumber`)
+  - Added some new components (`Autocomplete`, `GhostTag`, `Section`, `Switch`, `InputNumber`, `SingleCollapse`)
   - Added `millionjs` for better performance
 - **Backend**
   - Fixed catch-all route in `urls.py`
