@@ -2,7 +2,6 @@ import React, { memo, useCallback, useMemo, useState } from 'react';
 import { Select, Typography } from 'antd';
 import PropTypes from 'prop-types';
 import { useDebounce } from 'react-use';
-import styles from './styles.module.less';
 
 const { Text } = Typography;
 
@@ -102,7 +101,6 @@ const Autocomplete = ({
 
   return (
     <Select
-      className={styles.autocomplete}
       onChange={onUpdateValue}
       value={value}
       mode={mode}
