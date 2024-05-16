@@ -21,10 +21,10 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
-COPY ./backend/requirements.txt ./backend/requirements-dev.txt /tmp/
+COPY ./backend/requirements.txt /tmp/
 RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r /tmp/requirements.txt -r /tmp/requirements-dev.txt \
-    && rm -rf /tmp/requirments.txt /tmp/requirments-dev.txt
+    && pip install --no-cache-dir -r /tmp/requirements.txt \
+    && rm -rf /tmp/requirments.txt
 
 # Create dir and user
 RUN mkdir -p /home/app/backend && mkdir -p /home/app/logs
