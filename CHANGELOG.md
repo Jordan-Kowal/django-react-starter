@@ -5,6 +5,7 @@
 - **DX**
   - Simplified `Dockerfile`
   - Update `Makefile` documentation and test commands
+  - Split `Dockerfile` into 2 separate files
 - **Frontend**
   - Fixed prettier config with plugins
   - Correctly fetches app config after login
@@ -14,7 +15,7 @@
   - Reworked imports for components and pages
   - Updated theme colors
   - Update design for page banner and other small components
-  - Added some new components (`Autocomplete`, `GhostTag`, `Section`, `Switch`, `InputNumber`, `SingleCollapse`)
+  - Added some new components (`GhostTag`, `Section`, `Switch`, `InputNumber`, `SingleCollapse`)
   - Added `millionjs` for better performance
 - **Backend**
   - Fixed catch-all route in `urls.py`

@@ -6,7 +6,7 @@ services:
     container_name: django_react_starter_api
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./docker/dev/Dockerfile
     env_file:
       - ./backend/.env
     depends_on:
