@@ -1,9 +1,8 @@
-/* eslint-disable consistent-return */
-import React, { memo, useEffect, useState } from 'react';
-import { Grid } from 'antd';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import styles from './styles.module.less';
+import { Grid } from "antd";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import React, { memo, useEffect, useState } from "react";
+import styles from "./styles.module.less";
 
 const { useBreakpoint } = Grid;
 
@@ -20,7 +19,7 @@ const MasonryLayout = ({
   xxl,
 }) => {
   const [cols, setCols] = useState(
-    [span, xxl, xl, lg, md, sm, xs].find((v) => v)
+    [span, xxl, xl, lg, md, sm, xs].find((v) => v),
   );
   const screens = useBreakpoint();
 
@@ -44,7 +43,7 @@ const MasonryLayout = ({
       }}
     >
       {children.map((child, index) => (
-        // eslint-disable-next-line react/no-array-index-key
+        // biome-ignore lint/suspicious/noArrayIndexKey: no choice
         <li key={index} className={styles.item} style={{ marginBottom: gap }}>
           {child}
         </li>

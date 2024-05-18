@@ -1,10 +1,10 @@
-import React, { memo, useMemo } from 'react';
-import { Collapse } from 'antd';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import styles from './styles.module.less';
+import { Collapse } from "antd";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import React, { memo, useMemo } from "react";
+import styles from "./styles.module.less";
 
-const KEY = '1';
+const KEY = "1";
 
 const SingleCollapse = ({
   activeByDefault,
@@ -17,7 +17,7 @@ const SingleCollapse = ({
 }) => {
   const defaultActiveKey = useMemo(
     () => (activeByDefault ? [KEY] : []),
-    [activeByDefault]
+    [activeByDefault],
   );
 
   const items = useMemo(
@@ -28,7 +28,7 @@ const SingleCollapse = ({
         children,
       },
     ],
-    [label, children]
+    [label, children],
   );
 
   return (
@@ -51,7 +51,7 @@ SingleCollapse.propTypes = {
   ghost: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   noPadding: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'middle', 'large']),
+  size: PropTypes.oneOf(["small", "middle", "large"]),
 };
 
 export default memo(SingleCollapse);

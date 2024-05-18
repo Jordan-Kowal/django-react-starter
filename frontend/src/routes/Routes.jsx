@@ -1,15 +1,15 @@
-import React, { memo, useEffect } from 'react';
-import { useMount } from 'react-use';
-import { useShallow } from 'zustand/react/shallow';
-import { Spin } from '@/components/ui';
-import { useToggleLayout } from '@/hooks';
-import { useAppConfig, useAuthStore } from '@/stores';
-import RouteList from './RouteList';
+import { Spin } from "@/components/ui";
+import { useToggleLayout } from "@/hooks";
+import { useAppConfig, useAuthStore } from "@/stores";
+import React, { memo, useEffect } from "react";
+import { useMount } from "react-use";
+import { useShallow } from "zustand/react/shallow";
+import RouteList from "./RouteList";
 import {
   authenticatedRoutes,
   nonAuthenticatedRoutes,
   routeConfig,
-} from './routeConfig';
+} from "./routeConfig";
 
 const Routes = () => {
   const { checkAuth, fetchUser, isAuthenticated, hasFetchedUserOnce } =
@@ -19,14 +19,14 @@ const Routes = () => {
         fetchUser: state.fetchUser,
         isAuthenticated: state.isAuthenticated(),
         hasFetchedUserOnce: state.hasFetchedUserOnce,
-      }))
+      })),
     );
 
   const { isAppConfigLoaded, fetchAppConfig } = useAppConfig(
     useShallow((state) => ({
       isAppConfigLoaded: state.isAppConfigLoaded(),
       fetchAppConfig: state.fetchAppConfig,
-    }))
+    })),
   );
 
   useToggleLayout();

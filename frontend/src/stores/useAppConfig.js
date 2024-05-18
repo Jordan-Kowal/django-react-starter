@@ -1,6 +1,6 @@
-import { isMissingOrEmptyObject } from 'jkscript';
-import { create } from 'zustand';
-import { apiCall } from '@/services/api';
+import { apiCall } from "@/services/api";
+import { isMissingOrEmptyObject } from "jkscript";
+import { create } from "zustand";
 
 const useAppConfig = create((set, get) => ({
   // ========== State ==========
@@ -13,7 +13,7 @@ const useAppConfig = create((set, get) => ({
   fetchAppConfig: async () => {
     let config = null;
     try {
-      config = await apiCall('app', 'getConfig');
+      config = await apiCall("app", "getConfig");
     } finally {
       set({ appConfig: config });
     }

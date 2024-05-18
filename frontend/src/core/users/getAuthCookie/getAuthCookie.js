@@ -1,5 +1,5 @@
-import { getCookie } from 'jkscript';
-import csrfTokenCookieName from '@/core/constants';
+import csrfTokenCookieName from "@/core/constants";
+import { getCookie } from "jkscript";
 
 const getAuthCookie = () => getCookie(csrfTokenCookieName);
 

@@ -1,10 +1,10 @@
-import React, { memo } from 'react';
-import { Image } from 'antd';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { jkdevLogoUrl } from '@/assets';
-import { useNav } from '@/hooks';
-import styles from './styles.module.less';
+import { jkdevLogoUrl } from "@/assets";
+import { useNav } from "@/hooks";
+import { Image } from "antd";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import React, { memo } from "react";
+import styles from "./styles.module.less";
 
 const Logo = ({ className, height }) => {
   const { navigateToHome } = useNav();

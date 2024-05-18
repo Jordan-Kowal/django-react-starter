@@ -1,13 +1,13 @@
-import React, { memo } from 'react';
-import { GlobalOutlined, LockOutlined } from '@ant-design/icons';
-import { Form, Input } from 'antd';
-import PropTypes from 'prop-types';
-import { NonFieldErrors } from '@/components/forms';
-import { required } from '@/core/forms';
-import { useSafeSubmit } from '@/hooks';
-import FormCard from '../FormCard';
+import { NonFieldErrors } from "@/components/forms";
+import { required } from "@/core/forms";
+import { useSafeSubmit } from "@/hooks";
+import { GlobalOutlined, LockOutlined } from "@ant-design/icons";
+import { Form, Input } from "antd";
+import PropTypes from "prop-types";
+import React, { memo } from "react";
+import FormCard from "../FormCard";
 
-const labelCol = { flex: '150px' };
+const labelCol = { flex: "150px" };
 
 const LoginForm = ({ onFinish }) => {
   const [form] = Form.useForm();

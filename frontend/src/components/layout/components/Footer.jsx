@@ -1,10 +1,10 @@
-import React, { memo } from 'react';
-import { Image, Layout, Typography } from 'antd';
-import { jkdevLogoUrl } from '@/assets';
-import { Space } from '@/components/ui';
-import { now } from '@/services/dates';
-import { useAppConfig } from '@/stores';
-import styles from './Footer.module.less';
+import { jkdevLogoUrl } from "@/assets";
+import { Space } from "@/components/ui";
+import { now } from "@/services/dates";
+import { useAppConfig } from "@/stores";
+import { Image, Layout, Typography } from "antd";
+import React, { memo } from "react";
+import styles from "./Footer.module.less";
 
 const { Text } = Typography;
 

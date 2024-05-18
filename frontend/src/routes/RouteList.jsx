@@ -1,8 +1,8 @@
-import React, { Suspense, memo } from 'react';
-import { Navigate, Route, Routes as RouterRoutes } from 'react-router-dom';
-import { Spin } from '@/components/ui';
-import { RouteConfigPropShape, RoutePropShape } from '@/core/proptypes';
-import { routeConfig } from './routeConfig';
+import { Spin } from "@/components/ui";
+import { RouteConfigPropShape, RoutePropShape } from "@/core/proptypes";
+import React, { Suspense, memo } from "react";
+import { Navigate, Route, Routes as RouterRoutes } from "react-router-dom";
+import { routeConfig } from "./routeConfig";
 
 const RouteList = ({ config, defaultRoute }) => (
   <RouterRoutes>

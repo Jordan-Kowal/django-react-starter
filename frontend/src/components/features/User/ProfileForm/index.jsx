@@ -1,14 +1,14 @@
-import React, { memo } from 'react';
-import { GlobalOutlined, UserOutlined } from '@ant-design/icons';
-import { Form, Input } from 'antd';
-import PropTypes from 'prop-types';
-import { NonFieldErrors } from '@/components/forms';
-import { required } from '@/core/forms';
-import { useSafeSubmit } from '@/hooks';
-import { useAuthStore } from '@/stores';
-import FormCard from '../FormCard';
+import { NonFieldErrors } from "@/components/forms";
+import { required } from "@/core/forms";
+import { useSafeSubmit } from "@/hooks";
+import { useAuthStore } from "@/stores";
+import { GlobalOutlined, UserOutlined } from "@ant-design/icons";
+import { Form, Input } from "antd";
+import PropTypes from "prop-types";
+import React, { memo } from "react";
+import FormCard from "../FormCard";
 
-const labelCol = { flex: '150px' };
+const labelCol = { flex: "150px" };
 
 const ProfileForm = ({ onFinish }) => {
   const user = useAuthStore((state) => state.user);
@@ -37,8 +37,8 @@ const ProfileForm = ({ onFinish }) => {
           rules={[
             {
               required: true,
-              type: 'email',
-              message: 'Veuillez saisir une adresse email valide',
+              type: "email",
+              message: "Veuillez saisir une adresse email valide",
             },
           ]}
         >

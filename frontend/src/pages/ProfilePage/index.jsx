@@ -1,8 +1,8 @@
-import React, { memo, useCallback, useState } from 'react';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { PasswordForm, ProfileForm } from '@/components/features/User';
-import { IconCard, PageBanner, Space } from '@/components/ui';
-import { apiCall } from '@/services/api';
+import { PasswordForm, ProfileForm } from "@/components/features/User";
+import { IconCard, PageBanner, Space } from "@/components/ui";
+import { apiCall } from "@/services/api";
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import React, { memo, useCallback, useState } from "react";
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -10,25 +10,25 @@ const ProfilePage = () => {
   const onProfileUpdate = useCallback(
     async (values) =>
       apiCall(
-        'currentUser',
-        'updateCurrentUser',
+        "currentUser",
+        "updateCurrentUser",
         values,
-        'Votre profil a été mis à jour',
-        'Une erreur est survenue lors de la mise à jour de votre profil'
+        "Votre profil a été mis à jour",
+        "Une erreur est survenue lors de la mise à jour de votre profil",
       ),
-    []
+    [],
   );
 
   const onPasswordUpdate = useCallback(
     async (values) =>
       apiCall(
-        'currentUser',
-        'updatePassword',
+        "currentUser",
+        "updatePassword",
         values,
-        'Votre mot de passe a été mis à jour',
-        'Une erreur est survenue lors de la mise à jour de votre mot de passe'
+        "Votre mot de passe a été mis à jour",
+        "Une erreur est survenue lors de la mise à jour de votre mot de passe",
       ),
-    []
+    [],
   );
 
   const showProfileForm = useCallback(() => setActiveTab(1), []);

@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
-import { apiResponseToFormErrors } from '@/core/forms';
+import { apiResponseToFormErrors } from "@/core/forms";
+import { useCallback, useState } from "react";
 
 const useSafeSubmit = (onFinish, form) => {
   const [inProgress, setInProgress] = useState(false);
@@ -11,7 +11,7 @@ const useSafeSubmit = (onFinish, form) => {
         form.setFields(formErrors);
       });
     },
-    [onFinish, form]
+    [onFinish, form],
   );
 
   const onFormFinish = useCallback(
@@ -23,7 +23,7 @@ const useSafeSubmit = (onFinish, form) => {
         setInProgress(false);
       }
     },
-    [submit]
+    [submit],
   );
 
   return [inProgress, onFormFinish];

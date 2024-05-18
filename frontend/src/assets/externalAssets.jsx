@@ -1,2 +1,2 @@
 export const jkdevLogoUrl =
-  'https://jordan-kowal.github.io/assets/jkdev/logo.png';
+  "https://jordan-kowal.github.io/assets/jkdev/logo.png";

@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
-import { Switch as AntSwitch, Typography } from 'antd';
-import PropTypes from 'prop-types';
-import Space from '@/components/ui/Space';
+import Space from "@/components/ui/Space";
+import { Switch as AntSwitch, Typography } from "antd";
+import PropTypes from "prop-types";
+import React, { memo } from "react";
 
 const { Text } = Typography;
 

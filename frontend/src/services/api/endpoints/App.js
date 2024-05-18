@@ -1,5 +1,5 @@
-import { keysToCamel } from 'jkscript';
-import Endpoint from '../Endpoint';
+import { keysToCamel } from "jkscript";
+import Endpoint from "../Endpoint";
 
 class App extends Endpoint {
   constructor() {
@@ -9,7 +9,7 @@ class App extends Endpoint {
 
   getConfig = async () => {
     const response = await this.fetch(`${this.mainRoute}/config/`, {
-      method: 'get',
+      method: "get",
     });
     return keysToCamel(response);
   };

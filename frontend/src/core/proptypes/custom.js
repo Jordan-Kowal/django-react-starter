@@ -1,5 +1,5 @@
-import { Dayjs } from 'dayjs';
-import PropTypes from 'prop-types';
+import { Dayjs } from "dayjs";
+import PropTypes from "prop-types";
 
 export const DayjsPropType = PropTypes.instanceOf(Dayjs);
 

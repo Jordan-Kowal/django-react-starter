@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
-import { Col, Row, Typography } from 'antd';
-import PropTypes from 'prop-types';
-import styles from './styles.module.less';
+import { Col, Row, Typography } from "antd";
+import PropTypes from "prop-types";
+import React, { memo } from "react";
+import styles from "./styles.module.less";
 
 const { Title } = Typography;
 

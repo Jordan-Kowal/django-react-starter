@@ -1,11 +1,11 @@
-import React, { memo, useEffect } from 'react';
-import { Grid, Layout } from 'antd';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { useShallow } from 'zustand/react/shallow';
-import { useLayoutStore } from '@/stores';
-import styles from './AppLayout.module.less';
-import { Footer, Header, Sider } from './components';
+import { useLayoutStore } from "@/stores";
+import { Grid, Layout } from "antd";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import React, { memo, useEffect } from "react";
+import { useShallow } from "zustand/react/shallow";
+import styles from "./AppLayout.module.less";
+import { Footer, Header, Sider } from "./components";
 
 const { useBreakpoint } = Grid;
 
@@ -15,7 +15,7 @@ const AppLayout = ({ children }) => {
     useShallow((state) => ({
       showLayout: state.showLayout,
       setSiderCollapsed: state.setSiderCollapsed,
-    }))
+    })),
   );
 
   useEffect(() => {

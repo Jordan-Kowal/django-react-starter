@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
-import { Space as AntdSpace } from 'antd';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import styles from './styles.module.less';
+import { Space as AntdSpace } from "antd";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import React, { memo } from "react";
+import styles from "./styles.module.less";
 
 /** Extend the <Space/> component from Ant Design with the 'block' property */
 const Space = ({
@@ -22,7 +22,7 @@ const Space = ({
       [styles.fullWidth]: block,
       [styles.centered]: centered,
     })}
-    direction={vertical ? 'vertical' : 'horizontal'}
+    direction={vertical ? "vertical" : "horizontal"}
     size={size}
     split={split}
     wrap={wrap}
@@ -31,7 +31,7 @@ const Space = ({
 );
 
 Space.propTypes = {
-  align: PropTypes.oneOf(['start', 'end', 'center', 'baseline']),
+  align: PropTypes.oneOf(["start", "end", "center", "baseline"]),
   block: PropTypes.bool,
   centered: PropTypes.bool,
   className: PropTypes.string,

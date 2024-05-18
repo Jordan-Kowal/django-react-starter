@@ -1,15 +1,15 @@
-import React, { memo } from 'react';
+import { Logo } from "@/components/ui";
+import { SortedProjectValues } from "@/core/enums";
+import { useCurrentRoute, useNav } from "@/hooks";
+import { useAuthStore, useLayoutStore } from "@/stores";
 import {
   LogoutOutlined,
   ProductOutlined,
   UserOutlined,
-} from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-import { Logo } from '@/components/ui';
-import { SortedProjectValues } from '@/core/enums';
-import { useCurrentRoute, useNav } from '@/hooks';
-import { useAuthStore, useLayoutStore } from '@/stores';
-import styles from './Sider.module.less';
+} from "@ant-design/icons";
+import { Layout, Menu } from "antd";
+import React, { memo } from "react";
+import styles from "./Sider.module.less";
 
 const Sider = () => {
   const logout = useAuthStore((state) => state.logout);
@@ -20,8 +20,8 @@ const Sider = () => {
 
   const menuItems = [
     {
-      label: 'Hub',
-      key: 'home',
+      label: "Hub",
+      key: "home",
       icon: <ProductOutlined />,
       onClick: navigateToHome,
     },
@@ -33,14 +33,14 @@ const Sider = () => {
       disabled: !project.isAvailable,
     })),
     {
-      label: 'Profil',
-      key: 'profile',
+      label: "Profil",
+      key: "profile",
       icon: <UserOutlined />,
       onClick: navigateToProfile,
     },
     {
-      label: 'Logout',
-      key: 'logout',
+      label: "Logout",
+      key: "logout",
       icon: <LogoutOutlined />,
       onClick: logout,
     },

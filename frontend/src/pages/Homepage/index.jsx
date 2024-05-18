@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
-import { HomeOutlined } from '@ant-design/icons';
-import { Col, Row, Typography } from 'antd';
-import { PageBanner, Space } from '@/components/ui';
+import { PageBanner, Space } from "@/components/ui";
+import { HomeOutlined } from "@ant-design/icons";
+import { Col, Row, Typography } from "antd";
+import React, { memo } from "react";
 
 const { Text } = Typography;
 

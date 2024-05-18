@@ -1,1 +1,1 @@
-export { jkdevLogoUrl } from './externalAssets';
+export { jkdevLogoUrl } from "./externalAssets";

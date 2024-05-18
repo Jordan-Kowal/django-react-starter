@@ -1,22 +1,21 @@
-import { getAuthCookie } from '@/core/users';
-import Serializer from './Serializer';
+import { getAuthCookie } from "@/core/users";
+import Serializer from "./Serializer";
 
 class Endpoint {
   constructor() {
-    this.root = `/api/v1`;
+    this.root = "/api/v1";
     this.serializer = new Serializer();
   }
 
-  // eslint-disable-next-line class-methods-use-this
   fetch = async (url, { data, formData, method }) => {
     const request = {
-      method: (method && method.toUpperCase()) || 'GET',
+      method: method?.toUpperCase() || "GET",
       headers: {
-        'X-CSRFToken': getAuthCookie(),
+        "X-CSRFToken": getAuthCookie(),
         Accept:
-          'application/json, text/plain, multipart/form-data, application/xhtml+xml, application/xml;q=0.9, image/avif, image/webp, */*;q=0.8',
+          "application/json, text/plain, multipart/form-data, application/xhtml+xml, application/xml;q=0.9, image/avif, image/webp, */*;q=0.8",
       },
-      redirect: 'follow',
+      redirect: "follow",
       body: formData || (data && JSON.stringify(data)) || undefined,
     };
 
@@ -26,15 +25,15 @@ class Endpoint {
     if (data) {
       request.headers = {
         ...request.headers,
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       };
     }
 
     const response = await fetch(url, request);
 
-    if (response && response.ok) {
+    if (response?.ok) {
       const isJson =
-        response.headers.get('content-type') === 'application/json';
+        response.headers.get("content-type") === "application/json";
       return isJson ? response.json() : Promise.resolve({});
     }
 

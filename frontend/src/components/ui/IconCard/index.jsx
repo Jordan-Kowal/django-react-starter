@@ -1,9 +1,9 @@
-import React, { memo } from 'react';
-import { Card, Typography } from 'antd';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import Space from '../Space';
-import styles from './styles.module.less';
+import { Card, Typography } from "antd";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import React, { memo } from "react";
+import Space from "../Space";
+import styles from "./styles.module.less";
 
 const { Text } = Typography;
 

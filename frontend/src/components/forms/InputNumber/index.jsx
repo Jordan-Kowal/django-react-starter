@@ -1,13 +1,13 @@
-import React, { memo, useCallback } from 'react';
-import { InputNumber as AntInputNumber } from 'antd';
+import { InputNumber as AntInputNumber } from "antd";
+import React, { memo, useCallback } from "react";
 
 const InputNumber = (props) => {
   const parser = useCallback((valueString) => {
     let newValue = valueString;
     if (newValue) {
-      newValue = newValue.replace(',', '.');
+      newValue = newValue.replace(",", ".");
     }
-    return parseFloat(newValue);
+    return Number.parseFloat(newValue);
   }, []);
 
   return <AntInputNumber {...props} parser={parser} />;

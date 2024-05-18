@@ -1,4 +1,4 @@
-import { isObject, toCamelCase } from 'jkscript';
+import { isObject, toCamelCase } from "jkscript";
 
 const apiResponseToFormErrors = (errors = {}) => {
   if (!errors) return [];
@@ -7,23 +7,23 @@ const apiResponseToFormErrors = (errors = {}) => {
   const recursivelyBuildFormErrors = (currentPath, value) => {
     const path = [...currentPath];
     // If string, errors are just this string
-    if (typeof value == 'string') {
+    if (typeof value === "string") {
       formErrors.push({ name: path, errors: [value] });
       return;
     }
     // If object, we update the path and recurse on its keys
     if (isObject(value)) {
-      Object.keys(value).forEach((subKey) => {
+      for (const subKey in Object.keys(value)) {
         path.push(toCamelCase(subKey));
         recursivelyBuildFormErrors(path, value[subKey]);
-      });
+      }
       return;
     }
     // If array:
     //    If it's a list of strings, then it's a list of errors
     //    Otherwise, we update the path and recurse on its items
     if (Array.isArray(value)) {
-      const isListOfStrings = value.every((x) => typeof x === 'string');
+      const isListOfStrings = value.every((x) => typeof x === "string");
       if (isListOfStrings) {
         formErrors.push({ name: path, errors: value });
       } else {
@@ -34,10 +34,9 @@ const apiResponseToFormErrors = (errors = {}) => {
       }
     }
   };
-
-  Object.keys(errors).forEach((key) => {
+  for (const key in Object.keys(errors)) {
     recursivelyBuildFormErrors([toCamelCase(key)], errors[key]);
-  });
+  }
   return formErrors;
 };
 

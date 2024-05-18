@@ -1,13 +1,13 @@
-import { lazy } from 'react';
+import { lazy } from "react";
 
 const publicRoutes = {};
 
 export const nonAuthenticatedRoutes = {
   ...publicRoutes,
   login: {
-    key: 'login',
-    component: lazy(() => import('../pages/LoginPage')),
-    path: `/login`,
+    key: "login",
+    component: lazy(() => import("../pages/LoginPage")),
+    path: "/login",
     exact: true,
   },
 };
@@ -15,15 +15,15 @@ export const nonAuthenticatedRoutes = {
 export const authenticatedRoutes = {
   ...publicRoutes,
   home: {
-    key: 'home',
-    component: lazy(() => import('../pages/Homepage')),
-    path: `/`,
+    key: "home",
+    component: lazy(() => import("../pages/Homepage")),
+    path: "/",
     exact: true,
   },
   profile: {
-    key: 'profile',
-    component: lazy(() => import('../pages/ProfilePage')),
-    path: `/profile`,
+    key: "profile",
+    component: lazy(() => import("../pages/ProfilePage")),
+    path: "/profile",
     exact: true,
   },
 };

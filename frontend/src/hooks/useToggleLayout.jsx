@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import { matchRoutes, useLocation } from 'react-router-dom';
-import { routeConfig } from '@/routes';
-import { useLayoutStore } from '@/stores';
+import { routeConfig } from "@/routes";
+import { useLayoutStore } from "@/stores";
+import { useEffect } from "react";
+import { matchRoutes, useLocation } from "react-router-dom";
 
 const NO_LAYOUT_ROUTES = [routeConfig.login];
 

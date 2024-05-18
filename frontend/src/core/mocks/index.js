@@ -1,1 +1,1 @@
-export { mockedCurrentUser } from './currentUser';
+export { mockedCurrentUser } from "./currentUser";

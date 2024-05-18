@@ -1,10 +1,10 @@
-import React, { memo } from 'react';
-import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import { Grid } from 'antd';
-import { IconButton, Space } from '@/components/ui';
-import { useCurrentRoute, useNav } from '@/hooks';
-import { routeConfig } from '@/routes';
-import { useAuthStore } from '@/stores';
+import { IconButton, Space } from "@/components/ui";
+import { useCurrentRoute, useNav } from "@/hooks";
+import { routeConfig } from "@/routes";
+import { useAuthStore } from "@/stores";
+import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import { Grid } from "antd";
+import React, { memo } from "react";
 
 const { useBreakpoint } = Grid;
 

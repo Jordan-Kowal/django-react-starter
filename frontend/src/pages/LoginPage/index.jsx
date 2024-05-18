@@ -1,10 +1,10 @@
-import React, { memo, useCallback, useState } from 'react';
-import { Col, Image, Row, Typography } from 'antd';
-import { jkdevLogoUrl } from '@/assets';
-import { LoginForm } from '@/components/features/User';
-import { Spin } from '@/components/ui';
-import { useAuthStore } from '@/stores';
-import styles from './styles.module.less';
+import { jkdevLogoUrl } from "@/assets";
+import { LoginForm } from "@/components/features/User";
+import { Spin } from "@/components/ui";
+import { useAuthStore } from "@/stores";
+import { Col, Image, Row, Typography } from "antd";
+import React, { memo, useCallback, useState } from "react";
+import styles from "./styles.module.less";
 
 const { Text } = Typography;
 
@@ -18,7 +18,7 @@ const LoginPage = () => {
       await login(values);
       setRedirecting(true);
     },
-    [login]
+    [login],
   );
 
   if (redirecting)
@@ -38,7 +38,6 @@ const LoginPage = () => {
       </Col>
       <Col span={24}>
         <Text italic>
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
           Bienvenue sur le site de Hubby. Veuillez-vous connecter pour
           continuer. Pour créer un compte, merci de contacter un administrateur.
         </Text>

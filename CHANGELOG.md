@@ -6,6 +6,7 @@
   - Simplified `Dockerfile`
   - Update `Makefile` documentation and test commands
   - Split `Dockerfile` into 2 separate files
+  - Replaced `prettier` and `eslint` with `biome`
 - **Frontend**
   - Fixed prettier config with plugins
   - Correctly fetches app config after login

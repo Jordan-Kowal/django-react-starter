@@ -1,15 +1,15 @@
-import React, { memo } from 'react';
-import { Button, Tooltip } from 'antd';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import styles from './styles.module.less';
+import { Button, Tooltip } from "antd";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import React, { memo } from "react";
+import styles from "./styles.module.less";
 
 const IconButton = ({
   icon,
   isActive,
   isText,
   onClick,
-  size = 'large',
+  size = "large",
   tooltip,
   ...props
 }) => (
@@ -19,7 +19,7 @@ const IconButton = ({
         [styles.isActiveIcon]: isActive,
       })}
       shape="circle"
-      type={isText ? 'text' : 'default'}
+      type={isText ? "text" : "default"}
       icon={icon}
       size={size}
       onClick={onClick}

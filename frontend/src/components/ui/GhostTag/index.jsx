@@ -1,11 +1,11 @@
-import React, { memo, useMemo } from 'react';
-import { Tag } from 'antd';
-import PropTypes from 'prop-types';
+import { Tag } from "antd";
+import PropTypes from "prop-types";
+import React, { memo, useMemo } from "react";
 
 const GhostTag = ({ color, children }) => {
   const style = useMemo(
-    () => ({ color, borderColor: color, backgroundColor: 'transparent' }),
-    [color]
+    () => ({ color, borderColor: color, backgroundColor: "transparent" }),
+    [color],
   );
 
   return (

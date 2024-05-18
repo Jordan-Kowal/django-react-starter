@@ -1,4 +1,4 @@
 export const required = {
   required: true,
-  message: 'Ce champ est obligatoire',
+  message: "Ce champ est obligatoire",
 };

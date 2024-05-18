@@ -1,1 +1,1 @@
-export { default } from './getUserFullName';
+export { default } from "./getUserFullName";
