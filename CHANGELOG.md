@@ -8,7 +8,6 @@
   - Split `Dockerfile` into 2 separate files
   - Replaced `prettier` and `eslint` with `biome`
 - **Frontend**
-  - Fixed prettier config with plugins
   - Correctly fetches app config after login
   - Displays app version in the footer
   - Updated store calls with `useShallow()`
