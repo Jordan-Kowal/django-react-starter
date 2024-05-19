@@ -1,4 +1,3 @@
-# Django
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -7,7 +6,6 @@ from django.utils.safestring import mark_safe
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework import routers
 
-# Application
 from core.views import AppViewSet, index, robots_txt
 from health.views import HealthViewSet
 from user.views import AuthViewSet, CurrentUserViewSet

@@ -1,4 +1,3 @@
-# Third-party
 from jklib.dj.emails import Email  # noqa: F401
 
 

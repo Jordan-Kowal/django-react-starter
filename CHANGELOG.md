@@ -3,10 +3,11 @@
 ## [v2.1.0] - TBD
 
 - **DX**
+  - Updated `Makefile` documentation and test commands
   - Simplified `Dockerfile`
-  - Update `Makefile` documentation and test commands
   - Split `Dockerfile` into 2 separate files
   - Replaced `prettier` and `eslint` with `biome`
+  - Replaced `black`, `isort` and `flake8` with `ruff`
 - **Frontend**
   - Correctly fetches app config after login
   - Displays app version in the footer

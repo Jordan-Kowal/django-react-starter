@@ -1,11 +1,7 @@
-# Built-in
 from typing import Any
 
-# Third-party
-import factory
-
-# Django
 from django.contrib.auth import get_user_model
+import factory
 
 User = get_user_model()
 

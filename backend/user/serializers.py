@@ -1,16 +1,12 @@
-# Built-in
 from typing import TYPE_CHECKING, Any, Dict
 
-# Django
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 
-# Application
 from user.models import Profile
 
 if TYPE_CHECKING:
-    # Application
     from user.models import User as UserType
 
 User = get_user_model()

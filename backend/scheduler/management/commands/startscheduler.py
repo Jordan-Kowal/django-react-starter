@@ -1,8 +1,6 @@
-# Built-in
 import logging
 from typing import Any
 
-# Django
 from django.core.cache import cache
 from django.core.management import BaseCommand
 

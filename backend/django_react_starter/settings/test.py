@@ -1,7 +1,3 @@
-# Built-in
-# import os
-
-# Local
 from .base import *  # noqa type: ignore
 from .base import BASE_DIR, MEDIA_ROOT  # noqa type: ignore
 

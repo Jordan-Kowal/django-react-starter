@@ -1,17 +1,13 @@
-# Third-party
-from jklib.dj.permissions import IsNotAuthenticated
-from jklib.dj.viewsets import ImprovedViewSet
-
-# Django
 from django.contrib.auth import get_user_model, login, logout
 from drf_spectacular.utils import PolymorphicProxySerializer, extend_schema
+from jklib.dj.permissions import IsNotAuthenticated
+from jklib.dj.viewsets import ImprovedViewSet
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 
-# Application
 from user.serializers import LoginSerializer, UpdatePasswordSerializer, UserSerializer
 
 User = get_user_model()

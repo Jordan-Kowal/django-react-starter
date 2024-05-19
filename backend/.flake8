@@ -1,5 +1,0 @@
-[flake8]
-doctests = True
-max-line-length = 88
-max-complexity = 18
-docstring-convention = numpy

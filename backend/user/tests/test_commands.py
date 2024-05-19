@@ -1,16 +1,12 @@
-# Built-in
 from typing import TYPE_CHECKING
 
-# Django
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.test import override_settings
 
-# Application
 from core.tests import BaseTestCase
 
 if TYPE_CHECKING:
-    # Application
     from user.models import User as UserType
 
 User: "UserType" = get_user_model()  # type: ignore

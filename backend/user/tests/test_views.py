@@ -1,8 +1,6 @@
-# Django
 from django.contrib.auth import get_user_model
 from rest_framework.reverse import reverse
 
-# Application
 from core.tests import BaseActionTestCase
 from user.tests.factories import UserFactory
 

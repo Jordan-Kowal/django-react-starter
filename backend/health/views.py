@@ -1,16 +1,12 @@
-# Third-party
-from jklib.dj.viewsets import ImprovedViewSet
-
-# Django
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
+from jklib.dj.viewsets import ImprovedViewSet
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_500_INTERNAL_SERVER_ERROR
 
-# Application
 from scheduler import scheduler
 
 User = get_user_model()

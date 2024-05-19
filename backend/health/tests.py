@@ -1,12 +1,9 @@
-# Built-in
 from unittest.mock import Mock, patch
 
-# Django
 from django.core.cache import cache
 from django.db import DatabaseError
 from rest_framework.reverse import reverse
 
-# Application
 from core.tests import BaseActionTestCase
 from scheduler import scheduler
 

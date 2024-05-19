@@ -1,17 +1,13 @@
-# Built-in
 from datetime import date
 from typing import TYPE_CHECKING
 
-# Django
 from django.contrib.auth import get_user_model
 
-# Application
 from core.tests import BaseTestCase
 from user.models import Profile
 from user.tests.factories import UserFactory
 
 if TYPE_CHECKING:
-    # Application
     from user.models import User as UserType
 
 User: "UserType" = get_user_model()  # type: ignore

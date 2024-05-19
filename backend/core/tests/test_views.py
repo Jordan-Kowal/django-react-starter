@@ -1,13 +1,10 @@
-# Built-in
 from unittest.mock import Mock, patch
 
-# Django
 from django.conf import settings
 from django.http import HttpResponse
 from django.test import override_settings
 from rest_framework.reverse import reverse
 
-# Local
 from .utils import BaseActionTestCase
 
 

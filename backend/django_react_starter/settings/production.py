@@ -1,14 +1,9 @@
-# Built-in
 import os
 
-# Third-party
+import dj_database_url
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-# Django
-import dj_database_url
-
-# Local
 from ..sentry import traces_sampler
 from .base import *  # noqa
 from .base import APP_VERSION, ENVIRONMENT, LOGGING  # noqa

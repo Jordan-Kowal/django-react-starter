@@ -1,16 +1,12 @@
-# Third-party
-from jklib.dj.viewsets import ImprovedViewSet
-
-# Django
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
+from jklib.dj.viewsets import ImprovedViewSet
 from rest_framework import permissions
 from rest_framework.decorators import action
 from rest_framework.request import Request
 from rest_framework.response import Response
 
-# Application
 from core.serializers import AppConfigSerializer
 
 

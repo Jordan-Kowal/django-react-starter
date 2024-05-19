@@ -1,17 +1,12 @@
-# Built-in
 from datetime import timezone
 from typing import TYPE_CHECKING
 
-# Third-party
 from apscheduler.executors.pool import ThreadPoolExecutor
 from apscheduler.schedulers.background import BlockingScheduler
-
-# Django
 from django.contrib.auth import get_user_model
 from django_apscheduler.jobstores import DjangoJobStore
 
 if TYPE_CHECKING:
-    # Application
     from user.models import User as UserType
 
 

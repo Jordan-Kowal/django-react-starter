@@ -1,14 +1,11 @@
-# Built-in
 from typing import Any, Dict, List
 
-# Django
 from django import forms
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserCreationForm
 
-# Application
 from user.models import Profile
 
 

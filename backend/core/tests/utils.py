@@ -1,19 +1,13 @@
-# Built-in
 import os
 import shutil
 from typing import TYPE_CHECKING
 
-# Third-party
+from django.conf import settings
 from jklib.dj.tests import APITestCase, ImprovedTestCase
 
-# Django
-from django.conf import settings
-
-# Application
 from user.tests.factories import UserFactory
 
 if TYPE_CHECKING:
-    # Application
     from user.models import User as UserType
 
 

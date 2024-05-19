@@ -1,11 +1,7 @@
-# Built-in
 import logging
 from typing import Any
 
-# Third-party
 from apscheduler.schedulers import SchedulerNotRunningError
-
-# Django
 from django.core.cache import cache
 from django.core.management import BaseCommand
 
