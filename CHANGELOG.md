@@ -8,6 +8,7 @@
   - Split `Dockerfile` into 2 separate files
   - Replaced `prettier` and `eslint` with `biome`
   - Replaced `black`, `isort` and `flake8` with `ruff`
+  - Added `.githooks` to run `biome` and `ruff` on commit
 - **Frontend**
   - Correctly fetches app config after login
   - Displays app version in the footer
