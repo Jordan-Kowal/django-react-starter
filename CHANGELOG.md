@@ -13,6 +13,7 @@
   - Added `rabbitmq, meilisearch, meilisearch_ui` into the `docker-compose` configuration
   - Updated `README.example.md`
   - Updated the `fly.example.toml` for deployment
+  - Added `.tool-versions` for `asdf`
 
 - **DX**
   - Updated `Makefile` documentation and test commands
