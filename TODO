@@ -1,3 +1,7 @@
-Dependabot
+Check it works:
+    docker compose
+    app
+    backend
 Really simple user indexer and task
+Dependabot
 Changelog design with emojis
