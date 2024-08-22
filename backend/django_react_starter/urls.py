@@ -12,9 +12,9 @@ from user.views import AuthViewSet, CurrentUserViewSet
 
 # Router
 router = routers.SimpleRouter()
-router.register(r"app", AppViewSet, "app")
-router.register(r"auth", AuthViewSet, "auth")
-router.register(r"self", CurrentUserViewSet, "self")
+router.register("app", AppViewSet, "app")
+router.register("auth", AuthViewSet, "auth")
+router.register("self", CurrentUserViewSet, "self")
 router.register("health", HealthViewSet, basename="health")
 
 # Using variables to make testing easier

@@ -1,9 +1,11 @@
 import os
 import shutil
 from typing import TYPE_CHECKING
+from unittest.mock import patch
 
 from django.conf import settings
 from jklib.dj.tests import APITestCase, ImprovedTestCase
+from meilisearch import Client
 
 from user.tests.factories import UserFactory
 
@@ -13,6 +15,48 @@ if TYPE_CHECKING:
 
 class BaseTestCase(ImprovedTestCase):
     user: "UserType"
+    meilisearch_client: Client
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        super().setUpClass()
+        cls.meilisearch_client = Client(
+            settings.MEILISEARCH_HOST, settings.MEILISEARCH_API_KEY
+        )
+
+    def setUp(self) -> None:
+        super().setUp()
+        self._mock_indexers()
+        self._mock_celery_tasks()
+
+    def _mock_indexers(self) -> None:
+        """
+        Patches the `index_name` functions of all indexers.
+        This allows running tests against a Meilisearch server
+        without overwriting the actual index.
+        """
+        self.indexer_mocks = [
+            patch(
+                "recipes.indexers.RecipeIndexer.index_name",
+                return_value="test_recipes",
+            ).start(),
+        ]
+
+    def _mock_celery_tasks(self) -> None:
+        """
+        Patches the celery tasks in both forms: `delay` and `apply_async`.
+        """
+        names = [
+            # Delay
+            "recipes.tasks.index_all_recipes_atomically.delay",
+            "recipes.tasks.index_recipes.delay",
+            "recipes.tasks.unindex_recipes.delay",
+            # Apply Async
+            "recipes.tasks.index_all_recipes_atomically.apply_async",
+            "recipes.tasks.index_recipes.apply_async",
+            "recipes.tasks.unindex_recipes.apply_async",
+        ]
+        self.celery_task_mocks = {name: patch(name).start() for name in names}
 
     @classmethod
     def tearDownClass(cls) -> None:

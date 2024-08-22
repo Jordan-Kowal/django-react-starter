@@ -50,15 +50,6 @@ DATABASES = {
     }
 }
 
-# SQLite
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": os.path.join(FLY_VOLUME_DIR, "db.sqlite3"),
-#     }
-# }
-
-
 # --------------------------------------------------------------------------------
 # > Logging
 # --------------------------------------------------------------------------------
@@ -66,19 +57,6 @@ if FLY_VOLUME_DIR is not None:
     LOGGING["handlers"]["console.log"]["filename"] = os.path.join(  # type: ignore
         FLY_VOLUME_DIR, "console.log"
     )
-
-
-# --------------------------------------------------------------------------------
-# > Email
-# --------------------------------------------------------------------------------
-# To use the SendInBlue API, the IP must be whitelisted in the SendInBlue GUI
-# https://app.sendinblue.com/account/security/authorised_ips/
-# Make sure to add the server's IP address
-EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
-SENDINBLUE_API_URL = "https://api.sendinblue.com/v3/"
-ANYMAIL = {
-    "SENDINBLUE_API_KEY": os.getenv("SENDINBLUE_API_KEY"),
-}
 
 
 # --------------------------------------------------------------------------------
@@ -93,7 +71,7 @@ if SENTRY_DSN:
         send_default_pii=False,  # GDPR
         traces_sampler=traces_sampler,
         profiles_sample_rate=0.2,
-        release=f"rainly-api@{APP_VERSION}",
+        release=f"django_react_starter_api@{APP_VERSION}",
     )
     SENTRY_INITIALIZED = True
 else:

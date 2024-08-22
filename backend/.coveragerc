@@ -7,13 +7,13 @@ omit =
     django_react_starter/asgi.py
     django_react_starter/wsgi.py
     django_react_starter/sentry.py
-    # [Django] Scheduler
-    scheduler/management/**
     # [Django] Common files
     */__init__.py
     */migrations/*
     */tests/*
     */admin.py
+    # [Django] Celery tasks
+    */tasks.py
 
 [report]
 exclude_lines =

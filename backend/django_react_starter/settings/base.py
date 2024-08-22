@@ -16,6 +16,9 @@ CSRF_COOKIE_NAME = f"{APP_NAME}-csrftoken"
 DEBUG = False
 SECRET_KEY = os.getenv("SECRET_KEY")
 ENVIRONMENT = os.getenv("ENVIRONMENT")
+IS_RUNNING_MYPY = bool(
+    os.getenv("MYPY_CONFIG_FILE_DIR")
+)  # Automatically set when running mypy
 
 INSTALLED_APPS = [
     # Django
@@ -27,17 +30,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third party
     "rest_framework",
-    "django_filters",
     "drf_spectacular",
-    "django_apscheduler",
     "django_prometheus",
+    "django_celery_results",
     # Custom
     "core",
     "health",
-    "scheduler",
     "user",
-    # Other third party
-    "django_cleanup.apps.CleanupConfig",
 ]
 
 MIDDLEWARE = [
@@ -118,14 +117,6 @@ DATABASES = {
     }
 }
 
-# SQLite
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-#     }
-# }
-
 
 # --------------------------------------------------------------------------------
 # > User, Passwords, and Authentication
@@ -173,9 +164,6 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
     "DEFAULT_PAGINATION_CLASS": "jklib.dj.pagination.BasicPagination",
-    "DEFAULT_FILTER_BACKENDS": [
-        "django_filters.rest_framework.DjangoFilterBackend",
-    ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "DEFAULT_RENDERER_CLASSES": (
         "rest_framework.renderers.JSONRenderer",  # Must be first
@@ -238,3 +226,36 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # > Sentry
 # --------------------------------------------------------------------------------
 SENTRY_INITIALIZED = False
+
+
+# --------------------------------------------------------------------------------
+# > Meilisearch
+# --------------------------------------------------------------------------------
+MEILISEARCH_HOST = os.getenv("MEILISEARCH_HOST", "http://meilisearch:7700")
+MEILISEARCH_API_KEY = os.getenv("MEILISEARCH_API_KEY", "")
+
+
+# --------------------------------------------------------------------------------
+# > Celery + RabbitMQ
+# --------------------------------------------------------------------------------
+# RabbitMQ
+RABBITMQ_HOSTNAME = os.getenv("RABBITMQ_HOSTNAME", "rabbitmq")
+RABBITMQ_PORT = os.getenv("RABBITMQ_PORT", 5672)
+RABBITMQ_USERNAME = os.getenv("RABBITMQ_USERNAME", "")
+RABBITMQ_PASSWORD = os.getenv("RABBITMQ_PASSWORD", "")
+RABBITMQ_URL = f"amqp://{RABBITMQ_USERNAME}:{RABBITMQ_PASSWORD}@{RABBITMQ_HOSTNAME}:{RABBITMQ_PORT}"  # noqa
+RABBITMQ_ADMIN_URL = os.getenv("RABBITMQ_ADMIN_URL", "http://rabbitmq:15672")  # noqa
+RABBITMQ_HEALTHCHECK_URL = f"{RABBITMQ_ADMIN_URL}/api/healthchecks/node"  # noqa
+
+# Celery
+CELERY_CONFIG_PREFIX = "CELERY"
+CELERY_BROKER_URL = RABBITMQ_URL
+CELERY_RESULT_BACKEND = "django-db"
+CELERY_RESULT_EXTENDED = True
+CELERY_CACHE_BACKEND = "default"
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TIMEZONE = "UTC"
+
+# Queues

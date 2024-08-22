@@ -8,7 +8,7 @@ env_file='.env'
 opts=
 
 run:
-	@docker exec -it hubby_api bash -c "\
+	@docker exec -it django_react_starter_api bash -c "\
 		cd backend && \
 		source $(env_file) && \
 		python manage.py $(cmd) \
@@ -24,7 +24,7 @@ test_integration:
 	@$(MAKE) -s run cmd=test env_file='.env.test' opts="--tag=integration"
 
 test_coverage:
-	@docker exec -it hubby_api bash -c "\
+	@docker exec -it django_react_starter_api bash -c "\
 		cd backend && \
 		source .env.test && \
 		coverage run --source='.' manage.py test && \

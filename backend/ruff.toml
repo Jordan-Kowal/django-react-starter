@@ -3,6 +3,12 @@ quote-style = "double"
 docstring-code-format = true
 
 [lint.isort]
-known-first-party = ["core", "django_react_starter", "health", "scheduler", "user"]
+known-first-party = ["core", "health", "django_react_starter", "user"]
 force-sort-within-sections = true
-section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]

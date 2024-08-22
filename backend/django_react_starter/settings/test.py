@@ -1,5 +1,5 @@
 from .base import *  # noqa type: ignore
-from .base import BASE_DIR, MEDIA_ROOT  # noqa type: ignore
+from .base import MEDIA_ROOT  # noqa type: ignore
 
 DEBUG = False
 ENVIRONMENT = "test"
@@ -10,14 +10,6 @@ DJANGO_SUPERUSER_PASSWORD = "random-password-for-test"
 
 # Media
 MEDIA_ROOT = MEDIA_ROOT + "-test"
-
-# Database
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": os.path.join(BASE_DIR.parent, "test.sqlite3"),
-#     }
-# }
 
 # Logging: Logs are still captured but none are displayed in the console
 LOGGING = {
