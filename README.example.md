@@ -1,26 +1,31 @@
 # Django React Starter
 
-- [Structure](#structure)
-- [Getting started](#getting-started)
-  - [Pre-requisites](#pre-requisites)
-  - [Installation](#installation)
-- [Running the app](#running-the-app)
-  - [How it works](#how-it-works)
-  - [Running Django commands](#running-django-commands)
-- [QA](#qa)
-  - [Using pre-commit hooks](#using-pre-commit-hooks)
-  - [GitHub Actions](#github-actions)
-- [Available URLs](#available-urls)
-- [Deployment](#deployment)
-  - [Summary](#summary)
-  - [Deploying for the first time](#deploying-for-the-first-time)
-- [Made by JKDev](#made-by-jkdev)
+- [Django React Starter](#django-react-starter)
+  - [Structure](#structure)
+  - [Getting started](#getting-started)
+    - [Pre-requisites](#pre-requisites)
+    - [Installation](#installation)
+  - [Running the app](#running-the-app)
+    - [How it works](#how-it-works)
+    - [Backend/Django commands](#backenddjango-commands)
+  - [QA](#qa)
+    - [Using git hooks](#using-git-hooks)
+    - [GitHub Actions](#github-actions)
+  - [Available URLs](#available-urls)
+  - [Deployment](#deployment)
+    - [Summary](#summary)
+    - [Deploying for the first time](#deploying-for-the-first-time)
+  - [Made by JKDev](#made-by-jkdev)
 
 ## Structure
 
 This project contains both the frontend and backend of the application:
 
-- `/backend`: Django application
+- `/backend`: Django application which uses:
+  - `Postgres` for the database
+  - `RabbitMQ` for the message broker
+  - `Celery` for background tasks
+  - `MeiliSearch` for search
 - `/frontend`: React application
 
 Note that when building and deploying the application, the frontend is built
@@ -37,12 +42,21 @@ This application is build using `docker` and `docker-compose`. Make sure to inst
 
 ### Installation
 
-Before starting the application, you will need to create the `.env` and `.env.test` files:
+Before starting the application, you will need to create the `.env` and `.env.test` files
+and install the node modules for the frontend:
 
 ```shell
+# Create the .env files
 cp backend/.env.example backend/.env
 cp backend/.env.test.example backend/.env.test
-# Fill-in the .env files
+
+# Install the frontend node modules
+(cd frontend && npm install)
+```
+
+Then you can start the application:
+
+```shell
 docker-compose up
 ```
 
@@ -52,18 +66,16 @@ docker-compose up
 
 Regarding the way we boot the Django app:
 
-- `docker-compose up` will built and boot our **container**
-- The **container** will call `supervisord` to boot the Django app
-- The `supervisord.conf` will call both `run-app.sh` and `run-scheduler.sh`
+- `docker-compose up` will built and boot our **containers**
+- The **django container** will call `supervisord` to boot the Django app
+- The `supervisord.conf` will call both `run-app.sh` and `run-celery-worker.sh`
 - `run-app.sh` will run a few commands and start the app
-
-Note that in development mode, the scheduler is not started.
 
 Also, when building the production image, the frontend is built and served by the backend directly.
 
-### Running Django commands
+### Backend/Django commands
 
-Because the app runs inside a docker container,
+Because the backend runs inside a docker container,
 commands also need to be run inside the container.
 To make things simpler, a `Makefile` is provided
 to bridge the gap between the host and the container.
@@ -80,33 +92,42 @@ make test
 
 ## QA
 
-### Using pre-commit hooks
+### Using git hooks
+
+Git hooks are set in the [.githooks](.githooks) folder
+_(as `.git/hooks` is not tracked in `.git`)_
+
+Run the following command to tell `git` to look for hooks in this folder:
 
 ```shell
-pip install -r requirements.txt -r requirements-dev.txt
-pre-commit install
-pre-commit run --all-files
+git config core.hooksPath .githooks
 ```
 
 ### GitHub Actions
 
-We use GitHub actions to verify, build, and deploy the application. We currently have 5 main jobs:
+We use GitHub actions to verify, build, and deploy the application. We currently have 4 main jobs:
 
-- [pre-commits](.github/workflows/pre-commits.yml): runs the pre-commit hooks for both backend and frontend
-- [test-backend](.github/workflows/test-backend.yml): runs the backend tests
-- [test-frontend](.github/workflows/test-frontend.yml): runs the frontend tests
+- [qa-backend](.github/workflows/qa-backend.yml): runs ruff, mypy, and tests
+- [qa-frontend](.github/workflows/qa-frontend.yml): runs biome and frontend tests
 - [rebase-check](.github/workflows/rebase-check.yml): checks if the current branch can be rebased on `main`
 - [deploy](.github/workflows/deploy.yml): deploys the application on **fly.io**
 
 ## Available URLs
 
-| Name     | URL                                |
-|----------|------------------------------------|
-| Frontend | http://localhost:3000/             |
-| Backend  | http://localhost:8000/             |
-| Admin    | http://localhost:8000/admin/       |
-| Swagger  | http://localhost:8000/api/swagger/ |
-| API      | http://localhost:8000/api/v1/      |
+| Name             | URL                                  |
+|------------------|--------------------------------------|
+| Frontend         | <http://localhost:3000/>             |
+| Backend          |                                      |
+| -- Home          | <http://localhost:8000/>             |
+| -- Admin         | <http://localhost:8000/admin/>       |
+| -- Swagger       | <http://localhost:8000/api/swagger/> |
+| -- API           | <http://localhost:8000/api/v1/>      |
+| Meilisearch      |                                      |
+| -- Default UI    | <http://localhost:7700/>             |
+| -- Advanced UI   | <http://localhost:24900/>            |
+| RabbitMQ         |                                      |
+| -- Connection    | <http://localhost:5672/>             |
+| -- Management UI | <http://localhost:15672/>            |
 
 ## Deployment
 
@@ -114,15 +135,15 @@ Deployment is done through [fly.io](https://fly.io/):
 
 ### Summary
 
-|                  | Production                              |
-|------------------|-----------------------------------------|
-| **App**          | django-react-starter                    |
-| **Config file**  | [fly.toml](fly.toml)                    |
-| **Environment**  | `production`                            |
-| **URL**          | https://django-react-starter.jkdev.app/ |
-| **Deploy**       | Manual/Automatic GitHub action          |
-| **Availability** | Public                                  |
-| **Sleep mode**   | Yes (to be changed)                     |
+|                  | Production                                    |
+|------------------|-----------------------------------------------|
+| **App**          | django_react_starter                          |
+| **Config file**  | [fly.toml](fly.toml)                          |
+| **Environment**  | `production`                                  |
+| **URL**          | <https://django_react_starter.jkdev.app/>     |
+| **Deploy**       | Manual/Automatic GitHub action                |
+| **Availability** | Public                                        |
+| **Sleep mode**   | No                                            |
 
 ### Deploying for the first time
 
