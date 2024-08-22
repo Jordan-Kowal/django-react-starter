@@ -15,12 +15,12 @@
   - Updated the `fly.example.toml` for deployment
   - Added `.tool-versions` for `asdf`
 
+- **Frontend**
+  - Replaced `prettier` and `eslint` with `biome`
+
 - **DX**
   - Updated `Makefile` documentation and test commands
-  - Simplified `Dockerfile`
   - Split `Dockerfile` into 2 separate files
-  - Replaced `prettier` and `eslint` with `biome`
-  - Replaced `black`, `isort` and `flake8` with `ruff`
 
 - **Frontend**
   - Correctly fetches app config after login

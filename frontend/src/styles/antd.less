@@ -1,7 +1,10 @@
 /* Global overrides for Ant Design */
 
-/* DATEPICKER */
+/* -------------------------------------------------- */
+/* Default overrides                                  */
+/* -------------------------------------------------- */
 
+/* DATEPICKER */
 /* Presets moves below the dates on very small screens */
 @media (width <= 500px) {
   .ant-picker-panel-layout {
@@ -31,5 +34,50 @@
       height: 5px !important;
       background-color: white !important;
     }
+  }
+}
+
+/* SPINNER */
+.ant-spin-nested-loading {
+  width: 100%;
+}
+
+/* -------------------------------------------------- */
+/* Custom classes                                     */
+/* -------------------------------------------------- */
+
+/* COLLAPSE */
+.custom-ant-collapse {
+  &.no-padding {
+    .ant-collapse-header {
+      padding: 0;
+      margin-bottom: 8px;
+    }
+
+    .ant-collapse-content, .ant-collapse-content-box {
+      padding: 0 !important;
+    }
+  }
+}
+
+/* FORM */
+.custom-ant-form {
+  .ant-form-item {
+    margin-bottom: 8px;
+  }
+}
+
+.custom-ant-non-field-errors {
+  /* Avoid empty FormItem taking up space */
+  .ant-form-item-control-input {
+    min-height: 0;
+  }
+
+  /* Adjust general error display */
+  .ant-form-item-explain-error {
+    position: relative;
+    top: -8px;
+    margin-bottom: 8px;
+    text-align: center;
   }
 }
