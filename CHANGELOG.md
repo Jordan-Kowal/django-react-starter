@@ -11,6 +11,8 @@
   - Added `.markdownlint.json` for linter custom configuration
   - Split `Dockerfile` into 2 files, one for dev and one for prod
   - Added `rabbitmq, meilisearch, meilisearch_ui` into the `docker-compose` configuration
+  - Updated `README.example.md`
+  - Updated the `fly.example.toml` for deployment
 
 - **DX**
   - Updated `Makefile` documentation and test commands
