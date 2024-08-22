@@ -1,9 +1,7 @@
 name: Rebase Check
 
 on:
-  workflow_dispatch:
-  pull_request:
-    branches: ['main']
+  workflow_call:
 
 jobs:
   check-rebase-needed:

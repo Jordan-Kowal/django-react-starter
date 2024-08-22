@@ -3,12 +3,15 @@
 ## [v3.0.0] - TBD
 
 - **DX**
+  - Added `.githooks` to run `biome, tsc, ruff, mypy` on commit
+  - Improved CI/CD pipeline with re-usable workflows
+
+- **DX**
   - Updated `Makefile` documentation and test commands
   - Simplified `Dockerfile`
   - Split `Dockerfile` into 2 separate files
   - Replaced `prettier` and `eslint` with `biome`
   - Replaced `black`, `isort` and `flake8` with `ruff`
-  - Added `.githooks` to run `biome, tsc, ruff, mypy` on commit
 - **Frontend**
   - Correctly fetches app config after login
   - Displays app version in the footer

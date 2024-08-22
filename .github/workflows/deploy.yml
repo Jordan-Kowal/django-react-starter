@@ -6,7 +6,14 @@ on:
     types: [created]
 
 jobs:
+  qa_backend:
+    uses: ./.github/workflows/qa-backend.yml
+
+  qa_frontend:
+    uses: ./.github/workflows/qa-frontend.yml
+
   deploy:
+    needs: [qa_backend, qa_frontend]
     name: Deploy app to fly.io
     runs-on: ubuntu-latest
     steps:

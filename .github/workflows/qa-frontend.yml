@@ -1,0 +1,94 @@
+name: QA frontend
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20" # Cached by github (https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md#nodejs)
+          cache: "yarn"
+          cache-dependency-path: ./frontend/yarn.lock
+
+      - name: Cache dependencies
+        id: cache-dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.yarn
+            ./frontend/node_modules
+          key: yarn-${{ hashFiles('./frontend/yarn.lock') }}
+
+      - name: Install dependencies
+        if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
+        run: |
+          cd frontend
+          yarn install
+
+  biome:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.yarn
+            ./frontend/node_modules
+          key: yarn-${{ hashFiles('./frontend/yarn.lock') }}
+
+      - name: Run biome
+        run: |
+          cd frontend
+          yarn biome:check
+  tsc:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.yarn
+            ./frontend/node_modules
+          key: yarn-${{ hashFiles('./frontend/yarn.lock') }}
+
+      - name: Run tsc
+        run: |
+          cd frontend
+          yarn tsc
+
+  coverage:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.yarn
+            ./frontend/node_modules
+          key: yarn-${{ hashFiles('./frontend/yarn.lock') }}
+
+      - name: Run coverage
+        run: |
+          cd frontend
+          yarn test:coverage
