@@ -1,10 +1,10 @@
-FROM node:20.11.1 as app-react-image
+FROM node:20.13.1 as app-react-image
 
 WORKDIR /front
 ADD ./frontend /front
 RUN yarn install && yarn build
 
-FROM python:3.12.2-slim
+FROM python:3.12.3-slim
 
 # Python environment variables
 ENV PYTHONUNBUFFERED 1

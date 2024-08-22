@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   api:
     image: django_react_starter_api
@@ -11,10 +9,12 @@ services:
       - ./backend/.env
     depends_on:
       - postgres
+      - rabbitmq
+      - meilisearch
     networks:
       - django_react_starter_network
     ports:
-      - '8000:8000'
+      - "8000:8000"
     volumes:
       - ./backend:/home/app/backend
 
@@ -26,21 +26,59 @@ services:
     networks:
       - django_react_starter_network
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
       - ./frontend:/app
 
   postgres:
     container_name: django_react_starter_postgres
     image: postgis/postgis:16-3.4-alpine
-    env_file:
-      - ./backend/.env
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=django_react_starter
     networks:
       - django_react_starter_network
     ports:
-      - '5432:5432'
+      - "5432:5432"
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
+
+  rabbitmq:
+    container_name: django_react_starter_rabbitmq
+    image: rabbitmq:3.13.0-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=django_react_starter
+      - RABBITMQ_DEFAULT_PASS=django_react_starter
+    networks:
+      - django_react_starter_network
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - ./data/rabbitmq:/var/lib/rabbitmq/mnesia
+
+  meilisearch:
+    container_name: django_react_starter_meilisearch
+    image: getmeili/meilisearch:v1.7.6
+    environment:
+      - MEILI_MASTER_KEY=@7t^a5xfv%9cg-oemhm0pi&fe6b=i7_v%dlikah^%0=z(hgqre
+    networks:
+      - django_react_starter_network
+    ports:
+      - "7700:7700"
+    volumes:
+      - ./data/meilisearch:/meili_data
+
+  meilisearch-ui:
+    container_name: django_react_starter_meilisearch_ui
+    image: riccoxie/meilisearch-ui:v0.6.13
+    depends_on:
+      - meilisearch
+    networks:
+      - django_react_starter_network
+    ports:
+      - "24900:24900"
 
 networks:
   django_react_starter_network:

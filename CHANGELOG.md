@@ -2,10 +2,15 @@
 
 ## [v3.0.0] - TBD
 
+💻 Dev
+
 - **DX**
   - Added `.githooks` to run `biome, tsc, ruff, mypy` on commit
   - Improved CI/CD pipeline with re-usable workflows
   - Added VSCode settings and tasks for easier development
+  - Added `.markdownlint.json` for linter custom configuration
+  - Split `Dockerfile` into 2 files, one for dev and one for prod
+  - Added `rabbitmq, meilisearch, meilisearch_ui` into the `docker-compose` configuration
 
 - **DX**
   - Updated `Makefile` documentation and test commands
@@ -13,6 +18,7 @@
   - Split `Dockerfile` into 2 separate files
   - Replaced `prettier` and `eslint` with `biome`
   - Replaced `black`, `isort` and `flake8` with `ruff`
+
 - **Frontend**
   - Correctly fetches app config after login
   - Displays app version in the footer
@@ -23,6 +29,7 @@
   - Update design for page banner and other small components
   - Added some new components (`GhostTag`, `Section`, `Switch`, `InputNumber`, `SingleCollapse`)
   - Added `millionjs` for better performance
+
 - **Backend**
   - Fixed catch-all route in `urls.py`
   - Fixed Dockerfile not copying correctly the frontend build
