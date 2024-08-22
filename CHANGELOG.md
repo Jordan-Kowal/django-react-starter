@@ -27,17 +27,18 @@
   - Added metadata to pages (lang, title, description, etc.)
   - Updated design and theme colors
 
+- **Backend**
+  - Updated `Makefile` documentation and test commands
+  - Added `celery` to replace the `django scheduler` to run tasks
+  - Boot celery on app start
+  - Updated `.env` and `settings/*` to handle `celery`, `rabbitmq`, and `meilisearch`
+  - Updated `health` API to check for `rabbitmq, celery, meilisearch`
+
 - **Small Fixes**
   - Correctly fetches app config after login
   - Displays app version in the footer
   - Updated store calls with `useShallow()`
   - Increased `authCheck` interval to 5 minutes
-
-- **DX**
-  - Updated `Makefile` documentation and test commands
-  - Split `Dockerfile` into 2 separate files
-
-- **Backend**
   - Fixed catch-all route in `urls.py`
   - Fixed Dockerfile not copying correctly the frontend build
   - Conditional handling of the `FLY_VOLUME` in settings
