@@ -16,22 +16,26 @@
   - Added `.tool-versions` for `asdf`
 
 - **Frontend**
+  - Migrated the entire app to **TypeScript**
+  - Replaced frontend API implementation with **React Query**
+  - Added **Vitest** and **MSW**
+  - Setup both unit tests and integration tests for the entire frontend
+  - Added coverage for frontend testing
+  - Added **Tailwind CSS** and reworked all components to use it
+  - Added `millionjs` for better performance
   - Replaced `prettier` and `eslint` with `biome`
+  - Added metadata to pages (lang, title, description, etc.)
+  - Updated design and theme colors
 
-- **DX**
-  - Updated `Makefile` documentation and test commands
-  - Split `Dockerfile` into 2 separate files
-
-- **Frontend**
+- **Small Fixes**
   - Correctly fetches app config after login
   - Displays app version in the footer
   - Updated store calls with `useShallow()`
   - Increased `authCheck` interval to 5 minutes
-  - Reworked imports for components and pages
-  - Updated theme colors
-  - Update design for page banner and other small components
-  - Added some new components (`GhostTag`, `Section`, `Switch`, `InputNumber`, `SingleCollapse`)
-  - Added `millionjs` for better performance
+
+- **DX**
+  - Updated `Makefile` documentation and test commands
+  - Split `Dockerfile` into 2 separate files
 
 - **Backend**
   - Fixed catch-all route in `urls.py`
