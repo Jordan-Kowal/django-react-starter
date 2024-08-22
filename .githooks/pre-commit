@@ -4,14 +4,26 @@ set -eu
 echo "---------- Git hook: pre-commit ----------"
 
 # Biome (lint and format)
-echo ">>> [1/2] Running Biome on frontend"
+echo ">>> [1/4] Running Biome on frontend"
 (cd frontend && yarn biome:check)
+
+# Typescript (type checking)
+echo ">>> [2/4] Compiling Typescript"
+(cd frontend && yarn tsc)
 
 # Ruff (imports, lint, and format)
 echo ""
-echo ">>> [2/2] Running Ruff on backend"
-echo "Imports: $(cd backend && ruff check --select I .)"
-echo "Lint: $(cd backend && ruff check .)"
-echo "Format: $(cd backend && ruff format --check .)"
+echo ">>> [3/4] Running Ruff on backend"
+output=$(cd backend && ruff check --select I .)
+echo "Imports: $output"
+output=$(cd backend && ruff check .)
+echo "Lint: $output"
+output=$(cd backend && ruff format --check .)
+echo "Format: $output"
+
+# MyPy (type checking)
+echo ""
+echo ">>> [4/4] Running MyPy on backend"
+(cd backend && mypy .)
 
 echo "------------------------------------------"
