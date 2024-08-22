@@ -5,6 +5,7 @@
 - **DX**
   - Added `.githooks` to run `biome, tsc, ruff, mypy` on commit
   - Improved CI/CD pipeline with re-usable workflows
+  - Added VSCode settings and tasks for easier development
 
 - **DX**
   - Updated `Makefile` documentation and test commands

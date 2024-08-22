@@ -1,0 +1,14 @@
+{
+  "ruff.configuration": "./backend/ruff.toml",
+  "biome.lspBin": "./frontend/biome",
+  "biome_lsp.trace.server": "off",
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.ts$|\\.tsx$|\\.js$|\\.jsx$|\\.json$",
+        "cmd": "npx biome check --apply-unsafe --config-path=./frontend/biome.json ${file}"
+      }
+    ]
+  },
+  "mypy-type-checker.args": ["--config-file=./backend/mypy.ini"]
+}

@@ -1,5 +1,8 @@
-## VSCode
-.vscode/
+## IDE
+.vscode/**
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
 .idea/
 
 ## Env
