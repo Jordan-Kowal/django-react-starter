@@ -41,6 +41,10 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(user.email, email)
         self.assertEqual(user.email, user.username)
 
+    def test_index_name(self) -> None:
+        user = UserFactory()
+        self.assertEqual(user.indexed_name, f"user_{user.id}")
+
 
 class ProfileTestCase(BaseTestCase):
     def test_str(self) -> None:

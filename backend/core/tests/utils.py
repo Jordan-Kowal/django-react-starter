@@ -37,8 +37,8 @@ class BaseTestCase(ImprovedTestCase):
         """
         self.indexer_mocks = [
             patch(
-                "recipes.indexers.RecipeIndexer.index_name",
-                return_value="test_recipes",
+                "user.indexers.UserIndexer.index_name",
+                return_value="test_users",
             ).start(),
         ]
 
@@ -48,13 +48,13 @@ class BaseTestCase(ImprovedTestCase):
         """
         names = [
             # Delay
-            "recipes.tasks.index_all_recipes_atomically.delay",
-            "recipes.tasks.index_recipes.delay",
-            "recipes.tasks.unindex_recipes.delay",
+            "user.tasks.index_all_users_atomically.delay",
+            "user.tasks.index_users.delay",
+            "user.tasks.unindex_users.delay",
             # Apply Async
-            "recipes.tasks.index_all_recipes_atomically.apply_async",
-            "recipes.tasks.index_recipes.apply_async",
-            "recipes.tasks.unindex_recipes.apply_async",
+            "user.tasks.index_all_users_atomically.apply_async",
+            "user.tasks.index_users.apply_async",
+            "user.tasks.unindex_users.apply_async",
         ]
         self.celery_task_mocks = {name: patch(name).start() for name in names}
 

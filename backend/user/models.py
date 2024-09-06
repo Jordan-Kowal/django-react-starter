@@ -28,6 +28,10 @@ class User(ExportModelOperationsMixin("user"), AbstractUser):  # type: ignore
     def __str__(self) -> str:
         return self.email
 
+    @property
+    def indexed_name(self) -> str:
+        return f"user_{self.id}"
+
 
 class Profile(models.Model):
     user = models.OneToOneField(

@@ -14,12 +14,9 @@ echo ">>> [2/4] Compiling Typescript"
 # Ruff (imports, lint, and format)
 echo ""
 echo ">>> [3/4] Running Ruff on backend"
-output=$(cd backend && ruff check --select I .)
-echo "Imports: $output"
-output=$(cd backend && ruff check .)
-echo "Lint: $output"
-output=$(cd backend && ruff format --check .)
-echo "Format: $output"
+(cd backend && ruff check --select I .)
+(cd backend && ruff check .)
+(cd backend && ruff format --check .)
 
 # MyPy (type checking)
 echo ""

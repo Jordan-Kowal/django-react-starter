@@ -1,7 +1,19 @@
-Check it works:
-    docker compose
-    app
-    backend
-Really simple user indexer and task
-Dependabot
-Changelog design with emojis
+- Check it works:
+  - docker compose
+  - app
+  - backend
+- Redo makefile
+- Redo README
+
+- Dependabot
+- Changelog design with emojis
+- Finish upgrade
+- Add UV
+- Fix Typescript export/module.export for tailwind
+- Add dependabot
+- Upgrade deps (python, django, react, node)
+- Sentry frontend
+- Auth with gmail
+- Fix ruff
+- Fix theme
+- Fix Django integration

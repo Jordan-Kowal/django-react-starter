@@ -31,6 +31,7 @@
   - Updated `Makefile` documentation and test commands
   - Added `celery` to replace the `django scheduler` to run tasks
   - Boot celery on app start
+  - Added example indexer `UserIndexer` with tasks and scheduled CRON on celery
   - Updated `.env` and `settings/*` to handle `celery`, `rabbitmq`, and `meilisearch`
   - Updated `health` API to check for `rabbitmq, celery, meilisearch`
 
