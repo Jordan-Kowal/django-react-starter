@@ -1,8 +1,3 @@
-- Check it works:
-  - docker compose
-  - app
-  - backend
-- Redo makefile
 - Redo README
 
 - Dependabot
@@ -14,6 +9,8 @@
 - Upgrade deps (python, django, react, node)
 - Sentry frontend
 - Auth with gmail
+
 - Fix ruff
 - Fix theme
 - Fix Django integration
+- Fix ruff import fix
