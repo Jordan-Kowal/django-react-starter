@@ -98,7 +98,7 @@
 - 💻 **Backend**: Backend test now run with `coverage`
 - 💻 **Backend**: New `.env.test.example` file for test settings
 - 💻 **Backend**: Added `DEFAULT_FROM_EMAIL` env variable
-- 💻 **Backend**: `User` model now overrides `save` instead of using signals to create the `Profile` instance
+- 💻 **Backend**: `User` model now overrides `save` instead of using signals
 - 💫 **DX**: Added `.tool-versions` for `asdf` compatibility
 - 💫 **DX**: Updated `README.example.md` to provide a step-by-step guide to use the app
 - 💫 **DX**: Updated jobs to match the new configuration (python 3.12, postgres, node, etc.)
@@ -108,7 +108,7 @@
 
 ### 🐞 Bugfixes
 
-- 💻 **Backend**: Changed router to `SimpleRouter` and swagger/schemas routes are no longer included in production
+- 💻 **Backend**: Now uses `SimpleRouter` and swagger/schemas routes are no longer visible in production
 
 ### 🔧 Others
 

@@ -7,7 +7,7 @@
     - [Installation](#installation)
   - [Running the app](#running-the-app)
     - [How it works](#how-it-works)
-    - [Backend/Django commands](#backenddjango-commands)
+    - [Running commands](#running-commands)
   - [QA](#qa)
     - [Using git hooks](#using-git-hooks)
     - [GitHub Actions](#github-actions)
@@ -43,15 +43,10 @@ This application is build using `docker` and `docker-compose`. Make sure to inst
 ### Installation
 
 Before starting the application, you will need to create the `.env` and `.env.test` files
-and install the node modules for the frontend:
 
 ```shell
-# Create the .env files
 cp backend/.env.example backend/.env
 cp backend/.env.test.example backend/.env.test
-
-# Install the frontend node modules
-(cd frontend && npm install)
 ```
 
 Then you can start the application:
@@ -60,35 +55,37 @@ Then you can start the application:
 docker-compose up
 ```
 
+_While the entire project runs with `docker-compose`, you might want to_
+_install a python virtual environment and the node modules locally_
+_for a better IDE experience._
+
 ## Running the app
 
 ### How it works
 
 Regarding the way we boot the Django app:
 
-- `docker-compose up` will built and boot our **containers**
+- `docker-compose up` will built and boot all of our **containers**
 - The **django container** will call `supervisord` to boot the Django app
 - The `supervisord.conf` will call both `run-app.sh` and `run-celery-worker.sh`
 - `run-app.sh` will run a few commands and start the app
 
 Also, when building the production image, the frontend is built and served by the backend directly.
 
-### Backend/Django commands
+### Running commands
 
-Because the backend runs inside a docker container,
+Because everything runs in docker containers,
 commands also need to be run inside the container.
 To make things simpler, a `Makefile` is provided
-to bridge the gap between the host and the container.
+for frequent/common commands.
 
 ```shell
-make run cmd=makemigrations
-make run cmd=migrate
-make run cmd=test settings=test opts="--verbosity 0"
-# There are also shortcuts for the most common commands
-make makemigrations
-make migrate
-make test
+make api_makemigrations
+make front_test
+make setup_githooks
 ```
+
+Run `make help` for more info.
 
 ## QA
 
@@ -101,6 +98,12 @@ Run the following command to tell `git` to look for hooks in this folder:
 
 ```shell
 git config core.hooksPath .githooks
+```
+
+or you can run the `Makefile` action
+
+```shell
+make setup_githooks
 ```
 
 ### GitHub Actions

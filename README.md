@@ -37,8 +37,6 @@ This starter delivers a fully-working and deployment-ready application with:
 - Search engine: Meilisearch and its UI
 - Messaging: RabbitMQ
 
-TBD: Main features
-
 **Tools for local development:**
 
 - `Dockerfile` to build the final Django image that includes the React frontend
