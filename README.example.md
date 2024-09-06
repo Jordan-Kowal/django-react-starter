@@ -112,7 +112,7 @@ We use GitHub actions to verify, build, and deploy the application. We currently
 
 - [qa-backend](.github/workflows/qa-backend.yml): runs ruff, mypy, and tests
 - [qa-frontend](.github/workflows/qa-frontend.yml): runs biome and frontend tests
-- [rebase-check](.github/workflows/rebase-check.yml): checks if the current branch can be rebased on `main`
+- [rebase-check](.github/workflows/rebase-check.yml): checks if the branch can be rebased on `main`
 - [deploy](.github/workflows/deploy.yml): deploys the application on **fly.io**
 
 ## Available URLs

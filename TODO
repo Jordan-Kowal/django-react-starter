@@ -1,12 +1,13 @@
-- Dependabot
-- Add UV
+# TODO
+
+- Add UV and review requirements management
 - Fix Typescript export/module.export for tailwind
-- Add dependabot
 - Upgrade deps (python, django, react, node)
+- Add dependabot
+
+- Fix biome on-save
+- Fix Django integration
+- Fix theme
+
 - Sentry frontend
 - Auth with gmail
-
-- Fix ruff
-- Fix theme
-- Fix Django integration
-- Fix ruff import fix
