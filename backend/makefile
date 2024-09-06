@@ -5,14 +5,14 @@ SHELL:= /bin/bash
 DOCKER_EXEC=@docker exec -it django_react_starter_api
 BASH_EXEC=$(DOCKER_EXEC) bash -c
 
-
-# --------------------------------------------------
-# Private
-# --------------------------------------------------
+# Args
 cmd=
 env_file='.env'
 opts=
 
+# --------------------------------------------------
+# Private
+# --------------------------------------------------
 _manage_py:
 	$(BASH_EXEC) "\
 		cd backend && \

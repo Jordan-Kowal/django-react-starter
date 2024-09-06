@@ -1,155 +1,193 @@
 # Changelog
 
+## Template
+
+### 🚀 Features
+
+### ✨ Improvements
+
+### 🐞 Bugfixes
+
+### 🔧 Others
+
+- 💫 **DX**:
+- 💻 **Backend**:
+- 🎨 **Frontend**:
+- 🚂 **Deploy**:
+
 ## [v3.0.0] - TBD
 
-💻 Dev
+### 🚀 Features
 
-- **DX**
-  - Added `.githooks` to run `biome, tsc, ruff, mypy` on commit
-  - Improved CI/CD pipeline with re-usable workflows
-  - Added VSCode settings and tasks for easier development
-  - Added `.markdownlint.json` for linter custom configuration
-  - Split `Dockerfile` into 2 files, one for dev and one for prod
-  - Added `rabbitmq, meilisearch, meilisearch_ui` into the `docker-compose` configuration
-  - Updated `README.example.md`
-  - Updated the `fly.example.toml` for deployment
-  - Added `.tool-versions` for `asdf`
+- 💻 **Backend**: Added `celery` to replace the `django scheduler` to run tasks
+- 💻 **Backend**: Updated `health` API to check for `rabbitmq, celery, meilisearch`
+- 🎨 **Frontend**: Migrated the entire app to **TypeScript**
+- 🎨 **Frontend**: Replaced frontend API implementation with **React Query**
+- 🎨 **Frontend**: Added **Vitest** and **MSW**
+- 🎨 **Frontend**: Added **Tailwind CSS** and reworked all components to use it
+- 🎨 **Frontend**: Added `millionjs` for better performance
+- 🎨 **Frontend**: Added metadata to pages (lang, title, description, etc.)
+- 🎨 **Frontend**: Displays app version in the footer
 
-- **Frontend**
-  - Migrated the entire app to **TypeScript**
-  - Replaced frontend API implementation with **React Query**
-  - Added **Vitest** and **MSW**
-  - Setup both unit tests and integration tests for the entire frontend
-  - Added coverage for frontend testing
-  - Added **Tailwind CSS** and reworked all components to use it
-  - Added `millionjs` for better performance
-  - Replaced `prettier` and `eslint` with `biome`
-  - Added metadata to pages (lang, title, description, etc.)
-  - Updated design and theme colors
+### ✨ Improvements
 
-- **Backend**
-  - Updated `Makefile` documentation and test commands
-  - Added `celery` to replace the `django scheduler` to run tasks
-  - Boot celery on app start
-  - Added example indexer `UserIndexer` with tasks and scheduled CRON on celery
-  - Updated `.env` and `settings/*` to handle `celery`, `rabbitmq`, and `meilisearch`
-  - Updated `health` API to check for `rabbitmq, celery, meilisearch`
+- 💻 **Backend**: Conditional handling of the `FLY_VOLUME` in settings
+- 💻 **Backend**: Removed the `wait_for_db.py` script
+- 💻 **Backend**: Updated `.env` and `settings/*` to handle `celery`, `rabbitmq`, and `meilisearch`
+- 💫 **DX**: Added `.markdownlint.json` for linter custom configuration
+- 💫 **DX**: Split `Dockerfile` into 2 files, one for dev and one for prod
+- 💫 **DX**: Updated the `fly.example.toml` for deployment
+- 💫 **DX**: Improved backend's `makefile`
+- 🎨 **Frontend**: Increased `authCheck` interval to 5 minutes
+- 🎨 **Frontend**: Updated store calls with `useShallow()`
+- 🎨 **Frontend**: Setup both unit tests and integration tests for the entire frontend
+- 🎨 **Frontend**: Added coverage for frontend testing
+- 🎨 **Frontend**: Updated design and theme colors
 
-- **Small Fixes**
-  - Correctly fetches app config after login
-  - Displays app version in the footer
-  - Updated store calls with `useShallow()`
-  - Increased `authCheck` interval to 5 minutes
-  - Fixed catch-all route in `urls.py`
-  - Fixed Dockerfile not copying correctly the frontend build
-  - Conditional handling of the `FLY_VOLUME` in settings
-  - Removed the `wait_for_db.py` script
-  - Updated sentry tracing to only trace the `api` app
+### 🐞 Bugfixes
+
+- 💻 **Backend**: Fixed catch-all route in `urls.py`
+- 🚂 **Deploy**: Fixed Dockerfile not copying correctly the frontend build
+- 💫 **DX**: Added `.githooks` to run `biome, tsc, ruff, mypy` on commit
+- 💫 **DX**: Improved CI/CD pipeline with re-usable workflows
+- 🎨 **Frontend**: Correctly fetches app config after login
+
+### 🔧 Others
+
+- 💻 **Backend**: Added example indexer `UserIndexer` with tasks and scheduled CRON on celery
+- 🚂 **Deploy**: Updated sentry tracing to only trace the `api` app
+- 💫 **DX**: Added `rabbitmq, meilisearch, meilisearch_ui` into the `docker-compose` configuration
+- 💫 **DX**: Added VSCode settings and tasks for easier development
+- 💫 **DX**: Added `.tool-versions` for `asdf`
+- 💫 **DX**: Updated `README.example.md`
+- 🎨 **Frontend**: Replaced `prettier` and `eslint` with `biome`
 
 ## [v2.0.1] - 2024-02-23
 
-- Updated `coverage` config
-- Moved `scheduler` into its own app, rather than being part of the `core` app
-- Fixed deprecated `ping` route import in `urls.py`
+### ✨ Improvements
+
+- 💻 **Backend**: Updated `coverage` config
+
+### 🐞 Bugfixes
+
+- 💻 **Backend**: Fixed deprecated `ping` route import in `urls.py`
+
+### 🔧 Others
+
+- 💻 **Backend**: Moved `scheduler` into its own app, rather than being part of the `core` app
 
 ## [v2.0.0] - 2024-02-18
 
-- **Deploy:**
-  - Updated the `fly.example.toml` file to use the new `flyctl` CLI
-  - Added and implemented script that checks if the database is up before running the app
-  - Scrapes prometheus metrics from the app on fly.io
-  - Use new healthchecks through fly.io
-- **DX**:
-  - `docker-compose.yml` has been moved to the root folder
-  - `docker-compose.yml` now runs the frontend as well
-  - Added `.tool-versions` for `asdf` compatibility
-  - Updated `README.example.md` to provide a step-by-step guide to use the app
-- **Backend**:
-  - Updated dependencies
-  - Postgres (with postgis) as default database
-  - Added `coverage` to the dev dependencies and the `coverage` command to the `makefile`
-  - Added `dj-database-url` to the dependencies for easier database configuration in production
-  - New `.env.test.example` file for test settings
-  - Added `DEFAULT_FROM_EMAIL` env variable
-  - `User` model now overrides `save` instead of using signals to create the `Profile` instance
-  - Changed router to `SimpleRouter` and swagger/schemas routes are no longer included in production
-  - **MAJOR**: Updated Sentry configuration with profiler, traces, release, and GDPR settings
-  - **MAJOR**: Added prometheus metrics inside the Django app so that fly.io can scrape them
-  - **MAJOR**: Added healthchecks for the app and the database
-- **Frontend**:
-  - Updated node to `20.11.1`
-  - Updated all dependencies
-  - `docker-compose.yml` now runs the frontend as well
-  - Updated `prettier, eslint, stylelint` configs
-- **CI/CD**:
-  - Updated jobs to match the new configuration (python 3.12, postgres, etc.)
-  - Backend test now run with `coverage`
-  - Updated pre-commit hooks configuration
+### 🚀 Features
+
+- 💻 **Backend**: Postgres (with postgis) as default database
+- 💻 **Backend**: Added `coverage` to the dev dependencies and the `coverage` command to the `makefile`
+- 💻 **Backend**: Added `dj-database-url` to the dependencies for easier database configuration in production
+- 💻 **Backend**: Updated Sentry configuration with profiler, traces, release, and GDPR settings
+- 💻 **Backend**: Added prometheus metrics inside the Django app so that fly.io can scrape them
+- 💻 **Backend**: Added healthchecks for the app and the database
+- 🚂 **Deploy**: Use new healthchecks through fly.io
+- 🚂 **Deploy**: Scrapes prometheus metrics from the app on fly.io
+- 🚂 **Deploy**: Added and implemented script that checks if the database is up before running the app
+- 💫 **DX**: `docker-compose.yml` now runs the frontend as well
+
+### ✨ Improvements
+
+- 💻 **Backend**: Updated dependencies
+- 💻 **Backend**: Updated pre-commit hooks configuration
+- 💻 **Backend**: Backend test now run with `coverage`
+- 💻 **Backend**: New `.env.test.example` file for test settings
+- 💻 **Backend**: Added `DEFAULT_FROM_EMAIL` env variable
+- 💻 **Backend**: `User` model now overrides `save` instead of using signals to create the `Profile` instance
+- 💫 **DX**: Added `.tool-versions` for `asdf` compatibility
+- 💫 **DX**: Updated `README.example.md` to provide a step-by-step guide to use the app
+- 💫 **DX**: Updated jobs to match the new configuration (python 3.12, postgres, node, etc.)
+- 🎨 **Frontend**: Updated node to `20.11.1`
+- 🎨 **Frontend**: Updated all dependencies
+- 🎨 **Frontend**: Updated `prettier, eslint, stylelint` configs
+
+### 🐞 Bugfixes
+
+- 💻 **Backend**: Changed router to `SimpleRouter` and swagger/schemas routes are no longer included in production
+
+### 🔧 Others
+
+- 🚂 **Deploy**: Updated the `fly.example.toml` file to use the new `flyctl` CLI
+- 💫 **DX**: `docker-compose.yml` has been moved to the root folder
 
 ## [v1.3.0] - 2023-11-26
 
-- **Deploy:**
-  - Fixed `deploy.yml` indentation for triggers
-  - Updated `README.example.md` to provide a step-by-step guide to deploy the app with `fly`
-  - QA improvements with separate jobs
-- **Backend:**
-  - Improved Postgres integration:
-    - `depends_on` postgres in `docker-compose.yml`
-    - `wait_for_db.py` and its usage in `run-app.sh` and `run-scheduler.sh`
-  - Improved `makefile` to better for with `docker-compose`
-  - Moved logs to a sub-folder
-  - Handles and serves media files:
-    - Updated `MEDIA_ROOT`, `MEDIA_URL` and `urls.py`
-    - Updated **production** settings to store media files on the **fly** volume
-    - Updated **test** settings to use a different folder and delete it after tests
-  - New `AppViewSet` to provide app-wide information
-    - Added `config` endpoint to provide app settings data to frontend
-  - Updated API tests to use `reverse` urls
-  - Updated all dependencies and pre-commits
-  - Updated `robots.txt` route pattern and the catch-all route as well
-  - `UserSerializer` now provides more fields like `is_staff` and `is_superuser` as read-only
-- **Frontend:**
-  - Handles the new `AppViewSet.config` endpoint:
-    - New API endpoints to fetch the app settings
-    - New store `useAppConfig` to share the app settings across the app
-    - Automatically fetched after login
+### 🚀 Features
+
+- 💻 **Backend**: Handles and serves media files:
+  - Updated `MEDIA_ROOT`, `MEDIA_URL` and `urls.py`
+  - Updated **production** settings to store media files on the **fly** volume
+  - Updated **test** settings to use a different folder and delete it after tests
   - Updated `vite` config to proxy **media** and **static** files as well
-  - Updated all dependencies
-  - Removed Cascadia Code font
+- 💻 **Backend**: New `AppViewSet` to provide app-wide information
+
+### ✨ Improvements
+
+- 💻 **Backend**: Moved logs to a sub-folder
+- 💻 **Backend**: Updated API tests to use `reverse` urls
+- 💻 **Backend**: `UserSerializer` now provides more fields like `is_staff` and `is_superuser` as read-only
+- 💫 **DX**:Improved Postgres integration:
+  - `depends_on` postgres in `docker-compose.yml`
+  - `wait_for_db.py` and its usage in `run-app.sh` and `run-scheduler.sh`
+- 💫 **DX**: Improved `makefile` to better for with `docker-compose`
+- 💫 **DX**:Updated `README.example.md` to provide a step-by-step guide to deploy the app with `fly`
+- 💫 **DX**:QA improvements with separate jobs
+
+### 🐞 Bugfixes
+
+- 💻 **Backend**: Updated `robots.txt` route pattern and the catch-all route as well
+
+### 🔧 Others
+
+- 🚂 **Deploy**: Fixed `deploy.yml` indentation for triggers
+- 💫 **DX**: Updated all dependencies and pre-commits
+- 🎨 **Frontend**: Removed Cascadia Code font
 
 ## [v1.2.1] - 2023-06-22
 
-- Fixed theme in django admin
-- Fixed theme in email templates
+### 🐞 Bugfixes
+
+- 💻 **Backend**: Fixed theme in django admin
+- 💻 **Backend**: Fixed theme in email templates
 
 ## [v1.2.0] - 2023-06-21
 
-- Frontend
-  - Changed theme to `dark` and updated theme colors
-  - Flagged frontend as web-resource for idea projects
-  - Added `global.less` and imported it in `App`
-  - Renamed `IconButton`'s prop `isTextButton` to `isText`
-  - Fixed user proptypes and serialization
-- JetBrains
-  - Removed `Run backend server locally` from the available run configurations
-  - Renamed run configurations
+### ✨ Improvements
+
+- 🎨 **Frontend**: Added `global.less` and imported it in `App`
+- 🎨 **Frontend**: Changed theme to `dark` and updated theme colors
+
+### 🐞 Bugfixes
+
+- 🎨 **Frontend**: Fixed user proptypes and serialization
+
+### 🔧 Others
+
+- 💫 **DX**: Renamed `JetBrains` run configurations
+- 💫 **DX**: Flagged frontend as web-resource for idea projects
+- 🎨 **Frontend**: Renamed `IconButton`'s prop `isTextButton` to `isText`
 
 ## [v1.1.0] - 2023-05-01
 
-- Dependencies
-  - Updated python `requirements.txt` and `requirements-dev.txt`
-- QA
-  - Updated linters and formatters settings
-  - Updated pre-commits (specifically mypy)
-  - Fixed JS types
-- JetBrains
-  - Added `.idea/` folder to the project, with proper `.gitignore` file
-  - Added **run** configuration for jetbrains IDE:
-    - Run frontend tests
-    - Run frontend server normally
-    - Run backend tests
-    - Run backend server normally
-    - Run backend server through `docker-compose`
+### ✨ Improvements
+
+- 💫 **DX**: Added `.idea/` folder to the project, with proper `.gitignore` file
+- 💫 **DX**: Added **run** configuration for `JetBrains` IDE
+- 💫 **DX**: Updated pre-commits (specifically mypy)
+- 💫 **DX**: Updated linters and formatters settings
+
+### 🐞 Bugfixes
+
+- 🎨 **Frontend**: Fixed JS types
+
+### 🔧 Others
+
+- 💻 **Backend**: Updated python `requirements.txt` and `requirements-dev.txt`
 
 ## [v1.0.0] - 2023-04-25
 

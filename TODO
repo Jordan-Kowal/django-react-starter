@@ -1,8 +1,6 @@
 - Redo README
 
 - Dependabot
-- Changelog design with emojis
-- Finish upgrade
 - Add UV
 - Fix Typescript export/module.export for tailwind
 - Add dependabot
