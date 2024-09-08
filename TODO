@@ -1,7 +1,5 @@
 # TODO
 
-- Add UV and review requirements management
-- Fix Typescript export/module.export for tailwind
 - Upgrade deps (python, django, react, node)
 - Add dependabot
 - Add "main features" to README

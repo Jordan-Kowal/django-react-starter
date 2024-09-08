@@ -1,2 +1,10 @@
+# Backend
+backend/.venv/
 backend/data/
+backend/htmlcov/
+backend/.env.example
+backend/.env.test.example
+
+# Frontend
+frontend/coverage/
 frontend/node_modules/

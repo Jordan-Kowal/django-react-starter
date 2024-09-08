@@ -3,6 +3,7 @@ FROM python:3.12.3-slim
 # Python environment variables
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
+ENV UV_PROJECT_ENVIRONMENT="/usr/local/"
 
 # Update OS
 RUN apt-get update \
@@ -14,21 +15,20 @@ RUN apt-get update \
     gdal-bin \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY ./backend/requirements.txt ./backend/requirements-dev.txt /tmp/
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r /tmp/requirements.txt -r /tmp/requirements-dev.txt \
-    && rm -rf /tmp/requirments.txt /tmp/requirments-dev.txt
-
 # Create dir and user
 RUN mkdir -p /home/app/backend && mkdir -p /home/app/logs
 RUN addgroup --system app && adduser --system --group app
 WORKDIR /home/app
 
-# Copy backend
-COPY ./backend ./backend
+# Install dependencies with UV
+COPY ./backend/pyproject.toml ./backend/uv.lock ./
+RUN pip install --upgrade pip \
+    && pip install uv \
+    && uv sync --frozen \
+    && rm -rf uv.lock pyproject.toml
 
-# Change ownership
+# Copy backend and change ownership
+COPY ./backend ./backend
 RUN chown -R app:app /home/app
 USER app
 

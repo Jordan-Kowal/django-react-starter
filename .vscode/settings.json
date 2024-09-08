@@ -1,5 +1,5 @@
 {
-  "ruff.configuration": "./backend/ruff.toml",
+  "ruff.configuration": "./backend/pyproject.toml",
   "biome.lspBin": "./frontend/biome",
   "biome_lsp.trace.server": "off",
   "emeraldwalk.runonsave": {

@@ -9,6 +9,7 @@ FROM python:3.12.3-slim
 # Python environment variables
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
+ENV UV_PROJECT_ENVIRONMENT="/usr/local/"
 
 # Update OS
 RUN apt-get update \
@@ -20,22 +21,21 @@ RUN apt-get update \
     gdal-bin \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY ./backend/requirements.txt /tmp/
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r /tmp/requirements.txt \
-    && rm -rf /tmp/requirments.txt
-
 # Create dir and user
 RUN mkdir -p /home/app/backend && mkdir -p /home/app/logs
 RUN addgroup --system app && adduser --system --group app
 WORKDIR /home/app
 
-# Copy backend and frontend, then set frontend within backend
+# Install dependencies with UV
+COPY ./backend/pyproject.toml ./backend/uv.lock ./
+RUN pip install --upgrade pip \
+    && pip install uv \
+    && uv sync --frozen --no-dev \
+    && rm -rf uv.lock pyproject.toml
+
+# Copy backend and frontend, set frontend within backend, and change ownership
 COPY ./backend ./backend
 COPY --chown=app:app --from=app-react-image /front/dist /home/app/backend/frontend/dist
-
-# Change ownership
 RUN chown -R app:app /home/app
 USER app
 
