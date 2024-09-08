@@ -65,7 +65,7 @@ django_settings_module = "django_react_starter.settings.base"
 quote-style = "double"
 docstring-code-format = true
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 known-first-party = ["core", "health", "django_react_starter", "user"]
 force-sort-within-sections = true
 section-order = [
