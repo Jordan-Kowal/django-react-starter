@@ -19,7 +19,7 @@ services:
       - ./backend:/home/app/backend
 
   front:
-    image: node:20.11.1
+    image: node:20.17.0
     container_name: django_react_starter_front
     working_dir: /app
     command: bash -c "yarn install && yarn start --host"

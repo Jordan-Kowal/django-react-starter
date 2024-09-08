@@ -57,6 +57,7 @@
 ### 🔧 Others
 
 - 💻 **Backend**: Added example indexer `UserIndexer` with tasks and scheduled CRON on celery
+- 💻 **Backend**: Upgraded to python `3.12.5` and upgraded dependencies
 - 🚂 **Deploy**: Updated `.dockerignore`
 - 🚂 **Deploy**: Updated sentry tracing to only trace the `api` app
 - 💫 **DX**: Added `rabbitmq, meilisearch, meilisearch_ui` into the `docker-compose` configuration
@@ -64,6 +65,7 @@
 - 💫 **DX**: Added `.tool-versions` for `asdf`
 - 💫 **DX**: Updated `README.example.md`
 - 🎨 **Frontend**: Replaced `prettier` and `eslint` with `biome`
+- 🎨 **Frontend**: Upgraded to node `20.17.0` and upgraded dependencies
 
 ## [v2.0.1] - 2024-02-23
 
