@@ -21,6 +21,8 @@
 
 - 💻 **Backend**: Added `celery` to replace the `django scheduler` to run tasks
 - 💻 **Backend**: Updated `health` API to check for `rabbitmq, celery, meilisearch`
+- 💻 **Backend**: Added `uv` as package manager
+- 💻 **Backend**: Now uses `pyproject.toml` for project, ruff, and mypy config
 - 🎨 **Frontend**: Migrated the entire app to **TypeScript**
 - 🎨 **Frontend**: Replaced frontend API implementation with **React Query**
 - 🎨 **Frontend**: Added **Vitest** and **MSW**
@@ -55,6 +57,7 @@
 ### 🔧 Others
 
 - 💻 **Backend**: Added example indexer `UserIndexer` with tasks and scheduled CRON on celery
+- 🚂 **Deploy**: Updated `.dockerignore`
 - 🚂 **Deploy**: Updated sentry tracing to only trace the `api` app
 - 💫 **DX**: Added `rabbitmq, meilisearch, meilisearch_ui` into the `docker-compose` configuration
 - 💫 **DX**: Added VSCode settings and tasks for easier development
