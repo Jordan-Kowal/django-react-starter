@@ -10,5 +10,5 @@
       }
     ]
   },
-  "mypy-type-checker.args": ["--config-file=./backend/mypy.ini"]
+  "mypy-type-checker.args": ["--config-file=./backend/pyproject.toml"]
 }

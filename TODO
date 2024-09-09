@@ -1,11 +1,10 @@
 # TODO
 
-- Add dependabot
 - Add "main features" to README
-
-- Fix biome on-save
+- Fix biome on-save like ruff
 - Fix Django integration
-- Fix theme
+- Fix theme for python
 
+- Add dependabot
 - Sentry frontend
 - Auth with gmail
