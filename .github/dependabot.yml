@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+    groups:
+      production:
+        dependency-type: "production"
+      development:
+        dependency-type: "development"
+    # Utils
+    assignees:
+      - "octocat"
+    reviewers:
+      - "Jordan-Kowal"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "[Frontend] "

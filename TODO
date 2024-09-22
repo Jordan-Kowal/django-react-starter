@@ -1,9 +1,10 @@
 # TODO
 
+- Add dependabot backend
 - Add "main features" to README
+
 - Fix Django integration
 - Fix theme for python
 
-- Add dependabot
 - Sentry frontend
 - Auth with gmail

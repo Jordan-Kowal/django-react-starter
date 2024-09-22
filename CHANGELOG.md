@@ -50,7 +50,6 @@
 
 - 💻 **Backend**: Fixed catch-all route in `urls.py`
 - 🚂 **Deploy**: Fixed Dockerfile not copying correctly the frontend build
-- 💫 **DX**: Added `.githooks` to run `biome, tsc, ruff, mypy` on commit
 - 💫 **DX**: Improved CI/CD pipeline with re-usable workflows
 - 🎨 **Frontend**: Correctly fetches app config after login
 
@@ -66,6 +65,8 @@
 - 💫 **DX**: Updated `README.example.md`
 - 🎨 **DX**: Moved `biome.json` at root folder to work with the VSCode extension
 - 🎨 **DX**: Removed `runOnSave` settings and simplified workspace VSCode settings
+- 💫 **DX**: Added `.githooks` to run `biome, tsc, ruff, mypy` on commit
+- 💫 **DX**: Added `dependabot` config to the repo for frontend dependencies
 - 🎨 **Frontend**: Replaced `prettier` and `eslint` with `biome`
 - 🎨 **Frontend**: Upgraded to node `20.17.0` and upgraded dependencies
 
