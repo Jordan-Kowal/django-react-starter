@@ -15,6 +15,16 @@
 - 🎨 **Frontend**:
 - 🚂 **Deploy**:
 
+## [v3.0.1] - 2024-09-24
+
+### 🐞 Bugfixes
+
+- 💻 **Backend**: GitHub action to update python deps now uses token user in commit
+
+### 🔧 Others
+
+- 💫 **DX**: Updated version in both `pyproject.toml` and `package.json`
+
 ## [v3.0.0] - 2024-09-23
 
 ### 🚀 Features
