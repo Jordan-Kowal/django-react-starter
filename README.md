@@ -1,10 +1,13 @@
 # Django React Starter
 
-Django-React starter with Docker support for fast and easy web development.
+Django-React starter with Docker support for fast and easy web development with:
 
-- [Django React Starter](#django-react-starter)
-  - [Getting started](#getting-started)
-  - [Features](#features)
+🥷 **Backend**: Django + DRF + Celery<br/>
+✨ **Frontend**: Vite + React + Antd<br/>
+💻 **Database**: Postgres<br/>
+🔍 **Search engine**: Meilisearch and its UI<br/>
+🗨️ **Messaging**: RabbitMQ<br/>
+🚀 **Deployment**: Fly.io<br/>
 
 ## Getting started
 
@@ -21,33 +24,29 @@ Simply follow these steps to get started:
   - Replace all occurrences of `django_react_starter` with `your_project_name`
   - Replace all occurrences of `django-react-starter` with `your-project-name`
   - Replace all occurrences of `Django React Starter` with `Your Project Name`
+  - Replace all occurrences of `Jordan-Kowal` with `Your GitHub Username` (used in GitHub actions)
   - Update whatever you see fit
   - Use `docker-compose up` to run the application locally
 - Deployment:
   - Create your own **fly.toml** file using `fly launch` (see [Fly.io](https://fly.io) for more information)
 - Start coding!
 
-## Features
+## Main Features
 
-This starter delivers a fully-working and deployment-ready application with:
+🎬 **Ready-to-use fully-tested application with multiple features:**
+- Login
+- User management
+- Health checks
+- Example of Celery/RabbitMQ/Meilisearch integration
 
-- Backend: Django + DRF + Celery
-- Frontend: Vite + React + Antd
-- Database: Postgres
-- Search engine: Meilisearch and its UI
-- Messaging: RabbitMQ
+🐳 **Docker integration:**
+- `Dockerfile` for both development and production
+- `docker-compose` to run the entire app locally
+- `Makefile` for easy access to frequent commands
 
-**Tools for local development:**
+✨ **Quality tools:**
+- Tests, linters, and formatters for both backend and frontend
+- Pre-commits hooks
+- CI/CD for QA, dependencies, rebase, and deployment
 
-- `Dockerfile` to build the final Django image that includes the React frontend
-- `docker-compose` to run the application locally (frontend + backend + database)
-- `pre-commit` hooks for both backend and frontend
-
-**CI/CD ready to go:**
-
-Provides 4 different jobs:
-
-- [qa-backend](.github/workflows/qa-backend.yml): runs ruff, mypy, and tests
-- [qa-frontend](.github/workflows/qa-frontend.yml): runs biome and frontend tests
-- [rebase-check](.github/workflows/rebase-check.yml): checks if the branch can be rebased on `main`
-- [deploy](.github/workflows/deploy.yml): deploys the application on **fly.io**
+...and many other utilities!
