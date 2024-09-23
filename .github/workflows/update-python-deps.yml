@@ -6,7 +6,7 @@ on:
     - cron: "0 0 * * 1"  # Every Monday morning
 
 jobs:
-  setup:
+  update_deps:
     runs-on: ubuntu-latest
 
     steps:
@@ -48,6 +48,8 @@ jobs:
         run: |
           git commit -m "chore: update python dependencies"
           git push -f origin HEAD:deps/update-python-dependencies
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_FOR_ACTIONS }}
 
       - name: Create Pull Request
         if: env.deps_change == 'true'
