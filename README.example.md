@@ -13,8 +13,6 @@
     - [GitHub Actions](#github-actions)
   - [Available URLs](#available-urls)
   - [Deployment](#deployment)
-    - [Summary](#summary)
-    - [Deploying for the first time](#deploying-for-the-first-time)
   - [Made by JKDev](#made-by-jkdev)
 
 ## Structure
@@ -108,8 +106,10 @@ make setup_githooks
 
 ### GitHub Actions
 
-We use GitHub actions to verify, build, and deploy the application. We currently have 4 main jobs:
+We use GitHub actions to verify, build, and deploy the application. We currently have:
 
+- [dependabot](.github/dependabot.yml): Dependabot configuration for frontend dependencies
+- [update-python-dependencies](.github/workflows/update-python-deps.yml): Updates the python dependencies using `uv`
 - [qa-backend](.github/workflows/qa-backend.yml): runs ruff, mypy, and tests
 - [qa-frontend](.github/workflows/qa-frontend.yml): runs biome and frontend tests
 - [rebase-check](.github/workflows/rebase-check.yml): checks if the branch can be rebased on `main`
@@ -134,23 +134,8 @@ We use GitHub actions to verify, build, and deploy the application. We currently
 
 ## Deployment
 
-Deployment is done through [fly.io](https://fly.io/):
-
-### Summary
-
-|                  | Production                                    |
-|------------------|-----------------------------------------------|
-| **App**          | django_react_starter                          |
-| **Config file**  | [fly.toml](fly.toml)                          |
-| **Environment**  | `production`                                  |
-| **URL**          | <https://django_react_starter.jkdev.app/>     |
-| **Deploy**       | Manual/Automatic GitHub action                |
-| **Availability** | Public                                        |
-| **Sleep mode**   | No                                            |
-
-### Deploying for the first time
-
-To deploy the application, you will need to:
+Deployment is done through [fly.io](https://fly.io/).
+When deploying the application **for the first time**, you will need to:
 
 - Create an account on [fly.io](https://fly.io)
 - Install the `flyctl` CLI
