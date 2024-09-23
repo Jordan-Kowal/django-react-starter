@@ -10,5 +10,7 @@ updates:
       development:
         dependency-type: "development"
     # Utils
+    reviewers:
+      - "Jordan-Kowal"
     commit-message:
       prefix: "[Frontend] "

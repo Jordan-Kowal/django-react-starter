@@ -59,3 +59,4 @@ jobs:
           branch: deps/update-python-dependencies
           title: "[Backend] Update python dependencies"
           body: "Update python dependencies"
+          reviewers: "Jordan-Kowal"
