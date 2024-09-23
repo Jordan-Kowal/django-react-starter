@@ -10,11 +10,5 @@ updates:
       development:
         dependency-type: "development"
     # Utils
-    assignees:
-      - "octocat"
-    reviewers:
-      - "Jordan-Kowal"
-    labels:
-      - "dependencies"
     commit-message:
       prefix: "[Frontend] "
