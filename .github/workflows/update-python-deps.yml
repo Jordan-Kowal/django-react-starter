@@ -55,5 +55,5 @@ jobs:
         with:
           token: ${{ secrets.PAT_FOR_ACTIONS }}
           branch: deps/update-python-dependencies
-          title: "chore: update python dependencies"
+          title: "[Backend] Update python dependencies"
           body: "Update python dependencies"
