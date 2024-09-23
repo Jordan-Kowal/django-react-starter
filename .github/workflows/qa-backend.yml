@@ -24,15 +24,13 @@ jobs:
         id: cache-venv
         uses: actions/cache@v3
         with:
-          path: ./backend/venv
+          path: ./backend/.venv
           key: python-3-12-venv-${{ hashFiles('./backend/uv.lock') }}
 
       - name: Install dependencies
         if: ${{ steps.cache-venv.outputs.cache-hit != 'true' }}
         run: |
           cd backend
-          python -m venv venv
-          . venv/bin/activate
           python -m pip install --upgrade pip
           pip install uv
           uv sync --frozen
@@ -54,13 +52,13 @@ jobs:
       - name: Cache venv
         uses: actions/cache@v3
         with:
-          path: ./backend/venv
+          path: ./backend/.venv
           key: python-3-12-venv-${{ hashFiles('./backend/uv.lock') }}
 
       - name: Run ruff
         run: |
           cd backend
-          . venv/bin/activate
+          . .venv/bin/activate
           ruff check --select I .
           ruff check .
           ruff format --check .
@@ -82,13 +80,13 @@ jobs:
       - name: Cache venv
         uses: actions/cache@v3
         with:
-          path: ./backend/venv
+          path: ./backend/.venv
           key: python-3-12-venv-${{ hashFiles('./backend/uv.lock') }}
 
       - name: Run mypy
         run: |
           cd backend
-          . venv/bin/activate
+          . .venv/bin/activate
           mypy .
 
   coverage:
@@ -128,7 +126,7 @@ jobs:
       - name: Cache venv
         uses: actions/cache@v3
         with:
-          path: ./backend/venv
+          path: ./backend/.venv
           key: python-3-12-venv-${{ hashFiles('./backend/uv.lock') }}
 
       - name: Install gdal-bin
@@ -145,7 +143,7 @@ jobs:
           MEILISEARCH_API_KEY: masterKey
         run: |
           cd backend
-          . venv/bin/activate
+          . .venv/bin/activate
           python manage.py collectstatic --noinput --settings=django_react_starter.settings.test
           coverage run --source='.' manage.py test --settings=django_react_starter.settings.test
           coverage report --fail-under=90
