@@ -53,7 +53,7 @@ jobs:
         if: env.deps_change == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_FOR_ACTIONS }}
           branch: deps/update-python-dependencies
           title: "chore: update python dependencies"
           body: "Update python dependencies"
