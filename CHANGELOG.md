@@ -63,8 +63,8 @@
 - 💫 **DX**: Added VSCode settings and tasks for easier development
 - 💫 **DX**: Added `.tool-versions` for `asdf`
 - 💫 **DX**: Updated `README.example.md`
-- 🎨 **DX**: Moved `biome.json` at root folder to work with the VSCode extension
-- 🎨 **DX**: Removed `runOnSave` settings and simplified workspace VSCode settings
+- 💫 **DX**: Moved `biome.json` at root folder to work with the VSCode extension
+- 💫 **DX**: Removed `runOnSave` settings and simplified workspace VSCode settings
 - 💫 **DX**: Added `.githooks` to run `biome, tsc, ruff, mypy` on commit
 - 💫 **DX**: Added `dependabot` config to the repo for frontend dependencies
 - 💫 **DX**: Added a github action to update backend dependencies with UV
