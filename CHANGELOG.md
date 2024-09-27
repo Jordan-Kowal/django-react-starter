@@ -23,7 +23,9 @@
 
 ### 🔧 Others
 
+- 💻 **Backend**: Updated deps
 - 💫 **DX**: Updated version in both `pyproject.toml` and `package.json`
+- 🎨 **Frontend**: Updated deps
 
 ## [v3.0.0] - 2024-09-23
 
