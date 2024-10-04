@@ -4,17 +4,17 @@ module.exports = {
   important: true,
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    colors: {
-      transparent: "transparent",
-      primary: theme.colors.primary,
-      info: theme.colors.info,
-      success: theme.colors.success,
-      warning: theme.colors.warning,
-      error: theme.colors.error,
-      text: theme.colors.text,
-      bg: theme.colors.bg,
-    },
     extend: {
+      colors: {
+        transparent: "transparent",
+        primary: theme.colors.primary,
+        info: theme.colors.info,
+        success: theme.colors.success,
+        warning: theme.colors.warning,
+        error: theme.colors.error,
+        text: theme.colors.text,
+        bg: theme.colors.bg,
+      },
       spacing: {
         default: theme.layout.layoutPadding,
         header: theme.layout.headerHeight,

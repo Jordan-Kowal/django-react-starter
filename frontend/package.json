@@ -1,14 +1,14 @@
 {
   "name": "frontend",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "private": true,
   "homepage": "/",
   "scripts": {
     "biome:format": "biome format ./src",
     "biome:lint": "biome lint ./src",
     "biome:check": "biome check ./src",
-    "biome:check:apply": "biome check --apply ./src",
-    "biome:check:apply-unsafe": "biome check --apply-unsafe ./src",
+    "biome:check:write": "biome check --write ./src",
+    "biome:check:write-unsafe": "biome check --write --unsafe ./src",
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -65,11 +65,7 @@
     "vitest": "2.1.1"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

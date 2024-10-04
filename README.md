@@ -34,17 +34,20 @@ Simply follow these steps to get started:
 ## Main Features
 
 🎬 **Ready-to-use fully-tested application with multiple features:**
+
 - Login
 - User management
 - Health checks
 - Example of Celery/RabbitMQ/Meilisearch integration
 
 🐳 **Docker integration:**
+
 - `Dockerfile` for both development and production
 - `docker-compose` to run the entire app locally
 - `Makefile` for easy access to frequent commands
 
 ✨ **Quality tools:**
+
 - Tests, linters, and formatters for both backend and frontend
 - Pre-commits hooks
 - CI/CD for QA, dependencies, rebase, and deployment

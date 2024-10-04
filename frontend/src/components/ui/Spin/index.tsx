@@ -15,6 +15,7 @@ export const Spin: React.FC<SpinProps> = memo(
     tip,
     dataTestId,
     verticallyCentered = true,
+    ...restProps
   }) => (
     <div
       className={classNames("flex w-full h-full justify-center", {
@@ -22,7 +23,12 @@ export const Spin: React.FC<SpinProps> = memo(
       })}
       data-testid={dataTestId}
     >
-      <AntdSpin className="w-full max-h-full" tip={tip} spinning={spinning}>
+      <AntdSpin
+        className="w-full max-h-full"
+        tip={tip}
+        spinning={spinning}
+        {...restProps}
+      >
         {children}
       </AntdSpin>
     </div>

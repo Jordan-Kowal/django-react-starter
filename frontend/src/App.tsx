@@ -1,17 +1,17 @@
-import { ConfigProvider, theme } from "antd";
-import { memo } from "react";
-import "antd/dist/reset.css";
 import { AppLayout } from "@/components/layout";
-import frFR from "antd/locale/fr_FR";
-import { BrowserRouter } from "react-router-dom";
+import { HelmetMetaData, Routes } from "@/routes";
+import { antdTheme } from "@/styles";
+import "@/styles/antd.less";
+import "@/styles/global.less";
+import "@/styles/tailwind.css";
 import "@/utils/dates/config";
-import { HelmetMetaData, Routes } from "./routes";
-import { antdTheme } from "./styles";
-import "./styles/antd.less";
-import "./styles/global.less";
-import "./styles/tailwind.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ConfigProvider, theme } from "antd";
+import "antd/dist/reset.css";
+import frFR from "antd/locale/fr_FR";
+import { memo } from "react";
+import { BrowserRouter } from "react-router-dom";
 
 const antdThemeConfig = {
   algorithm: theme.darkAlgorithm,
