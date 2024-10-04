@@ -17,14 +17,21 @@
 
 ## [v3.0.2] - 2024-10-04
 
+### ✨ Improvements
+
+- 💫 **DX**: Simplified `dependabot` config
+
 ### 🐞 Bugfixes
 
+- 💻 **Backend**: Fixed deps update not working correctly
 - 🎨 **Frontend**: Fixed `Spin` component ignoring extra props
 - 🎨 **Frontend**: Fixed `biome` scripts in `package.json` that used deprecated args
 - 🎨 **Frontend**: Fixed **Tailwind** config file that overwrote colors instead of extending them
 
 ### 🔧 Others
 
+- 💻 **Backend**: Updated deps
+- 🎨 **Frontend**: Updated deps
 - 🎨 **Frontend**: Updated some imports to be absolute rather than relative
 
 ## [v3.0.1] - 2024-09-24

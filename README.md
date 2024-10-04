@@ -25,6 +25,7 @@ Simply follow these steps to get started:
   - Replace all occurrences of `django-react-starter` with `your-project-name`
   - Replace all occurrences of `Django React Starter` with `Your Project Name`
   - Replace all occurrences of `Jordan-Kowal` with `Your GitHub Username` (used in GitHub actions)
+  - Replace all occurrences of `kowaljordan@gmail.com` with `email address` (used in GitHub actions)
   - Update whatever you see fit
   - Use `docker-compose up` to run the application locally
 - Deployment:

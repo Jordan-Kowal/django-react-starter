@@ -11,8 +11,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT_FOR_ACTIONS }}
 
       - uses: actions/setup-python@v5
         with:
@@ -32,6 +30,11 @@ jobs:
           cd backend
           uv sync --upgrade
 
+      - name: Git config
+        run: |
+          git config --global user.name "Jordan-Kowal"
+          git config --global user.email "kowaljordan@gmail.com"
+
       - name: Check for uv.lock changes
         run: |
           git add ./backend/uv.lock
@@ -46,7 +49,7 @@ jobs:
       - name: Commit changes
         if: env.deps_change == 'true'
         run: |
-          git commit -m "chore: update python dependencies" --author="${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
+          git commit -m "chore: update python dependencies"
           git push -f origin HEAD:deps/update-python-dependencies
 
       - name: Create Pull Request

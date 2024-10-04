@@ -4,12 +4,10 @@ updates:
     directory: "/frontend"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 1
     groups:
-      production:
-        dependency-type: "production"
-      development:
-        dependency-type: "development"
-    # Utils
+      all:
+        patterns: ["*"]
     reviewers:
       - "Jordan-Kowal"
     commit-message:
