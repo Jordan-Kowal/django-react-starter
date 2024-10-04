@@ -32,13 +32,10 @@ jobs:
           cd backend
           uv sync --upgrade
 
-      - name: Git config
+      - name: Check for uv.lock changes
         run: |
           git config --global user.name "Jordan-Kowal"
           git config --global user.email "kowaljordan@gmail.com"
-
-      - name: Check for uv.lock changes
-        run: |
           git add ./backend/uv.lock
           if git diff --cached --exit-code --quiet; then
             echo "No changes in uv.lock"
