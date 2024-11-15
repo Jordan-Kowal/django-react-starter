@@ -1,4 +1,6 @@
 from django.contrib.auth import get_user_model, login, logout
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_protect
 from django_utils_kit.permissions import IsNotAuthenticated
 from django_utils_kit.viewsets import ImprovedViewSet
 from drf_spectacular.utils import PolymorphicProxySerializer, extend_schema
@@ -27,6 +29,7 @@ class AuthViewSet(ImprovedViewSet):
         return Response(None, status.HTTP_204_NO_CONTENT)
 
     @extend_schema(responses={204: None})
+    @method_decorator(csrf_protect)
     @action(detail=False, methods=["post"])
     def login(self, request: Request) -> Response:
         serializer = self.get_valid_serializer(data=request.data)

@@ -15,6 +15,14 @@
 - 🎨 **Frontend**:
 - 🚂 **Deploy**:
 
+## [v3.1.1] - 2024-11-15
+
+### 🐞 Bugfixes
+
+- 💻 **Backend**: Correctly handle CSRF protection on `/login` route,
+  which was disabled by DRF's `SessionAuthentication`.
+  (Impact was strictly limited to this one view)
+
 ## [v3.1.0] - 2024-11-15
 
 ### 🚀 Features
