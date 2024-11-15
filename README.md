@@ -1,4 +1,13 @@
-# Django React Starter
+# ✨ Django React Starter ✨
+
+![Coverage](https://badgen.net/badge/coverage/%3E90%25/pink)
+![Tag](https://badgen.net/badge/tag/3.1.1/orange)
+![Licence](https://badgen.net/badge/licence/MIT)
+
+- [✨ Django React Starter ✨](#-django-react-starter-)
+  - [⚡ Getting started](#-getting-started)
+  - [📕 Main Features](#-main-features)
+  - [🔗 Useful links](#-useful-links)
 
 Django-React starter with Docker support for fast and easy web development with:
 
@@ -9,7 +18,7 @@ Django-React starter with Docker support for fast and easy web development with:
 🗨️ **Messaging**: RabbitMQ<br/>
 🚀 **Deployment**: Fly.io<br/>
 
-## Getting started
+## ⚡ Getting started
 
 Simply follow these steps to get started:
 
@@ -33,7 +42,7 @@ Simply follow these steps to get started:
   - Create your own **fly.toml** file using `fly launch` (see [Fly.io](https://fly.io) for more information)
 - Start coding!
 
-## Main Features
+## 📕 Main Features
 
 🎬 **Ready-to-use fully-tested application with multiple features:**
 
@@ -55,3 +64,7 @@ Simply follow these steps to get started:
 - CI/CD for QA, dependencies, rebase, and deployment
 
 ...and many other utilities!
+
+## 🔗 Useful links
+
+- [See what's new!](CHANGELOG.md)
