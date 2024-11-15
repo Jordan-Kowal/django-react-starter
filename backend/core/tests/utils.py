@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 from unittest.mock import patch
 
 from django.conf import settings
-from jklib.dj.tests import APITestCase, ImprovedTestCase
+from django_utils_kit.test_utils import APITestCase, ImprovedTestCase
 from meilisearch import Client
 
 from user.tests.factories import UserFactory
@@ -26,21 +26,7 @@ class BaseTestCase(ImprovedTestCase):
 
     def setUp(self) -> None:
         super().setUp()
-        self._mock_indexers()
         self._mock_celery_tasks()
-
-    def _mock_indexers(self) -> None:
-        """
-        Patches the `index_name` functions of all indexers.
-        This allows running tests against a Meilisearch server
-        without overwriting the actual index.
-        """
-        self.indexer_mocks = [
-            patch(
-                "user.indexers.UserIndexer.index_name",
-                return_value="test_users",
-            ).start(),
-        ]
 
     def _mock_celery_tasks(self) -> None:
         """

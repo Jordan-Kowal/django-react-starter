@@ -1,6 +1,6 @@
 from typing import Any, Dict
 
-from jklib.meili.dj.indexer import MeilisearchModelIndexer
+from django_meilisearch_indexer.indexers import MeilisearchModelIndexer
 
 from user.models import User
 

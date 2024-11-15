@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from jklib.dj.viewsets import ImprovedViewSet
+from django_utils_kit.viewsets import ImprovedViewSet
 from meilisearch import Client
 import requests
 from rest_framework.decorators import action

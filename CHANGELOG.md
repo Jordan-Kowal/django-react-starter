@@ -15,6 +15,24 @@
 - 🎨 **Frontend**:
 - 🚂 **Deploy**:
 
+## [v3.1.0] - 2024-11-15
+
+### 🚀 Features
+
+- 💻 **Backend**: Added `UserIndexer` index creation on app start as an example
+
+### ✨ Improvements
+
+- 💻 **Backend**: Replaced `jklib` with `django-utils-kit` and `django-meilisearch-indexer`
+- 💻 **Backend**: Removed most of `UserIndexer` tests to avoid re-testing the library
+- 💻 **Backend**: Removed mock of `UserIndexer.index_name` since the celery tasks are mocked
+
+### 🔧 Others
+
+- 💻 **Backend**: Set `django.core.mail.backends.locmem.EmailBackend` as `EMAIL_BACKEND` for the test environment
+- 💻 **Backend**: Updated deps
+- 🎨 **Frontend**: Updated deps
+
 ## [v3.0.2] - 2024-10-04
 
 ### ✨ Improvements
