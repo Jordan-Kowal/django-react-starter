@@ -8,6 +8,7 @@
   - [⚡ Getting started](#-getting-started)
   - [📕 Main Features](#-main-features)
   - [🔗 Useful links](#-useful-links)
+  - [⏳ Stats](#-stats)
 
 Django-React starter with Docker support for fast and easy web development with:
 
@@ -68,3 +69,7 @@ Simply follow these steps to get started:
 ## 🔗 Useful links
 
 - [See what's new!](CHANGELOG.md)
+
+## ⏳ Stats
+
+![Alt](https://repobeats.axiom.co/api/embed/636ef281fb17ad5500a0e7992289e4f55e0ac135.svg "Repobeats analytics image")
