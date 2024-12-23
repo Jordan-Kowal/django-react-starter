@@ -2090,29 +2090,29 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.28.0.tgz#cb313feef9ac6e3737067fdf34f42804ac65a6f2"
   integrity sha512-Bvno2/aZT6usSa7lRDL2+hMjVAGjuqaymF1ApZm31JXzniR/hvr14jpU+/z4X6Gt5BPlzosscyJZGUvguXIqeQ==
 
-"@tanstack/query-core@5.62.7":
-  version "5.62.7"
-  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.62.7.tgz#c7f6d0131c08cd2f60e73ec6e7b70e2e9e335def"
-  integrity sha512-fgpfmwatsrUal6V+8EC2cxZIQVl9xvL7qYa03gsdsCy985UTUlS4N+/3hCzwR0PclYDqisca2AqR1BVgJGpUDA==
+"@tanstack/query-core@5.62.8":
+  version "5.62.8"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.62.8.tgz#4a7df096ca6014a11b1185c1a14923659d17608c"
+  integrity sha512-4fV31vDsUyvNGrKIOUNPrZztoyL187bThnoQOvAXEVlZbSiuPONpfx53634MKKdvsDir5NyOGm80ShFaoHS/mw==
 
 "@tanstack/query-devtools@5.61.4":
   version "5.61.4"
   resolved "https://registry.yarnpkg.com/@tanstack/query-devtools/-/query-devtools-5.61.4.tgz#86a3be0ffb97d810525600e3787b5b69808cf9db"
   integrity sha512-21Tw+u8E3IJJj4A/Bct4H0uBaDTEu7zBrR79FeSyY+mS2gx5/m316oDtJiKkILc819VSTYt+sFzODoJNcpPqZQ==
 
-"@tanstack/react-query-devtools@5.62.7":
-  version "5.62.7"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-query-devtools/-/react-query-devtools-5.62.7.tgz#8f3f82822f3d5cb326026e96519dff3141d18533"
-  integrity sha512-wxXsdTZJRs//hMtJMU5aNlUaTclRFPqLvDNeWbRj8YpGD3aoo4zyu53W55W2DY16+ycg3fti21uCW4N9oyj91w==
+"@tanstack/react-query-devtools@5.62.8":
+  version "5.62.8"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query-devtools/-/react-query-devtools-5.62.8.tgz#b635b18d747c28ab7b8e0dcbcd4c16932d6e6ab1"
+  integrity sha512-SwjXjQTRONd9WPeKVQQ9framG7YNqPV8PS+EGNVNXAyz2XThulMRCvZnh2+3DggnjcYM7YcpnuoZ4RH7q13p0g==
   dependencies:
     "@tanstack/query-devtools" "5.61.4"
 
-"@tanstack/react-query@5.62.7":
-  version "5.62.7"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.62.7.tgz#8f253439a38ad6ce820bc6d42d89ca2556574d1a"
-  integrity sha512-+xCtP4UAFDTlRTYyEjLx0sRtWyr5GIk7TZjZwBu4YaNahi3Rt2oMyRqfpfVrtwsqY2sayP4iXVCwmC+ZqqFmuw==
+"@tanstack/react-query@5.62.8":
+  version "5.62.8"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.62.8.tgz#b2fefe0ca0502510a1550635f0be52bc3bbea7ce"
+  integrity sha512-8TUstKxF/fysHonZsWg/hnlDVgasTdHx6Q+f1/s/oPKJBJbKUWPZEHwLTMOZgrZuroLMiqYKJ9w69Abm8mWP0Q==
   dependencies:
-    "@tanstack/query-core" "5.62.7"
+    "@tanstack/query-core" "5.62.8"
 
 "@testing-library/dom@10.4.0":
   version "10.4.0"
@@ -2268,10 +2268,10 @@
     "@types/history" "^4.7.11"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@19.0.1":
-  version "19.0.1"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.0.1.tgz#a000d5b78f473732a08cecbead0f3751e550b3df"
-  integrity sha512-YW6614BDhqbpR5KtUYzTA+zlA7nayzJRA9ljz9CQoxthR0sDisYZLuvSMsil36t4EH/uAt8T52Xb4sVw17G+SQ==
+"@types/react@*", "@types/react@19.0.2":
+  version "19.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.0.2.tgz#9363e6b3ef898c471cb182dd269decc4afc1b4f6"
+  integrity sha512-USU8ZI/xyKJwFTpjSVIrSeHBVAGagkHQKPNbxeWwql/vDmnTIBgx+TJnhFnj1NXgz8XfprU0egV2dROLGpsBEg==
   dependencies:
     csstype "^3.0.2"
 
@@ -2451,10 +2451,10 @@ ansi-styles@^6.1.0:
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-6.2.1.tgz#0e62320cf99c21afff3b3012192546aacbfb05c5"
   integrity sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==
 
-antd@5.22.5:
-  version "5.22.5"
-  resolved "https://registry.yarnpkg.com/antd/-/antd-5.22.5.tgz#e959381faca86c984cc853a0ab5cb3f140178336"
-  integrity sha512-+0UP8w+ULVv2OIzCDVz7j6I0UfH6mMLHSWO6qzpBc+9psOoVQLRbyAE21XnZM/eGrt2MNsEDL5fmlhXL/V8JyQ==
+antd@5.22.6:
+  version "5.22.6"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-5.22.6.tgz#453aa60429e31ce70e1c82d78b7866e648cabb76"
+  integrity sha512-ZYURSV3FR8qQgbfpa554thlO07L6PeHwhAM0wmxnobOBogND/HqSnTU+UZTqT2b2y9MxSfAIu5Xn1uEM9UpceQ==
   dependencies:
     "@ant-design/colors" "^7.1.0"
     "@ant-design/cssinjs" "^1.21.1"
@@ -2483,13 +2483,13 @@ antd@5.22.5:
     rc-input-number "~9.3.0"
     rc-mentions "~2.17.0"
     rc-menu "~9.16.0"
-    rc-motion "^2.9.4"
+    rc-motion "^2.9.5"
     rc-notification "~5.6.2"
     rc-pagination "~5.0.0"
     rc-picker "~4.8.3"
     rc-progress "~4.0.0"
     rc-rate "~2.13.0"
-    rc-resize-observer "^1.4.1"
+    rc-resize-observer "^1.4.3"
     rc-segmented "~2.5.0"
     rc-select "~14.16.4"
     rc-slider "~11.1.7"
@@ -2672,7 +2672,7 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.1.0, chalk@^4.1.2:
+chalk@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -2966,36 +2966,7 @@ es-module-lexer@^1.5.4:
   resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-1.5.4.tgz#a8efec3a3da991e60efa6b633a7cad6ab8d26b78"
   integrity sha512-MVNK56NiMrOwitFB7cqDwq0CQutbw+0BvLshJSse0MUNU+y1FC3bUS/AQg7oUng+/wKrrki7JfmwtVHkVfPLlw==
 
-esbuild@^0.21.3:
-  version "0.21.5"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.21.5.tgz#9ca301b120922959b766360d8ac830da0d02997d"
-  integrity sha512-mg3OPMV4hXywwpoDxu3Qda5xCKQi+vCTZq8S9J/EpkhB2HzKXq4SNFZE3+NK93JYxc8VMSep+lOUSC/RVKaBqw==
-  optionalDependencies:
-    "@esbuild/aix-ppc64" "0.21.5"
-    "@esbuild/android-arm" "0.21.5"
-    "@esbuild/android-arm64" "0.21.5"
-    "@esbuild/android-x64" "0.21.5"
-    "@esbuild/darwin-arm64" "0.21.5"
-    "@esbuild/darwin-x64" "0.21.5"
-    "@esbuild/freebsd-arm64" "0.21.5"
-    "@esbuild/freebsd-x64" "0.21.5"
-    "@esbuild/linux-arm" "0.21.5"
-    "@esbuild/linux-arm64" "0.21.5"
-    "@esbuild/linux-ia32" "0.21.5"
-    "@esbuild/linux-loong64" "0.21.5"
-    "@esbuild/linux-mips64el" "0.21.5"
-    "@esbuild/linux-ppc64" "0.21.5"
-    "@esbuild/linux-riscv64" "0.21.5"
-    "@esbuild/linux-s390x" "0.21.5"
-    "@esbuild/linux-x64" "0.21.5"
-    "@esbuild/netbsd-x64" "0.21.5"
-    "@esbuild/openbsd-x64" "0.21.5"
-    "@esbuild/sunos-x64" "0.21.5"
-    "@esbuild/win32-arm64" "0.21.5"
-    "@esbuild/win32-ia32" "0.21.5"
-    "@esbuild/win32-x64" "0.21.5"
-
-esbuild@^0.24.0:
+esbuild@0.24.0:
   version "0.24.0"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.24.0.tgz#f2d470596885fcb2e91c21eb3da3b3c89c0b55e7"
   integrity sha512-FuLPevChGDshgSicjisSooU0cemp/sGXR841D5LHMB7mTVOmsEHcAxaH3irL53+8YDIeVNQEySh4DaYU/iuPqQ==
@@ -3024,6 +2995,35 @@ esbuild@^0.24.0:
     "@esbuild/win32-arm64" "0.24.0"
     "@esbuild/win32-ia32" "0.24.0"
     "@esbuild/win32-x64" "0.24.0"
+
+esbuild@^0.21.3:
+  version "0.21.5"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.21.5.tgz#9ca301b120922959b766360d8ac830da0d02997d"
+  integrity sha512-mg3OPMV4hXywwpoDxu3Qda5xCKQi+vCTZq8S9J/EpkhB2HzKXq4SNFZE3+NK93JYxc8VMSep+lOUSC/RVKaBqw==
+  optionalDependencies:
+    "@esbuild/aix-ppc64" "0.21.5"
+    "@esbuild/android-arm" "0.21.5"
+    "@esbuild/android-arm64" "0.21.5"
+    "@esbuild/android-x64" "0.21.5"
+    "@esbuild/darwin-arm64" "0.21.5"
+    "@esbuild/darwin-x64" "0.21.5"
+    "@esbuild/freebsd-arm64" "0.21.5"
+    "@esbuild/freebsd-x64" "0.21.5"
+    "@esbuild/linux-arm" "0.21.5"
+    "@esbuild/linux-arm64" "0.21.5"
+    "@esbuild/linux-ia32" "0.21.5"
+    "@esbuild/linux-loong64" "0.21.5"
+    "@esbuild/linux-mips64el" "0.21.5"
+    "@esbuild/linux-ppc64" "0.21.5"
+    "@esbuild/linux-riscv64" "0.21.5"
+    "@esbuild/linux-s390x" "0.21.5"
+    "@esbuild/linux-x64" "0.21.5"
+    "@esbuild/netbsd-x64" "0.21.5"
+    "@esbuild/openbsd-x64" "0.21.5"
+    "@esbuild/sunos-x64" "0.21.5"
+    "@esbuild/win32-arm64" "0.21.5"
+    "@esbuild/win32-ia32" "0.21.5"
+    "@esbuild/win32-x64" "0.21.5"
 
 escalade@^3.1.1, escalade@^3.2.0:
   version "3.2.0"
@@ -3682,10 +3682,10 @@ ms@^2.1.3:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-msw@2.6.9:
-  version "2.6.9"
-  resolved "https://registry.yarnpkg.com/msw/-/msw-2.6.9.tgz#d84bf19e1944f392a0795a69c68ff287af80af13"
-  integrity sha512-b2z9MvsEOYG5G7jtJasXO3ucHDcqCjf046e9wELIixBbYCRZCEmB4gqcb+C7ASyXBafNBR0D2u31YtG01OdX3A==
+msw@2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/msw/-/msw-2.7.0.tgz#d13ff87f7e018fc4c359800ff72ba5017033fb56"
+  integrity sha512-BIodwZ19RWfCbYTxWTUfTXc+sg4OwjCAgxU1ZsgmggX/7S3LdUifsbUPJs61j0rWb19CZRGY5if77duhc0uXzw==
   dependencies:
     "@bundled-es-modules/cookie" "^2.0.1"
     "@bundled-es-modules/statuses" "^1.0.1"
@@ -3696,12 +3696,12 @@ msw@2.6.9:
     "@open-draft/until" "^2.1.0"
     "@types/cookie" "^0.6.0"
     "@types/statuses" "^2.0.4"
-    chalk "^4.1.2"
     graphql "^16.8.1"
     headers-polyfill "^4.0.2"
     is-node-process "^1.2.0"
     outvariant "^1.4.3"
     path-to-regexp "^6.3.0"
+    picocolors "^1.1.1"
     strict-event-emitter "^0.5.1"
     type-fest "^4.26.1"
     yargs "^17.7.2"
@@ -4094,10 +4094,10 @@ rc-menu@~9.16.0:
     rc-overflow "^1.3.1"
     rc-util "^5.27.0"
 
-rc-motion@^2.0.0, rc-motion@^2.0.1, rc-motion@^2.3.0, rc-motion@^2.3.4, rc-motion@^2.4.3, rc-motion@^2.4.4, rc-motion@^2.6.1, rc-motion@^2.6.2, rc-motion@^2.9.0, rc-motion@^2.9.4:
-  version "2.9.4"
-  resolved "https://registry.yarnpkg.com/rc-motion/-/rc-motion-2.9.4.tgz#55fcf465a582a7e9f40f2687c2ebf2572e31bc2b"
-  integrity sha512-TAPUUufDqhPO669qJobI0d9U0XZ/VPNQyZTivUxxzU1EyuPe3PtHSx7Kb902KuzQgu7sS18z8GguaxZEALV/ww==
+rc-motion@^2.0.0, rc-motion@^2.0.1, rc-motion@^2.3.0, rc-motion@^2.3.4, rc-motion@^2.4.3, rc-motion@^2.4.4, rc-motion@^2.6.1, rc-motion@^2.6.2, rc-motion@^2.9.0, rc-motion@^2.9.5:
+  version "2.9.5"
+  resolved "https://registry.yarnpkg.com/rc-motion/-/rc-motion-2.9.5.tgz#12c6ead4fd355f94f00de9bb4f15df576d677e0c"
+  integrity sha512-w+XTUrfh7ArbYEd2582uDrEhmBHwK1ZENJiSJVb7uRxdE7qJSYjbO2eksRXmndqyKqKoYPc9ClpPh5242mV1vA==
   dependencies:
     "@babel/runtime" "^7.11.1"
     classnames "^2.2.1"
@@ -4162,10 +4162,10 @@ rc-rate@~2.13.0:
     classnames "^2.2.5"
     rc-util "^5.0.1"
 
-rc-resize-observer@^1.0.0, rc-resize-observer@^1.1.0, rc-resize-observer@^1.3.1, rc-resize-observer@^1.4.0, rc-resize-observer@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/rc-resize-observer/-/rc-resize-observer-1.4.1.tgz#1f6b75ecf27ee900f8a2dbd122c0b222d31aeb49"
-  integrity sha512-JbAeFDsaaZRPwaTlXnCqgeO9c6E7qoaE/hxsub08cdnnPn6767c/j9+r/TifUdfvwXtdcfHygKbZ7ecM/PXo/Q==
+rc-resize-observer@^1.0.0, rc-resize-observer@^1.1.0, rc-resize-observer@^1.3.1, rc-resize-observer@^1.4.0, rc-resize-observer@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/rc-resize-observer/-/rc-resize-observer-1.4.3.tgz#4fd41fa561ba51362b5155a07c35d7c89a1ea569"
+  integrity sha512-YZLjUbyIWox8E9i9C3Tm7ia+W7euPItNWSPX5sCcQTYbnwDb5uNpnLHQCG1f22oZWUhLw4Mv2tFmeWe68CDQRQ==
   dependencies:
     "@babel/runtime" "^7.20.7"
     classnames "^2.2.1"
@@ -4359,17 +4359,17 @@ react-refresh@^0.14.2:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.14.2.tgz#3833da01ce32da470f1f936b9d477da5c7028bf9"
   integrity sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==
 
-react-router-dom@7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-7.0.2.tgz#cbd7ce2db7112f1bc3e9eee3657ad32d7515a913"
-  integrity sha512-VJOQ+CDWFDGaWdrG12Nl+d7yHtLaurNgAQZVgaIy7/Xd+DojgmYLosFfZdGz1wpxmjJIAkAMVTKWcvkx1oggAw==
+react-router-dom@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-7.1.0.tgz#5e48f6499a1b788edd5aacb4009d929d5f3dd4e1"
+  integrity sha512-F4/nYBC9e4s0/ZjxM8GkZ9a68DpX76LN1a9W9mfPl2GfbDJ9/vzJro6MThNR5qGBH6KkgcK1BziyEzXhHV46Xw==
   dependencies:
-    react-router "7.0.2"
+    react-router "7.1.0"
 
-react-router@7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-7.0.2.tgz#2820e107cb8cec8acc5db15a17470c056ea86022"
-  integrity sha512-m5AcPfTRUcjwmhBzOJGEl6Y7+Crqyju0+TgTQxoS4SO+BkWbhOrcfZNq6wSWdl2BBbJbsAoBUb8ZacOFT+/JlA==
+react-router@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-7.1.0.tgz#85911e27aae8c4a57482f2404aef65ac9ca68a10"
+  integrity sha512-VcFhWqkNIcojDRYaUO8qV0Jib52s9ULpCp3nkBbmrvtoCVFRp6tmk3tJ2w9BZauVctA1YRnJlFYDn9iJRuCpGA==
   dependencies:
     "@types/cookie" "^0.6.0"
     cookie "^1.0.1"
@@ -4817,10 +4817,10 @@ symbol-tree@^3.2.4:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
-tailwindcss@3.4.16:
-  version "3.4.16"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.16.tgz#35a7c3030844d6000fc271878db4096b6a8d2ec9"
-  integrity sha512-TI4Cyx7gDiZ6r44ewaJmt0o6BrMCT5aK5e0rmJ/G9Xq3w7CX/5VXl/zIPEJZFUK5VEqwByyhqNPycPlvcK4ZNw==
+tailwindcss@3.4.17:
+  version "3.4.17"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.17.tgz#ae8406c0f96696a631c790768ff319d46d5e5a63"
+  integrity sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==
   dependencies:
     "@alloc/quick-lru" "^5.2.0"
     arg "^5.0.2"
@@ -5106,12 +5106,12 @@ vite-node@2.1.8:
     pathe "^1.1.2"
     vite "^5.0.0"
 
-vite@6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-6.0.3.tgz#cc01f403e326a9fc1e064235df8a6de084c8a491"
-  integrity sha512-Cmuo5P0ENTN6HxLSo6IHsjCLn/81Vgrp81oaiFFMRa8gGDj5xEjIcEpf2ZymZtZR8oU0P2JX5WuUp/rlXcHkAw==
+vite@6.0.5:
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-6.0.5.tgz#1d0fbdb3ffe61e944089abeddb7d2c509420acfd"
+  integrity sha512-akD5IAH/ID5imgue2DYhzsEwCi0/4VKY31uhMLEYJwPP4TiUp8pL5PIK+Wo7H8qT8JY9i+pVfPydcFPYD1EL7g==
   dependencies:
-    esbuild "^0.24.0"
+    esbuild "0.24.0"
     postcss "^8.4.49"
     rollup "^4.23.0"
   optionalDependencies:
