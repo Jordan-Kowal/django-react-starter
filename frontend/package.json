@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "3.0.2",
+  "version": "3.1.2",
   "private": true,
   "homepage": "/",
   "scripts": {
@@ -25,7 +25,7 @@
     "antd": "5.22.7",
     "classnames": "2.5.1",
     "dayjs": "1.11.13",
-    "jkscript": "3.2.3",
+    "jkscript": "3.2.4",
     "million": "3.1.11",
     "react": "19.0.0",
     "react-dom": "19.0.0",
@@ -65,11 +65,7 @@
     "vitest": "2.1.8"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
