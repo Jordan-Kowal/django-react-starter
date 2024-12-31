@@ -21,6 +21,7 @@
 
 - 💻 **Backend**: Upgraded deps
 - 🎨 **Frontend**: Upgraded deps
+- 💫 **DX**: Removed `.tool-versions`
 
 ## [v3.1.1] - 2024-11-15
 
