@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "@ant-design/icons": "5.5.2",
-    "@tanstack/react-query": "5.62.8",
-    "@tanstack/react-query-devtools": "5.62.8",
-    "antd": "5.22.6",
+    "@tanstack/react-query": "5.62.11",
+    "@tanstack/react-query-devtools": "5.62.11",
+    "antd": "5.22.7",
     "classnames": "2.5.1",
     "dayjs": "1.11.13",
     "jkscript": "3.2.3",
@@ -30,7 +30,7 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-helmet-async": "2.0.5",
-    "react-router-dom": "7.1.0",
+    "react-router-dom": "7.1.1",
     "react-use": "17.6.0",
     "zustand": "5.0.2"
   },
@@ -61,7 +61,7 @@
     "tailwindcss": "3.4.17",
     "ts-node": "10.9.2",
     "typescript": "5.7.2",
-    "vite": "6.0.5",
+    "vite": "6.0.6",
     "vitest": "2.1.8"
   },
   "browserslist": {
