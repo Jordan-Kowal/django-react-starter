@@ -15,6 +15,13 @@
 - 🎨 **Frontend**:
 - 🚂 **Deploy**:
 
+## [v3.1.2] - 2024-12-31
+
+### 🔧 Others
+
+- 💻 **Backend**: Upgraded deps
+- 🎨 **Frontend**: Upgraded deps
+
 ## [v3.1.1] - 2024-11-15
 
 ### 🐞 Bugfixes
