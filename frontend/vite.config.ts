@@ -13,7 +13,7 @@ const reactScanPlugin = {
   },
 };
 
-defineConfig(({ mode }) => {
+export default defineConfig(({ mode }) => {
   const isDev = mode === "development";
   const plugins = [million.vite({ auto: true }), react()];
   if (isDev) plugins.push(reactScanPlugin);
