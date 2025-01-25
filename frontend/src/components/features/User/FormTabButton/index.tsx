@@ -17,7 +17,7 @@ export const FormTabButton: React.FC<FormTabButtonProps> = memo(
   ({ dataTestId, icon, isActive, onClick, title }) => (
     <Card
       className={classNames("h-36 w-36 text-center", {
-        "border-primary text-primary": isActive,
+        "!border-primary !text-primary": isActive,
       })}
       hoverable
       onClick={onClick}
@@ -26,7 +26,7 @@ export const FormTabButton: React.FC<FormTabButtonProps> = memo(
     >
       <Space block vertical>
         {icon}
-        <Text className={classNames({ "text-primary": isActive })}>
+        <Text className={classNames({ "!text-primary": isActive })}>
           {title}
         </Text>
       </Space>

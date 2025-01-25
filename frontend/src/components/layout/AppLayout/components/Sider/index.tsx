@@ -53,7 +53,7 @@ export const Sider: React.FC = memo(() => {
     <Layout.Sider
       collapsedWidth="0"
       collapsed={siderCollapsed}
-      className="fixed overflow-auto h-screen border-r border-r-solid border-r-primary z-10 w-sider shadow-secondary"
+      className="!fixed overflow-auto h-screen border-r border-r-solid border-r-primary z-10 w-sider shadow-secondary"
       theme="light"
       data-testid="sider"
     >

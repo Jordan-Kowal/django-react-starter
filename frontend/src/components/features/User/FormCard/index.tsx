@@ -27,7 +27,7 @@ export const FormCard: React.FC<FormCardProps> = memo(
           {submitText}
         </Button>,
       ]}
-      className={classNames(className, "w-full m-auto max-w-2xl")}
+      className={classNames(className, "w-full !m-auto max-w-2xl")}
       data-testid={dataTestId}
       title={title}
     >
