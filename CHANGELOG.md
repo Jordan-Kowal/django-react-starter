@@ -17,6 +17,8 @@
 
 ## [v3.2.0] - 2024-01-25
 
+### 🔧 Others
+
 - 💻 **Backend**: Upgraded deps
 - 🎨 **Frontend**: Upgraded deps
 - 🎨 **Frontend**: Migrated to `vite` 6 and `tailwind` 4
