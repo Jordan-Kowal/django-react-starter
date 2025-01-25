@@ -41,12 +41,12 @@ describe.concurrent("pages/ProfilePage", () => {
       expect(elements.profileTabButton).toBeVisible();
       expect(elements.profileTabButton).toHaveTextContent("Profil");
       expect(elements.profileTabButton).toHaveClass(
-        "border-primary text-primary",
+        "!border-primary !text-primary",
       );
       expect(elements.passwordTabButton).toBeVisible();
       expect(elements.passwordTabButton).toHaveTextContent("Mot de passe");
       expect(elements.passwordTabButton).not.toHaveClass(
-        "border-primary text-primary",
+        "!border-primary !text-primary",
       );
       expect(elements.profileForm).toBeVisible();
       expect(elements.passwordForm).toBeNull();
@@ -72,10 +72,10 @@ describe.concurrent("pages/ProfilePage", () => {
     await waitFor(() => {
       const elements = getElements(container);
       expect(elements.profileTabButton).not.toHaveClass(
-        "border-primary text-primary",
+        "!border-primary !text-primary",
       );
       expect(elements.passwordTabButton).toHaveClass(
-        "border-primary text-primary",
+        "!border-primary !text-primary",
       );
       expect(elements.profileForm).toBeNull();
       expect(elements.passwordForm).toBeVisible();
@@ -90,10 +90,10 @@ describe.concurrent("pages/ProfilePage", () => {
     await waitFor(() => {
       const elements = getElements(container);
       expect(elements.profileTabButton).toHaveClass(
-        "border-primary text-primary",
+        "!border-primary !text-primary",
       );
       expect(elements.passwordTabButton).not.toHaveClass(
-        "border-primary text-primary",
+        "!border-primary !text-primary",
       );
       expect(elements.profileForm).toBeVisible();
       expect(elements.passwordForm).toBeNull();

@@ -9,7 +9,7 @@ const { Text } = Typography;
 const LoginPage: React.FC = memo(() => {
   return (
     <Row
-      className={"max-w-xl text-center w-full mx-auto my-10"}
+      className={"max-w-xl text-center w-full !mx-auto my-10"}
       gutter={[20, 40]}
       data-testid="login-page"
     >

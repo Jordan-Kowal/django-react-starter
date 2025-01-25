@@ -16,13 +16,13 @@ describe.concurrent("components/ui/Space", () => {
     await waitFor(() => {
       expect(space).toBeVisible();
       expect(space).toHaveClass(
-        "ant-space-horizontal justify-start box-border",
+        "ant-space-horizontal !justify-start box-border",
       );
       expect(space).toHaveStyle({ columnGap: "8px", rowGap: "8px" });
       // Missing Props
       expect(space).not.toHaveClass("ant-space-vertical");
       expect(space).not.toHaveClass("w-full");
-      expect(space).not.toHaveClass("justify-center");
+      expect(space).not.toHaveClass("!justify-center");
       expect(space).not.toHaveClass("test");
       // Content
       expect(space).toHaveTextContent("div 1");
@@ -50,7 +50,7 @@ describe.concurrent("components/ui/Space", () => {
       expect(space).toBeVisible();
       expect(space).not.toHaveClass("ant-space-horizontal");
       expect(space).toHaveClass(
-        "box-border justify-start ant-space-vertical w-full justify-center test",
+        "box-border ant-space-vertical w-full !justify-center test",
       );
       expect(space).toHaveStyle({ columnGap: "20px", rowGap: "20px" });
       // Content

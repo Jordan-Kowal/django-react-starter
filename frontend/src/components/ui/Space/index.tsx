@@ -24,9 +24,10 @@ export const Space: React.FC<SpaceProps> = memo(
   }) => (
     <AntdSpace
       data-testid={dataTestId}
-      className={classNames(className, "justify-start box-border", {
+      className={classNames(className, "box-border", {
         "w-full": block,
-        "justify-center": centered,
+        "!justify-center": centered,
+        "!justify-start": !centered,
       })}
       size={size}
       direction={vertical ? "vertical" : "horizontal"}

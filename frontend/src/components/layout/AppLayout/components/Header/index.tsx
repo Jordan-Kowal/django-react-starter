@@ -25,14 +25,14 @@ export const Header: React.FC = memo(() => {
 
   return (
     <Layout.Header
-      className="relative bg-bg text-center h-header py-0 px-default"
+      className="relative !bg-bg text-center !h-header py-0 px-default"
       data-testid="header"
     >
       {!lg && (
         <IconButton
-          className={classNames("absolute top-0.5", {
-            "left-default": siderCollapsed,
-            "left-36": !siderCollapsed,
+          className={classNames("!absolute !top-0.5", {
+            "!left-default": siderCollapsed,
+            "!left-36": !siderCollapsed,
           })}
           icon={siderCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           onClick={toggleSider}

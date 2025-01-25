@@ -34,7 +34,7 @@ describe.concurrent("components/features/User/FormCard", () => {
     await waitFor(() => {
       const { card, button } = getElements(container);
       expect(card).toBeVisible();
-      expect(card).toHaveClass("custom-class w-full m-auto max-w-2xl");
+      expect(card).toHaveClass("custom-class w-full !m-auto max-w-2xl");
       expect(card).toHaveTextContent("title");
       expect(card).toHaveTextContent("test");
       expect(button).toBeVisible();

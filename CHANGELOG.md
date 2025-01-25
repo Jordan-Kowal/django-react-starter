@@ -15,6 +15,15 @@
 - 🎨 **Frontend**:
 - 🚂 **Deploy**:
 
+## [v3.2.0] - 2024-01-25
+
+### 🔧 Others
+
+- 💻 **Backend**: Upgraded deps
+- 🎨 **Frontend**: Upgraded deps
+- 🎨 **Frontend**: Migrated to `vite` 6 and `tailwind` 4
+- 🎨 **Frontend**: Added `react-scan` in dev mode for easier debugging
+
 ## [v3.1.2] - 2024-12-31
 
 ### 🔧 Others

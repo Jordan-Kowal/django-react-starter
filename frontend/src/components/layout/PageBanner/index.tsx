@@ -24,7 +24,7 @@ export const PageBanner: React.FC<PageBannerProps> = memo(({ icon, label }) => {
       data-testid="page-banner"
     >
       <div>
-        <Title level={2} className="text-bg">
+        <Title level={2} className="!text-bg">
           {icon && icon} {label}
         </Title>
       </div>
