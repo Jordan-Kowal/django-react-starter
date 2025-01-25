@@ -7,7 +7,7 @@ import "@/styles/tailwind.css";
 import "@/utils/dates/config";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ConfigProvider, theme } from "antd";
+import { App as AntdApp, ConfigProvider, message, theme } from "antd";
 import "antd/dist/reset.css";
 import frFR from "antd/locale/fr_FR";
 import { memo } from "react";
@@ -31,17 +31,30 @@ const queryClient = new QueryClient({
   },
 });
 
-export const App = memo(() => (
-  // @ts-ignore
-  <BrowserRouter basename={import.meta.env.BASE_URL}>
-    <ConfigProvider locale={frFR} theme={antdThemeConfig}>
-      <QueryClientProvider client={queryClient}>
-        <HelmetMetaData />
-        <AppLayout>
-          <Routes />
-        </AppLayout>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </ConfigProvider>
-  </BrowserRouter>
-));
+const messageConfig = {
+  top: 100,
+  duration: 2,
+  maxCount: 3,
+  rtl: true,
+};
+
+export const App = memo(() => {
+  const [, contextHolder] = message.useMessage();
+  return (
+    // @ts-ignore
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <ConfigProvider locale={frFR} theme={antdThemeConfig}>
+        <AntdApp message={messageConfig}>
+          <QueryClientProvider client={queryClient}>
+            <HelmetMetaData />
+            <AppLayout>
+              {contextHolder}
+              <Routes />
+            </AppLayout>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryClientProvider>
+        </AntdApp>
+      </ConfigProvider>
+    </BrowserRouter>
+  );
+});

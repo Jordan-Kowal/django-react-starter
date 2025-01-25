@@ -3,7 +3,7 @@ import {
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
-import { type FormInstance, message } from "antd";
+import { App, type FormInstance, message } from "antd";
 import { keysToCamel, keysToSnake } from "jkscript";
 import { queryKeysBuilder } from "../queryKeys";
 import type { ApiError } from "../types";
@@ -24,6 +24,7 @@ type UseUpdatePassword = (
 
 export const useUpdateSelf: UseUpdateSelf = (form) => {
   const queryClient = useQueryClient();
+  const { message } = App.useApp();
 
   return useMutation({
     mutationFn: async (data: UpdateSelfRequestData): Promise<Self> => {
@@ -47,6 +48,7 @@ export const useUpdateSelf: UseUpdateSelf = (form) => {
 };
 
 export const useUpdatePassword: UseUpdatePassword = (form) => {
+  const [messageApi] = message.useMessage();
   return useMutation({
     mutationFn: async (data: UpdatePasswordRequestData): Promise<void> => {
       await performRequest(routeBuilder.updatePassword(), {
@@ -54,10 +56,10 @@ export const useUpdatePassword: UseUpdatePassword = (form) => {
         data: keysToSnake(data),
       });
     },
-    onSuccess: () => message.success("Votre mot de passe a été mis à jour"),
+    onSuccess: () => messageApi.success("Votre mot de passe a été mis à jour"),
     onError: ({ errors }) => {
       loadErrorsInForm(form, errors);
-      message.error(
+      messageApi.error(
         "Une erreur est survenue lors de la mise à jour de votre mot de passe",
       );
     },
