@@ -1,4 +1,13 @@
 # TODO
 
+## Frontend
+
+- Migrate to Mantine
+- Clean up JS utils
+- Simplify frontend
+
+## Feature
+
 - Sentry frontend
+- Support i18n
 - Auth with gmail
