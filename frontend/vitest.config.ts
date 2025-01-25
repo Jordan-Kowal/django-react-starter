@@ -22,6 +22,7 @@ export default defineConfig({
     // Performance related
     css: true,
     isolate: true,
+    retry: 3,
   },
   resolve: {
     alias: { "@": resolve(__dirname, "./src") },

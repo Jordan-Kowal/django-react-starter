@@ -31,7 +31,7 @@ describe.concurrent("components/features/User/FormTabButton", () => {
     await waitFor(() => {
       const { card, icon } = getElements(container);
       expect(card).toBeVisible();
-      expect(card).not.toHaveClass("border-primary text-primary");
+      expect(card).not.toHaveClass("!border-primary !text-primary");
       expect(card).toHaveTextContent("test");
       expect(icon).toBeVisible();
     });
@@ -50,7 +50,7 @@ describe.concurrent("components/features/User/FormTabButton", () => {
     await waitFor(() => {
       const { card } = getElements(container);
       expect(card).toBeVisible();
-      expect(card).toHaveClass("border-primary text-primary");
+      expect(card).toHaveClass("!border-primary !text-primary");
     });
 
     // Test clicking
