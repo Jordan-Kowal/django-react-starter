@@ -1,16 +1,14 @@
 import os
 import shutil
-from typing import TYPE_CHECKING
+from typing import cast
 from unittest.mock import patch
 
 from django.conf import settings
 from django_utils_kit.test_utils import APITestCase, ImprovedTestCase
 from meilisearch import Client
 
+from user.models import User as UserType
 from user.tests.factories import UserFactory
-
-if TYPE_CHECKING:
-    from user.models import User as UserType
 
 
 class BaseTestCase(ImprovedTestCase):
@@ -56,7 +54,7 @@ class BaseActionTestCase(BaseTestCase, APITestCase):
     @classmethod
     def setUpTestData(cls) -> None:
         super().setUpTestData()
-        cls.user = UserFactory()
+        cls.user = cast(UserType, UserFactory())
 
     def setUp(self) -> None:
         super().setUp()

@@ -1,5 +1,8 @@
+from typing import cast
+
 from core.tests import BaseTestCase
 from user.indexers import UserIndexer
+from user.models import User as UserType
 from user.tests.factories import UserFactory
 
 
@@ -12,7 +15,7 @@ class UserIndexerTestCase(BaseTestCase):
         cls.item_2 = UserFactory()
 
     def test_build_object(self) -> None:
-        user = UserFactory()
+        user = cast(UserType, UserFactory())
         self.assertEqual(
             UserIndexer.build_object(user),
             {

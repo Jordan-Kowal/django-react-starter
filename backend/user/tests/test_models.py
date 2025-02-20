@@ -1,16 +1,14 @@
 from datetime import date
-from typing import TYPE_CHECKING
+from typing import cast
 
 from django.contrib.auth import get_user_model
 
 from core.tests import BaseTestCase
 from user.models import Profile
+from user.models import User as UserType
 from user.tests.factories import UserFactory
 
-if TYPE_CHECKING:
-    from user.models import User as UserType
-
-User: "UserType" = get_user_model()  # type: ignore
+User = cast(UserType, get_user_model())
 
 TODAY = date.today()
 
@@ -28,7 +26,7 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(profile.user, user)
 
     def test_save_email_override(self) -> None:
-        user = UserFactory()
+        user = cast(UserType, UserFactory())
         email = "random-email@random-domain.com"
         user.email = email
         user.save()
