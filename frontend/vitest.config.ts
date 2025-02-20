@@ -9,7 +9,8 @@ export default defineConfig({
     setupFiles: ["src/tests/setup.ts"],
     environment: "jsdom",
     coverage: {
-      exclude: ["src/tests/**", "postcss.config.ts", "tailwind.config.ts"],
+      include: ["src/**"],
+      exclude: ["src/tests/**"],
       all: true,
       thresholds: {
         perFile: false,

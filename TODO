@@ -1,13 +1,15 @@
 # TODO
 
-## Frontend
+## Migration
 
-- Migrate to Mantine
+- Remove babel
 - Clean up JS utils
-- Simplify frontend
+- Migrate to Mantine + Tailwind
+- Migrate to TanStack Router
+- Support i18n
+- Simplify frontend (no sider, offline homescreen, login, settings, ...)
 
 ## Feature
 
 - Sentry frontend
-- Support i18n
 - Auth with gmail
