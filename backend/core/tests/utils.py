@@ -1,6 +1,6 @@
 import os
 import shutil
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, cast
 from unittest.mock import patch
 
 from django.conf import settings
@@ -56,7 +56,7 @@ class BaseActionTestCase(BaseTestCase, APITestCase):
     @classmethod
     def setUpTestData(cls) -> None:
         super().setUpTestData()
-        cls.user = UserFactory()
+        cls.user = cast(UserType, UserFactory())
 
     def setUp(self) -> None:
         super().setUp()

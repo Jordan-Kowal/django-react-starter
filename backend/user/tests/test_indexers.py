@@ -1,6 +1,11 @@
+from typing import TYPE_CHECKING, cast
+
 from core.tests import BaseTestCase
 from user.indexers import UserIndexer
 from user.tests.factories import UserFactory
+
+if TYPE_CHECKING:
+    from user.models import User as UserType
 
 
 class UserIndexerTestCase(BaseTestCase):
@@ -12,7 +17,7 @@ class UserIndexerTestCase(BaseTestCase):
         cls.item_2 = UserFactory()
 
     def test_build_object(self) -> None:
-        user = UserFactory()
+        user = cast(UserType, UserFactory())
         self.assertEqual(
             UserIndexer.build_object(user),
             {
