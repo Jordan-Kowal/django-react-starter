@@ -1,11 +1,9 @@
-from typing import TYPE_CHECKING, cast
+from typing import cast
 
 from core.tests import BaseTestCase
 from user.indexers import UserIndexer
+from user.models import User as UserType
 from user.tests.factories import UserFactory
-
-if TYPE_CHECKING:
-    from user.models import User as UserType
 
 
 class UserIndexerTestCase(BaseTestCase):
