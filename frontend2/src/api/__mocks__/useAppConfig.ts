@@ -1,4 +1,4 @@
-import type { AppConfig } from "../queries/useAppConfig";
+import type { AppConfig } from "../useAppConfig";
 
 export const APP_CONFIG_MOCK: AppConfig = {
   debug: false,

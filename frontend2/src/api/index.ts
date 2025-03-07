@@ -1,1 +1,2 @@
-export { useAppConfig } from "./queries/useAppConfig";
+export { useAppConfig, type AppConfig } from "./useAppConfig";
+export { useSelf, type Self } from "./useSelf";
