@@ -1,4 +1,3 @@
-import { Logo } from "@/components";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -7,7 +6,6 @@ const Homepage: React.FC = memo(() => {
 
   return (
     <div data-testid="homepage" className="text-center">
-      <Logo />
       <h1 className="text-5xl font-bold">{t("Django React Starter")}</h1>
       <p className="py-6">
         {t("Browser-based multiplayer collaborative puzzle games")}
