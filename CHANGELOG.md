@@ -15,6 +15,26 @@
 - 🎨 **Frontend**:
 - 🚂 **Deploy**:
 
+## [v4.0.0] - TBD
+
+### 🚀 Features
+
+- 🎨 **Frontend**: Major design rework with `daisyUI` and `tailwindcss`
+- 🎨 **Frontend**: Major folder structure rework
+- 🎨 **Frontend**: Added `i18n` management
+
+### ✨ Improvements
+
+- 💫 **DX**: `Makefile` improvement
+- 🎨 **Frontend**: Replaced `antd` with `daisyUI` and `@tabler/icons-react`
+- 🎨 **Frontend**: Replaced `react-router-dom` and `react-helmet-async` with `@tanstack/react-router`
+- 🎨 **Frontend**: Replaced `classnames` with `clsx`
+- 🎨 **Frontend**: Removed `react-use`
+
+### 🔧 Others
+
+- 💫 **Deploy**: Upgraded python version for docker images (dev/prod)
+
 ## [v3.2.0] - 2024-01-25
 
 ### 🔧 Others

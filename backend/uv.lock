@@ -305,16 +305,16 @@ wheels = [
 
 [[package]]
 name = "django"
-version = "5.1.6"
+version = "5.1.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "asgiref" },
     { name = "sqlparse" },
     { name = "tzdata", marker = "sys_platform == 'win32'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6d/e4/901f54ee114a080371a49bd08fa688d301aaffd9751febaf4ae855fc8fcd/Django-5.1.6.tar.gz", hash = "sha256:1e39eafdd1b185e761d9fab7a9f0b9fa00af1b37b25ad980a8aa0dac13535690", size = 10700620 }
+sdist = { url = "https://files.pythonhosted.org/packages/5f/57/11186e493ddc5a5e92cc7924a6363f7d4c2b645f7d7cb04a26a63f9bfb8b/Django-5.1.7.tar.gz", hash = "sha256:30de4ee43a98e5d3da36a9002f287ff400b43ca51791920bfb35f6917bfe041c", size = 10716510 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/75/6f/d2c216d00975e2604b10940937b0ba6b2c2d9b3cc0cc633e414ae3f14b2e/Django-5.1.6-py3-none-any.whl", hash = "sha256:8d203400bc2952fbfb287c2bbda630297d654920c72a73cc82a9ad7926feaad5", size = 8277066 },
+    { url = "https://files.pythonhosted.org/packages/ba/0f/7e042df3d462d39ae01b27a09ee76653692442bc3701fbfa6cb38e12889d/Django-5.1.7-py3-none-any.whl", hash = "sha256:1323617cb624add820cb9611cdcc788312d250824f92ca6048fda8625514af2b", size = 8276912 },
 ]
 
 [[package]]
@@ -459,14 +459,14 @@ wheels = [
 
 [[package]]
 name = "faker"
-version = "36.1.1"
+version = "36.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "tzdata" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/55/8f/40d002bed58bd6b79bf970505582b769fc975afcacc62c2fe1518d5729c2/faker-36.1.1.tar.gz", hash = "sha256:7cb2bbd4c8f040e4a340ae4019e9a48b6cf1db6a71bda4e5a61d8d13b7bef28d", size = 1874935 }
+sdist = { url = "https://files.pythonhosted.org/packages/ee/6c/412b064e33d11b351ef8945e4cc0ab56aa156e107c71610c4af96bd5d72c/faker-36.2.2.tar.gz", hash = "sha256:758bc63a26dc878fa0d76aa7639b8b65327927980ed0c3683b23bd8a5182f33f", size = 1874990 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/65/79/e13ae542f63ce40d02b0fe63809563b102f19ffa3b94e6062ee9286a7801/Faker-36.1.1-py3-none-any.whl", hash = "sha256:ad1f1be7fd692ec0256517404a9d7f007ab36ac5d4674082fa72404049725eaa", size = 1917865 },
+    { url = "https://files.pythonhosted.org/packages/28/30/3e81fdb631115c37ef81ad8bd342bf3fa52e66366bbed65a367a9137f8b9/faker-36.2.2-py3-none-any.whl", hash = "sha256:14adc340dc8abed5264142ffafe6f1a0f99cf7a7525bc6863755efd5fbbd0692", size = 1918206 },
 ]
 
 [[package]]
@@ -929,14 +929,14 @@ wheels = [
 
 [[package]]
 name = "types-requests"
-version = "2.32.0.20250301"
+version = "2.32.0.20250306"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "urllib3" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/87/88/365d6b46f1088ddeccbc89c26190c3180088ef6e7c8d162fc619496aab96/types_requests-2.32.0.20250301.tar.gz", hash = "sha256:3d909dc4eaab159c0d964ebe8bfa326a7afb4578d8706408d417e17d61b0c500", size = 22977 }
+sdist = { url = "https://files.pythonhosted.org/packages/09/1a/beaeff79ef9efd186566ba5f0d95b44ae21f6d31e9413bcfbef3489b6ae3/types_requests-2.32.0.20250306.tar.gz", hash = "sha256:0962352694ec5b2f95fda877ee60a159abdf84a0fc6fdace599f20acb41a03d1", size = 23012 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b9/c2/e44564e8995dbc1738c2acacb8009d59c8cb19327da95a1b5c5d9cb68364/types_requests-2.32.0.20250301-py3-none-any.whl", hash = "sha256:0003e0124e2cbefefb88222ff822b48616af40c74df83350f599a650c8de483b", size = 20671 },
+    { url = "https://files.pythonhosted.org/packages/99/26/645d89f56004aa0ba3b96fec27793e3c7e62b40982ee069e52568922b6db/types_requests-2.32.0.20250306-py3-none-any.whl", hash = "sha256:25f2cbb5c8710b2022f8bbee7b2b66f319ef14aeea2f35d80f18c9dbf3b60a0b", size = 20673 },
 ]
 
 [[package]]

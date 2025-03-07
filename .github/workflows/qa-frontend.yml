@@ -72,7 +72,25 @@ jobs:
         run: |
           cd frontend
           yarn tsc
+  i18n:
+    needs: setup
+    runs-on: ubuntu-latest
 
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.yarn
+            ./frontend/node_modules
+          key: yarn-${{ hashFiles('./frontend/yarn.lock') }}
+
+      - name: Run i18n
+        run: |
+          cd frontend
+          yarn i18n:check
   coverage:
     needs: setup
     runs-on: ubuntu-latest

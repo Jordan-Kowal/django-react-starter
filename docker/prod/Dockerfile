@@ -4,7 +4,7 @@ WORKDIR /front
 ADD ./frontend /front
 RUN yarn install && yarn build
 
-FROM python:3.12.5-slim
+FROM python:3.13.1-slim
 
 # Python environment variables
 ENV PYTHONUNBUFFERED 1
