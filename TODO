@@ -2,12 +2,10 @@
 
 ## Migration
 
-- Remove babel
-- Clean up JS utils
-- Migrate to Mantine + Tailwind
-- Migrate to TanStack Router
-- Support i18n
-- Simplify frontend (no sider, offline homescreen, login, settings, ...)
+- Check tests
+- Check memo
+- Add loading
+- Use new forms
 
 ## Feature
 
