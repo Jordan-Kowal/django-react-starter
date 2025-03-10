@@ -1,1 +1,2 @@
-export { router } from "./router";
+export { RootRoute } from "./router";
+export { RouterProvider } from "./RouterProvider";
