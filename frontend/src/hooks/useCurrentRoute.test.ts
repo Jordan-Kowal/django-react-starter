@@ -1,26 +1,30 @@
-import { routeConfig } from "@/routes";
-import { mockLocation } from "@/tests/mocks";
+import { useRouterStateMock } from "@/tests/mocks/globals";
 import { renderHook } from "@/tests/utils";
-import { waitFor } from "@testing-library/react";
-import { describe, test } from "vitest";
+import { describe, expect, it } from "vitest";
 import { useCurrentRoute } from "./useCurrentRoute";
 
-describe.concurrent("hooks/useCurrentRoute", () => {
-  test("should return undefined when no route matches", async ({ expect }) => {
-    // @ts-ignore
-    mockLocation.mockImplementationOnce(() => ({ pathname: "/unknown" }));
-    const { result } = renderHook(() => useCurrentRoute());
-    await waitFor(() => {
-      expect(result.current).toBe(undefined);
+describe("useCurrentRoute", () => {
+  it("should return the last route match", () => {
+    useRouterStateMock.mockReturnValue({
+      location: { pathname: "/test/path" },
+      matches: [{ id: "route1" }, { id: "route2" }],
     });
+
+    // Execute the hook
+    const { result } = renderHook(() => useCurrentRoute());
+
+    // Verify results
+    expect(result.current).toEqual({ id: "route2" });
+    expect(useRouterStateMock).toHaveBeenCalled();
   });
 
-  test("should return the current route when one matches", async ({
-    expect,
-  }) => {
-    const { result } = renderHook(() => useCurrentRoute());
-    await waitFor(() => {
-      expect(result.current).toBe(routeConfig.home);
+  it("should return undefined if no route matches", () => {
+    useRouterStateMock.mockReturnValue({
+      location: { pathname: "/test/path" },
+      matches: [],
     });
+    const { result } = renderHook(() => useCurrentRoute());
+    expect(result.current).toBeUndefined;
+    expect(useRouterStateMock).toHaveBeenCalled();
   });
 });

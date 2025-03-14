@@ -1,15 +1,14 @@
-import { routeConfig } from "@/routes";
-import type { RouteConfigProps } from "@/routes/routeConfig";
+import {
+  type MakeRouteMatchUnion,
+  useRouterState,
+} from "@tanstack/react-router";
 import { useMemo } from "react";
-import { matchRoutes, useLocation } from "react-router-dom";
 
-type UseCurrentRoute = () => RouteConfigProps | undefined;
+export const useCurrentRoute = (): MakeRouteMatchUnion => {
+  const { location, matches } = useRouterState();
 
-export const useCurrentRoute: UseCurrentRoute = () => {
-  const location = useLocation();
-
+  // biome-ignore lint/correctness/useExhaustiveDependencies:
   return useMemo(() => {
-    const routes = matchRoutes(Object.values(routeConfig), location.pathname);
-    return routes?.[0].route;
+    return matches[matches.length - 1];
   }, [location.pathname]);
 };

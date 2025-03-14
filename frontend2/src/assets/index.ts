@@ -1,1 +1,0 @@
-export { jkdevLogoUrl } from "./externalAssets";

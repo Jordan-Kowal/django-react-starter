@@ -1,3 +1,4 @@
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import million from "million/compiler";
 import { resolve } from "node:path";
@@ -15,7 +16,8 @@ const reactScanPlugin = {
 
 export default defineConfig(({ mode }) => {
   const isDev = mode === "development";
-  const plugins = [million.vite({ auto: true }), react()];
+  const plugins = [million.vite({ auto: true }), tailwindcss(), react()];
+
   if (isDev) plugins.push(reactScanPlugin);
 
   return {
