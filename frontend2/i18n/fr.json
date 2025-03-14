@@ -1,7 +1,12 @@
 {
-  "Page not found": "Page non trouvée",
-  "Django React Starter": "Django React Starter",
   "Browser-based multiplayer collaborative puzzle games": "Puzzles collaboratifs en ligne directement dans votre navigateur",
   "Create room": "Créer une partie",
-  "Join room": "Rejoindre une partie"
+  "Django React Starter": "Django React Starter",
+  "Don't have an account? Please reach out to your administrator": "Vous n'avez pas de compte ? Veuillez contacter votre administrateur",
+  "Enter your email address": "Saisissez votre adresse e-mail",
+  "Join room": "Rejoindre une partie",
+  "Login": "Se connecter",
+  "Page not found": "Page non trouvée",
+  "Password": "Mot de passe",
+  "Profile": "Profil"
 }
