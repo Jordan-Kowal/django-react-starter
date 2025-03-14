@@ -23,16 +23,19 @@ export const performRequest = async (
 
   // @ts-ignore
   const response = await fetch(url, request);
+  const isJson = response.headers.get("content-type") === "application/json";
 
+  // Exit if OK
   if (response?.ok) {
-    const isJson = response.headers.get("content-type") === "application/json";
     return isJson ? response.json() : Promise.resolve({});
   }
 
+  // Handle errors
+  const errorResponse = isJson ? await response.json() : {};
   const errorPayload = {
     status: response.status,
     text: response.statusText,
-    errors: await response.json(),
+    errors: errorResponse,
   };
   return Promise.reject(errorPayload);
 };

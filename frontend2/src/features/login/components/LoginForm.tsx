@@ -1,5 +1,7 @@
+import { homepagePath } from "@/features/home/routes";
 import { useLocale } from "@/hooks";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "@tanstack/react-router";
 import { memo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -7,17 +9,18 @@ import { z } from "zod";
 import { useLogin } from "../api/useLogin";
 
 const schema = z.object({
-  email: z.string().email(),
-  password: z.string(),
+  email: z.string().nonempty().email(),
+  password: z.string().nonempty(),
 });
 
 type Schema = z.infer<typeof schema>;
 
 export const LoginForm: React.FC = memo(() => {
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const { t } = useTranslation();
-  const { mutate: login } = useLogin();
+  const { mutateAsync: login } = useLogin();
 
   const {
     control,
@@ -28,11 +31,12 @@ export const LoginForm: React.FC = memo(() => {
     mode: "onChange",
   });
 
-  const onSubmit = (data: Schema) => {
+  const onSubmit = async (data: Schema) => {
     setIsLoading(true);
     try {
-      login(data);
-    } finally {
+      await login(data);
+      navigate({ to: homepagePath });
+    } catch {
       setIsLoading(false);
     }
   };
@@ -84,7 +88,7 @@ export const LoginForm: React.FC = memo(() => {
               placeholder={t("Password")}
               {...field}
             />
-            <p className="text-red-500 text-right text-xs">
+            <p className="text-red-500 text-right text-xs mt-1">
               {errors?.password?.message}
             </p>
           </label>
@@ -96,6 +100,7 @@ export const LoginForm: React.FC = memo(() => {
         className="btn btn-primary w-full"
         disabled={isLoading}
       >
+        {isLoading && <span className="loading loading-spinner" />}
         {t("Login")}
       </button>
     </form>

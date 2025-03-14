@@ -1,5 +1,4 @@
-import { useAppConfig, useSelf } from "@/api";
-import { useCheckAuth } from "@/api/useCheckAuth";
+import { useAppConfig, useSelf, useCheckAuth } from "@/api";
 import { HeroLayout, LoadingRing } from "@/components";
 import { RouterProvider as TanStackRouterProvider } from "@tanstack/react-router";
 import { memo, useMemo } from "react";

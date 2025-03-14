@@ -28,6 +28,8 @@ export const useLogin: UseLogin = () => {
       queryClient.invalidateQueries({ queryKey: ["self"] });
     },
     // TODO: Add notification
-    // onError: ({ errors }) => {},
+    onError: (payload) => {
+      console.error("Login failed", payload);
+    },
   });
 };
