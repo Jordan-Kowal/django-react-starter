@@ -1,5 +1,6 @@
 import { useAppConfig, useSelf } from "@/api";
 import { useCheckAuth } from "@/api/useCheckAuth";
+import { HeroLayout, LoadingRing } from "@/components";
 import { RouterProvider as TanStackRouterProvider } from "@tanstack/react-router";
 import { memo, useMemo } from "react";
 import { router } from "./router";
@@ -16,8 +17,12 @@ export const RouterProvider: React.FC = memo(() => {
     [user],
   );
 
-  // TODO: Loading animation
-  if (isFetchingUser || isPending) return null;
+  if (isFetchingUser || isPending)
+    return (
+      <HeroLayout>
+        <LoadingRing />
+      </HeroLayout>
+    );
 
   return <TanStackRouterProvider router={router} context={context} />;
 });

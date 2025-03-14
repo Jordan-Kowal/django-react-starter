@@ -1,3 +1,4 @@
+import { Logo } from "@/components";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -6,11 +7,14 @@ const LoginPage: React.FC = memo(() => {
 
   return (
     <div data-testid="login-page" className="text-center">
-      <h1 className="text-5xl font-bold">{t("Django React Starter")}</h1>
-      <p className="py-6">
+      <div className="max-w-50 mx-auto mb-6">
+        <Logo />
+      </div>
+      <h1 className="text-5xl font-bold mb-6">{t("Django React Starter")}</h1>
+      <p className="mb-6">
         {t("Don't have an account? Please reach out to your administrator.")}
       </p>
-      <form className="flex flex-col gap-4 justify-center w-100 mx-auto">
+      <form className="flex flex-col gap-4 justify-center max-w-100 mx-auto">
         <label className="input input-primary w-full validator">
           <input
             type="email"
