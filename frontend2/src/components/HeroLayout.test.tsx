@@ -1,21 +1,21 @@
 import { render } from "@/tests/utils";
 import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import { AppLayout } from "./AppLayout";
+import { HeroLayout } from "./HeroLayout";
 
-describe("AppLayout", () => {
+describe("HeroLayout", () => {
   test("should render", async () => {
     const { container } = render(
-      <AppLayout>
+      <HeroLayout>
         <div>Content</div>
-      </AppLayout>,
+      </HeroLayout>,
     );
 
-    const appLayout = getByTestId<HTMLDivElement>(container, "app-layout");
+    const heroLayout = getByTestId<HTMLDivElement>(container, "hero-layout");
 
     await waitFor(() => {
-      expect(appLayout).toBeVisible();
-      expect(appLayout).toHaveTextContent("Content");
+      expect(heroLayout).toBeVisible();
+      expect(heroLayout).toHaveTextContent("Content");
     });
   });
 });

@@ -1,13 +1,14 @@
-import { NotFound } from "@/components";
+import { HeroLayout, NotFound } from "@/components";
 import { queryClient } from "@/config/api";
 import { HomepageRoute } from "@/features/home/routes";
+import { LoginRoute } from "@/features/login/routes";
 import {
   Outlet,
   createRootRouteWithContext,
   createRouter,
 } from "@tanstack/react-router";
 import { memo } from "react";
-import { AppLayout } from "./components";
+import { useUpdateMetadata } from "./hooks";
 
 export type RouterContext = {
   isAuthenticated: boolean;
@@ -19,17 +20,18 @@ export const RootRoute = createRootRouteWithContext<RouterContext>()({
     routeKey: "homepage",
   },
   component: memo(() => {
+    useUpdateMetadata();
     return (
-      <AppLayout>
+      <HeroLayout>
         <Outlet />
         {/* <TanStackRouterDevtools initialIsOpen={false} /> */}
         {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-      </AppLayout>
+      </HeroLayout>
     );
   }),
 });
 
-const routeTree = RootRoute.addChildren([HomepageRoute]);
+const routeTree = RootRoute.addChildren([HomepageRoute, LoginRoute]);
 
 export const router = createRouter({
   routeTree,

@@ -1,5 +1,5 @@
 @import "tailwindcss";
 @plugin "daisyui" {
   /* biome-ignore lint/correctness/noUnknownProperty: This is valid DaisyUI plugin syntax */
-  themes: cupcake --default, night --prefersdark;
+  themes: pastel --default, coffee --prefersdark;
 }
