@@ -16,12 +16,7 @@ const reactScanPlugin = {
 
 export default defineConfig(({ mode }) => {
   const isDev = mode === "development";
-  const plugins = [
-    million.vite({ auto: true }),
-    tailwindcss(),
-    // TanStackRouterVite({ autoCodeSplitting: true }),
-    react(),
-  ];
+  const plugins = [million.vite({ auto: true }), tailwindcss(), react()];
 
   if (isDev) plugins.push(reactScanPlugin);
 

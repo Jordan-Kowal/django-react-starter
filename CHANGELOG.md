@@ -22,14 +22,14 @@
 - 🎨 **Frontend**: Major design rework with `daisyUI` and `tailwindcss`
 - 🎨 **Frontend**: Major folder structure rework
 - 🎨 **Frontend**: Added `i18n` management
+- 🎨 **Frontend**: Added `react-toastify` for notification management
 
 ### ✨ Improvements
 
 - 💫 **DX**: `Makefile` improvement
 - 🎨 **Frontend**: Replaced `antd` with `daisyUI` and `@tabler/icons-react`
 - 🎨 **Frontend**: Replaced `react-router-dom` and `react-helmet-async` with `@tanstack/react-router`
-- 🎨 **Frontend**: Replaced `classnames` with `clsx`
-- 🎨 **Frontend**: Removed `react-use`
+- 🎨 **Frontend**: Cleaned up unused dependencies: `classnames`, `react-use`, `zustand`
 
 ### 🔧 Others
 
