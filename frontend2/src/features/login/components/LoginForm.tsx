@@ -1,5 +1,4 @@
 import { homepagePath } from "@/features/home/routes";
-import { useLocale } from "@/hooks";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "@tanstack/react-router";
 import { memo, useState } from "react";
@@ -41,23 +40,12 @@ export const LoginForm: React.FC = memo(() => {
     }
   };
 
-  const { setLocale, currentLocale } = useLocale();
-
   return (
     <form
       className="flex flex-col gap-4 justify-center max-w-100 mx-auto"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
-      <button
-        type="button"
-        className="btn btn-secondary mb-4"
-        onClick={() =>
-          currentLocale === "fr" ? setLocale("en") : setLocale("fr")
-        }
-      >
-        Toggle Language
-      </button>
       <Controller
         name="email"
         control={control}
@@ -94,11 +82,13 @@ export const LoginForm: React.FC = memo(() => {
           </label>
         )}
       />
-
       <button
         type="submit"
         className="btn btn-primary w-full"
         disabled={isLoading}
+        onClick={() => {
+          console.log("clicked");
+        }}
       >
         {isLoading && <span className="loading loading-spinner" />}
         {t("Login")}

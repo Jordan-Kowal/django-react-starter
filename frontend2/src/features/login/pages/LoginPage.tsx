@@ -1,4 +1,4 @@
-import { Logo } from "@/components";
+import { HeroLayout, Logo } from "@/components";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { LoginForm } from "../components";
@@ -7,7 +7,7 @@ const LoginPage: React.FC = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <div data-testid="login-page" className="text-center">
+    <HeroLayout data-testid="login-page">
       <div className="max-w-50 mx-auto mb-6">
         <Logo />
       </div>
@@ -16,7 +16,7 @@ const LoginPage: React.FC = memo(() => {
         {t("Don't have an account? Please reach out to your administrator")}
       </p>
       <LoginForm />
-    </div>
+    </HeroLayout>
   );
 });
 

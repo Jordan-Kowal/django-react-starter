@@ -1640,6 +1640,14 @@
   dependencies:
     "@tanstack/query-core" "5.67.1"
 
+"@tanstack/react-router-devtools@^1.114.21":
+  version "1.114.21"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-router-devtools/-/react-router-devtools-1.114.21.tgz#beee6b710ef9a275d1b750b0a67790c865d3d04d"
+  integrity sha512-umwT6OnrrRaB6W42X0gt6iemd0bJDFpi9vFysvdyQhm4FOpDOAUsYgt0oz7JexrHGLu8M1mx+vN6UgmVWJdpww==
+  dependencies:
+    "@tanstack/router-devtools-core" "^1.114.20"
+    solid-js "^1.9.5"
+
 "@tanstack/react-router@^1.112.0":
   version "1.112.0"
   resolved "https://registry.yarnpkg.com/@tanstack/react-router/-/react-router-1.112.0.tgz#fbe721898896786734ff7597de6c9d6dd67fb344"
@@ -1667,6 +1675,14 @@
   dependencies:
     "@tanstack/history" "1.99.13"
     "@tanstack/store" "^0.7.0"
+
+"@tanstack/router-devtools-core@^1.114.20":
+  version "1.114.20"
+  resolved "https://registry.yarnpkg.com/@tanstack/router-devtools-core/-/router-devtools-core-1.114.20.tgz#a89fd31c2141cf06d05c95a5a08a71555fcb640a"
+  integrity sha512-FJuV6PaGePefcQ/zN8/6vsEZ9OXy4LtdRpuOaYNRgFGJe76Z43TmN/yAjdPtNlczqUjL8Nl8siZ66uH5EJ+boQ==
+  dependencies:
+    clsx "^2.1.1"
+    goober "^2.1.16"
 
 "@tanstack/router-devtools@^1.112.6":
   version "1.112.6"
@@ -2444,7 +2460,7 @@ cssstyle@^4.2.1:
     "@asamuzakjp/css-color" "^2.8.2"
     rrweb-cssom "^0.8.0"
 
-csstype@^3.0.2:
+csstype@^3.0.2, csstype@^3.1.0:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.3.tgz#d80ff294d114fb0e6ac500fbf85b60137d7eff81"
   integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
@@ -3742,6 +3758,13 @@ react-refresh@^0.14.2:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.14.2.tgz#3833da01ce32da470f1f936b9d477da5c7028bf9"
   integrity sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==
 
+react-toastify@^11.0.5:
+  version "11.0.5"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-11.0.5.tgz#ce4c42d10eeb433988ab2264d3e445c4e9d13313"
+  integrity sha512-EpqHBGvnSTtHYhCPLxML05NLY2ZX0JURbAdNYa6BUkk+amz4wbKBQvoKQAB0ardvSarUBuY4Q4s1sluAzZwkmA==
+  dependencies:
+    clsx "^2.1.1"
+
 react@19.0.0:
   version "19.0.0"
   resolved "https://registry.yarnpkg.com/react/-/react-19.0.0.tgz#6e1969251b9f108870aa4bff37a0ce9ddfaaabdd"
@@ -3977,6 +4000,16 @@ semver@^7.5.3:
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.1.tgz#abd5098d82b18c6c81f6074ff2647fd3e7220c9f"
   integrity sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==
 
+seroval-plugins@^1.1.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/seroval-plugins/-/seroval-plugins-1.2.1.tgz#fa535e70ade8af553634b2b5c80d8a6fd8c2ff72"
+  integrity sha512-H5vs53+39+x4Udwp4J5rNZfgFuA+Lt+uU+09w1gYBVWomtAl98B+E9w7yC05Xc81/HgLvJdlyqJbU0fJCKCmdw==
+
+seroval@^1.1.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/seroval/-/seroval-1.2.1.tgz#fc671d63445923ab64f7abaf3967c83901382f40"
+  integrity sha512-yBxFFs3zmkvKNmR0pFSU//rIsYjuX418TnlDmc2weaq5XFDqDIV/NOMPBoLrbxjLH42p4UzRuXHryXh9dYcKcw==
+
 shebang-command@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-2.0.0.tgz#ccd0af4f8835fbdc265b82461aaf0c36663f34ea"
@@ -4012,6 +4045,15 @@ slash@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
   integrity sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==
+
+solid-js@^1.9.5:
+  version "1.9.5"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.9.5.tgz#168ae067c27d3d437c868484d21751335ec16063"
+  integrity sha512-ogI3DaFcyn6UhYhrgcyRAMbu/buBJitYQASZz5WzfQVPP10RD2AbCoRZ517psnezrasyCbWzIxZ6kVqet768xw==
+  dependencies:
+    csstype "^3.1.0"
+    seroval "^1.1.0"
+    seroval-plugins "^1.1.0"
 
 sort-keys@^5.0.0:
   version "5.1.0"

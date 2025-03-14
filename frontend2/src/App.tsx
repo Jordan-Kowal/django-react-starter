@@ -7,6 +7,7 @@ import { RouterProvider } from "@/router";
 import "@/styles/daisyui.css";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { memo, useEffect } from "react";
+import { Toaster } from "./components";
 
 export const App: React.FC = memo(() => {
   const { setLocaleFromStorage } = useLocale();
@@ -17,6 +18,7 @@ export const App: React.FC = memo(() => {
     <DaisyUIProvider>
       <QueryClientProvider client={queryClient}>
         <RouterProvider />
+        <Toaster />
       </QueryClientProvider>
     </DaisyUIProvider>
   );

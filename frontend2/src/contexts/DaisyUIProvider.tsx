@@ -4,6 +4,7 @@ import { useLocalStorage } from "../hooks";
 
 export type DaisyUIContextProps = {
   theme: Theme;
+  isDarkMode: boolean;
   setTheme: (theme: Theme) => void;
 };
 
@@ -29,9 +30,12 @@ export const DaisyUIProvider: React.FC<DaisyUIProviderProps> = memo(
       THEME_STORAGE_KEY,
       DEFAULT_THEME,
     );
+    const isDarkMode = theme === "coffee";
 
     return (
-      <DaisyUIContext.Provider value={{ theme: theme, setTheme: changeTheme }}>
+      <DaisyUIContext.Provider
+        value={{ theme: theme, setTheme: changeTheme, isDarkMode }}
+      >
         <div data-theme={theme} data-testid="daisyui-provider">
           {children}
         </div>

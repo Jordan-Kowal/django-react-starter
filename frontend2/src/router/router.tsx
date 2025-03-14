@@ -1,4 +1,4 @@
-import { HeroLayout, NotFound } from "@/components";
+import { NotFound } from "@/components";
 import { queryClient } from "@/config/api";
 import { HomepageRoute } from "@/features/home/routes";
 import { LoginRoute } from "@/features/login/routes";
@@ -21,13 +21,7 @@ export const RootRoute = createRootRouteWithContext<RouterContext>()({
   },
   component: memo(() => {
     useUpdateMetadata();
-    return (
-      <HeroLayout>
-        <Outlet />
-        {/* <TanStackRouterDevtools initialIsOpen={false} /> */}
-        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-      </HeroLayout>
-    );
+    return <Outlet />;
   }),
 });
 

@@ -5,6 +5,8 @@ import {
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 export type LoginRequestData = {
   email: string;
@@ -16,20 +18,20 @@ type UseLogin = () => UseMutationResult<void, Error, LoginRequestData, unknown>;
 export const useLogin: UseLogin = () => {
   const url = `${API_ROOT_URL}/auth/login/`;
   const queryClient = useQueryClient();
+  const { t } = useTranslation();
 
   return useMutation({
     mutationFn: async (data: LoginRequestData): Promise<void> =>
-      await performRequest(url, {
-        method: "POST",
-        data,
-      }),
+      await performRequest(url, { method: "POST", data }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["appConfig"] });
       queryClient.invalidateQueries({ queryKey: ["self"] });
     },
-    // TODO: Add notification
-    onError: (payload) => {
-      console.error("Login failed", payload);
+    // @ts-ignore
+    onError: ({ status }) => {
+      const message =
+        status === 400 ? t("Invalid credentials") : t("Something went wrong");
+      toast.error(message);
     },
   });
 };
