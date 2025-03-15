@@ -4,9 +4,11 @@
   "Django React Starter": "Django React Starter",
   "Don't have an account? Please reach out to your administrator": "Vous n'avez pas de compte ? Veuillez contacter votre administrateur",
   "Enter your email address": "Saisissez votre adresse e-mail",
+  "Invalid credentials": "Identifiants invalides",
   "Join room": "Rejoindre une partie",
   "Login": "Connexion",
   "Page not found": "Page non trouvée",
   "Password": "Mot de passe",
-  "Profile": "Profil"
+  "Profile": "Profil",
+  "Something went wrong": "Une erreur s'est produite"
 }

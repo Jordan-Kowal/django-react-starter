@@ -19,17 +19,17 @@
 
 ### 🚀 Features
 
-- 🎨 **Frontend**: Major design rework with `daisyUI` and `tailwindcss`
-- 🎨 **Frontend**: Major folder structure rework
+- 🎨 **Frontend**: Major design rework with `daisyUI`, `tailwindcss`, and `@tabler/icons-react`
 - 🎨 **Frontend**: Added `i18n` management
 - 🎨 **Frontend**: Added `react-toastify` for notification management
 
 ### ✨ Improvements
 
 - 💫 **DX**: `Makefile` improvement
-- 🎨 **Frontend**: Replaced `antd` with `daisyUI` and `@tabler/icons-react`
+- 🎨 **Frontend**: Major folder structure rework
 - 🎨 **Frontend**: Replaced `react-router-dom` and `react-helmet-async` with `@tanstack/react-router`
-- 🎨 **Frontend**: Cleaned up unused dependencies: `classnames`, `react-use`, `zustand`
+- 🎨 **Frontend**: Handle forms using `react-hook-form` and `zod`
+- 🎨 **Frontend**: Cleaned up unused dependencies: `antd`, `classnames`, `react-use`, `zustand`
 
 ### 🔧 Others
 

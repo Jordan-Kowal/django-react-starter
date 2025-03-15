@@ -15,6 +15,7 @@ export const performRequest = async (
     method: method.toUpperCase(),
     headers: {
       [CSRF_TOKEN_HEADER_NAME]: getCookie(CSRF_TOKEN_COOKIE_NAME),
+      "Content-Type": "application/json",
       Accept: "application/json",
     },
     redirect: "follow",

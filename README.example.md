@@ -78,8 +78,8 @@ To make things simpler, a `Makefile` is provided
 for frequent/common commands.
 
 ```shell
-make backend:makemigrations
-make frontend:test
+make backend.makemigrations
+make frontend.test
 make setup_githooks
 ```
 

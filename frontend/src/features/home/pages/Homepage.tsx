@@ -1,3 +1,4 @@
+import { HeroLayout } from "@/components";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -5,7 +6,7 @@ const Homepage: React.FC = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <div data-testid="homepage" className="text-center">
+    <HeroLayout dataTestId="homepage">
       <h1 className="text-5xl font-bold">{t("Django React Starter")}</h1>
       <p className="py-6">
         {t("Browser-based multiplayer collaborative puzzle games")}
@@ -18,7 +19,7 @@ const Homepage: React.FC = memo(() => {
           {t("Join room")}
         </button>
       </div>
-    </div>
+    </HeroLayout>
   );
 });
 
