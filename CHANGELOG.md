@@ -19,7 +19,7 @@
 
 ### 🚀 Features
 
-- 🎨 **Frontend**: Major design rework with `daisyUI`, `tailwindcss`, and `@tabler/icons-react`
+- 🎨 **Frontend**: Major design rework with `daisyUI`, `tailwindcss`, and `lucide-react`
 - 🎨 **Frontend**: Added `i18n` management
 - 🎨 **Frontend**: Added `react-toastify` for notification management
 
