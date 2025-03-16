@@ -3,7 +3,7 @@ import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import { LoadingRing } from "./LoadingRing";
 
-describe("NotFound", () => {
+describe("LoadingRing", () => {
   test("should render the page", async ({ expect }) => {
     const { container } = render(<LoadingRing />);
 

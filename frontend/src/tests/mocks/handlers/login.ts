@@ -1,4 +1,4 @@
-import { API_ROOT_URL } from "@/config/api";
+import { API_ROOT_URL } from "@/api/config";
 import { http, HttpResponse } from "msw";
 
 export const loginSuccess = http.post(`${API_ROOT_URL}/auth/login/`, () => {

@@ -1,5 +1,5 @@
+import { API_ROOT_URL } from "@/api/config";
 import { performRequest } from "@/api/utils";
-import { API_ROOT_URL } from "@/config/api";
 import { type UseMutationResult, useMutation } from "@tanstack/react-query";
 import { keysToSnake } from "jkscript";
 

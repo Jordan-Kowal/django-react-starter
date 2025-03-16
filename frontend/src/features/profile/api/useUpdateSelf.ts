@@ -1,6 +1,6 @@
-import type { Self } from "@/api";
+import { API_ROOT_URL } from "@/api/config";
+import type { Self } from "@/api/queries";
 import { performRequest } from "@/api/utils";
-import { API_ROOT_URL } from "@/config/api";
 import {
   type UseMutationResult,
   useMutation,

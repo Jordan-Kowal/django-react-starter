@@ -31,7 +31,7 @@ i18n.use(initReactI18next).init({
   resources,
   lng: DEFAULT_LOCALE,
   interpolation: {
-    escapeValue: false, // react already safes from xss
+    escapeValue: false,
   },
 });
 

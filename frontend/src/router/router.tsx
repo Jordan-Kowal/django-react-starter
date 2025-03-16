@@ -1,5 +1,5 @@
-import { NotFound } from "@/components";
-import { queryClient } from "@/config/api";
+import { queryClient } from "@/api/config";
+import { NotFound } from "@/components/pages";
 import { HomepageRoute } from "@/features/home/routes";
 import { LoginRoute } from "@/features/login/routes";
 import {

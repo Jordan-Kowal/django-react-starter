@@ -1,8 +1,8 @@
-import { API_ROOT_URL } from "@/config/api";
+import { API_ROOT_URL } from "@/api/config";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
+import { performRequest } from "../utils";
 import { useSelf } from "./useSelf";
-import { performRequest } from "./utils";
 
 type UseCheckAuthReturn = {
   isPending: boolean;

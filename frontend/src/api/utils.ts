@@ -1,4 +1,4 @@
-import { CSRF_TOKEN_COOKIE_NAME, CSRF_TOKEN_HEADER_NAME } from "@/config/api";
+import { CSRF_TOKEN_COOKIE_NAME, CSRF_TOKEN_HEADER_NAME } from "@/api/config";
 import { getCookie } from "jkscript";
 
 type FetchOptions = {

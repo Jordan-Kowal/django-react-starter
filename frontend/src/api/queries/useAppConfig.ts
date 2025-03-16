@@ -1,8 +1,8 @@
-import { API_ROOT_URL } from "@/config/api";
+import { API_ROOT_URL } from "@/api/config";
 import { useQuery } from "@tanstack/react-query";
 import { type KeysToSnakeCase, keysToCamel } from "jkscript";
 import { useMemo } from "react";
-import { performRequest } from "./utils";
+import { performRequest } from "../utils";
 
 export type AppConfig = {
   debug: boolean;
