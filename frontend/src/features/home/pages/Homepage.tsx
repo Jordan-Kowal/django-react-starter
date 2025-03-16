@@ -8,7 +8,7 @@ const Homepage: React.FC = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <Main dataTestId="homepage">
+    <Main showNavBar dataTestId="homepage">
       <div className="text-center">
         <div className="max-w-50 mx-auto mb-6">
           <Logo />

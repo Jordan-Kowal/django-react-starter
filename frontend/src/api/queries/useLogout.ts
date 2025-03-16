@@ -14,9 +14,7 @@ export const useLogout: UseLogout = () => {
 
   return useMutation({
     mutationFn: async (): Promise<void> =>
-      await performRequest(url, {
-        method: "POST",
-      }),
+      await performRequest(url, { method: "POST" }),
     onSuccess: () => {
       queryClient.resetQueries({ queryKey: ["self"] });
     },
