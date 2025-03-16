@@ -2,12 +2,16 @@
 
 ## Migration
 
-- Icons on buttons
+- Icons on buttons?
 - Check tests
 - Check memo
 - Add loading
 - Add transitions
 - Check wouter?
+  - Add Router (above routes)
+  - Check typing (RouteKey?)
+  - Fix hooks and add navigates
+  - Add mocks
 - Check READMEs
 
 ## Feature

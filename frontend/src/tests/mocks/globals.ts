@@ -16,9 +16,4 @@ export const registerGlobalMocks = () => {
       removeEventListener: vi.fn(),
       dispatchEvent: vi.fn(),
     }));
-
-  // Tanstack Router
-  vi.mock("@tanstack/react-router", () => ({
-    useRouterState: useRouterStateMock,
-  }));
 };

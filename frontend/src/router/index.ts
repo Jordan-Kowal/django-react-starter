@@ -1,2 +1,2 @@
-export { RootRoute } from "./router";
-export { RouterProvider } from "./RouterProvider";
+export { routeConfigMap } from "./routeConfigMap";
+export { Routes } from "./Routes";

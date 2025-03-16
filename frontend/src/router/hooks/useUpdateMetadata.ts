@@ -1,7 +1,7 @@
 import { useCurrentRoute, useLocale } from "@/hooks";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import type { RouteKey } from "../router";
+import type { RouteKey } from "../types";
 
 export const useUpdateMetadata = () => {
   const { t } = useTranslation();
@@ -11,7 +11,6 @@ export const useUpdateMetadata = () => {
   const routeTitles: Record<RouteKey, string> = useMemo(
     () => ({
       homepage: t("Django React Starter"),
-      profile: t("Profile"),
       login: t("Login"),
     }),
     [t],
