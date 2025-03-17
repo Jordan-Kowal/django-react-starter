@@ -1,5 +1,6 @@
 import { routeConfigMap } from "@/router";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { LogIn } from "lucide-react";
 import { memo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -90,7 +91,7 @@ export const LoginForm: React.FC = memo(() => {
           console.log("clicked");
         }}
       >
-        {isLoading && <span className="loading loading-spinner" />}
+        {isLoading ? <span className="loading loading-spinner" /> : <LogIn />}
         {t("Login")}
       </button>
     </form>
