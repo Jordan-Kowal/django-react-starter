@@ -23,7 +23,7 @@ export const Main: React.FC<MainProps> = memo(
 
     return (
       <main className="hero bg-base-100" data-testid={dataTestId} style={style}>
-        <NavBar />
+        {showNavBar && <NavBar />}
         <div className="hero-content">
           <div className="max-w-7xl">{children}</div>
         </div>

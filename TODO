@@ -5,13 +5,11 @@
 - Icons on buttons?
 - Check tests
 - Check memo
-- Add loading
 - Add transitions
 - Check wouter?
-  - Add Router (above routes)
-  - Check typing (RouteKey?)
-  - Fix hooks and add navigates
   - Add mocks
+  - Check loadings
+  - Should messages and nav be in component or API onSuccess/Error?
 - Check READMEs
 
 ## Feature

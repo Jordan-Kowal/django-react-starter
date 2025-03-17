@@ -1,11 +1,23 @@
+import { useLogout } from "@/api/queries";
 import { Main } from "@/components/layout";
 import { Logo } from "@/components/ui";
-import { Settings, UserRound } from "lucide-react";
-import { memo } from "react";
+import { routeConfigMap } from "@/router";
+import { LogOut, Settings } from "lucide-react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "wouter";
 
 const Homepage: React.FC = memo(() => {
   const { t } = useTranslation();
+  const [, navigate] = useLocation();
+  const { mutateAsync: logout } = useLogout();
+
+  const onLogoutClick = useCallback(async () => {
+    try {
+      await logout();
+      navigate(routeConfigMap.login.path);
+    } catch {}
+  }, [logout, navigate]);
 
   return (
     <Main showNavBar dataTestId="homepage">
@@ -18,11 +30,19 @@ const Homepage: React.FC = memo(() => {
           {t("An easy way to start a Django + React project")}
         </p>
         <div className="flex gap-4 justify-center">
-          <button type="button" className="btn btn-primary w-50">
-            <UserRound /> {t("Go to profile")}
-          </button>
-          <button type="button" className="btn btn-secondary w-50">
+          <Link
+            type="button"
+            className="btn btn-primary w-50"
+            to={routeConfigMap.settings.path}
+          >
             <Settings /> {t("Go to settings")}
+          </Link>
+          <button
+            type="button"
+            className="btn btn-secondary w-50"
+            onClick={onLogoutClick}
+          >
+            <LogOut /> {t("Logout")}
           </button>
         </div>
       </div>

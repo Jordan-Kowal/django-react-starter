@@ -1,9 +1,9 @@
-import { homepagePath } from "@/features/home/routes";
+import { routeConfigMap } from "@/router";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "@tanstack/react-router";
 import { memo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "wouter";
 import { z } from "zod";
 import { useLogin } from "../api/useLogin";
 
@@ -16,7 +16,7 @@ type Schema = z.infer<typeof schema>;
 
 export const LoginForm: React.FC = memo(() => {
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const [, navigate] = useLocation();
 
   const { t } = useTranslation();
   const { mutateAsync: login } = useLogin();
@@ -34,7 +34,7 @@ export const LoginForm: React.FC = memo(() => {
     setIsLoading(true);
     try {
       await login(data);
-      navigate({ to: homepagePath });
+      navigate(routeConfigMap.homepage.path);
     } catch {
       setIsLoading(false);
     }

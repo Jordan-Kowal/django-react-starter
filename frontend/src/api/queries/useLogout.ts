@@ -6,7 +6,7 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 
-type UseLogout = () => UseMutationResult<void, Error, any>;
+type UseLogout = () => UseMutationResult<void, Error, void, unknown>;
 
 export const useLogout: UseLogout = () => {
   const url = `${API_ROOT_URL}/auth/logout/`;

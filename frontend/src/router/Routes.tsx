@@ -1,12 +1,13 @@
 import { useAppConfig, useCheckAuth, useSelf } from "@/api/queries";
 import { Main } from "@/components/layout";
-import { NotFound } from "@/components/pages";
 import { LoadingRing } from "@/components/ui";
 import { Suspense, memo, useMemo } from "react";
-import { Route, Switch } from "wouter";
-import { routeConfigMap } from "./routeConfigMap";
+import { Redirect, Route, Switch } from "wouter";
+import { useUpdateMetadata } from "./hooks";
+import { routeConfigMap } from "./routeConfig";
 
 export const Routes = memo(() => {
+  useUpdateMetadata();
   useCheckAuth();
   const { isPending: isAppConfigPending } = useAppConfig();
   const { data: user, isPending: isUserPending } = useSelf();
@@ -20,13 +21,17 @@ export const Routes = memo(() => {
         .filter((route) => !(route.requiresAuth && !isAuthenticated))
         .map((route) => (
           <Route
-            key={route.routeKey}
+            key={route.key}
             path={route.path}
             component={route.component}
           />
         )),
     [isAuthenticated],
   );
+
+  const defaultRoute = isAuthenticated
+    ? routeConfigMap.homepage
+    : routeConfigMap.login;
 
   if (isLoading) {
     return (
@@ -40,7 +45,7 @@ export const Routes = memo(() => {
     <Suspense fallback={<LoadingRing />}>
       <Switch>
         {routes}
-        <Route component={NotFound} />
+        <Redirect to={defaultRoute.path} replace />
       </Switch>
     </Suspense>
   );
