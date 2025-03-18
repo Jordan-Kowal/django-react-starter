@@ -20,11 +20,11 @@ export const Routes = memo(() => {
       Object.values(routeConfigMap)
         .filter((route) => !(route.requiresAuth && !isAuthenticated))
         .map((route) => (
-          <Route
-            key={route.key}
-            path={route.path}
-            component={route.component}
-          />
+          <Route key={route.key} path={route.path}>
+            <Suspense fallback={<LoadingRing />}>
+              <route.component />
+            </Suspense>
+          </Route>
         )),
     [isAuthenticated],
   );
@@ -42,11 +42,9 @@ export const Routes = memo(() => {
   }
 
   return (
-    <Suspense fallback={<LoadingRing />}>
-      <Switch>
-        {routes}
-        <Redirect to={defaultRoute.path} replace />
-      </Switch>
-    </Suspense>
+    <Switch>
+      {routes}
+      <Redirect to={defaultRoute.path} replace />
+    </Switch>
   );
 });

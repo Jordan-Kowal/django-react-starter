@@ -4,20 +4,16 @@ import { LogOut, Settings } from "lucide-react";
 import type React from "react";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useLocation } from "wouter";
+import { Link } from "wouter";
 import { Logo } from "../ui";
 
 export const NavBar: React.FC = memo(() => {
   const { t } = useTranslation();
-  const [, navigate] = useLocation();
   const { mutateAsync: logout } = useLogout();
 
   const onLogoutClick = useCallback(async () => {
-    try {
-      await logout();
-      navigate(routeConfigMap.login.path);
-    } catch {}
-  }, [logout, navigate]);
+    await logout();
+  }, [logout]);
 
   return (
     <div className="navbar bg-base-100 fixed top-0 left-0 shadow-xs">

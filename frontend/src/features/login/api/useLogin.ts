@@ -1,5 +1,6 @@
 import { API_ROOT_URL } from "@/api/config";
 import { performRequest } from "@/api/utils";
+import { routeConfigMap } from "@/router";
 import {
   type UseMutationResult,
   useMutation,
@@ -7,6 +8,7 @@ import {
 } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
+import { useLocation } from "wouter";
 
 export type LoginRequestData = {
   email: string;
@@ -19,6 +21,7 @@ export const useLogin: UseLogin = () => {
   const url = `${API_ROOT_URL}/auth/login/`;
   const queryClient = useQueryClient();
   const { t } = useTranslation();
+  const [, navigate] = useLocation();
 
   return useMutation({
     mutationFn: async (data: LoginRequestData): Promise<void> =>
@@ -26,12 +29,13 @@ export const useLogin: UseLogin = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["appConfig"] });
       queryClient.invalidateQueries({ queryKey: ["self"] });
+      navigate(routeConfigMap.homepage.path);
     },
     // @ts-ignore
     onError: ({ status }) => {
-      const message =
-        status === 400 ? t("Invalid credentials") : t("Something went wrong");
-      toast.error(message);
+      if (status === 400) {
+        toast.error(t("Invalid credentials"));
+      }
     },
   });
 };

@@ -8,8 +8,6 @@
 - Add transitions
 - Check wouter?
   - Add mocks
-  - Check loadings
-  - Should messages and nav be in component or API onSuccess/Error?
 - Check READMEs
 
 ## Feature

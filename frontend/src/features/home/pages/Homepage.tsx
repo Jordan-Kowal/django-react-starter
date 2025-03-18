@@ -5,19 +5,15 @@ import { routeConfigMap } from "@/router";
 import { LogOut, Settings } from "lucide-react";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useLocation } from "wouter";
+import { Link } from "wouter";
 
 const Homepage: React.FC = memo(() => {
   const { t } = useTranslation();
-  const [, navigate] = useLocation();
   const { mutateAsync: logout } = useLogout();
 
   const onLogoutClick = useCallback(async () => {
-    try {
-      await logout();
-      navigate(routeConfigMap.login.path);
-    } catch {}
-  }, [logout, navigate]);
+    await logout();
+  }, [logout]);
 
   return (
     <Main showNavBar dataTestId="homepage">
