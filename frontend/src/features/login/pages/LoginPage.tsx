@@ -1,11 +1,20 @@
+import { useSelf } from "@/api/queries";
 import { Main } from "@/components/layout";
 import { Logo } from "@/components/ui";
+import { routeConfigMap } from "@/router";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "wouter";
 import { LoginForm } from "../components";
 
 const LoginPage: React.FC = memo(() => {
   const { t } = useTranslation();
+  const { data: self } = useSelf();
+  const [, navigate] = useLocation();
+
+  if (self) {
+    navigate(routeConfigMap.homepage.path);
+  }
 
   return (
     <Main data-testid="login-page">

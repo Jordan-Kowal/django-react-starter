@@ -2,7 +2,10 @@
 
 ## Migration
 
-- Settings page
+- Settings page design
+- Choose font
+- Setup tailwind typography
+- Check responsive
 - Add transitions
 - Check tests
 - Check memo

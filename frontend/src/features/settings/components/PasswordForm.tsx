@@ -1,23 +1,17 @@
 import { FieldsetInput } from "@/components/form";
-import i18n from "@/config/i18n";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { KeyRound, Save } from "lucide-react";
-import { memo, useEffect, useState } from "react";
+import { KeyRound, LockKeyhole, Save } from "lucide-react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
 import { useUpdatePassword } from "../api";
 
-const schema = z
-  .object({
-    currentPassword: z.string().nonempty(),
-    password: z.string().nonempty(),
-    confirmPassword: z.string().nonempty(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: i18n.t("Passwords do not match"),
-    path: ["confirmPassword"],
-  });
+const schema = z.object({
+  currentPassword: z.string().nonempty(),
+  password: z.string().nonempty(),
+  confirmPassword: z.string().nonempty(),
+});
 
 type Schema = z.infer<typeof schema>;
 
@@ -27,6 +21,16 @@ export const PasswordForm: React.FC = memo(() => {
   const { t } = useTranslation();
   const { mutateAsync: updatePassword } = useUpdatePassword();
 
+  /** Refined here for translations management */
+  const refinedSchema = useMemo(
+    () =>
+      schema.refine((data) => data.password === data.confirmPassword, {
+        message: t("Passwords do not match"),
+        path: ["confirmPassword"],
+      }),
+    [t],
+  );
+
   const {
     control,
     handleSubmit,
@@ -34,7 +38,7 @@ export const PasswordForm: React.FC = memo(() => {
     trigger,
     watch,
   } = useForm<Schema>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(refinedSchema),
     mode: "onChange",
   });
 
@@ -83,7 +87,7 @@ export const PasswordForm: React.FC = memo(() => {
           control={control}
           render={({ field }) => (
             <FieldsetInput
-              icon={<KeyRound size={16} />}
+              icon={<LockKeyhole size={16} />}
               label={t("Password")}
               errorMessage={errors?.password?.message}
               placeholder={t("Enter your password")}
@@ -97,7 +101,7 @@ export const PasswordForm: React.FC = memo(() => {
           control={control}
           render={({ field }) => (
             <FieldsetInput
-              icon={<KeyRound size={16} />}
+              icon={<LockKeyhole size={16} />}
               label={t("Confirm Password")}
               errorMessage={errors?.confirmPassword?.message}
               placeholder={t("Confirm your password")}
