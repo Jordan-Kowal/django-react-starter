@@ -22,6 +22,7 @@
 - 🎨 **Frontend**: Major design rework: replaced `antd` with `daisyUI`
 - 🎨 **Frontend**: Added `lucide-react` for icon management
 - 🎨 **Frontend**: Added `@tailwindcss/typography` for easier typography management
+- 🎨 **Frontend**: Added `motion` for page transitions
 - 🎨 **Frontend**: Default font to `Nunito`
 - 🎨 **Frontend**: Added `i18n` management
 - 🎨 **Frontend**: Added `react-toastify` for notification management

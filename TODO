@@ -2,7 +2,6 @@
 
 ## Migration
 
-- Add transitions
 - Remove useless hooks/logics/contexts?
 - Check tests
 - Check wouter?
