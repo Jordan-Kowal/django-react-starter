@@ -37,6 +37,7 @@ export const PasswordForm: React.FC = memo(() => {
     formState: { errors, isDirty, isValid },
     trigger,
     watch,
+    reset,
   } = useForm<Schema>({
     resolver: zodResolver(refinedSchema),
     mode: "onChange",
@@ -56,6 +57,10 @@ export const PasswordForm: React.FC = memo(() => {
     setIsLoading(true);
     try {
       await updatePassword(data);
+      reset(
+        { currentPassword: "", password: "", confirmPassword: "" },
+        { keepValues: false },
+      );
     } finally {
       setIsLoading(false);
     }
@@ -63,7 +68,7 @@ export const PasswordForm: React.FC = memo(() => {
 
   return (
     <form
-      className="flex flex-col gap-4 justify-center max-w-100"
+      className="flex flex-col gap-4 justify-center"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
@@ -112,7 +117,7 @@ export const PasswordForm: React.FC = memo(() => {
         />
         <button
           type="submit"
-          className="btn btn-primary w-full mt-4"
+          className="btn btn-primary mt-4 w-40 justify-self-end"
           disabled={isLoading || !isDirty || !isValid}
         >
           {isLoading ? <span className="loading loading-spinner" /> : <Save />}

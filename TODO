@@ -7,11 +7,11 @@
 - Setup tailwind typography
 - Check responsive
 - Add transitions
-- Check tests
 - Check memo
+- Remove useless hooks/logics/contexts?
+- Check tests
 - Check wouter?
   - Add mocks
-- Remove useless hooks/logics/contexts?
 - Check READMEs
 
 ## Feature

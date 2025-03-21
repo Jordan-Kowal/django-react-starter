@@ -10,7 +10,7 @@ export const UserSettings: React.FC = memo(() => {
   const { setTheme, isDarkMode } = useDaisyUITheme();
 
   return (
-    <div className="flex flex-col gap-4 justify-center max-w-100">
+    <div className="flex flex-col gap-4 justify-center">
       <div className="flex gap-2 items-center justify-between">
         <span className="flex gap-2">
           <Languages /> {t("Language")}

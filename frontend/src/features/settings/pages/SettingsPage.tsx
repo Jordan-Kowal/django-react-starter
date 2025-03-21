@@ -8,12 +8,15 @@ const SettingsPage: React.FC = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <Main data-testid="settings-page" showNavBar className="w-full">
+    <Main
+      data-testid="settings-page"
+      showNavBar
+      className="w-full max-w-lg mx-auto"
+    >
       <div className="flex gap-2">
         <Settings size={48} />
         <h1 className="text-5xl font-bold">{t("Settings")}</h1>
       </div>
-
       <div className="divider divider-start">{t("User settings")}</div>
       <UserSettings />
       <div className="divider divider-start">{t("User information")}</div>

@@ -27,6 +27,7 @@ export const UserForm: React.FC = memo(() => {
     control,
     handleSubmit,
     formState: { errors, isDirty, isValid },
+    reset,
   } = useForm<Schema>({
     resolver: zodResolver(schema),
     mode: "onChange",
@@ -43,6 +44,7 @@ export const UserForm: React.FC = memo(() => {
     setIsLoading(true);
     try {
       await updateSelf(data);
+      reset(data, { keepValues: false });
     } finally {
       setIsLoading(false);
     }
@@ -50,7 +52,7 @@ export const UserForm: React.FC = memo(() => {
 
   return (
     <form
-      className="flex flex-col gap-4 justify-center max-w-100"
+      className="flex flex-col gap-4 justify-center"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
@@ -99,7 +101,7 @@ export const UserForm: React.FC = memo(() => {
         />
         <button
           type="submit"
-          className="btn btn-primary w-full mt-4"
+          className="btn btn-primary mt-4 w-40 justify-self-end"
           disabled={isLoading || !isDirty || !isValid}
         >
           {isLoading ? <span className="loading loading-spinner" /> : <Save />}
