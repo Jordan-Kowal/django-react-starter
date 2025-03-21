@@ -16,7 +16,7 @@ export const NavBar: React.FC = memo(() => {
   }, [logout]);
 
   return (
-    <div className="navbar bg-base-100 fixed top-0 left-0 shadow-xs">
+    <div className="navbar bg-base-100 fixed top-0 left-0 shadow-xs not-prose">
       <div className="navbar-start">
         <Link className="w-8" href={routeConfigMap.homepage.path}>
           <Logo />

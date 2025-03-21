@@ -36,7 +36,11 @@ export const DaisyUIProvider: React.FC<DaisyUIProviderProps> = memo(
       <DaisyUIContext.Provider
         value={{ theme: theme, setTheme: changeTheme, isDarkMode }}
       >
-        <div data-theme={theme} data-testid="daisyui-provider">
+        <div
+          data-theme={theme}
+          data-testid="daisyui-provider"
+          className="min-w-full prose prose-sm md:prose-base"
+        >
           {children}
         </div>
       </DaisyUIContext.Provider>

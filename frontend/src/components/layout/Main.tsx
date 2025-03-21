@@ -24,15 +24,13 @@ export const Main: React.FC<MainProps> = memo(
 
     return (
       <main
-        className={`hero bg-base-100 ${className || ""}`}
+        className={`hero bg-base-100 w-full ${className || ""}`}
         data-testid={dataTestId}
         style={style}
       >
         {showNavBar && <NavBar />}
         <div className="hero-content w-full">
-          <div className="max-w-6xl w-full prose prose-sm md:prose-base">
-            {children}
-          </div>
+          <div className="max-w-6xl w-full">{children}</div>
         </div>
       </main>
     );
