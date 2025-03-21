@@ -39,8 +39,12 @@ export const useUpdateSelf: UseUpdateSelf = () => {
       queryClient.setQueryData(["self"], data);
       toast.success("Information updated");
     },
-    onError: () => {
-      toast.error("Failed to update information");
+    onError: ({ status }) => {
+      if (status === 400) {
+        toast.error("Failed to update information");
+      } else {
+        toast.error("Something went wrong");
+      }
     },
   });
 };

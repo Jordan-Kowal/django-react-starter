@@ -40,6 +40,8 @@ export const useLogin: UseLogin = () => {
     onError: ({ status }) => {
       if (status === 400) {
         toast.error(t("Invalid credentials"));
+      } else {
+        toast.error(t("Something went wrong"));
       }
     },
   });
