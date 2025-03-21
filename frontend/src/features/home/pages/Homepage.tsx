@@ -21,11 +21,9 @@ const Homepage: React.FC = memo(() => {
         <div className="max-w-50 mx-auto mb-6">
           <Logo />
         </div>
-        <h1 className="text-5xl font-bold">{t("Django React Starter")}</h1>
-        <p className="py-6">
-          {t("An easy way to start a Django + React project")}
-        </p>
-        <div className="flex gap-4 justify-center">
+        <h1>{t("Django React Starter")}</h1>
+        <p>{t("An easy way to start a Django + React project")}</p>
+        <div className="flex gap-4 justify-center mt-10">
           <Link
             type="button"
             className="btn btn-primary w-50"

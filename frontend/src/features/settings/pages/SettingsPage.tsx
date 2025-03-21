@@ -15,7 +15,7 @@ const SettingsPage: React.FC = memo(() => {
     >
       <div className="flex gap-2">
         <Settings size={48} />
-        <h1 className="text-5xl font-bold">{t("Settings")}</h1>
+        <h1>{t("Settings")}</h1>
       </div>
       <div className="divider divider-start">{t("User settings")}</div>
       <UserSettings />

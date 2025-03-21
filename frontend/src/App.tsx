@@ -5,7 +5,7 @@ import "@/config/i18n";
 import { DaisyUIProvider } from "@/contexts";
 import { useLocale } from "@/hooks";
 import { Routes } from "@/router";
-import "@/styles/daisyui.css";
+import "@/styles/base.css";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { memo, useEffect } from "react";
 import { Router } from "wouter";

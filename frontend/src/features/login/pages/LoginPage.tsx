@@ -22,8 +22,8 @@ const LoginPage: React.FC = memo(() => {
         <Logo />
       </div>
       <div className="text-center">
-        <h1 className="text-5xl font-bold mb-6">{t("Django React Starter")}</h1>
-        <p className="mb-6">
+        <h1>{t("Django React Starter")}</h1>
+        <p>
           {t("Don't have an account? Please reach out to your administrator")}
         </p>
       </div>

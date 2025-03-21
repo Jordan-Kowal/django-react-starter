@@ -47,7 +47,9 @@ export const FieldsetInput = memo(
             onChange={onChange}
             onBlur={onBlur}
           />
-          <p className="text-red-500 text-right text-xs mt-1">{errorMessage}</p>
+          <span className="text-red-500 text-right text-xs mt-1">
+            {errorMessage}
+          </span>
         </>
       );
     },
