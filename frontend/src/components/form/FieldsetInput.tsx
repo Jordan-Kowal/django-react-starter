@@ -7,7 +7,6 @@ export type FieldsetInputProps = {
   errorMessage?: string;
   placeholder: string;
   type: string;
-  // From "...field"
   value?: string;
   name: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -16,7 +15,20 @@ export type FieldsetInputProps = {
 
 export const FieldsetInput = memo(
   forwardRef<HTMLInputElement, FieldsetInputProps>(
-    ({ icon, label, errorMessage, placeholder, type, name, ...rest }, ref) => {
+    (
+      {
+        icon,
+        label,
+        errorMessage,
+        placeholder,
+        type,
+        name,
+        value,
+        onChange,
+        onBlur,
+      },
+      ref,
+    ) => {
       const inputColor = errorMessage ? "input-error" : "input-primary";
       return (
         <>
@@ -30,7 +42,10 @@ export const FieldsetInput = memo(
             className={`input w-full ${inputColor}`}
             type={type}
             placeholder={placeholder}
-            {...rest}
+            name={name}
+            value={value}
+            onChange={onChange}
+            onBlur={onBlur}
           />
           <p className="text-red-500 text-right text-xs mt-1">{errorMessage}</p>
         </>
