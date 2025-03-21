@@ -12,10 +12,12 @@ const LoginPage: React.FC = memo(() => {
       <div className="max-w-50 mx-auto mb-6">
         <Logo />
       </div>
-      <h1 className="text-5xl font-bold mb-6">{t("Django React Starter")}</h1>
-      <p className="mb-6">
-        {t("Don't have an account? Please reach out to your administrator")}
-      </p>
+      <div className="text-center">
+        <h1 className="text-5xl font-bold mb-6">{t("Django React Starter")}</h1>
+        <p className="mb-6">
+          {t("Don't have an account? Please reach out to your administrator")}
+        </p>
+      </div>
       <LoginForm />
     </Main>
   );

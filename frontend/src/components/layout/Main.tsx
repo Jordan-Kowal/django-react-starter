@@ -4,6 +4,7 @@ import { NavBar } from "./NavBar";
 
 export type MainProps = {
   children: React.ReactNode;
+  className?: string;
   dataTestId?: string;
   showNavBar?: boolean;
 };
@@ -11,7 +12,7 @@ export type MainProps = {
 const NAVBAR_HEIGHT = 64;
 
 export const Main: React.FC<MainProps> = memo(
-  ({ children, dataTestId, showNavBar }) => {
+  ({ children, className, dataTestId, showNavBar }) => {
     const style = useMemo(() => {
       return showNavBar
         ? {
@@ -22,10 +23,14 @@ export const Main: React.FC<MainProps> = memo(
     }, [showNavBar]);
 
     return (
-      <main className="hero bg-base-100" data-testid={dataTestId} style={style}>
+      <main
+        className={`hero bg-base-100 ${className}`}
+        data-testid={dataTestId}
+        style={style}
+      >
         {showNavBar && <NavBar />}
-        <div className="hero-content">
-          <div className="max-w-7xl">{children}</div>
+        <div className="hero-content w-full">
+          <div className="max-w-6xl w-full">{children}</div>
         </div>
       </main>
     );
