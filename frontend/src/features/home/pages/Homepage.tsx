@@ -23,21 +23,23 @@ const Homepage: React.FC = memo(() => {
         </div>
         <h1>{t("Django React Starter")}</h1>
         <p>{t("An easy way to start a Django + React project")}</p>
-        <div className="flex gap-4 justify-center mt-10">
-          <Link
-            type="button"
-            className="btn btn-primary w-50"
-            to={routeConfigMap.settings.path}
-          >
-            <Settings /> {t("Go to settings")}
-          </Link>
-          <button
-            type="button"
-            className="btn btn-secondary w-50"
-            onClick={onLogoutClick}
-          >
-            <LogOut /> {t("Logout")}
-          </button>
+        <div className="w-full max-w-80 sm:max-w-120 mx-auto mt-10">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              type="button"
+              className="btn btn-primary sm:flex-1"
+              to={routeConfigMap.settings.path}
+            >
+              <Settings /> {t("Go to settings")}
+            </Link>
+            <button
+              type="button"
+              className="btn btn-secondary sm:flex-1"
+              onClick={onLogoutClick}
+            >
+              <LogOut /> {t("Logout")}
+            </button>
+          </div>
         </div>
       </div>
     </Main>

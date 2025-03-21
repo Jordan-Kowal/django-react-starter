@@ -13,7 +13,7 @@ const SettingsPage: React.FC = memo(() => {
 
   return (
     <Main
-      data-testid="settings-page"
+      dataTestId="settings-page"
       showNavBar
       className="w-full max-w-lg mx-auto"
     >

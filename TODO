@@ -2,7 +2,6 @@
 
 ## Migration
 
-- Check responsive
 - Add transitions
 - Remove useless hooks/logics/contexts?
 - Check tests

@@ -17,7 +17,7 @@ const LoginPage: React.FC = memo(() => {
   }
 
   return (
-    <Main data-testid="login-page">
+    <Main dataTestId="login-page">
       <div className="max-w-50 mx-auto mb-6">
         <Logo />
       </div>
