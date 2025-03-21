@@ -38,8 +38,6 @@ export const UserForm: React.FC = memo(() => {
     },
   });
 
-  console.log({ errors, isDirty, isValid });
-
   const onSubmit = async (data: Schema) => {
     setIsLoading(true);
     try {
