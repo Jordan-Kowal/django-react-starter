@@ -1,4 +1,5 @@
 import { API_ROOT_URL } from "@/api/config";
+import type { ApiError } from "@/api/types";
 import { performRequest } from "@/api/utils";
 import { routeConfigMap } from "@/router";
 import {
@@ -15,7 +16,12 @@ export type LoginRequestData = {
   password: string;
 };
 
-type UseLogin = () => UseMutationResult<void, Error, LoginRequestData, unknown>;
+type UseLogin = () => UseMutationResult<
+  void,
+  ApiError,
+  LoginRequestData,
+  unknown
+>;
 
 export const useLogin: UseLogin = () => {
   const url = `${API_ROOT_URL}/auth/login/`;
@@ -31,7 +37,6 @@ export const useLogin: UseLogin = () => {
       queryClient.invalidateQueries({ queryKey: ["self"] });
       navigate(routeConfigMap.homepage.path);
     },
-    // @ts-ignore
     onError: ({ status }) => {
       if (status === 400) {
         toast.error(t("Invalid credentials"));

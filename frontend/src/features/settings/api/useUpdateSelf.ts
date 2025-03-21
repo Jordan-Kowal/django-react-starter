@@ -1,5 +1,6 @@
 import { API_ROOT_URL } from "@/api/config";
 import type { Self } from "@/api/queries";
+import type { ApiError } from "@/api/types";
 import { performRequest } from "@/api/utils";
 import {
   type UseMutationResult,
@@ -7,6 +8,7 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 import { keysToCamel, keysToSnake } from "jkscript";
+import { toast } from "react-toastify";
 
 export type UpdateSelfRequestData = {
   email: string;
@@ -16,7 +18,7 @@ export type UpdateSelfRequestData = {
 
 type UseUpdateSelf = () => UseMutationResult<
   Self,
-  Error,
+  ApiError,
   UpdateSelfRequestData,
   unknown
 >;
@@ -33,10 +35,12 @@ export const useUpdateSelf: UseUpdateSelf = () => {
       });
       return keysToCamel(response) as Self;
     },
-    // TODO: Add notification
     onSuccess: (data: Self) => {
       queryClient.setQueryData(["self"], data);
+      toast.success("Information updated");
     },
-    // onError: ({ errors }) => {},
+    onError: () => {
+      toast.error("Failed to update information");
+    },
   });
 };

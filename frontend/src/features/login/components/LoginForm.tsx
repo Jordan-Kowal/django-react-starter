@@ -1,5 +1,6 @@
+import { FieldsetInput } from "@/components/form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LogIn } from "lucide-react";
+import { KeyRound, LogIn, Mail } from "lucide-react";
 import { memo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -22,7 +23,7 @@ export const LoginForm: React.FC = memo(() => {
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty, isValid },
   } = useForm<Schema>({
     resolver: zodResolver(schema),
     mode: "onChange",
@@ -32,7 +33,7 @@ export const LoginForm: React.FC = memo(() => {
     setIsLoading(true);
     try {
       await login(data);
-    } catch {
+    } finally {
       setIsLoading(false);
     }
   };
@@ -43,53 +44,45 @@ export const LoginForm: React.FC = memo(() => {
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
-      <Controller
-        name="email"
-        control={control}
-        render={({ field }) => (
-          <label htmlFor="email">
-            <input
-              id="email"
-              className="input input-primary w-full"
-              type="email"
+      <fieldset className="fieldset bg-base-200 border border-base-300 p-4 rounded-box">
+        <legend className="fieldset-legend">{t("Login")}</legend>
+        <Controller
+          name="email"
+          control={control}
+          render={({ field }) => (
+            <FieldsetInput
+              icon={<Mail size={16} />}
+              label={t("Email")}
+              errorMessage={errors?.email?.message}
               placeholder={t("Enter your email address")}
+              type="email"
               {...field}
             />
-            <p className="text-red-500 text-right text-xs mt-1">
-              {errors?.email?.message}
-            </p>
-          </label>
-        )}
-      />
-      <Controller
-        name="password"
-        control={control}
-        render={({ field }) => (
-          <label htmlFor="password">
-            <input
-              id="password"
-              className="input input-primary w-full"
+          )}
+        />
+        <Controller
+          name="password"
+          control={control}
+          render={({ field }) => (
+            <FieldsetInput
+              icon={<KeyRound size={16} />}
+              label={t("Password")}
+              errorMessage={errors?.password?.message}
+              placeholder={t("Enter your password")}
               type="password"
-              placeholder={t("Password")}
               {...field}
             />
-            <p className="text-red-500 text-right text-xs mt-1">
-              {errors?.password?.message}
-            </p>
-          </label>
-        )}
-      />
-      <button
-        type="submit"
-        className="btn btn-primary w-full"
-        disabled={isLoading}
-        onClick={() => {
-          console.log("clicked");
-        }}
-      >
-        {isLoading ? <span className="loading loading-spinner" /> : <LogIn />}
-        {t("Login")}
-      </button>
+          )}
+        />
+        <button
+          type="submit"
+          className="btn btn-primary w-full mt-4"
+          disabled={isLoading || !isDirty || !isValid}
+        >
+          {isLoading ? <span className="loading loading-spinner" /> : <LogIn />}
+          {t("Login")}
+        </button>
+      </fieldset>
     </form>
   );
 });

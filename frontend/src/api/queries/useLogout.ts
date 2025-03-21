@@ -7,8 +7,9 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 import { useLocation } from "wouter";
+import type { ApiError } from "../types";
 
-type UseLogout = () => UseMutationResult<void, Error, void, unknown>;
+type UseLogout = () => UseMutationResult<void, ApiError, void, unknown>;
 
 export const useLogout: UseLogout = () => {
   const url = `${API_ROOT_URL}/auth/logout/`;

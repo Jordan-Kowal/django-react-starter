@@ -5,13 +5,14 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { useLocation } from "wouter";
+import type { ApiError } from "../types";
 import { performRequest } from "../utils";
 import { useSelf } from "./useSelf";
 
 type UseCheckAuthReturn = {
   isPending: boolean;
   isError: boolean;
-  error: unknown;
+  error: ApiError | null;
 };
 
 export const useCheckAuth = (): UseCheckAuthReturn => {
@@ -21,7 +22,7 @@ export const useCheckAuth = (): UseCheckAuthReturn => {
   const { t } = useTranslation();
   const [, navigate] = useLocation();
 
-  const { isPending, isError, error } = useQuery({
+  const { isPending, isError, error } = useQuery<null, ApiError>({
     queryKey: ["auth", "check"],
     queryFn: () => performRequest(url, { method: "GET" }),
     enabled: !!user,

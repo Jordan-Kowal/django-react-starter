@@ -2,6 +2,7 @@ import { API_ROOT_URL } from "@/api/config";
 import { useQuery } from "@tanstack/react-query";
 import { type KeysToSnakeCase, keysToCamel } from "jkscript";
 import { useMemo } from "react";
+import type { ApiError } from "../types";
 import { performRequest } from "../utils";
 
 export type Self = {
@@ -22,17 +23,19 @@ type ApiSelf = KeysToSnakeCase<Self>;
 type UseSelfReturn = {
   isPending: boolean;
   isError: boolean;
-  error: unknown;
+  error: ApiError | null;
   data?: Self;
 };
 
 export const useSelf = (): UseSelfReturn => {
   const url = `${API_ROOT_URL}/self/`;
-  const { isPending, isError, error, data } = useQuery({
-    queryKey: ["self"],
-    queryFn: () => performRequest(url, { method: "GET" }),
-    select: (data: ApiSelf) => keysToCamel(data) as Self,
-  });
+  const { isPending, isError, error, data } = useQuery<ApiSelf, ApiError, Self>(
+    {
+      queryKey: ["self"],
+      queryFn: () => performRequest(url, { method: "GET" }),
+      select: (data: ApiSelf) => keysToCamel(data) as Self,
+    },
+  );
 
   return useMemo(
     () => ({
