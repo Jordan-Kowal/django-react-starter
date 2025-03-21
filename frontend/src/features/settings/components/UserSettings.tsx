@@ -44,7 +44,7 @@ export const UserSettings: React.FC = memo(() => {
             type="radio"
             name="theme"
             aria-label="Light"
-            onClick={() => setTheme("pastel")}
+            onClick={() => setTheme("bumblebee")}
             checked={!isDarkMode}
           />
           <input

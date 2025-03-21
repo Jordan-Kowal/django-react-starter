@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
   /* biome-ignore lint/correctness/noUnknownProperty: This is valid DaisyUI plugin syntax */
-  themes: pastel --default, coffee --prefersdark;
+  themes: bumblebee --default, coffee --prefersdark;
 }
 
 :root {
