@@ -23,17 +23,18 @@
 - 🎨 **Frontend**: Added `lucide-react` for icon management
 - 🎨 **Frontend**: Added `@tailwindcss/typography` for easier typography management
 - 🎨 **Frontend**: Added `motion` for page transitions
-- 🎨 **Frontend**: Default font to `Nunito`
 - 🎨 **Frontend**: Added `i18n` management
 - 🎨 **Frontend**: Added `react-toastify` for notification management
+- 🎨 **Frontend**: Replaced `react-router-dom` and `react-helmet-async` with `wouter`
+- 🎨 **Frontend**: Handle forms using `react-hook-form` and `zod`
+- 🎨 **Frontend**: Added `rollup-plugin-visualizer` to visualize bundle size (in `bundle-stats.html`)
 
 ### ✨ Improvements
 
 - 💫 **DX**: `Makefile` improvement
 - 🎨 **Frontend**: Major folder structure rework
-- 🎨 **Frontend**: Replaced `react-router-dom` and `react-helmet-async` with `wouter`
-- 🎨 **Frontend**: Handle forms using `react-hook-form` and `zod`
-- 🎨 **Frontend**: Cleaned up unused dependencies: `antd`, `classnames`, `react-use`, `zustand`, `react-scan`
+- 🎨 **Frontend**: Default font to `Nunito`
+- 🎨 **Frontend**: Cleaned up unused dependencies: `classnames`, `react-use`, `zustand`, `react-scan`
 
 ### 🔧 Others
 

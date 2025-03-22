@@ -4,6 +4,9 @@
 
 - Bundle improvements:
   - Alternative to motion
+  - Alternative to zod (+ translations)
+  - Figure out if some deps can be move to dev
+  - JKscript bundle improvements? (tree shakable?)
 - Check tests
 - Add mocks for wouter
 - Check READMEs
