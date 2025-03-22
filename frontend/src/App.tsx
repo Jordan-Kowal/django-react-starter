@@ -11,9 +11,9 @@ import { memo, useEffect } from "react";
 import { Router } from "wouter";
 
 export const App: React.FC = memo(() => {
-  const { setLocaleFromStorage } = useLocale();
+  const { initLocale } = useLocale();
 
-  useEffect(setLocaleFromStorage, []);
+  useEffect(initLocale, []);
 
   return (
     <ThemeProvider>

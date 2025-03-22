@@ -10,7 +10,6 @@ import fr from "../../i18n/fr.json";
 export type Locale = "en" | "fr";
 
 export const DEFAULT_LOCALE: Locale = "en";
-export const SUPPORTED_LOCALES: Locale[] = ["en", "fr"];
 export const LOCALE_STORAGE_KEY = "django-react-starter-locale";
 
 const resources: Record<

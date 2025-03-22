@@ -2,7 +2,6 @@
 
 ## Migration
 
-- Remove useless hooks/logics/contexts?
 - Check tests
 - Add mocks for wouter
 - Check READMEs
