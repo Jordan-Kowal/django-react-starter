@@ -7,10 +7,10 @@ import { useUpdateMetadata } from "./hooks";
 import { routeConfigMap } from "./routeConfig";
 
 export const Routes = memo(() => {
-  useUpdateMetadata();
-  useCheckAuth();
   const { isPending: isAppConfigPending } = useAppConfig();
   const { data: user, isPending: isUserPending } = useSelf();
+  useUpdateMetadata();
+  useCheckAuth();
 
   const isLoading = isAppConfigPending || isUserPending;
   const isAuthenticated = !!user;

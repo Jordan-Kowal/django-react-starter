@@ -1,6 +1,6 @@
-import { loginSuccess, logout } from "./login";
-import { updatePasswordSuccess, updateSelfSuccess } from "./profile";
-import { appConfig, checkAuthSuccess, self } from "./shared";
+import { loginSuccess } from "./login";
+import { updatePasswordSuccess, updateSelfSuccess } from "./settings";
+import { appConfig, checkAuthSuccess, logout, self } from "./shared";
 
 export const handlers = [
   // Shared

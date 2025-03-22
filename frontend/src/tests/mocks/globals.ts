@@ -16,4 +16,6 @@ export const registerGlobalMocks = () => {
       removeEventListener: vi.fn(),
       dispatchEvent: vi.fn(),
     }));
+  // Toastify
+  // Wouter
 };

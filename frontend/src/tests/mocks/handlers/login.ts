@@ -8,7 +8,3 @@ export const loginSuccess = http.post(`${API_ROOT_URL}/auth/login/`, () => {
 export const loginError = http.post(`${API_ROOT_URL}/auth/login/`, () => {
   return HttpResponse.json({ status: 400 });
 });
-
-export const logout = http.post(`${API_ROOT_URL}/auth/logout/`, () => {
-  return HttpResponse.json(null, { status: 204 });
-});
