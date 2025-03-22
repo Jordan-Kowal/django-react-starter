@@ -2,7 +2,7 @@ import { queryClient } from "@/api/config";
 import { Toaster } from "@/components/ui";
 import "@/config/dayjs";
 import "@/config/i18n";
-import { DaisyUIProvider } from "@/contexts";
+import { ThemeProvider } from "@/contexts";
 import { useLocale } from "@/hooks";
 import { Routes } from "@/router";
 import "@/styles/base.css";
@@ -16,13 +16,13 @@ export const App: React.FC = memo(() => {
   useEffect(setLocaleFromStorage, []);
 
   return (
-    <DaisyUIProvider>
+    <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <Router>
           <Routes />
         </Router>
         <Toaster />
       </QueryClientProvider>
-    </DaisyUIProvider>
+    </ThemeProvider>
   );
 });

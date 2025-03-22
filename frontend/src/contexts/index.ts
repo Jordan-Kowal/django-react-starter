@@ -1,1 +1,1 @@
-export { DaisyUIProvider, useDaisyUITheme } from "./DaisyUIProvider";
+export { ThemeProvider, useTheme } from "./ThemeProvider";

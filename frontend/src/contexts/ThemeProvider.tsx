@@ -2,29 +2,27 @@ import { DEFAULT_THEME, THEME_STORAGE_KEY, type Theme } from "@/config/daisyui";
 import { type ReactNode, createContext, memo, useContext } from "react";
 import { useLocalStorage } from "../hooks";
 
-export type DaisyUIContextProps = {
+export type ThemeContextProps = {
   theme: Theme;
   isDarkMode: boolean;
   setTheme: (theme: Theme) => void;
 };
 
-const DaisyUIContext = createContext<DaisyUIContextProps | undefined>(
-  undefined,
-);
+const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
-export const useDaisyUITheme = (): DaisyUIContextProps => {
-  const context = useContext(DaisyUIContext);
+export const useTheme = (): ThemeContextProps => {
+  const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error("useDaisyUITheme must be used within a DaisyUIProvider");
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 };
 
-export type DaisyUIProviderProps = {
+export type ThemeProviderProps = {
   children: ReactNode;
 };
 
-export const DaisyUIProvider: React.FC<DaisyUIProviderProps> = memo(
+export const ThemeProvider: React.FC<ThemeProviderProps> = memo(
   ({ children }) => {
     const [theme, changeTheme] = useLocalStorage<Theme>(
       THEME_STORAGE_KEY,
@@ -33,17 +31,17 @@ export const DaisyUIProvider: React.FC<DaisyUIProviderProps> = memo(
     const isDarkMode = theme === "coffee";
 
     return (
-      <DaisyUIContext.Provider
+      <ThemeContext.Provider
         value={{ theme: theme, setTheme: changeTheme, isDarkMode }}
       >
         <div
           data-theme={theme}
-          data-testid="daisyui-provider"
+          data-testid="theme-provider"
           className="min-w-full prose prose-sm md:prose-base"
         >
           {children}
         </div>
-      </DaisyUIContext.Provider>
+      </ThemeContext.Provider>
     );
   },
 );

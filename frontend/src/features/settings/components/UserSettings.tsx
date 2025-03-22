@@ -1,4 +1,4 @@
-import { useDaisyUITheme } from "@/contexts";
+import { useTheme } from "@/contexts";
 import { useLocale } from "@/hooks";
 import { Languages, SunMoon } from "lucide-react";
 import { memo } from "react";
@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 export const UserSettings: React.FC = memo(() => {
   const { t } = useTranslation();
   const { currentLocale, setLocale } = useLocale();
-  const { setTheme, isDarkMode } = useDaisyUITheme();
+  const { setTheme, isDarkMode } = useTheme();
 
   return (
     <div className="flex flex-col gap-4 justify-center">

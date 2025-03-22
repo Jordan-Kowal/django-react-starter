@@ -1,4 +1,4 @@
-import { DaisyUIProvider } from "@/contexts";
+import { ThemeProvider } from "@/contexts";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   type RenderHookResult,
@@ -23,11 +23,11 @@ const testQueryClient = new QueryClient({
 });
 
 const wrapComponent = (children: ReactNode) => (
-  <DaisyUIProvider>
+  <ThemeProvider>
     <QueryClientProvider client={testQueryClient}>
       {children}
     </QueryClientProvider>
-  </DaisyUIProvider>
+  </ThemeProvider>
 );
 
 type ImprovedRender = (

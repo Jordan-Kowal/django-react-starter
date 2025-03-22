@@ -4,8 +4,7 @@
 
 - Remove useless hooks/logics/contexts?
 - Check tests
-- Check wouter?
-  - Add mocks
+- Add mocks for wouter
 - Check READMEs
 
 ## Feature

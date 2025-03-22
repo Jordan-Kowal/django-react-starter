@@ -1,10 +1,10 @@
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/config/daisyui";
 import { act, getByTestId, render, waitFor } from "@testing-library/react";
 import { beforeEach, describe, test } from "vitest";
-import { DaisyUIProvider, useDaisyUITheme } from "./DaisyUIProvider";
+import { ThemeProvider, useTheme } from "./ThemeProvider";
 
 const TestComponent: React.FC = () => {
-  const { theme, setTheme } = useDaisyUITheme();
+  const { theme, setTheme } = useTheme();
   return (
     <button
       data-testid="button"
@@ -16,16 +16,16 @@ const TestComponent: React.FC = () => {
   );
 };
 
-describe("DaisyUIProvider", () => {
+describe("ThemeProvider", () => {
   beforeEach(() => {
     localStorage.removeItem(THEME_STORAGE_KEY);
   });
 
   test("renders children with default theme", async ({ expect }) => {
     const { container } = render(
-      <DaisyUIProvider>
+      <ThemeProvider>
         <div data-testid="child">Test Child</div>
-      </DaisyUIProvider>,
+      </ThemeProvider>,
     );
 
     const provider = getByTestId(container, "daisyui-provider");
@@ -40,9 +40,9 @@ describe("DaisyUIProvider", () => {
 
   test("should allow theme switching", async ({ expect }) => {
     const { container } = render(
-      <DaisyUIProvider>
+      <ThemeProvider>
         <TestComponent />
-      </DaisyUIProvider>,
+      </ThemeProvider>,
     );
 
     const button = getByTestId(container, "button");
@@ -65,7 +65,7 @@ describe("DaisyUIProvider", () => {
 
   test("persists theme in localStorage", async ({ expect }) => {
     const TestComponent = () => {
-      const { setTheme } = useDaisyUITheme();
+      const { setTheme } = useTheme();
       return (
         <button
           type="button"
@@ -78,9 +78,9 @@ describe("DaisyUIProvider", () => {
     };
 
     const { container } = render(
-      <DaisyUIProvider>
+      <ThemeProvider>
         <TestComponent />
-      </DaisyUIProvider>,
+      </ThemeProvider>,
     );
 
     const button = getByTestId(container, "button");

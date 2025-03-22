@@ -1,10 +1,10 @@
-import { useDaisyUITheme } from "@/contexts";
+import { useTheme } from "@/contexts";
 import type React from "react";
 import { memo } from "react";
 import { Bounce, ToastContainer } from "react-toastify";
 
 export const Toaster: React.FC = memo(() => {
-  const { isDarkMode } = useDaisyUITheme();
+  const { isDarkMode } = useTheme();
 
   return (
     <ToastContainer
