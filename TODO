@@ -2,6 +2,8 @@
 
 ## Migration
 
+- Bundle improvements:
+  - Alternative to motion
 - Check tests
 - Add mocks for wouter
 - Check READMEs

@@ -33,7 +33,7 @@
 - 🎨 **Frontend**: Major folder structure rework
 - 🎨 **Frontend**: Replaced `react-router-dom` and `react-helmet-async` with `wouter`
 - 🎨 **Frontend**: Handle forms using `react-hook-form` and `zod`
-- 🎨 **Frontend**: Cleaned up unused dependencies: `antd`, `classnames`, `react-use`, `zustand`
+- 🎨 **Frontend**: Cleaned up unused dependencies: `antd`, `classnames`, `react-use`, `zustand`, `react-scan`
 
 ### 🔧 Others
 
