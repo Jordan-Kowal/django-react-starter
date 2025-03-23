@@ -22,7 +22,7 @@
 - 🎨 **Frontend**: Major design rework: replaced `antd` with `daisyUI`
 - 🎨 **Frontend**: Added `lucide-react` for icon management
 - 🎨 **Frontend**: Added `@tailwindcss/typography` for easier typography management
-- 🎨 **Frontend**: Added `motion` for page transitions
+- 🎨 **Frontend**: Added page transitions using custom `FadeIn` component
 - 🎨 **Frontend**: Added `i18n` management
 - 🎨 **Frontend**: Added `react-toastify` for notification management
 - 🎨 **Frontend**: Replaced `react-router-dom` and `react-helmet-async` with `wouter`
