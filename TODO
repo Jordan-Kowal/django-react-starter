@@ -2,9 +2,6 @@
 
 ## Migration
 
-- Bundle improvements:
-  - Check Preact
-  - JKscript bundle improvements? (tree shakable?)
 - Check tests
 - Add mocks for wouter
 - Check READMEs

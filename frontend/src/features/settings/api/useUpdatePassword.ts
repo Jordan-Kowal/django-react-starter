@@ -2,7 +2,6 @@ import { API_ROOT_URL } from "@/api/config";
 import type { ApiError } from "@/api/types";
 import { performRequest } from "@/api/utils";
 import { type UseMutationResult, useMutation } from "@tanstack/react-query";
-import { keysToSnake } from "jkscript";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
@@ -26,7 +25,11 @@ export const useUpdatePassword: UseUpdatePassword = () => {
     mutationFn: async (data: UpdatePasswordRequestData): Promise<void> => {
       await performRequest(url, {
         method: "POST",
-        data: keysToSnake(data),
+        data: {
+          current_password: data.currentPassword,
+          password: data.password,
+          password_confirm: data.confirmPassword,
+        },
       });
     },
     onSuccess: () => {

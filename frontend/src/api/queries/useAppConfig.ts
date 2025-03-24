@@ -1,6 +1,5 @@
 import { API_ROOT_URL } from "@/api/config";
 import { useQuery } from "@tanstack/react-query";
-import { type KeysToSnakeCase, keysToCamel } from "jkscript";
 import { useMemo } from "react";
 import type { ApiError } from "../types";
 import { performRequest } from "../utils";
@@ -12,7 +11,12 @@ export type AppConfig = {
   appVersion: string;
 };
 
-type ApiAppConfig = KeysToSnakeCase<AppConfig>;
+type ApiAppConfig = {
+  debug: boolean;
+  media_url: string;
+  static_url: string;
+  app_version: string;
+};
 
 type UseAppConfigReturn = {
   isPending: boolean;
@@ -30,7 +34,12 @@ export const useAppConfig = (): UseAppConfigReturn => {
   >({
     queryKey: ["appConfig"],
     queryFn: () => performRequest(url, { method: "GET" }),
-    select: (data) => keysToCamel(data) as AppConfig,
+    select: (data) => ({
+      debug: data.debug,
+      mediaUrl: data.media_url,
+      staticUrl: data.static_url,
+      appVersion: data.app_version,
+    }),
   });
 
   return useMemo(
