@@ -44,4 +44,23 @@ export default defineConfig(({ mode }) => ({
   build: {
     assetsDir: "static",
   },
+  test: {
+    include: ["**/*.test.ts", "**/*.test.tsx"],
+    setupFiles: ["src/tests/setup.ts"],
+    environment: "jsdom",
+    coverage: {
+      exclude: ["src/tests/**"],
+      all: true,
+      thresholds: {
+        perFile: false,
+        branches: 90,
+        functions: 90,
+        lines: 90,
+        statements: 90,
+      },
+    },
+    css: true,
+    isolate: true,
+    retry: 3,
+  },
 }));

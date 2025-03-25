@@ -23,7 +23,7 @@
     "@tanstack/react-query": "5.69.0",
     "dayjs": "1.11.13",
     "i18next": "24.2.3",
-    "js-cookie": "^3.0.5",
+    "js-cookie": "3.0.5",
     "lucide-react": "0.483.0",
     "million": "3.1.11",
     "react": "19.0.0",
@@ -44,7 +44,7 @@
     "@testing-library/react": "16.2.0",
     "@testing-library/react-hooks": "8.0.1",
     "@testing-library/user-event": "14.6.1",
-    "@types/js-cookie": "^3.0.6",
+    "@types/js-cookie": "3.0.6",
     "@types/node": "22.13.11",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
@@ -55,7 +55,7 @@
     "i18next-parser": "9.3.0",
     "jsdom": "26.0.0",
     "msw": "2.7.3",
-    "rollup-plugin-visualizer": "^5.14.0",
+    "rollup-plugin-visualizer": "5.14.0",
     "tailwindcss": "4.0.15",
     "ts-node": "10.9.2",
     "typescript": "5.8.2",
@@ -63,11 +63,7 @@
     "vitest": "3.0.9"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
