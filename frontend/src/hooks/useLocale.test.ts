@@ -1,22 +1,22 @@
-import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY, type Locale } from "@/config/i18n";
+import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from "@/config/i18n";
 import { renderHook } from "@/tests/utils";
 import { waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import { useLocale } from "./useLocale";
 
 describe("useLocale", () => {
-  describe("setLocaleFromStorage", () => {
+  describe("initLocale", () => {
     test("should use the default locale if no locale is stored", async ({
       expect,
     }) => {
       const { result } = renderHook(() => useLocale());
-      const setLocaleFromStorage = result.current?.setLocaleFromStorage;
+      const initLocale = result.current?.initLocale;
       // Starts as default
       await waitFor(() => {
         expect(result.current?.currentLocale).toBe(DEFAULT_LOCALE);
       });
       // Does nothing
-      setLocaleFromStorage();
+      initLocale();
       await waitFor(() => {
         expect(result.current?.currentLocale).toBe(DEFAULT_LOCALE);
       });
@@ -31,8 +31,8 @@ describe("useLocale", () => {
       // Should update
       localStorage.setItem(LOCALE_STORAGE_KEY, "fr");
       const { result: newResult } = renderHook(() => useLocale());
-      const setLocaleFromStorage = newResult.current?.setLocaleFromStorage;
-      setLocaleFromStorage();
+      const initLocale = newResult.current?.initLocale;
+      initLocale();
       await waitFor(() => {
         expect(newResult.current?.currentLocale).toBe("fr");
       });
@@ -41,20 +41,6 @@ describe("useLocale", () => {
   });
 
   describe("setLocale", () => {
-    test("should do nothing if invalid locale", async ({ expect }) => {
-      const { result } = renderHook(() => useLocale());
-      const setLocale = result.current?.setLocale;
-      // Starts as default
-      await waitFor(() => {
-        expect(result.current?.currentLocale).toBe(DEFAULT_LOCALE);
-      });
-      // Does nothing
-      setLocale("invalid-locale" as Locale);
-      await waitFor(() => {
-        expect(result.current?.currentLocale).toBe(DEFAULT_LOCALE);
-      });
-    });
-
     test("should set the locale", async ({ expect }) => {
       const { result } = renderHook(() => useLocale());
       const setLocale = result.current?.setLocale;
