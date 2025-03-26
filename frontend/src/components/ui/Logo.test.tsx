@@ -4,7 +4,7 @@ import { describe, test } from "vitest";
 import { Logo } from "./Logo";
 
 describe("Logo", () => {
-  test("should render the page", async ({ expect }) => {
+  test("should render the component", async ({ expect }) => {
     const { container } = render(<Logo />);
 
     await waitFor(() => {
