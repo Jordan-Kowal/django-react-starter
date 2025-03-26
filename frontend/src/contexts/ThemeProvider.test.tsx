@@ -28,7 +28,7 @@ describe("ThemeProvider", () => {
       </ThemeProvider>,
     );
 
-    const provider = getByTestId(container, "daisyui-provider");
+    const provider = getByTestId(container, "theme-provider");
     const child = getByTestId(container, "child");
 
     await waitFor(() => {
@@ -46,12 +46,13 @@ describe("ThemeProvider", () => {
     );
 
     const button = getByTestId(container, "button");
-    const provider = getByTestId(container, "daisyui-provider");
+    const provider = getByTestId(container, "theme-provider");
 
     await waitFor(() => {
-      expect(button).toHaveTextContent(DEFAULT_THEME);
       expect(provider).toHaveAttribute("data-theme", DEFAULT_THEME);
     });
+
+    expect(button).toHaveTextContent(DEFAULT_THEME);
 
     act(() => {
       button.click();
@@ -59,24 +60,12 @@ describe("ThemeProvider", () => {
 
     await waitFor(() => {
       expect(button).toHaveTextContent("coffee");
-      expect(provider).toHaveAttribute("data-theme", "coffee");
     });
+
+    expect(provider).toHaveAttribute("data-theme", "coffee");
   });
 
   test("persists theme in localStorage", async ({ expect }) => {
-    const TestComponent = () => {
-      const { setTheme } = useTheme();
-      return (
-        <button
-          type="button"
-          data-testid="button"
-          onClick={() => setTheme("coffee")}
-        >
-          Switch Theme
-        </button>
-      );
-    };
-
     const { container } = render(
       <ThemeProvider>
         <TestComponent />
