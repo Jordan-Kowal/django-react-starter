@@ -16,15 +16,17 @@ describe("FadeIn", () => {
 
     await waitFor(() => {
       expect(fadeInContainer).toBeInTheDocument();
-      expect(fadeInContainer).toHaveClass("opacity-0");
-      expect(fadeInContainer).not.toHaveClass("opacity-100");
-      expect(childElement).toBeVisible();
-      expect(childElement).toHaveTextContent("Test Content");
     });
+
+    expect(fadeInContainer).toHaveClass("opacity-0");
+    expect(fadeInContainer).not.toHaveClass("opacity-100");
+    expect(childElement).toBeVisible();
+    expect(childElement).toHaveTextContent("Test Content");
 
     await waitFor(() => {
       expect(fadeInContainer).toHaveClass("opacity-100");
-      expect(fadeInContainer).not.toHaveClass("opacity-0");
     });
+
+    expect(fadeInContainer).not.toHaveClass("opacity-0");
   });
 });

@@ -8,9 +8,9 @@ describe("Toaster", () => {
     render(<Toaster />);
 
     const { container } = render(<Toaster />);
+    const item = container.querySelector(".Toastify");
 
     await waitFor(() => {
-      const item = container.querySelector(".Toastify");
       expect(item).toBeVisible();
     });
   });

@@ -7,11 +7,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "wouter";
 import { Logo } from "../ui";
 
-export type NavBarProps = {
-  dataTestId?: string;
-};
-
-export const NavBar: React.FC<NavBarProps> = memo(({ dataTestId }) => {
+export const NavBar: React.FC = memo(() => {
   const { t } = useTranslation();
   const { mutateAsync: logout } = useLogout();
 
@@ -21,12 +17,12 @@ export const NavBar: React.FC<NavBarProps> = memo(({ dataTestId }) => {
 
   return (
     <div
-      data-testid={dataTestId}
+      data-testid="navbar"
       className="navbar bg-base-100 fixed top-0 left-0 shadow-xs not-prose z-999"
     >
       <div className="navbar-start">
         <Link
-          data-testid={`${dataTestId}-logo-link`}
+          data-testid={"navbar-logo-link"}
           className="w-8"
           href={routeConfigMap.homepage.path}
         >
@@ -36,7 +32,7 @@ export const NavBar: React.FC<NavBarProps> = memo(({ dataTestId }) => {
       <div className="navbar-center">
         <Link
           href={routeConfigMap.homepage.path}
-          data-testid={`${dataTestId}-home-link`}
+          data-testid={"navbar-home-link"}
         >
           <span className="text-xl font-bold">{t("Django React Starter")}</span>
         </Link>
@@ -47,7 +43,7 @@ export const NavBar: React.FC<NavBarProps> = memo(({ dataTestId }) => {
             type="button"
             className="btn btn-ghost btn-circle"
             href={routeConfigMap.settings.path}
-            data-testid={`${dataTestId}-settings-link`}
+            data-testid={"navbar-settings-link"}
           >
             <Settings />
           </Link>
@@ -57,7 +53,7 @@ export const NavBar: React.FC<NavBarProps> = memo(({ dataTestId }) => {
             type="button"
             className="btn btn-ghost btn-circle"
             onClick={onLogoutClick}
-            data-testid={`${dataTestId}-logout-button`}
+            data-testid={"navbar-logout-button"}
           >
             <LogOut />
           </button>

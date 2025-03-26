@@ -6,9 +6,9 @@ import { Logo } from "./Logo";
 describe("Logo", () => {
   test("should render the component", async ({ expect }) => {
     const { container } = render(<Logo />);
+    const logo = getByTestId<HTMLImageElement>(container, "logo");
 
     await waitFor(() => {
-      const logo = getByTestId<HTMLImageElement>(container, "logo");
       expect(logo).toBeVisible();
     });
   });

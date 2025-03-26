@@ -6,12 +6,9 @@ import { LoadingRing } from "./LoadingRing";
 describe("LoadingRing", () => {
   test("should render the component", async ({ expect }) => {
     const { container } = render(<LoadingRing />);
+    const loadingRing = getByTestId<HTMLDivElement>(container, "loading-ring");
 
     await waitFor(() => {
-      const loadingRing = getByTestId<HTMLDivElement>(
-        container,
-        "loading-ring",
-      );
       expect(loadingRing).toBeVisible();
     });
   });

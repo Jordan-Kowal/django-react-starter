@@ -1,22 +1,22 @@
 import { render } from "@/tests/utils";
 import { getByTestId, waitFor } from "@testing-library/react";
-import { describe, expect, test } from "vitest";
+import { describe, test } from "vitest";
 import { NavBar } from "./NavBar";
 
 describe("NavBar", () => {
-  test("should render the component", async () => {
-    const { container } = render(<NavBar dataTestId="navbar" />);
-
+  test("should render the component", async ({ expect }) => {
+    const { container } = render(<NavBar />);
     const navbar = getByTestId<HTMLDivElement>(container, "navbar");
 
     await waitFor(() => {
       expect(navbar).toBeVisible();
-      expect(navbar).toHaveTextContent("Django React Starter");
     });
+
+    expect(navbar).toHaveTextContent("Django React Starter");
   });
 
-  test("should handle redirects", async () => {
-    const { container } = render(<NavBar dataTestId="navbar" />);
+  test("should handle redirects", async ({ expect }) => {
+    const { container } = render(<NavBar />);
 
     const navbar = getByTestId<HTMLDivElement>(container, "navbar");
     const logoLink = getByTestId<HTMLLinkElement>(
@@ -34,24 +34,24 @@ describe("NavBar", () => {
 
     await waitFor(() => {
       expect(navbar).toBeVisible();
-      expect(logoLink.href).toMatch(/\/$/);
-      expect(homeLink.href).toMatch(/\/$/);
-      expect(settingsLink.href).toMatch(/\/settings$/);
     });
+
+    expect(logoLink.href).toMatch(/\/$/);
+    expect(homeLink.href).toMatch(/\/$/);
+    expect(settingsLink.href).toMatch(/\/settings$/);
   });
 
-  test("should allow logout", async () => {
-    const { container } = render(<NavBar dataTestId="navbar" />);
-    const navbar = getByTestId<HTMLDivElement>(container, "navbar");
+  test("should allow logout", async ({ expect }) => {
+    const { container } = render(<NavBar />);
     const logoutButton = getByTestId<HTMLButtonElement>(
       container,
       "navbar-logout-button",
     );
 
     await waitFor(() => {
-      expect(navbar).toBeVisible();
       expect(logoutButton).toBeVisible();
-      logoutButton.click();
     });
+
+    logoutButton.click();
   });
 });

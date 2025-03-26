@@ -6,7 +6,7 @@ import { NavBar } from "./NavBar";
 export type MainProps = {
   children: React.ReactNode;
   className?: string;
-  dataTestId?: string;
+  dataTestId: string;
   showNavBar?: boolean;
 };
 
@@ -29,7 +29,7 @@ export const Main: React.FC<MainProps> = memo(
         data-testid={dataTestId}
         style={style}
       >
-        {showNavBar && <NavBar dataTestId={`${dataTestId}-navbar`} />}
+        {showNavBar && <NavBar />}
         <div className="hero-content w-full">
           <div className="max-w-6xl w-full">
             <FadeIn>{children}</FadeIn>
