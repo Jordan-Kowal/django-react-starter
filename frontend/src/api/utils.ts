@@ -24,7 +24,9 @@ export const performRequest = async (
 
   // @ts-ignore
   const response = await fetch(url, request);
-  const isJson = response.headers.get("content-type") === "application/json";
+  const isJson =
+    response.headers.get("content-type") === "application/json" &&
+    response.body !== null;
 
   // Exit if OK
   if (response?.ok) {

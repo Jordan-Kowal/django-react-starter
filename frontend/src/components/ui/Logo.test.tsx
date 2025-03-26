@@ -8,7 +8,7 @@ describe("Logo", () => {
     const { container } = render(<Logo />);
 
     await waitFor(() => {
-      const logo = getByTestId<HTMLDivElement>(container, "logo");
+      const logo = getByTestId<HTMLImageElement>(container, "logo");
       expect(logo).toBeVisible();
     });
   });
