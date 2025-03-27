@@ -1,5 +1,6 @@
-import { renderHook } from "@testing-library/react";
-import { beforeEach, describe, expect, it } from "vitest";
+import { useLocationMock } from "@/tests/mocks/globals";
+import { renderHook, waitFor } from "@testing-library/react";
+import { beforeEach, describe, it, vi } from "vitest";
 import { useUpdateMetadata } from "./useUpdateMetadata";
 
 describe("useUpdateMetadata", () => {
@@ -8,15 +9,27 @@ describe("useUpdateMetadata", () => {
     document.documentElement.lang = "fr";
   });
 
-  it("should update document title based on route staticData", () => {
-    const mockTitle = "Django React Starter";
-    renderHook(() => useUpdateMetadata());
-    expect(document.title).toBe(mockTitle);
-  });
-
-  it("should fallback to default title if route is not handlded", () => {
+  it("should update document title based on route staticData", async ({
+    expect,
+  }) => {
+    useLocationMock.mockImplementation(() => ["/settings", vi.fn()]);
     document.title = "Initial Title";
     renderHook(() => useUpdateMetadata());
-    expect(document.title).toBe("Django React Starter");
+
+    await waitFor(() => {
+      expect(document.title).toBe("Settings");
+    });
+  });
+
+  it("should fallback to default title if route is not handled", async ({
+    expect,
+  }) => {
+    useLocationMock.mockImplementation(() => ["/unknown", vi.fn()]);
+    document.title = "Initial Title";
+    renderHook(() => useUpdateMetadata());
+
+    await waitFor(() => {
+      expect(document.title).toBe("Django React Starter");
+    });
   });
 });

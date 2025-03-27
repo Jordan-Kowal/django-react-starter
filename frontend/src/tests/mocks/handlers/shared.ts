@@ -19,6 +19,10 @@ export const self = http.get(`${API_ROOT_URL}/self/`, () => {
   return HttpResponse.json(SELF_MOCK, { status: 200 });
 });
 
+export const notSelf = http.get(`${API_ROOT_URL}/self/`, () => {
+  return HttpResponse.json(null, { status: 401 });
+});
+
 export const logout = http.post(`${API_ROOT_URL}/auth/logout/`, () => {
   return HttpResponse.json(null, { status: 204 });
 });

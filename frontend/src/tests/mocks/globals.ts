@@ -1,6 +1,7 @@
 import { vi } from "vitest";
 
-export const useRouterStateMock = vi.fn();
+export const navigateMock = vi.fn();
+export const useLocationMock = vi.fn(() => ["/", navigateMock]);
 
 export const registerGlobalMocks = () => {
   // matchMedia
@@ -16,6 +17,9 @@ export const registerGlobalMocks = () => {
       removeEventListener: vi.fn(),
       dispatchEvent: vi.fn(),
     }));
-  // Toastify
+
   // Wouter
+  vi.mock("wouter", () => ({
+    useLocation: useLocationMock,
+  }));
 };
