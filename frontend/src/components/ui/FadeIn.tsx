@@ -20,7 +20,7 @@ export const FadeIn: React.FC<FadeInProps> = memo(({ children }) => {
   return (
     <div
       data-testid="fade-in"
-      className={`transition-opacity duration-1500 ${opacityClass}`}
+      className={`transition-opacity duration-1500 ${opacityClass} flex`}
     >
       {children}
     </div>

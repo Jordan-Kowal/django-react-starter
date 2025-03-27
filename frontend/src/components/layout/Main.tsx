@@ -6,7 +6,7 @@ import { NavBar } from "./NavBar";
 export type MainProps = {
   children: React.ReactNode;
   className?: string;
-  dataTestId: string;
+  dataTestId?: string;
   showNavBar?: boolean;
 };
 

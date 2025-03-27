@@ -29,6 +29,7 @@ const Homepage: React.FC = memo(() => {
               type="button"
               className="btn btn-primary sm:flex-1"
               to={routeConfigMap.settings.path}
+              data-testid="settings-link"
             >
               <Settings /> {t("Go to settings")}
             </Link>
@@ -36,6 +37,7 @@ const Homepage: React.FC = memo(() => {
               type="button"
               className="btn btn-secondary sm:flex-1"
               onClick={onLogoutClick}
+              data-testid="logout-button"
             >
               <LogOut /> {t("Logout")}
             </button>

@@ -1,3 +1,4 @@
+import { performRequest } from "@/api/utils";
 import { render } from "@/tests/utils";
 import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
@@ -53,5 +54,11 @@ describe("NavBar", () => {
     });
 
     logoutButton.click();
+
+    await waitFor(() => {
+      expect(performRequest).toHaveBeenCalledWith("/api/v1/auth/logout/", {
+        method: "POST",
+      });
+    });
   });
 });

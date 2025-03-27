@@ -7,7 +7,7 @@ export const LoadingRing: React.FC = memo(() => {
   return (
     <span
       data-testid="loading-ring"
-      className="loading loading-ring"
+      className="loading loading-ring mx-auto"
       style={style}
     />
   );
