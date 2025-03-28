@@ -4,7 +4,6 @@ SHELL:= /bin/bash
 
 BACKEND_DOCKER_EXEC=@docker exec -it django_react_starter_api
 BACKEND_BASH_EXEC=$(BACKEND_DOCKER_EXEC) bash -c
-
 FRONTEND_DOCKER_EXEC=@docker exec -it django_react_starter_front
 FRONTEND_BASH_EXEC=$(FRONTEND_DOCKER_EXEC) bash -c
 
@@ -24,37 +23,32 @@ _manage_py:
 		$(opts)"
 
 # --------------------------------------------------
-# Backend Utils
+# Backend
 # --------------------------------------------------
-api_bash:
+backend.bash:
 	$(BACKEND_DOCKER_EXEC) bash
 
-api_ruff:
-	$(BACKEND_BASH_EXEC) "cd backend \
-		&& ruff check --select=I --fix . \
-		&& ruff check --fix --unsafe-fixes ."
+backend.makemigrations:
+	@$(MAKE) -s _manage_py cmd=makemigrations
 
-api_shell:
-	@$(MAKE) -s _manage_py cmd=shell
-
-
-# --------------------------------------------------
-# Backend Database
-# --------------------------------------------------
-api_migrate:
+backend.migrate:
 	@$(MAKE) -s _manage_py cmd=migrate
 	@$(MAKE) -s _manage_py cmd=migrate env_file='.env.test'
 
-api_makemigrations:
-	@$(MAKE) -s _manage_py cmd=makemigrations
+backend.quality:
+	$(BACKEND_BASH_EXEC) "cd backend \
+		&& ruff check --select I . \
+		&& ruff check . \
+		&& ruff format --check . \
+		&& mypy . \
 
-# --------------------------------------------------
-# Backend Tests
-# --------------------------------------------------
-api_test:
+backend.shell:
+	@$(MAKE) -s _manage_py cmd=shell
+
+backend.test:
 	@$(MAKE) -s _manage_py cmd=test env_file='.env.test' opts="--exclude-tag=integration"
 
-api_coverage:
+backend.test.coverage:
 	$(BACKEND_BASH_EXEC) "\
 		cd backend && \
 		source .env.test && \
@@ -62,30 +56,31 @@ api_coverage:
 		coverage report && \
 		coverage html"
 
-api_test_debug:
+backend.test.debug:
 	@$(MAKE) -s _manage_py cmd=test env_file='.env.test' opts="--tag=debug"
 
-api_test_integration:
+backend.test.integration:
 	@$(MAKE) -s _manage_py cmd=test env_file='.env.test' opts="--tag=integration"
 
 
 # --------------------------------------------------
 # Frontend
 # --------------------------------------------------
-front_bash:
+frontend.bash:
 	$(FRONTEND_DOCKER_EXEC) bash
 
-front_biome:
-	$(FRONTEND_BASH_EXEC) "yarn biome:check:apply-unsafe"
+frontend.i18n:
+	$(FRONTEND_BASH_EXEC) "yarn i18n"
 
-front_tsc:
-	$(FRONTEND_BASH_EXEC) "yarn tsc"
+frontend.quality:
+	$(FRONTEND_BASH_EXEC) "yarn quality"
 
-front_test:
+frontend.test:
 	$(FRONTEND_BASH_EXEC) "yarn test"
 
-front_coverage:
+frontend.test.coverage:
 	$(FRONTEND_BASH_EXEC) "yarn test:coverage"
+
 
 # --------------------------------------------------
 # Others
@@ -96,28 +91,22 @@ setup_hooks:
 help:
 	@echo "Usage: make [TARGET]"
 	@echo ""
-	@echo "----- BACKEND UTILS -------------------------------------------------------------------------"
-	@echo "  api_bash                      Opens a bash session in the api container"
-	@echo "  api_ruff                      Runs ruff to fix imports, format, and lint code"
-	@echo "  api_shell                     Opens the Django shell for the running instance"
-	@echo ""
-	@echo "----- BACKEND DATABASE ----------------------------------------------------------------------"
-	@echo "  api_migrate                   Generates new migrations based on models"
-	@echo "  api_makemigrations            Runs the migration"
-	@echo ""
-	@echo "----- BACKEND TEST --------------------------------------------------------------------------"
-	@echo "  api_test                      Runs all non-integration tests"
-	@echo "  api_coverage                  Runs tests and generates coverage report"
-	@echo "  api_test_debug                Runs tests with debug tag"
-	@echo "  api_test_integration          Runs tests with integration tag"
-	@echo ""
-	@echo "----- FRONTEND ------------------------------------------------------------------------------"
-	@echo "  front_bash                    Opens a bash session in the frontend container"
-	@echo "  front_biome                   Runs biome checks and fixes"
-	@echo "  front_tsc                     Runs tsc"
-	@echo "  front_test                    Runs tests"
-	@echo "  front_coverage                Runs tests and generates coverage report"
-	@echo ""
-	@echo "----- OTHERS --------------------------------------------------------------------------------"
-	@echo "  setup_hooks                   Setups the git pre-commit hooks"
-	@echo "  help                          Prints this help message"
+	@echo "----- BACKEND -------------------------------------------------------------------------"
+	@echo "backend.bash: 				Opens a bash session in the api container"
+	@echo "backend.makemigrations: 		Generates new migrations based on models"
+	@echo "backend.migrate: 			Runs the migration"
+	@echo "backend.quality: 			Runs ruff and mypy"
+	@echo "backend.shell: 				Opens the Django shell for the running instance"
+	@echo "backend.test: 				Runs tests"
+	@echo "backend.test:coverage:		Runs tests and generates coverage report"
+	@echo "backend.test:debug: 			Runs only the tests with debug tag"
+	@echo "backend.test:integration:	Runs only the tests with integration tag"
+	@echo "----- FRONTEND ------------------------------------------------------------------------"
+	@echo "frontend.bash: 				Opens a bash session in the frontend container"
+	@echo "frontend.i18n: 				Runs i18n to generate translations"
+	@echo "frontend.quality: 			Runs biome, tsc, and translation checks"
+	@echo "frontend.test: 				Runs tests"
+	@echo "frontend.test:coverage:		Runs tests and generates coverage report"
+	@echo "----- OTHERS --------------------------------------------------------------------------"
+	@echo "setup_hooks: 				Setups the git pre-commit hooks"
+	@echo "help: 						Prints this help message"

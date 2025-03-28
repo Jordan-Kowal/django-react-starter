@@ -8,3 +8,6 @@ backend/.env.test.example
 # Frontend
 frontend/coverage/
 frontend/node_modules/
+
+# Docs
+docs/

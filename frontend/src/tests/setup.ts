@@ -1,13 +1,11 @@
+import * as apiUtils from "@/api/utils";
+import i18n, { DEFAULT_LOCALE } from "@/config/i18n";
+import "@testing-library/jest-dom/vitest";
+import { HttpResponse } from "msw";
 import { afterAll, afterEach, beforeAll, beforeEach, vi } from "vitest";
 import { registerGlobalMocks } from "./mocks";
-import { testQueryClient } from "./utils";
-import "@testing-library/jest-dom/vitest";
-import * as apiUtils from "@/api/utils";
-import { useLayoutStore } from "@/stores";
-import { HttpResponse } from "msw";
 import { server } from "./server";
-
-const STORES = [useLayoutStore];
+import { testQueryClient } from "./utils";
 
 beforeAll(() => {
   server.listen({ onUnhandledRequest: "error" });
@@ -22,7 +20,8 @@ beforeEach(() => {
 afterEach(() => {
   vi.restoreAllMocks();
   testQueryClient.clear();
-  STORES.forEach((store) => store.setState(store.getInitialState()));
+  localStorage.clear();
+  i18n.changeLanguage(DEFAULT_LOCALE);
   server.resetHandlers();
 });
 

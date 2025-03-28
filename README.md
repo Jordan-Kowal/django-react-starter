@@ -1,7 +1,7 @@
 # ✨ Django React Starter ✨
 
 ![Coverage](https://badgen.net/badge/coverage/%3E90%25/pink)
-![Tag](https://badgen.net/badge/tag/3.2.0/orange)
+![Tag](https://badgen.net/badge/tag/4.0.0/orange)
 ![Licence](https://badgen.net/badge/licence/MIT)
 
 - [✨ Django React Starter ✨](#-django-react-starter-)
@@ -13,11 +13,19 @@
 Django-React starter with Docker support for fast and easy web development with:
 
 🥷 **Backend**: Django + DRF + Celery<br/>
-✨ **Frontend**: Vite + React + Antd<br/>
-💻 **Database**: Postgres<br/>
+✨ **Frontend**: Vite + React + DaisyUI<br/>
+💻 **Database**: Postgres + PostGIS<br/>
 🔍 **Search engine**: Meilisearch and its UI<br/>
 🗨️ **Messaging**: RabbitMQ<br/>
 🚀 **Deployment**: Fly.io<br/>
+
+| Login                       | Homepage                          | Settings                          |
+|-----------------------------|-----------------------------------|-----------------------------------|
+| ![login](docs/00_login.png) | ![homepage](docs/01_homepage.png) | ![settings](docs/02_settings.png) |
+
+| Dark mode and i18n French               | Responsive                            |
+|-----------------------------------------|---------------------------------------|
+| ![french_dark](docs/03_french_dark.png) | ![responsive](docs/04_responsive.png) |
 
 ## ⚡ Getting started
 

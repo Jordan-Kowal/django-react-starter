@@ -1,42 +1,49 @@
 import { vi } from "vitest";
 
-/* react-router-dom */
-export const mockUseBreakpoint = vi.fn(() => ({}));
-export const mockNavigate = vi.fn();
-export const mockLocation = vi.fn(() => ({
-  pathname: "/",
-  search: "",
-  hash: "",
-  state: null,
-  key: "",
-}));
+export const navigateMock = vi.fn();
+export const useLocationMock = vi.fn(() => ["/", navigateMock]);
+
+export const toastErrorMock = vi.fn();
+export const toastWarningMock = vi.fn();
+export const toastInfoMock = vi.fn();
+export const toastSuccessMock = vi.fn();
+export const toastMock = {
+  error: toastErrorMock,
+  warning: toastWarningMock,
+  success: toastSuccessMock,
+  info: toastInfoMock,
+};
 
 export const registerGlobalMocks = () => {
-  // React Router
-  vi.mock("react-router-dom", async (importOriginal) => {
-    const mod = await importOriginal<typeof import("react-router-dom")>();
-    return {
-      ...mod,
-      useNavigate: () => mockNavigate,
-      useLocation: mockLocation,
-    };
-  });
-  // Antd
-  vi.mock("antd", async (importOriginal) => {
-    const mod = await importOriginal<typeof import("antd")>();
-    return {
-      ...mod,
-      Grid: {
-        ...mod.Grid,
-        useBreakpoint: mockUseBreakpoint,
-      },
-    };
-  });
   // matchMedia
   global.matchMedia =
     global.matchMedia ||
-    (() => ({
+    ((query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
       addListener: vi.fn(),
       removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
     }));
+
+  // Toastify
+  vi.mock("react-toastify", async (importOriginal) => {
+    const mod = await importOriginal<typeof import("react-toastify")>();
+    return {
+      ...mod,
+      toast: toastMock,
+    };
+  });
+
+  // Wouter
+  vi.mock("wouter", async (importOriginal) => {
+    const mod = await importOriginal<typeof import("wouter")>();
+    return {
+      ...mod,
+      useLocation: useLocationMock,
+    };
+  });
 };

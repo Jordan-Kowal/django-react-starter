@@ -1,2 +1,2 @@
-export { AppLayout } from "./AppLayout";
-export { PageBanner } from "./PageBanner";
+export { Main } from "./Main";
+export { NavBar } from "./NavBar";

@@ -78,9 +78,9 @@ To make things simpler, a `Makefile` is provided
 for frequent/common commands.
 
 ```shell
-make api_makemigrations
-make front_test
-make setup_githooks
+make backend.makemigrations
+make frontend.test
+make setup_hooks
 ```
 
 Run `make help` for more info.
@@ -101,7 +101,7 @@ git config core.hooksPath .githooks
 or you can run the `Makefile` action
 
 ```shell
-make setup_githooks
+make setup_hooks
 ```
 
 ### GitHub Actions
@@ -111,7 +111,7 @@ We use GitHub actions to verify, build, and deploy the application. We currently
 - [dependabot](.github/dependabot.yml): Dependabot configuration for frontend dependencies
 - [update-python-dependencies](.github/workflows/update-python-deps.yml): Updates the python dependencies using `uv`
 - [qa-backend](.github/workflows/qa-backend.yml): runs ruff, mypy, and tests
-- [qa-frontend](.github/workflows/qa-frontend.yml): runs biome and frontend tests
+- [qa-frontend](.github/workflows/qa-frontend.yml): runs biome, tsc, translations, and frontend tests
 - [rebase-check](.github/workflows/rebase-check.yml): checks if the branch can be rebased on `main`
 - [deploy](.github/workflows/deploy.yml): deploys the application on **fly.io**
 

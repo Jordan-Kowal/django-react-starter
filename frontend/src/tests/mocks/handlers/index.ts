@@ -1,16 +1,16 @@
-import { appConfig } from "./app";
-import { checkAuthSuccess, loginSuccess, logout } from "./auth";
-import { self, updatePasswordSuccess, updateSelfSuccess } from "./self";
+import { loginSuccess } from "./login";
+import { updatePasswordSuccess, updateSelfSuccess } from "./settings";
+import { appConfig, checkAuthSuccess, logout, self } from "./shared";
 
-export const handlers = [
-  // App
+export const defaultHandlers = [
+  // Shared
   appConfig,
-  // Auth
   checkAuthSuccess,
+  self,
+  // Auth
   loginSuccess,
   logout,
-  // Self
-  self,
+  // Profile
   updateSelfSuccess,
   updatePasswordSuccess,
 ];

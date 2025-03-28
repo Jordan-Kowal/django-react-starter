@@ -15,7 +15,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20" # Cached by github (https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md#nodejs)
+          node-version: "22" # Cached by github (https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md#nodejs)
           cache: "yarn"
           cache-dependency-path: ./frontend/yarn.lock
 
@@ -72,7 +72,25 @@ jobs:
         run: |
           cd frontend
           yarn tsc
+  i18n:
+    needs: setup
+    runs-on: ubuntu-latest
 
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.yarn
+            ./frontend/node_modules
+          key: yarn-${{ hashFiles('./frontend/yarn.lock') }}
+
+      - name: Run i18n
+        run: |
+          cd frontend
+          yarn i18n:check
   coverage:
     needs: setup
     runs-on: ubuntu-latest

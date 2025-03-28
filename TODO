@@ -1,15 +1,14 @@
 # TODO
 
-## Migration
+## Improvements
 
-- Remove babel
-- Clean up JS utils
-- Migrate to Mantine + Tailwind
-- Migrate to TanStack Router
-- Support i18n
-- Simplify frontend (no sider, offline homescreen, login, settings, ...)
+- Move Biome.json and handle settings.json
+- Correctly perform form validation in tests (login, password, info) + prefill/reset
+- Upgrade rabbitmq to v4
+- Update Django admin's theme (with daisyUI?)
+- UV dependabot
 
-## Feature
+## Features
 
 - Sentry frontend
 - Auth with gmail

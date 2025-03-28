@@ -1,7 +1,2 @@
-export {
-  mockLocation,
-  mockNavigate,
-  mockUseBreakpoint,
-  registerGlobalMocks,
-} from "./globals";
-export { handlers } from "./handlers";
+export { registerGlobalMocks } from "./globals";
+export { defaultHandlers } from "./handlers";
