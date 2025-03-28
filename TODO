@@ -6,7 +6,7 @@
 - i18n translations
 - Loading not centered
 - Check READMEs
-- Correctly perform form validation in tests (login, password, info)
+- Correctly perform form validation in tests (login, password, info) + prefill/reset
 
 ## Feature
 

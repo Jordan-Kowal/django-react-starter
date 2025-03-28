@@ -3,7 +3,7 @@ import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import { GoBackButton } from "./GoBackButton";
 
-describe("SettingsPage", () => {
+describe("GoBackButton", () => {
   test("should render the component", async ({ expect }) => {
     const { container } = render(<GoBackButton />);
     const goBackButton = getByTestId<HTMLButtonElement>(

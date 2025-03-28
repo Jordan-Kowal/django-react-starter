@@ -1,13 +1,13 @@
-import type { Self } from "../useSelf";
+import type { ApiSelf } from "../useSelf";
 
-export const SELF_MOCK: Self = {
+export const SELF_MOCK: ApiSelf = {
   id: 1,
-  firstName: "John",
-  lastName: "Doe",
+  first_name: "John",
+  last_name: "Doe",
   email: "john.doe@email.com",
-  isActive: true,
-  isStaff: false,
-  isSuperuser: false,
+  is_active: true,
+  is_staff: false,
+  is_superuser: false,
   profile: {
     user: 1,
   },

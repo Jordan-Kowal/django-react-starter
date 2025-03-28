@@ -11,7 +11,7 @@ export type AppConfig = {
   appVersion: string;
 };
 
-type ApiAppConfig = {
+export type ApiAppConfig = {
   debug: boolean;
   media_url: string;
   static_url: string;

@@ -17,7 +17,7 @@ export type Self = {
   };
 };
 
-type ApiSelf = {
+export type ApiSelf = {
   id: number;
   first_name: string;
   last_name: string;
