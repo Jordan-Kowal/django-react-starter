@@ -49,7 +49,19 @@ export default defineConfig(({ mode }) => ({
     setupFiles: ["src/tests/setup.ts"],
     environment: "jsdom",
     coverage: {
-      exclude: ["src/tests/**"],
+      exclude: [
+        "dist/**",
+        "src/tests/**",
+        "i18n/**",
+        "i18next-parser.config.ts",
+        "vite.config.ts",
+        // Types
+        "src/types/**",
+        "src/api/types.ts",
+        // Special cases
+        "src/App.tsx",
+        "src/main.tsx",
+      ],
       all: true,
       thresholds: {
         perFile: false,

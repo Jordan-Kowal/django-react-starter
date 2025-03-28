@@ -5,7 +5,7 @@ import { memo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
-import { useLogin } from "../api/useLogin";
+import { useLogin } from "../api";
 
 const schema = z.object({
   email: z.string().nonempty().email(),

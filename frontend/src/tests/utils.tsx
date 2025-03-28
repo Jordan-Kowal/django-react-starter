@@ -1,4 +1,6 @@
 import { Toaster } from "@/components/ui";
+import "@/config/dayjs";
+import "@/config/i18n";
 import { ThemeProvider } from "@/contexts";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
