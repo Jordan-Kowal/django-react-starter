@@ -11,10 +11,12 @@ export const GoBackButton: React.FC = memo(() => {
     <div
       className="tooltip tooltip-bottom mb-4"
       data-tip={t("Back to homepage")}
+      data-testid="go-back-button"
     >
       <Link
         type="button"
         className="btn btn-outline btn-sm"
+        data-testid="go-back-link"
         href={routeConfigMap.homepage.path}
       >
         <ArrowLeftToLine size={16} />

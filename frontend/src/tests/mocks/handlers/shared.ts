@@ -19,7 +19,7 @@ export const self = http.get(`${API_ROOT_URL}/self/`, () => {
   return HttpResponse.json(SELF_MOCK, { status: 200 });
 });
 
-export const notSelf = http.get(`${API_ROOT_URL}/self/`, () => {
+export const selfError = http.get(`${API_ROOT_URL}/self/`, () => {
   return HttpResponse.json(null, { status: 401 });
 });
 

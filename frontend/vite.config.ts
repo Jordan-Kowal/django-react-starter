@@ -61,6 +61,6 @@ export default defineConfig(({ mode }) => ({
     },
     css: true,
     isolate: true,
-    retry: 3,
+    retry: 1,
   },
 }));

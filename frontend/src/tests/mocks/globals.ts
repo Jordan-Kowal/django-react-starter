@@ -3,6 +3,17 @@ import { vi } from "vitest";
 export const navigateMock = vi.fn();
 export const useLocationMock = vi.fn(() => ["/", navigateMock]);
 
+export const toastErrorMock = vi.fn();
+export const toastWarningMock = vi.fn();
+export const toastInfoMock = vi.fn();
+export const toastSuccessMock = vi.fn();
+export const toastMock = {
+  error: toastErrorMock,
+  warning: toastWarningMock,
+  success: toastSuccessMock,
+  info: toastInfoMock,
+};
+
 export const registerGlobalMocks = () => {
   // matchMedia
   global.matchMedia =
@@ -18,8 +29,21 @@ export const registerGlobalMocks = () => {
       dispatchEvent: vi.fn(),
     }));
 
+  // Toastify
+  vi.mock("react-toastify", async (importOriginal) => {
+    const mod = await importOriginal<typeof import("react-toastify")>();
+    return {
+      ...mod,
+      toast: toastMock,
+    };
+  });
+
   // Wouter
-  vi.mock("wouter", () => ({
-    useLocation: useLocationMock,
-  }));
+  vi.mock("wouter", async (importOriginal) => {
+    const mod = await importOriginal<typeof import("wouter")>();
+    return {
+      ...mod,
+      useLocation: useLocationMock,
+    };
+  });
 };

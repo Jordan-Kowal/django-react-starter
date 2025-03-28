@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui";
 import { ThemeProvider } from "@/contexts";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
@@ -26,6 +27,7 @@ const wrapComponent = (children: ReactNode) => (
   <ThemeProvider>
     <QueryClientProvider client={testQueryClient}>
       {children}
+      <Toaster />
     </QueryClientProvider>
   </ThemeProvider>
 );

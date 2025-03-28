@@ -1,2 +1,2 @@
 export { registerGlobalMocks } from "./globals";
-export { handlers } from "./handlers";
+export { defaultHandlers } from "./handlers";

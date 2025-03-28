@@ -41,6 +41,7 @@ export const LoginForm: React.FC = memo(() => {
   return (
     <form
       className="flex flex-col gap-4 justify-center max-w-100 mx-auto"
+      data-testid="login-form"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
@@ -56,6 +57,7 @@ export const LoginForm: React.FC = memo(() => {
               errorMessage={errors?.email?.message}
               placeholder={t("Enter your email address")}
               type="email"
+              dataTestId="email"
               {...field}
             />
           )}
@@ -70,6 +72,7 @@ export const LoginForm: React.FC = memo(() => {
               errorMessage={errors?.password?.message}
               placeholder={t("Enter your password")}
               type="password"
+              dataTestId="password"
               {...field}
             />
           )}
@@ -78,6 +81,7 @@ export const LoginForm: React.FC = memo(() => {
           type="submit"
           className="btn btn-primary w-full mt-4"
           disabled={isLoading || !isDirty || !isValid}
+          data-testid="submit-button"
         >
           {isLoading ? <span className="loading loading-spinner" /> : <LogIn />}
           {t("Login")}
