@@ -43,7 +43,7 @@
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.2.0",
     "@testing-library/react-hooks": "8.0.1",
-    "@testing-library/user-event": "14.6.1",
+    "@testing-library/user-event": "^14.6.1",
     "@types/js-cookie": "3.0.6",
     "@types/node": "22.13.11",
     "@types/react": "19.0.12",
@@ -63,7 +63,11 @@
     "vitest": "3.0.9"
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

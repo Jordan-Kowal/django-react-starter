@@ -29,7 +29,6 @@ export const performRequest = async (
     response.body !== null;
 
   // Exit if OK
-  console.log("Response", response);
   if (response?.ok) {
     return isJson ? response.json() : Promise.resolve({});
   }

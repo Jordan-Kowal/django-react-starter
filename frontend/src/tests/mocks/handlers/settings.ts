@@ -7,7 +7,7 @@ export const updateSelfSuccess = http.post(`${API_ROOT_URL}/self/`, () => {
 });
 
 export const updateSelfError = http.post(`${API_ROOT_URL}/self/`, () => {
-  return HttpResponse.json({ status: 400 });
+  return HttpResponse.json({}, { status: 400 });
 });
 
 export const updatePasswordSuccess = http.post(
@@ -20,6 +20,6 @@ export const updatePasswordSuccess = http.post(
 export const updatePasswordError = http.post(
   `${API_ROOT_URL}/self/update_password/`,
   () => {
-    return HttpResponse.json({ status: 400 });
+    return HttpResponse.json({}, { status: 400 });
   },
 );

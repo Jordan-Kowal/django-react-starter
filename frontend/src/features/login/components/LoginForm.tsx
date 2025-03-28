@@ -33,7 +33,7 @@ export const LoginForm: React.FC = memo(() => {
     setIsLoading(true);
     try {
       await login(data);
-    } finally {
+    } catch (e) {
       setIsLoading(false);
     }
   };
