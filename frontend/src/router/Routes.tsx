@@ -35,7 +35,7 @@ export const Routes = memo(() => {
 
   if (isLoading) {
     return (
-      <Main dataTestId="loading">
+      <Main dataTestId="loading" className="text-center">
         <LoadingRing />
       </Main>
     );

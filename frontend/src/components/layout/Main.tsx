@@ -31,7 +31,7 @@ export const Main: React.FC<MainProps> = memo(
       >
         {showNavBar && <NavBar />}
         <div className="hero-content w-full">
-          <div className="max-w-6xl w-full">
+          <div className="max-w-6xl w-full ">
             <FadeIn>{children}</FadeIn>
           </div>
         </div>
