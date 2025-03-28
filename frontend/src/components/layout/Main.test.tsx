@@ -47,7 +47,7 @@ describe("Main", () => {
     );
 
     const main = getByTestId<HTMLDivElement>(container, "main");
-    const navbar = getByTestId<HTMLDivElement>(container, "main-navbar");
+    const navbar = getByTestId<HTMLDivElement>(container, "navbar");
 
     await waitFor(() => {
       expect(main).toBeVisible();
