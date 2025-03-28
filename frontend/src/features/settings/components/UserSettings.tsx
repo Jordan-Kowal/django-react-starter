@@ -23,19 +23,19 @@ export const UserSettings: React.FC = memo(() => {
             className="join-item btn w-24"
             type="radio"
             name="locale"
-            aria-label="Francais"
-            checked={currentLocale === "fr"}
-            onClick={() => setLocale("fr")}
-            data-testid="locale-fr"
+            aria-label="English"
+            checked={currentLocale === "en"}
+            onClick={() => setLocale("en")}
+            data-testid="locale-en"
           />
           <input
             className="join-item btn w-24"
             type="radio"
             name="locale"
-            aria-label="English"
-            checked={currentLocale === "en"}
-            onClick={() => setLocale("en")}
-            data-testid="locale-en"
+            aria-label="Francais"
+            checked={currentLocale === "fr"}
+            onClick={() => setLocale("fr")}
+            data-testid="locale-fr"
           />
         </div>
       </div>
