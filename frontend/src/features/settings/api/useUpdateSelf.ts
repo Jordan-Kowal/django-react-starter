@@ -8,6 +8,7 @@ import {
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
 export type UpdateSelfRequestData = {
@@ -24,6 +25,7 @@ type UseUpdateSelf = () => UseMutationResult<
 >;
 
 export const useUpdateSelf: UseUpdateSelf = () => {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const url = `${API_ROOT_URL}/self/`;
 
@@ -41,13 +43,13 @@ export const useUpdateSelf: UseUpdateSelf = () => {
     },
     onSuccess: (data: Self) => {
       queryClient.setQueryData(["self"], data);
-      toast.success("Information updated");
+      toast.success(t("Information updated"));
     },
     onError: ({ status }) => {
       if (status === 400) {
-        toast.error("Failed to update information");
+        toast.error(t("Failed to update information"));
       } else {
-        toast.error("Something went wrong");
+        toast.error(t("Something went wrong"));
       }
     },
   });

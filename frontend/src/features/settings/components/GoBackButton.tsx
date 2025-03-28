@@ -20,7 +20,7 @@ export const GoBackButton: React.FC = memo(() => {
         href={routeConfigMap.homepage.path}
       >
         <ArrowLeftToLine size={16} />
-        Go back
+        {t("Go back")}
       </Link>
     </div>
   );

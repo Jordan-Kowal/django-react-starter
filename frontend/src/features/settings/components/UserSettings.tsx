@@ -48,7 +48,7 @@ export const UserSettings: React.FC = memo(() => {
             className="join-item btn w-24"
             type="radio"
             name="theme"
-            aria-label="Light"
+            aria-label={t("Light")}
             onClick={() => setTheme("bumblebee")}
             checked={!isDarkMode}
             data-testid="theme-light"
@@ -57,7 +57,7 @@ export const UserSettings: React.FC = memo(() => {
             className="join-item btn w-24"
             type="radio"
             name="theme"
-            aria-label="Dark"
+            aria-label={t("Dark")}
             onClick={() => setTheme("coffee")}
             checked={isDarkMode}
             data-testid="theme-dark"

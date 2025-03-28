@@ -33,7 +33,7 @@ export const useUpdatePassword: UseUpdatePassword = () => {
       });
     },
     onSuccess: () => {
-      toast.success("Password updated");
+      toast.success(t("Password updated"));
     },
     onError: ({ status, errors }) => {
       if (status === 400) {

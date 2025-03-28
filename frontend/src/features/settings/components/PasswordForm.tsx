@@ -83,7 +83,7 @@ export const PasswordForm: React.FC = memo(() => {
           render={({ field }) => (
             <FieldsetInput
               icon={<KeyRound size={16} />}
-              label={t("Current Password")}
+              label={t("Current password")}
               errorMessage={errors?.currentPassword?.message}
               placeholder={t("Enter your current password")}
               type="password"
@@ -113,7 +113,7 @@ export const PasswordForm: React.FC = memo(() => {
           render={({ field }) => (
             <FieldsetInput
               icon={<LockKeyhole size={16} />}
-              label={t("Confirm Password")}
+              label={t("Confirm password")}
               errorMessage={errors?.confirmPassword?.message}
               placeholder={t("Confirm your password")}
               type="password"
@@ -129,7 +129,7 @@ export const PasswordForm: React.FC = memo(() => {
           data-testid="submit-button"
         >
           {isLoading ? <span className="loading loading-spinner" /> : <Save />}
-          {t("Save changes")}
+          {t("Save")}
         </button>
       </fieldset>
     </form>

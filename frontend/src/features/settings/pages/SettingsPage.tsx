@@ -20,15 +20,15 @@ const SettingsPage: React.FC = memo(() => {
       <GoBackButton />
       <h1>{t("Settings")}</h1>
       <div className="divider divider-start">
-        <span className="text-lg font-bold">{t("User settings")}</span>
+        <span className="text-lg font-bold">{t("Preferences")}</span>
       </div>
       <UserSettings />
       <div className="divider divider-start mt-20">
-        <span className="text-lg font-bold">{t("User information")}</span>
+        <span className="text-lg font-bold">{t("Information")}</span>
       </div>
       <UserForm />
       <div className="divider divider-start">
-        <span className="text-lg font-bold">{t("Password management")}</span>
+        <span className="text-lg font-bold">{t("Security")}</span>
       </div>
       <PasswordForm />
     </Main>

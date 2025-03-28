@@ -107,7 +107,7 @@ export const UserForm: React.FC = memo(() => {
           data-testid="submit-button"
         >
           {isLoading ? <span className="loading loading-spinner" /> : <Save />}
-          {t("Save changes")}
+          {t("Save")}
         </button>
       </fieldset>
     </form>
