@@ -46,7 +46,7 @@ See the full list of changes below
 - 💫 **DX**: Added `rollup-plugin-visualizer` to visualize bundle size (in `bundle-stats.html`)
 - 🎨 **Frontend**: Major folder structure rework
 - 🎨 **Frontend**: Default font to `Nunito`
-- 🎨 **Frontend**: Cleaned up unused dependencies: `classnames`, `react-use`, `zustand`, `react-scan`, ...
+- 🎨 **Frontend**: Cleaned up unused dependencies: `classnames`, `react-use`, `zustand`, `react-scan`
 
 ### 🔧 Others
 
@@ -55,7 +55,7 @@ See the full list of changes below
 - 💫 **DX**: Upgraded docker images in both `docker-compose` and CI
 - 🎨 **Frontend**: Upgraded deps
 
-## [v3.2.0] - 2024-01-25
+## [v3.2.0] - 2025-01-25
 
 ### 🔧 Others
 

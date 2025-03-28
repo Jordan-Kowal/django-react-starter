@@ -80,7 +80,7 @@ for frequent/common commands.
 ```shell
 make backend.makemigrations
 make frontend.test
-make setup_githooks
+make setup_hooks
 ```
 
 Run `make help` for more info.
@@ -101,7 +101,7 @@ git config core.hooksPath .githooks
 or you can run the `Makefile` action
 
 ```shell
-make setup_githooks
+make setup_hooks
 ```
 
 ### GitHub Actions

@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "1.0.0",
+  "version": "4.0.0",
   "private": true,
   "homepage": "/",
   "type": "module",
@@ -63,11 +63,7 @@
     "vitest": "3.0.9"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
