@@ -1,12 +1,12 @@
 # TODO
 
-## Migration
+## Improvements
 
-- Loading not centered
-- Check READMEs
 - Correctly perform form validation in tests (login, password, info) + prefill/reset
+- Upgrade rabbitmq to v4
+- Update Django admin's theme (with daisyUI?)
 
-## Feature
+## Features
 
 - Sentry frontend
 - Auth with gmail

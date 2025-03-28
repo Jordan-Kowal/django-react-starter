@@ -15,7 +15,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20" # Cached by github (https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md#nodejs)
+          node-version: "22" # Cached by github (https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md#nodejs)
           cache: "yarn"
           cache-dependency-path: ./frontend/yarn.lock
 

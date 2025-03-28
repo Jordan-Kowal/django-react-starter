@@ -19,7 +19,7 @@ services:
       - ./backend:/home/app/backend
 
   front:
-    image: node:20.17.0
+    image: node:22.14.0-slim
     container_name: django_react_starter_front
     working_dir: /app
     command: bash -c "yarn install && yarn start --host"
@@ -46,7 +46,7 @@ services:
 
   rabbitmq:
     container_name: django_react_starter_rabbitmq
-    image: rabbitmq:3.13.0-management
+    image: rabbitmq:3.13.7-management
     environment:
       - RABBITMQ_DEFAULT_USER=django_react_starter
       - RABBITMQ_DEFAULT_PASS=django_react_starter
@@ -60,7 +60,7 @@ services:
 
   meilisearch:
     container_name: django_react_starter_meilisearch
-    image: getmeili/meilisearch:v1.7.6
+    image: getmeili/meilisearch:v1.13.3
     environment:
       - MEILI_MASTER_KEY=@7t^a5xfv%9cg-oemhm0pi&fe6b=i7_v%dlikah^%0=z(hgqre
     networks:
@@ -72,7 +72,7 @@ services:
 
   meilisearch-ui:
     container_name: django_react_starter_meilisearch_ui
-    image: riccoxie/meilisearch-ui:v0.6.13
+    image: riccoxie/meilisearch-ui:v0.11.5
     depends_on:
       - meilisearch
     networks:

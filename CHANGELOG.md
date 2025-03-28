@@ -15,30 +15,45 @@
 - 🎨 **Frontend**:
 - 🚂 **Deploy**:
 
-## [v4.0.0] - TBD
+## [v4.0.0] - 2025-03-28
+
+✨ **Major frontend rework** ✨
+
+In an attempt to have a simpler, faster, and lighter frontend,
+I made the following (very opinionated) changes:
+
+- 🎨 **Design rework**: we moved away from `antd` and instead chose the CSS-only `daisyUI` package
+- 🗣️ **i18n support**: The starter is fully setup for i18n and already handles both French and English
+- 📦 **Smaller**: The bundle size has been reduced by more than half, and now sits at ~150kB gzip
+- 🔗 **Deps**: We removed and clean up deps, and replaced some of them with smaller/simpler alternatives
+
+See the full list of changes below
 
 ### 🚀 Features
 
+- 🎨 **Frontend**: Added `i18n` management with English and French support
 - 🎨 **Frontend**: Major design rework: replaced `antd` with `daisyUI`
 - 🎨 **Frontend**: Added `lucide-react` for icon management
 - 🎨 **Frontend**: Added `@tailwindcss/typography` for easier typography management
-- 🎨 **Frontend**: Added page transitions using custom `FadeIn` component
-- 🎨 **Frontend**: Added `i18n` management
-- 🎨 **Frontend**: Added `react-toastify` for notification management
 - 🎨 **Frontend**: Replaced `react-router-dom` and `react-helmet-async` with `wouter`
+- 🎨 **Frontend**: Added page transitions using custom `FadeIn` component
+- 🎨 **Frontend**: Added `react-toastify` for notification management
 - 🎨 **Frontend**: Handle forms using `react-hook-form` and `zod`
-- 🎨 **Frontend**: Added `rollup-plugin-visualizer` to visualize bundle size (in `bundle-stats.html`)
 
 ### ✨ Improvements
 
 - 💫 **DX**: `Makefile` improvement
+- 💫 **DX**: Added `rollup-plugin-visualizer` to visualize bundle size (in `bundle-stats.html`)
 - 🎨 **Frontend**: Major folder structure rework
 - 🎨 **Frontend**: Default font to `Nunito`
-- 🎨 **Frontend**: Cleaned up unused dependencies: `classnames`, `react-use`, `zustand`, `react-scan`
+- 🎨 **Frontend**: Cleaned up unused dependencies: `classnames`, `react-use`, `zustand`, `react-scan`, ...
 
 ### 🔧 Others
 
-- 💫 **Deploy**: Upgraded python version for docker images (dev/prod)
+- 💻 **Backend**: Upgraded deps
+- 🚂 **Deploy**: Upgraded python/node version for docker images (dev/prod)
+- 💫 **DX**: Upgraded docker images in both `docker-compose` and CI
+- 🎨 **Frontend**: Upgraded deps
 
 ## [v3.2.0] - 2024-01-25
 

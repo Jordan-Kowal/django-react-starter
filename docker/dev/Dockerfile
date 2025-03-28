@@ -1,4 +1,4 @@
-FROM python:3.13.1-slim
+FROM python:3.13.2-slim
 
 # Python environment variables
 ENV PYTHONUNBUFFERED 1
