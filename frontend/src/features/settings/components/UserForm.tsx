@@ -43,15 +43,15 @@ export const UserForm: React.FC = memo(() => {
     try {
       await updateSelf(data);
       reset(data, { keepValues: false });
-    } finally {
-      setIsLoading(false);
-    }
+    } catch (e) {}
+    setIsLoading(false);
   };
 
   return (
     <form
       className="flex flex-col gap-4 justify-center"
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="user-form"
       noValidate
     >
       <fieldset className="fieldset">
@@ -65,6 +65,7 @@ export const UserForm: React.FC = memo(() => {
               errorMessage={errors?.email?.message}
               placeholder={t("Enter your email address")}
               type="email"
+              dataTestId="email"
               {...field}
             />
           )}
@@ -79,6 +80,7 @@ export const UserForm: React.FC = memo(() => {
               errorMessage={errors?.firstName?.message}
               placeholder={t("Enter your first name")}
               type="text"
+              dataTestId="first-name"
               {...field}
             />
           )}
@@ -93,6 +95,7 @@ export const UserForm: React.FC = memo(() => {
               errorMessage={errors?.lastName?.message}
               placeholder={t("Enter your last name")}
               type="text"
+              dataTestId="last-name"
               {...field}
             />
           )}
@@ -101,6 +104,7 @@ export const UserForm: React.FC = memo(() => {
           type="submit"
           className="btn btn-primary mt-4 w-40 justify-self-end"
           disabled={isLoading || !isDirty || !isValid}
+          data-testid="submit-button"
         >
           {isLoading ? <span className="loading loading-spinner" /> : <Save />}
           {t("Save changes")}

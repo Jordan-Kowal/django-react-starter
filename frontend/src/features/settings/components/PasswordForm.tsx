@@ -61,9 +61,8 @@ export const PasswordForm: React.FC = memo(() => {
         { currentPassword: "", password: "", confirmPassword: "" },
         { keepValues: false },
       );
-    } finally {
-      setIsLoading(false);
-    }
+    } catch (e) {}
+    setIsLoading(false);
   };
 
   return (
@@ -71,6 +70,11 @@ export const PasswordForm: React.FC = memo(() => {
       className="flex flex-col gap-4 justify-center"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
+      autoComplete="off"
+      autoCorrect="off"
+      autoCapitalize="off"
+      spellCheck="false"
+      data-testid="password-form"
     >
       <fieldset className="fieldset">
         <Controller
@@ -83,6 +87,7 @@ export const PasswordForm: React.FC = memo(() => {
               errorMessage={errors?.currentPassword?.message}
               placeholder={t("Enter your current password")}
               type="password"
+              dataTestId="current-password"
               {...field}
             />
           )}
@@ -97,6 +102,7 @@ export const PasswordForm: React.FC = memo(() => {
               errorMessage={errors?.password?.message}
               placeholder={t("Enter your password")}
               type="password"
+              dataTestId="password"
               {...field}
             />
           )}
@@ -111,6 +117,7 @@ export const PasswordForm: React.FC = memo(() => {
               errorMessage={errors?.confirmPassword?.message}
               placeholder={t("Confirm your password")}
               type="password"
+              dataTestId="confirm-password"
               {...field}
             />
           )}
@@ -119,6 +126,7 @@ export const PasswordForm: React.FC = memo(() => {
           type="submit"
           className="btn btn-primary mt-4 w-40 justify-self-end"
           disabled={isLoading || !isDirty || !isValid}
+          data-testid="submit-button"
         >
           {isLoading ? <span className="loading loading-spinner" /> : <Save />}
           {t("Save changes")}

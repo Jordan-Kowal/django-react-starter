@@ -12,16 +12,12 @@ const getElements = (
 ): {
   form: HTMLFormElement;
   emailInput: HTMLInputElement;
-  emailError: HTMLDivElement;
   passwordInput: HTMLInputElement;
-  passwordError: HTMLDivElement;
   submitButton: HTMLButtonElement;
 } => ({
   form: getByTestId<HTMLFormElement>(container, "login-form"),
   emailInput: getByTestId<HTMLInputElement>(container, "email-input"),
-  emailError: getByTestId<HTMLDivElement>(container, "email-error"),
   passwordInput: getByTestId<HTMLInputElement>(container, "password-input"),
-  passwordError: getByTestId<HTMLDivElement>(container, "password-error"),
   submitButton: getByTestId<HTMLButtonElement>(container, "submit-button"),
 });
 

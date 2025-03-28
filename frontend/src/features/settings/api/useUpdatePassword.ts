@@ -28,7 +28,7 @@ export const useUpdatePassword: UseUpdatePassword = () => {
         data: {
           current_password: data.currentPassword,
           password: data.password,
-          password_confirm: data.confirmPassword,
+          confirm_password: data.confirmPassword,
         },
       });
     },
