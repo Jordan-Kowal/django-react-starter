@@ -10,7 +10,10 @@ export const UserSettings: React.FC = memo(() => {
   const { setTheme, isDarkMode } = useTheme();
 
   return (
-    <div className="flex flex-col gap-4 justify-center">
+    <div
+      className="flex flex-col gap-4 justify-center"
+      data-testid="user-settings"
+    >
       <div className="flex gap-2 items-center justify-between">
         <span className="flex gap-2">
           <Languages /> {t("Language")}
@@ -23,6 +26,7 @@ export const UserSettings: React.FC = memo(() => {
             aria-label="Francais"
             checked={currentLocale === "fr"}
             onClick={() => setLocale("fr")}
+            data-testid="locale-fr"
           />
           <input
             className="join-item btn w-24"
@@ -31,6 +35,7 @@ export const UserSettings: React.FC = memo(() => {
             aria-label="English"
             checked={currentLocale === "en"}
             onClick={() => setLocale("en")}
+            data-testid="locale-en"
           />
         </div>
       </div>
@@ -46,6 +51,7 @@ export const UserSettings: React.FC = memo(() => {
             aria-label="Light"
             onClick={() => setTheme("bumblebee")}
             checked={!isDarkMode}
+            data-testid="theme-light"
           />
           <input
             className="join-item btn w-24"
@@ -54,6 +60,7 @@ export const UserSettings: React.FC = memo(() => {
             aria-label="Dark"
             onClick={() => setTheme("coffee")}
             checked={isDarkMode}
+            data-testid="theme-dark"
           />
         </div>
       </div>

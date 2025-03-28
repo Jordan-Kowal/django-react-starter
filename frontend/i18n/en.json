@@ -9,5 +9,7 @@
   "Logout": "Logout",
   "Password": "Password",
   "Settings": "Settings",
-  "Something went wrong": "Something went wrong"
+  "Something went wrong": "Something went wrong",
+  "Language": "Language",
+  "Color theme": "Color theme"
 }

@@ -9,5 +9,7 @@
   "Logout": "Déconnexion",
   "Password": "Mot de passe",
   "Settings": "Paramètres",
-  "Something went wrong": "Une erreur s'est produite"
+  "Something went wrong": "Une erreur s'est produite",
+  "Language": "Langue",
+  "Color theme": "Thème"
 }

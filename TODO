@@ -3,9 +3,9 @@
 ## Migration
 
 - Check tests
-- Add mocks for wouter
+- i18n translations
 - Check READMEs
-- test form validation (login, password, info)
+- Correctly perform form validation in tests (login, password, info)
 
 ## Feature
 
