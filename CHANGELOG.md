@@ -15,6 +15,12 @@
 - 🎨 **Frontend**:
 - 🚂 **Deploy**:
 
+## TBD
+
+### 🐞 Bugfixes
+
+- 🎨 **Frontend**: Fixed default font family not being applied to toasts and some texts
+
 ## [v4.0.0] - 2025-03-28
 
 ✨ **Major frontend rework** ✨

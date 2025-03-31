@@ -5,6 +5,11 @@
   themes: bumblebee --default, coffee --prefersdark;
 }
 
+html {
+  font-family: "Nunito Sans";
+}
+
 :root {
   --default-font-family: "Nunito Sans";
+  --toastify-font-family: "Nunito Sans";
 }

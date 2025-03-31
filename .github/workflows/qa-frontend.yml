@@ -53,6 +53,7 @@ jobs:
         run: |
           cd frontend
           yarn biome:check
+
   tsc:
     needs: setup
     runs-on: ubuntu-latest
@@ -72,6 +73,7 @@ jobs:
         run: |
           cd frontend
           yarn tsc
+
   i18n:
     needs: setup
     runs-on: ubuntu-latest
@@ -91,6 +93,7 @@ jobs:
         run: |
           cd frontend
           yarn i18n:check
+
   coverage:
     needs: setup
     runs-on: ubuntu-latest
