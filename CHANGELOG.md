@@ -21,6 +21,10 @@
 
 - 🎨 **Frontend**: Fixed default font family not being applied to toasts and some texts
 
+### 🔧 Others
+
+- 💫 **DX**: Added `.cursorrules` file for easier prompting
+
 ## [v4.0.0] - 2025-03-28
 
 ✨ **Major frontend rework** ✨
