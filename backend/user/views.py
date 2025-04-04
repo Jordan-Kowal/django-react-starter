@@ -1,9 +1,9 @@
-from django.contrib.auth import get_user_model, login, logout
+from django.contrib.auth import get_user_model, login, logout, update_session_auth_hash
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_protect
 from django_utils_kit.permissions import IsNotAuthenticated
 from django_utils_kit.viewsets import ImprovedViewSet
-from drf_spectacular.utils import PolymorphicProxySerializer, extend_schema
+from drf_spectacular.utils import extend_schema
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
@@ -68,47 +68,51 @@ class CurrentUserViewSet(ImprovedViewSet):
     """For the current user to view/update some of its information."""
 
     default_permission_classes = (IsAuthenticated,)
-    default_serializer_class = UserSerializer
     serializer_class_per_action = {
-        "update_password": UpdatePasswordSerializer,
+        "account": UserSerializer,
+        "password": UpdatePasswordSerializer,
     }
     pagination_class = None
 
-    @extend_schema(responses={200: UserSerializer})
-    def create(self, request: Request) -> Response:
-        """UPDATE the user."""
-        serializer = self.get_valid_serializer(request.user, data=request.data)
-        serializer.save()
-        return Response(serializer.data, status.HTTP_200_OK)
-
-    # Hack to tell swagger it is NOT a list
     @extend_schema(
-        responses={
-            200: PolymorphicProxySerializer(
-                "SingleUserSerializer",
-                serializers=[UserSerializer],
-                resource_type_field_name=None,
-                many=False,
-            )
-        }
+        methods=["DELETE"],
+        description="Delete the current user's account.",
+        responses={204: None},
     )
-    def list(self, request: Request) -> Response:
-        """RETRIEVE the user."""
-        serializer = self.get_serializer(request.user)
-        return Response(serializer.data, status.HTTP_200_OK)
+    @extend_schema(
+        methods=["PUT"],
+        description="Update the current user's account.",
+        responses={200: UserSerializer},
+    )
+    @extend_schema(
+        methods=["GET"],
+        description="Get the current user's account.",
+        responses={200: UserSerializer},
+    )
+    @action(detail=False, methods=["get", "put", "delete"])
+    def account(self, request: Request) -> Response:
+        """Handle account operations: GET, PUT, DELETE."""
+        if request.method == "GET":
+            # Fetch the user data
+            serializer = self.get_serializer(request.user)
+            return Response(serializer.data, status.HTTP_200_OK)
+        elif request.method == "PUT":
+            # Update the user
+            serializer = self.get_valid_serializer(request.user, data=request.data)
+            serializer.save()
+            return Response(serializer.data, status.HTTP_200_OK)
+        elif request.method == "DELETE":
+            # Delete the current user
+            user = request.user
+            logout(request)
+            user.delete()
+            return Response(None, status.HTTP_204_NO_CONTENT)
+        return Response(None, status.HTTP_405_METHOD_NOT_ALLOWED)
 
     @extend_schema(responses={204: None})
-    @action(detail=False, methods=["delete"])
-    def delete_account(self, request: Request) -> Response:
-        """DELETE the current user account."""
-        user = request.user
-        logout(request)
-        user.delete()
-        return Response(None, status.HTTP_204_NO_CONTENT)
-
-    @extend_schema(responses={204: None})
-    @action(detail=False, methods=["post"])
-    def update_password(self, request: Request) -> Response:
+    @action(detail=False, methods=["put"])
+    def password(self, request: Request) -> Response:
         serializer = self.get_valid_serializer(request.user, data=request.data)
-        serializer.save()
+        user = serializer.save()
+        update_session_auth_hash(request, user)
         return Response(None, status.HTTP_204_NO_CONTENT)

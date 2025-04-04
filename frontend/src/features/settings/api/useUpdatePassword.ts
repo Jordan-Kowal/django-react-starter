@@ -20,11 +20,11 @@ type UseUpdatePassword = () => UseMutationResult<
 
 export const useUpdatePassword: UseUpdatePassword = () => {
   const { t } = useTranslation();
-  const url = `${API_ROOT_URL}/self/update_password/`;
+  const url = `${API_ROOT_URL}/self/password/`;
   return useMutation({
     mutationFn: async (data: UpdatePasswordRequestData): Promise<void> => {
       await performRequest(url, {
-        method: "POST",
+        method: "PUT",
         data: {
           current_password: data.currentPassword,
           new_password: data.newPassword,

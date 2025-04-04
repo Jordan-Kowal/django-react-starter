@@ -25,6 +25,7 @@
 ### 🐞 Bugfixes
 
 - 🎨 **Frontend**: Fixed default font family not being applied to toasts and some texts
+- 💻 **Backend**: Fixed user being disconnected after password update
 
 ### 🔧 Others
 
@@ -32,6 +33,7 @@
 - 💻 **Backend**: Changed Django default language to English
 - 💻 **Backend**: Changed DRF's error messages to English
 - 💻 **Backend**: Made API tests more reliable and robust
+- 💻 **Backend**: Changed `self/` API to use `self/account/` for cleaner routing in viewset
 
 ## [v4.0.0] - 2025-03-28
 

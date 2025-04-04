@@ -15,11 +15,11 @@ export const checkAuthError = http.get(`${API_ROOT_URL}/auth/check/`, () => {
   return HttpResponse.json(null, { status: 401 });
 });
 
-export const self = http.get(`${API_ROOT_URL}/self/`, () => {
+export const self = http.get(`${API_ROOT_URL}/self/account/`, () => {
   return HttpResponse.json(SELF_MOCK, { status: 200 });
 });
 
-export const selfError = http.get(`${API_ROOT_URL}/self/`, () => {
+export const selfError = http.get(`${API_ROOT_URL}/self/account/`, () => {
   return HttpResponse.json(null, { status: 401 });
 });
 

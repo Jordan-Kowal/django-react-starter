@@ -51,7 +51,7 @@ export const deserializeSelf = (data: ApiSelf): Self => ({
 });
 
 export const useSelf = (): UseSelfReturn => {
-  const url = `${API_ROOT_URL}/self/`;
+  const url = `${API_ROOT_URL}/self/account/`;
   const { isPending, isError, error, data } = useQuery<ApiSelf, ApiError, Self>(
     {
       queryKey: ["self"],

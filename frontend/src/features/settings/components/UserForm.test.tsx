@@ -80,13 +80,13 @@ describe("UserForm", () => {
       expect(toastSuccessMock).toHaveBeenCalledWith("Information updated");
     });
 
-    expect(performRequest).toHaveBeenCalledWith("/api/v1/self/", {
+    expect(performRequest).toHaveBeenCalledWith("/api/v1/self/account/", {
       data: {
         email: "email@email.email",
         first_name: "firstName",
         last_name: "lastName",
       },
-      method: "POST",
+      method: "PUT",
     });
   });
 
@@ -113,13 +113,13 @@ describe("UserForm", () => {
       );
     });
 
-    expect(performRequest).toHaveBeenCalledWith("/api/v1/self/", {
+    expect(performRequest).toHaveBeenCalledWith("/api/v1/self/account/", {
       data: {
         email: "email@email.email",
         first_name: "firstName",
         last_name: "lastName",
       },
-      method: "POST",
+      method: "PUT",
     });
   });
 
@@ -144,13 +144,13 @@ describe("UserForm", () => {
       expect(toastErrorMock).toHaveBeenCalledWith("Something went wrong");
     });
 
-    expect(performRequest).toHaveBeenCalledWith("/api/v1/self/", {
+    expect(performRequest).toHaveBeenCalledWith("/api/v1/self/account/", {
       data: {
         email: "email@email.email",
         first_name: "firstName",
         last_name: "lastName",
       },
-      method: "POST",
+      method: "PUT",
     });
   });
 });

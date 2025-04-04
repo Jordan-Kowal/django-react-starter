@@ -95,16 +95,13 @@ describe("PasswordForm", () => {
       expect(toastSuccessMock).toHaveBeenCalledWith("Password updated");
     });
 
-    expect(performRequest).toHaveBeenCalledWith(
-      "/api/v1/self/update_password/",
-      {
-        data: {
-          current_password: "currentPassword",
-          new_password: "password",
-        },
-        method: "POST",
+    expect(performRequest).toHaveBeenCalledWith("/api/v1/self/password/", {
+      data: {
+        current_password: "currentPassword",
+        new_password: "password",
       },
-    );
+      method: "PUT",
+    });
   });
 
   test("should show invalid current password on 400", async ({ expect }) => {
@@ -133,16 +130,13 @@ describe("PasswordForm", () => {
       expect(toastErrorMock).toHaveBeenCalledWith("Invalid current password");
     });
 
-    expect(performRequest).toHaveBeenCalledWith(
-      "/api/v1/self/update_password/",
-      {
-        data: {
-          current_password: "currentPassword",
-          new_password: "password",
-        },
-        method: "POST",
+    expect(performRequest).toHaveBeenCalledWith("/api/v1/self/password/", {
+      data: {
+        current_password: "currentPassword",
+        new_password: "password",
       },
-    );
+      method: "PUT",
+    });
   });
 
   test("should show weak password on 400", async ({ expect }) => {
@@ -171,16 +165,13 @@ describe("PasswordForm", () => {
       expect(toastErrorMock).toHaveBeenCalledWith("Password is too weak");
     });
 
-    expect(performRequest).toHaveBeenCalledWith(
-      "/api/v1/self/update_password/",
-      {
-        data: {
-          current_password: "currentPassword",
-          new_password: "password",
-        },
-        method: "POST",
+    expect(performRequest).toHaveBeenCalledWith("/api/v1/self/password/", {
+      data: {
+        current_password: "currentPassword",
+        new_password: "password",
       },
-    );
+      method: "PUT",
+    });
   });
 
   test("should show generic error on 500", async ({ expect }) => {
@@ -209,15 +200,12 @@ describe("PasswordForm", () => {
       expect(toastErrorMock).toHaveBeenCalledWith("Something went wrong");
     });
 
-    expect(performRequest).toHaveBeenCalledWith(
-      "/api/v1/self/update_password/",
-      {
-        data: {
-          current_password: "currentPassword",
-          new_password: "password",
-        },
-        method: "POST",
+    expect(performRequest).toHaveBeenCalledWith("/api/v1/self/password/", {
+      data: {
+        current_password: "currentPassword",
+        new_password: "password",
       },
-    );
+      method: "PUT",
+    });
   });
 });

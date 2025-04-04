@@ -11,9 +11,9 @@ from health.views import HealthViewSet
 from user.views import AuthViewSet, CurrentUserViewSet
 
 router = routers.SimpleRouter()
-router.register("app", AppViewSet, "app")
-router.register("auth", AuthViewSet, "auth")
-router.register("self", CurrentUserViewSet, "self")
+router.register("app", AppViewSet, basename="app")
+router.register("auth", AuthViewSet, basename="auth")
+router.register("self", CurrentUserViewSet, basename="self")
 router.register("health", HealthViewSet, basename="health")
 
 API_ROOT = "api"

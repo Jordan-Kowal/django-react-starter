@@ -27,12 +27,12 @@ type UseUpdateSelf = () => UseMutationResult<
 export const useUpdateSelf: UseUpdateSelf = () => {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
-  const url = `${API_ROOT_URL}/self/`;
+  const url = `${API_ROOT_URL}/self/account/`;
 
   return useMutation({
     mutationFn: async (data: UpdateSelfRequestData): Promise<Self> => {
       const response = await performRequest(url, {
-        method: "POST",
+        method: "PUT",
         data: {
           email: data.email,
           first_name: data.firstName,
