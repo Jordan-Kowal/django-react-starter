@@ -54,6 +54,56 @@ class AuthViewSetTestCase(BaseActionTestCase):
         response = self.api_client.post(url)
         self.assertEqual(response.status_code, 204)
 
+    def test_register_success(self) -> None:
+        self.api_client.logout()
+        url = reverse("auth-register")
+        payload = {
+            "email": "newuser@example.com",
+            "password": "stR0ngP4ssw0rd!",
+        }
+        initial_user_count = User.objects.count()
+        response = self.api_client.post(url, data=payload)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(User.objects.count(), initial_user_count + 1)
+
+        # Check user was created correctly
+        user = User.objects.get(email=payload["email"])
+        self.assertTrue(user.check_password(payload["password"]))
+        self.assertTrue(user.is_active)
+
+        # Check user was logged in
+        self.assertEqual(response.data["email"], payload["email"])
+        self.assertTrue(user.is_authenticated)
+
+    def test_register_email_taken(self) -> None:
+        self.api_client.logout()
+        url = reverse("auth-register")
+        existing_user = UserFactory(email="existing@example.com")
+
+        payload = {
+            "email": existing_user.email,
+            "password": "stR0ngP4ssw0rd!",
+        }
+        initial_user_count = User.objects.count()
+        response = self.api_client.post(url, data=payload)
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(User.objects.count(), initial_user_count)
+        self.assertIn("email", response.data)
+
+    def test_register_weak_password(self) -> None:
+        self.api_client.logout()
+        url = reverse("auth-register")
+
+        payload = {
+            "email": "newuser@example.com",
+            "password": "weak",
+        }
+        initial_user_count = User.objects.count()
+        response = self.api_client.post(url, data=payload)
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(User.objects.count(), initial_user_count)
+        self.assertIn("password", response.data)
+
 
 class CurrentUserViewSetTestCase(BaseActionTestCase):
     def test_create_success(self) -> None:
@@ -88,24 +138,14 @@ class CurrentUserViewSetTestCase(BaseActionTestCase):
         # Invalid current password
         payload = {
             "current_password": "invalid password",
-            "password": new_password,
-            "confirm_password": new_password,
+            "new_password": new_password,
         }
         response = self.api_client.post(url, payload)
         self.assertEqual(response.status_code, 400)
         # Not strong-enough password
         payload = {
             "current_password": current_password,
-            "password": "weak",
-            "confirm_password": "weak",
-        }
-        response = self.api_client.post(url, payload)
-        self.assertEqual(response.status_code, 400)
-        # Passwords do not match
-        payload = {
-            "current_password": current_password,
-            "password": new_password,
-            "confirm_password": "weak",
+            "new_password": "weak",
         }
         response = self.api_client.post(url, payload)
         self.assertEqual(response.status_code, 400)
@@ -118,8 +158,7 @@ class CurrentUserViewSetTestCase(BaseActionTestCase):
         new_password = f"{current_password}a"
         payload = {
             "current_password": current_password,
-            "password": new_password,
-            "confirm_password": new_password,
+            "new_password": new_password,
         }
         response = self.api_client.post(url, data=payload)
         self.user.refresh_from_db()

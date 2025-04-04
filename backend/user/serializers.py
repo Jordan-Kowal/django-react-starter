@@ -39,21 +39,51 @@ class LoginSerializer(serializers.Serializer):
 
 
 # ----------------------------------------
+# Register
+# ----------------------------------------
+class RegisterSerializer(serializers.Serializer):
+    email = serializers.EmailField(write_only=True, allow_blank=False, allow_null=False)
+    password = serializers.CharField(
+        write_only=True, allow_blank=False, allow_null=False
+    )
+
+    class Meta:
+        fields = ["email", "password"]
+
+    def validate_email(self, email: str) -> str:
+        if User.objects.filter(email=email).exists():
+            raise serializers.ValidationError("Cet email est déjà utilisé")
+        return email
+
+    @staticmethod
+    def validate_password(value: str) -> str:
+        validate_password(value)
+        return value
+
+    def create(self, validated_data: Dict[str, Any]) -> "UserType":
+        user = User.objects.create(
+            email=validated_data["email"],
+            username=validated_data["email"],
+            is_active=True,
+        )
+        user.set_password(validated_data["password"])
+        user.save()
+        return user
+
+
+# ----------------------------------------
 # Password
 # ----------------------------------------
 class UpdatePasswordSerializer(serializers.Serializer):
     current_password = serializers.CharField(
         write_only=True, allow_blank=False, allow_null=False
     )
-    password = serializers.CharField(
-        write_only=True, allow_blank=False, allow_null=False
-    )
-    confirm_password = serializers.CharField(
+    new_password = serializers.CharField(
         write_only=True, allow_blank=False, allow_null=False
     )
 
     class Meta:
-        fields = ["current_password", "password", "confirm_password"]
+        fields = ["current_password", "new_password"]
 
     def validate_current_password(self, current_password: str) -> str:
         if not self.instance.check_password(current_password):
@@ -61,19 +91,13 @@ class UpdatePasswordSerializer(serializers.Serializer):
         return current_password
 
     @staticmethod
-    def validate_password(value: str) -> str:
+    def validate_new_password(value: str) -> str:
         validate_password(value)
-        return value
-
-    def validate_confirm_password(self, value: str) -> str:
-        password = self.initial_data["password"]
-        if value != password:
-            raise serializers.ValidationError("Les mots de passe ne correspondent pas")
         return value
 
     @staticmethod
     def update(user: "UserType", validated_data: Dict) -> "UserType":
-        user.set_password(validated_data["password"])
+        user.set_password(validated_data["new_password"])
         user.save()
         return user
 

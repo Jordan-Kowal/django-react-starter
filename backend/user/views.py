@@ -10,17 +10,27 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 
-from user.serializers import LoginSerializer, UpdatePasswordSerializer, UserSerializer
+from user.serializers import (
+    LoginSerializer,
+    RegisterSerializer,
+    UpdatePasswordSerializer,
+    UserSerializer,
+)
 
 User = get_user_model()
 
 
 class AuthViewSet(ImprovedViewSet):
-    default_serializer_class = LoginSerializer
+    default_serializer_class = None
     permission_classes_per_action = {
         "check": (IsAuthenticated,),
         "login": (IsNotAuthenticated,),
         "logout": (IsAuthenticated,),
+        "register": (IsNotAuthenticated,),
+    }
+    serializer_class_per_action = {
+        "login": LoginSerializer,
+        "register": RegisterSerializer,
     }
 
     @extend_schema(responses={204: None})
@@ -42,6 +52,16 @@ class AuthViewSet(ImprovedViewSet):
     def logout(self, request: Request) -> Response:
         logout(request)
         return Response(None, status.HTTP_204_NO_CONTENT)
+
+    @extend_schema(responses={201: UserSerializer})
+    @method_decorator(csrf_protect)
+    @action(detail=False, methods=["post"])
+    def register(self, request: Request) -> Response:
+        serializer = self.get_valid_serializer(data=request.data)
+        user = serializer.save()
+        login(request, user)
+        user_serializer = UserSerializer(user)
+        return Response(user_serializer.data, status.HTTP_201_CREATED)
 
 
 class CurrentUserViewSet(ImprovedViewSet):
