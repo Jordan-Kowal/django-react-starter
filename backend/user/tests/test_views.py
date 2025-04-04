@@ -24,6 +24,9 @@ class AuthViewSetTestCase(BaseActionTestCase):
     def test_check_error_if_not_authenticated(self) -> None:
         response = self.api_client.get(AUTH_CHECK_URL)
         self.assertEqual(response.status_code, 401)
+        self.assertEqual(
+            response.data["detail"], "Authentication credentials were not provided."
+        )
 
     def test_login_success(self) -> None:
         user = UserFactory(email="test@test.test", password="test")
@@ -38,22 +41,31 @@ class AuthViewSetTestCase(BaseActionTestCase):
         payload = {"email": user.email, "password": "invalid password"}
         response = self.api_client.post(AUTH_LOGIN_URL, data=payload)
         self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.data["non_field_errors"][0], "Invalid credentials")
 
     def test_login_error_if_invalid_email(self) -> None:
         payload = {"email": "invalid@email.com", "password": "test"}
         response = self.api_client.post(AUTH_LOGIN_URL, data=payload)
         self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.data["non_field_errors"][0], "Invalid credentials")
 
     def test_login_error_if_inactive_user(self) -> None:
         user = UserFactory(email="test@test.test", password="test", is_active=False)
         payload = {"email": user.email, "password": "test"}
         response = self.api_client.post(AUTH_LOGIN_URL, data=payload)
         self.assertEqual(response.status_code, 400)
+        self.assertEqual(
+            response.data["non_field_errors"][0], "Your account is inactive"
+        )
 
     def test_login_error_if_authenticated(self) -> None:
         self.api_client.force_authenticate(self.user)
         response = self.api_client.post(AUTH_LOGIN_URL, data={})
         self.assertEqual(response.status_code, 403)
+        self.assertEqual(
+            response.data["detail"],
+            "You must be logged out to use this service",
+        )
 
     def test_logout_success(self) -> None:
         self.api_client.force_authenticate(self.user)
@@ -66,6 +78,9 @@ class AuthViewSetTestCase(BaseActionTestCase):
     def test_logout_error_if_not_authenticated(self) -> None:
         response = self.api_client.post(AUTH_LOGOUT_URL)
         self.assertEqual(response.status_code, 401)
+        self.assertEqual(
+            response.data["detail"], "Authentication credentials were not provided."
+        )
 
     def test_register_success(self) -> None:
         payload = {
@@ -91,6 +106,7 @@ class AuthViewSetTestCase(BaseActionTestCase):
         response = self.api_client.post(AUTH_REGISTER_URL, data=payload)
         self.assertEqual(response.status_code, 400)
         self.assertEqual(User.objects.count(), initial_user_count)
+        self.assertEqual(response.data["email"][0], "This email is already used")
 
     def test_register_error_if_weak_password(self) -> None:
         payload = {
@@ -101,11 +117,22 @@ class AuthViewSetTestCase(BaseActionTestCase):
         response = self.api_client.post(AUTH_REGISTER_URL, data=payload)
         self.assertEqual(response.status_code, 400)
         self.assertEqual(User.objects.count(), initial_user_count)
+        self.assertIn("password", response.data)
+        self.assertTrue(
+            any(
+                "password is too short" in error.lower()
+                for error in response.data["password"]
+            )
+        )
 
     def test_register_error_if_authenticated(self) -> None:
         self.api_client.force_authenticate(self.user)
         response = self.api_client.post(AUTH_REGISTER_URL, data={})
         self.assertEqual(response.status_code, 403)
+        self.assertEqual(
+            response.data["detail"],
+            "You must be logged out to use this service",
+        )
 
 
 SELF_URL = reverse("self-list")
@@ -137,6 +164,9 @@ class CurrentUserViewSetTestCase(BaseActionTestCase):
         self.api_client.force_authenticate(None)
         response = self.api_client.post(SELF_URL, data={})
         self.assertEqual(response.status_code, 401)
+        self.assertEqual(
+            response.data["detail"], "Authentication credentials were not provided."
+        )
 
     def test_list_success(self) -> None:
         response = self.api_client.get(SELF_URL)
@@ -147,6 +177,9 @@ class CurrentUserViewSetTestCase(BaseActionTestCase):
         self.api_client.force_authenticate(None)
         response = self.api_client.get(SELF_URL)
         self.assertEqual(response.status_code, 401)
+        self.assertEqual(
+            response.data["detail"], "Authentication credentials were not provided."
+        )
 
     def test_update_password_success(self) -> None:
         current_password = "stR0ngP4ssw0rd!"
@@ -174,6 +207,9 @@ class CurrentUserViewSetTestCase(BaseActionTestCase):
         }
         response = self.api_client.post(UPDATE_PASSWORD_URL, payload)
         self.assertEqual(response.status_code, 400)
+        self.assertEqual(
+            response.data["current_password"][0], "Current password is incorrect"
+        )
 
     def test_update_password_error_if_weak_password(self) -> None:
         current_password = "stR0ngP4ssw0rd!"
@@ -185,7 +221,18 @@ class CurrentUserViewSetTestCase(BaseActionTestCase):
         }
         response = self.api_client.post(UPDATE_PASSWORD_URL, payload)
         self.assertEqual(response.status_code, 400)
+        self.assertIn("new_password", response.data)
+        self.assertTrue(
+            any(
+                "password is too short" in error.lower()
+                for error in response.data["new_password"]
+            )
+        )
 
     def test_update_password_error_if_not_authenticated(self) -> None:
+        self.api_client.force_authenticate(None)
         response = self.api_client.post(UPDATE_PASSWORD_URL, {})
         self.assertEqual(response.status_code, 401)
+        self.assertEqual(
+            response.data["detail"], "Authentication credentials were not provided."
+        )
