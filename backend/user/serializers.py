@@ -30,11 +30,11 @@ class LoginSerializer(serializers.Serializer):
         password = data["password"]
         user = User.objects.filter(email=email).first()
         if not user:
-            raise serializers.ValidationError("Identifiants de connexion invalides")
+            raise serializers.ValidationError("Invalid credentials")
         if not user.check_password(password):
-            raise serializers.ValidationError("Identifiants de connexion invalides")
+            raise serializers.ValidationError("Invalid credentials")
         if not user.is_active:
-            raise serializers.ValidationError("Votre utilisateur est inactif")
+            raise serializers.ValidationError("Your account is inactive")
         return {"user": user}
 
 
@@ -52,7 +52,7 @@ class RegisterSerializer(serializers.Serializer):
 
     def validate_email(self, email: str) -> str:
         if User.objects.filter(email=email).exists():
-            raise serializers.ValidationError("Cet email est déjà utilisé")
+            raise serializers.ValidationError("This email is already used")
         return email
 
     @staticmethod
@@ -87,7 +87,7 @@ class UpdatePasswordSerializer(serializers.Serializer):
 
     def validate_current_password(self, current_password: str) -> str:
         if not self.instance.check_password(current_password):
-            raise serializers.ValidationError("Mot de passe actuel incorrect")
+            raise serializers.ValidationError("Current password is incorrect")
         return current_password
 
     @staticmethod
@@ -153,6 +153,4 @@ class UserSerializer(serializers.ModelSerializer):
         user.last_name = validated_data["last_name"]
         user.email = validated_data["email"]
         user.save()
-        # Profile
-        # profile_data = validated_data.pop("profile")
         return user

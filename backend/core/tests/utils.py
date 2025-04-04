@@ -56,10 +56,6 @@ class BaseActionTestCase(BaseTestCase, APITestCase):
         super().setUpTestData()
         cls.user = cast(UserType, UserFactory())
 
-    def setUp(self) -> None:
-        super().setUp()
-        self.api_client.force_authenticate(self.user)
-
     def tearDown(self) -> None:
         super().tearDown()
         self.api_client.logout()

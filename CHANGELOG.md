@@ -24,6 +24,8 @@
 ### 🔧 Others
 
 - 💫 **DX**: Added `.cursorrules` file for easier prompting
+- 💻 **Backend**: Changed Django default language to English
+- 💻 **Backend**: Changed DRF's error messages to English
 
 ## [v4.0.0] - 2025-03-28
 

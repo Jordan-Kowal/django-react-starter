@@ -10,19 +10,15 @@ from core.views import AppViewSet, index, robots_txt
 from health.views import HealthViewSet
 from user.views import AuthViewSet, CurrentUserViewSet
 
-# Router
 router = routers.SimpleRouter()
 router.register("app", AppViewSet, "app")
 router.register("auth", AuthViewSet, "auth")
 router.register("self", CurrentUserViewSet, "self")
 router.register("health", HealthViewSet, basename="health")
 
-# Using variables to make testing easier
 API_ROOT = "api"
 
-# URLs
 urlpatterns = [
-    # Django
     path("robots.txt/", robots_txt),
     path("admin/", admin.site.urls),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
@@ -45,7 +41,5 @@ if settings.ENVIRONMENT in ["development", "staging", "test"]:
 urlpatterns += [re_path(r"^.*$", index)]
 
 # Admin config
-admin.site.site_header = mark_safe("<strong>Interface d'administration</strong>")
-admin.site.index_title = (
-    "Bienvenue sur l'interface d'administration de Django React Starter"
-)
+admin.site.site_header = mark_safe("<strong>Admin Interface</strong>")
+admin.site.index_title = "Welcome to the Django React Starter admin interface"
