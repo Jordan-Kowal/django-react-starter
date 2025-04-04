@@ -137,6 +137,7 @@ class AuthViewSetTestCase(BaseActionTestCase):
 
 SELF_URL = reverse("self-list")
 UPDATE_PASSWORD_URL = reverse("self-update-password")
+DELETE_ACCOUNT_URL = reverse("self-delete-account")
 
 
 class CurrentUserViewSetTestCase(BaseActionTestCase):
@@ -236,3 +237,22 @@ class CurrentUserViewSetTestCase(BaseActionTestCase):
         self.assertEqual(
             response.data["detail"], "Authentication credentials were not provided."
         )
+
+    def test_delete_account_success(self) -> None:
+        user_id = self.user.id
+        initial_user_count = User.objects.count()
+        print(DELETE_ACCOUNT_URL)
+        response = self.api_client.delete(DELETE_ACCOUNT_URL)
+        self.assertEqual(response.status_code, 204)
+        self.assertEqual(User.objects.count(), initial_user_count - 1)
+        self.assertFalse(User.objects.filter(id=user_id).exists())
+
+    def test_delete_account_error_if_not_authenticated(self) -> None:
+        self.api_client.force_authenticate(None)
+        initial_user_count = User.objects.count()
+        response = self.api_client.delete(DELETE_ACCOUNT_URL)
+        self.assertEqual(response.status_code, 401)
+        self.assertEqual(
+            response.data["detail"], "Authentication credentials were not provided."
+        )
+        self.assertEqual(User.objects.count(), initial_user_count)

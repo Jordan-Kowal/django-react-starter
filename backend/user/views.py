@@ -98,6 +98,15 @@ class CurrentUserViewSet(ImprovedViewSet):
         return Response(serializer.data, status.HTTP_200_OK)
 
     @extend_schema(responses={204: None})
+    @action(detail=False, methods=["delete"])
+    def delete_account(self, request: Request) -> Response:
+        """DELETE the current user account."""
+        user = request.user
+        logout(request)
+        user.delete()
+        return Response(None, status.HTTP_204_NO_CONTENT)
+
+    @extend_schema(responses={204: None})
     @action(detail=False, methods=["post"])
     def update_password(self, request: Request) -> Response:
         serializer = self.get_valid_serializer(request.user, data=request.data)
