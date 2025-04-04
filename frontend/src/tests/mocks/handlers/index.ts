@@ -1,4 +1,4 @@
-import { loginSuccess } from "./login";
+import { loginSuccess, registerSuccess } from "./login";
 import { updatePasswordSuccess, updateSelfSuccess } from "./settings";
 import { appConfig, checkAuthSuccess, logout, self } from "./shared";
 
@@ -9,6 +9,7 @@ export const defaultHandlers = [
   self,
   // Auth
   loginSuccess,
+  registerSuccess,
   logout,
   // Profile
   updateSelfSuccess,

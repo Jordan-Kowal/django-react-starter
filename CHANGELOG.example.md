@@ -11,6 +11,7 @@
 ### 🔧 Others
 
 - 💫 **DX**:
+- 🍬 **UX**:
 - 💻 **Backend**:
 - 🎨 **Frontend**:
 - 🚂 **Deploy**:

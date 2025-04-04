@@ -11,11 +11,16 @@
 ### 🔧 Others
 
 - 💫 **DX**:
+- 🍬 **UX**:
 - 💻 **Backend**:
 - 🎨 **Frontend**:
 - 🚂 **Deploy**:
 
 ## TBD
+
+### 🚀 Features
+
+- 🍬 **UX**: Added register form allowing users to create an account
 
 ### 🐞 Bugfixes
 
@@ -23,9 +28,10 @@
 
 ### 🔧 Others
 
-- 💫 **DX**: Added `.cursorrules` file for easier prompting
+- 💫 **DX**: Added `.cursorrules` file for easier prompting in Cursor
 - 💻 **Backend**: Changed Django default language to English
 - 💻 **Backend**: Changed DRF's error messages to English
+- 💻 **Backend**: Made API tests more reliable and robust
 
 ## [v4.0.0] - 2025-03-28
 
