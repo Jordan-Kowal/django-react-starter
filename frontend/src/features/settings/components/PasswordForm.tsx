@@ -9,7 +9,7 @@ import { useUpdatePassword } from "../api";
 
 const schema = z.object({
   currentPassword: z.string().nonempty(),
-  password: z.string().nonempty(),
+  newPassword: z.string().nonempty(),
   confirmPassword: z.string().nonempty(),
 });
 
@@ -24,7 +24,7 @@ export const PasswordForm: React.FC = memo(() => {
   /** Refined here for translations management */
   const refinedSchema = useMemo(
     () =>
-      schema.refine((data) => data.password === data.confirmPassword, {
+      schema.refine((data) => data.newPassword === data.confirmPassword, {
         message: t("Passwords do not match"),
         path: ["confirmPassword"],
       }),
@@ -43,22 +43,22 @@ export const PasswordForm: React.FC = memo(() => {
     mode: "onChange",
   });
 
-  const password = watch("password");
+  const newPassword = watch("newPassword");
   const confirmPassword = watch("confirmPassword");
 
   /* Password change will re-trigger the confirmPassword validation */
   useEffect(() => {
-    if (password && confirmPassword) {
+    if (newPassword && confirmPassword) {
       trigger("confirmPassword");
     }
-  }, [password, confirmPassword, trigger]);
+  }, [newPassword, confirmPassword, trigger]);
 
   const onSubmit = async (data: Schema) => {
     setIsLoading(true);
     try {
       await updatePassword(data);
       reset(
-        { currentPassword: "", password: "", confirmPassword: "" },
+        { currentPassword: "", newPassword: "", confirmPassword: "" },
         { keepValues: false },
       );
     } catch (e) {}
@@ -93,16 +93,16 @@ export const PasswordForm: React.FC = memo(() => {
           )}
         />
         <Controller
-          name="password"
+          name="newPassword"
           control={control}
           render={({ field }) => (
             <FieldsetInput
               icon={<LockKeyhole size={16} />}
-              label={t("Password")}
-              errorMessage={errors?.password?.message}
-              placeholder={t("Enter your password")}
+              label={t("New password")}
+              errorMessage={errors?.newPassword?.message}
+              placeholder={t("Enter your new password")}
               type="password"
-              dataTestId="password"
+              dataTestId="new-password"
               {...field}
             />
           )}

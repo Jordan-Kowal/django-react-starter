@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 export type UpdatePasswordRequestData = {
   currentPassword: string;
-  password: string;
+  newPassword: string;
   confirmPassword: string;
 };
 
@@ -27,8 +27,7 @@ export const useUpdatePassword: UseUpdatePassword = () => {
         method: "POST",
         data: {
           current_password: data.currentPassword,
-          password: data.password,
-          confirm_password: data.confirmPassword,
+          new_password: data.newPassword,
         },
       });
     },
@@ -39,7 +38,7 @@ export const useUpdatePassword: UseUpdatePassword = () => {
       if (status === 400) {
         if (errors?.current_password) {
           toast.error(t("Invalid current password"));
-        } else if (errors?.password) {
+        } else if (errors?.new_password) {
           toast.error(t("Password is too weak"));
         }
       } else {

@@ -16,7 +16,7 @@ const getElements = (
 ): {
   form: HTMLFormElement;
   currentPasswordInput: HTMLInputElement;
-  passwordInput: HTMLInputElement;
+  newPasswordInput: HTMLInputElement;
   confirmPasswordInput: HTMLInputElement;
   submitButton: HTMLButtonElement;
 } => ({
@@ -25,7 +25,10 @@ const getElements = (
     container,
     "current-password-input",
   ),
-  passwordInput: getByTestId<HTMLInputElement>(container, "password-input"),
+  newPasswordInput: getByTestId<HTMLInputElement>(
+    container,
+    "new-password-input",
+  ),
   confirmPasswordInput: getByTestId<HTMLInputElement>(
     container,
     "confirm-password-input",
@@ -35,12 +38,12 @@ const getElements = (
 
 const fillAndSubmitForm = ({
   currentPasswordInput,
-  passwordInput,
+  newPasswordInput,
   confirmPasswordInput,
   submitButton,
 }: {
   currentPasswordInput: HTMLInputElement;
-  passwordInput: HTMLInputElement;
+  newPasswordInput: HTMLInputElement;
   confirmPasswordInput: HTMLInputElement;
   submitButton: HTMLButtonElement;
 }) => {
@@ -48,7 +51,7 @@ const fillAndSubmitForm = ({
     fireEvent.input(currentPasswordInput, {
       target: { value: "currentPassword" },
     });
-    fireEvent.input(passwordInput, { target: { value: "password" } });
+    fireEvent.input(newPasswordInput, { target: { value: "password" } });
     fireEvent.input(confirmPasswordInput, { target: { value: "password" } });
     fireEvent.submit(submitButton);
   });
@@ -63,7 +66,7 @@ describe("PasswordForm", () => {
       expect(form).toBeVisible();
     });
 
-    expect(form).toHaveTextContent("Password");
+    expect(form).toHaveTextContent("New password");
     expect(submitButton).toBeDisabled();
   });
 
@@ -72,7 +75,7 @@ describe("PasswordForm", () => {
     const {
       form,
       currentPasswordInput,
-      passwordInput,
+      newPasswordInput,
       confirmPasswordInput,
       submitButton,
     } = getElements(container);
@@ -83,7 +86,7 @@ describe("PasswordForm", () => {
 
     fillAndSubmitForm({
       currentPasswordInput,
-      passwordInput,
+      newPasswordInput,
       confirmPasswordInput,
       submitButton,
     });
@@ -97,8 +100,7 @@ describe("PasswordForm", () => {
       {
         data: {
           current_password: "currentPassword",
-          password: "password",
-          confirm_password: "password",
+          new_password: "password",
         },
         method: "POST",
       },
@@ -111,7 +113,7 @@ describe("PasswordForm", () => {
     const {
       form,
       currentPasswordInput,
-      passwordInput,
+      newPasswordInput,
       submitButton,
       confirmPasswordInput,
     } = getElements(container);
@@ -122,7 +124,7 @@ describe("PasswordForm", () => {
 
     fillAndSubmitForm({
       currentPasswordInput,
-      passwordInput,
+      newPasswordInput,
       confirmPasswordInput,
       submitButton,
     });
@@ -136,8 +138,7 @@ describe("PasswordForm", () => {
       {
         data: {
           current_password: "currentPassword",
-          password: "password",
-          confirm_password: "password",
+          new_password: "password",
         },
         method: "POST",
       },
@@ -150,7 +151,7 @@ describe("PasswordForm", () => {
     const {
       form,
       currentPasswordInput,
-      passwordInput,
+      newPasswordInput,
       submitButton,
       confirmPasswordInput,
     } = getElements(container);
@@ -161,7 +162,7 @@ describe("PasswordForm", () => {
 
     fillAndSubmitForm({
       currentPasswordInput,
-      passwordInput,
+      newPasswordInput,
       confirmPasswordInput,
       submitButton,
     });
@@ -175,8 +176,7 @@ describe("PasswordForm", () => {
       {
         data: {
           current_password: "currentPassword",
-          password: "password",
-          confirm_password: "password",
+          new_password: "password",
         },
         method: "POST",
       },
@@ -189,7 +189,7 @@ describe("PasswordForm", () => {
     const {
       form,
       currentPasswordInput,
-      passwordInput,
+      newPasswordInput,
       submitButton,
       confirmPasswordInput,
     } = getElements(container);
@@ -200,7 +200,7 @@ describe("PasswordForm", () => {
 
     fillAndSubmitForm({
       currentPasswordInput,
-      passwordInput,
+      newPasswordInput,
       confirmPasswordInput,
       submitButton,
     });
@@ -214,8 +214,7 @@ describe("PasswordForm", () => {
       {
         data: {
           current_password: "currentPassword",
-          password: "password",
-          confirm_password: "password",
+          new_password: "password",
         },
         method: "POST",
       },

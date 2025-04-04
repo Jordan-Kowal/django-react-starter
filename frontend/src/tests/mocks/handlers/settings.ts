@@ -31,7 +31,7 @@ export const updatePasswordCurrentError = http.post(
 export const updatePasswordStrengthError = http.post(
   `${API_ROOT_URL}/self/update_password/`,
   () => {
-    return HttpResponse.json({ password: "error" }, { status: 400 });
+    return HttpResponse.json({ new_password: "error" }, { status: 400 });
   },
 );
 
