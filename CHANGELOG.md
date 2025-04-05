@@ -21,6 +21,7 @@
 ### 🚀 Features
 
 - 🍬 **UX**: Added register form allowing users to create an account
+- 🍬 **UX**: Added "Danger Zone" in settings page to allow users to delete their account
 
 ### 🐞 Bugfixes
 

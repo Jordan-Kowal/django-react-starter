@@ -44,3 +44,17 @@ export const updatePasswordCrash = http.put(
     return HttpResponse.json({}, { status: 500 });
   },
 );
+
+export const deleteAccountSuccess = http.delete(
+  `${API_ROOT_URL}/self/account/`,
+  () => {
+    return HttpResponse.json(null, { status: 204 });
+  },
+);
+
+export const deleteAccountCrash = http.delete(
+  `${API_ROOT_URL}/self/account/`,
+  () => {
+    return HttpResponse.json({}, { status: 500 });
+  },
+);

@@ -18,7 +18,7 @@ export const NavBar: React.FC = memo(() => {
   return (
     <div
       data-testid="navbar"
-      className="navbar bg-base-100 fixed top-0 left-0 shadow-xs not-prose z-999"
+      className="navbar fixed top-0 left-0 shadow-xs not-prose z-999"
     >
       <div className="navbar-start">
         <Link

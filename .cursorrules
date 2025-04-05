@@ -77,7 +77,7 @@ Syntax and Formatting
 
 UI and Styling
 
-- Use Tailwind CSS for styling components, following a utility-first approach.
+- Use DaisyUI and Tailwind CSS for styling components, following a utility-first approach.
 - Leverage daisyUI's pre-built components for quick UI development.
 - Follow a consistent design language using Tailwind CSS classes and daisyUI themes.
 - Ensure the design remains responsive.

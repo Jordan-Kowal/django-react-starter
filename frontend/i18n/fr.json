@@ -1,12 +1,19 @@
 {
   "Account created successfully": "Compte créé avec succès",
   "An easy way to start a Django + React project": "Un moyen facile de démarrer un projet Django + React",
+  "Are you sure you want to delete your account? This action cannot be undone": "Voulez-vous vraiment supprimer votre compte ? Cette action ne peut pas être annulée",
   "Back to homepage": "Retour à la page d'accueil",
+  "Cancel": "Annuler",
   "Color theme": "Thème",
+  "Confirm": "Confirmer",
   "Confirm password": "Confirmation",
   "Confirm your password": "Confirmer votre mot de passe",
   "Current password": "Mot de passe actuel",
+  "Danger Zone": "Zone de danger",
   "Dark": "Sombre",
+  "Delete": "Supprimer",
+  "Delete Account": "Supprimer le compte",
+  "Delete your account": "Supprimer votre compte",
   "Django React Starter": "Django React Starter",
   "Email": "Adresse e-mail",
   "Email already taken": "Cette adresse e-mail est déjà utilisée",
@@ -41,5 +48,6 @@
   "Security": "Sécurité",
   "Settings": "Paramètres",
   "Something went wrong": "Une erreur s'est produite",
+  "Your account has been deleted": "Votre compte a été supprimé",
   "Your session has expired": "Votre session a expiré"
 }

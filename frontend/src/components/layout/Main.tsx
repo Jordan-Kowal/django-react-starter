@@ -25,7 +25,7 @@ export const Main: React.FC<MainProps> = memo(
 
     return (
       <main
-        className={`hero bg-base-100 w-full ${className || ""}`}
+        className={`hero w-full ${className || ""}`}
         data-testid={dataTestId}
         style={style}
       >

@@ -1,3 +1,4 @@
+export { useDeleteAccount } from "./useDeleteAccount";
 export {
   useUpdatePassword,
   type UpdatePasswordRequestData,

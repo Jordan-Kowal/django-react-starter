@@ -37,7 +37,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = memo(
         <div
           data-theme={theme}
           data-testid="theme-provider"
-          className="min-w-full prose prose-sm md:prose-base"
+          className="min-w-full prose prose-sm md:prose-base bg-base-100"
         >
           {children}
         </div>

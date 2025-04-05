@@ -10,7 +10,6 @@
 
 ## Features
 
-- Allow account deletion
 - Allow password recovery
 - Add 2-step authentication
 - Sentry frontend

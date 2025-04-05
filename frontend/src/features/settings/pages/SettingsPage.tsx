@@ -2,6 +2,7 @@ import { Main } from "@/components/layout";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import {
+  DangerZone,
   GoBackButton,
   PasswordForm,
   UserForm,
@@ -31,6 +32,10 @@ const SettingsPage: React.FC = memo(() => {
         <span className="text-lg font-bold">{t("Security")}</span>
       </div>
       <PasswordForm />
+      <div className="divider divider-start">
+        <span className="text-lg font-bold text-error">{t("Danger Zone")}</span>
+      </div>
+      <DangerZone />
     </Main>
   );
 });
