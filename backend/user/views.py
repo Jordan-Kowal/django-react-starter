@@ -23,7 +23,6 @@ class CurrentUserViewSet(ImprovedViewSet):
         "account": UserSimpleSerializer,
         "password": UpdatePasswordSerializer,
     }
-    pagination_class = None
 
     @extend_schema(
         methods=["DELETE"],

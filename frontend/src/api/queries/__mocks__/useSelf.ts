@@ -5,10 +5,4 @@ export const SELF_MOCK: ApiSelf = {
   first_name: "John",
   last_name: "Doe",
   email: "john.doe@email.com",
-  is_active: true,
-  is_staff: false,
-  is_superuser: false,
-  profile: {
-    user: 1,
-  },
 };

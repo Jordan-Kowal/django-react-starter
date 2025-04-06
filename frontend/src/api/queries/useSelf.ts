@@ -9,12 +9,6 @@ export type Self = {
   firstName: string;
   lastName: string;
   email: string;
-  isActive: boolean;
-  isStaff: boolean;
-  isSuperuser: boolean;
-  profile: {
-    user: number;
-  };
 };
 
 export type ApiSelf = {
@@ -22,12 +16,6 @@ export type ApiSelf = {
   first_name: string;
   last_name: string;
   email: string;
-  is_active: boolean;
-  is_staff: boolean;
-  is_superuser: boolean;
-  profile: {
-    user: number;
-  };
 };
 
 type UseSelfReturn = {
@@ -42,12 +30,6 @@ export const deserializeSelf = (data: ApiSelf): Self => ({
   firstName: data.first_name,
   lastName: data.last_name,
   email: data.email,
-  isActive: data.is_active,
-  isStaff: data.is_staff,
-  isSuperuser: data.is_superuser,
-  profile: {
-    user: data.profile.user,
-  },
 });
 
 export const useSelf = (): UseSelfReturn => {

@@ -2,7 +2,7 @@ import { useSelf } from "@/api/queries";
 import { Main } from "@/components/layout";
 import { Logo } from "@/components/ui";
 import { routeConfigMap } from "@/router";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "wouter";
 import { LoginForm, RegisterForm } from "../components";
@@ -15,9 +15,11 @@ const LoginPage: React.FC = memo(() => {
   const [, navigate] = useLocation();
   const [mode, setMode] = useState<AuthMode>("login");
 
-  if (self) {
-    navigate(routeConfigMap.homepage.path);
-  }
+  useEffect(() => {
+    if (self) {
+      navigate(routeConfigMap.homepage.path);
+    }
+  }, [self, navigate]);
 
   return (
     <Main dataTestId="login-page">
