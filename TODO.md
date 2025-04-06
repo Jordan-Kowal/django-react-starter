@@ -11,6 +11,6 @@
 ## Features
 
 - Allow password recovery
+- Auth with gmailConfirm
 - Add 2-step authentication
 - Sentry frontend
-- Auth with gmailConfirm

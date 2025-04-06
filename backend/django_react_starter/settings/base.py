@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "django_prometheus",
     "django_celery_results",
     # Custom
+    "authentication",
     "core",
     "health",
     "user",

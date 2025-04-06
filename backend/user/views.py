@@ -1,7 +1,4 @@
-from django.contrib.auth import get_user_model, login, logout, update_session_auth_hash
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_protect
-from django_utils_kit.permissions import IsNotAuthenticated
+from django.contrib.auth import get_user_model, logout, update_session_auth_hash
 from django_utils_kit.viewsets import ImprovedViewSet
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
@@ -11,57 +8,11 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 
 from user.serializers import (
-    LoginSerializer,
-    RegisterSerializer,
     UpdatePasswordSerializer,
-    UserSerializer,
+    UserSimpleSerializer,
 )
 
 User = get_user_model()
-
-
-class AuthViewSet(ImprovedViewSet):
-    default_serializer_class = None
-    permission_classes_per_action = {
-        "check": (IsAuthenticated,),
-        "login": (IsNotAuthenticated,),
-        "logout": (IsAuthenticated,),
-        "register": (IsNotAuthenticated,),
-    }
-    serializer_class_per_action = {
-        "login": LoginSerializer,
-        "register": RegisterSerializer,
-    }
-
-    @extend_schema(responses={204: None})
-    @action(detail=False, methods=["get"])
-    def check(self, request: Request) -> Response:
-        return Response(None, status.HTTP_204_NO_CONTENT)
-
-    @extend_schema(responses={204: None})
-    @method_decorator(csrf_protect)
-    @action(detail=False, methods=["post"])
-    def login(self, request: Request) -> Response:
-        serializer = self.get_valid_serializer(data=request.data)
-        user = serializer.validated_data["user"]
-        login(request, user)
-        return Response(None, status.HTTP_204_NO_CONTENT)
-
-    @extend_schema(responses={204: None})
-    @action(detail=False, methods=["post"])
-    def logout(self, request: Request) -> Response:
-        logout(request)
-        return Response(None, status.HTTP_204_NO_CONTENT)
-
-    @extend_schema(responses={201: UserSerializer})
-    @method_decorator(csrf_protect)
-    @action(detail=False, methods=["post"])
-    def register(self, request: Request) -> Response:
-        serializer = self.get_valid_serializer(data=request.data)
-        user = serializer.save()
-        login(request, user)
-        user_serializer = UserSerializer(user)
-        return Response(user_serializer.data, status.HTTP_201_CREATED)
 
 
 class CurrentUserViewSet(ImprovedViewSet):
@@ -69,7 +20,7 @@ class CurrentUserViewSet(ImprovedViewSet):
 
     default_permission_classes = (IsAuthenticated,)
     serializer_class_per_action = {
-        "account": UserSerializer,
+        "account": UserSimpleSerializer,
         "password": UpdatePasswordSerializer,
     }
     pagination_class = None
@@ -82,12 +33,12 @@ class CurrentUserViewSet(ImprovedViewSet):
     @extend_schema(
         methods=["PUT"],
         description="Update the current user's account.",
-        responses={200: UserSerializer},
+        responses={200: UserSimpleSerializer},
     )
     @extend_schema(
         methods=["GET"],
         description="Get the current user's account.",
-        responses={200: UserSerializer},
+        responses={200: UserSimpleSerializer},
     )
     @action(detail=False, methods=["get", "put", "delete"])
     def account(self, request: Request) -> Response:

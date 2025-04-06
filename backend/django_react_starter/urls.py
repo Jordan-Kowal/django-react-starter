@@ -6,9 +6,10 @@ from django.utils.safestring import mark_safe
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework import routers
 
+from authentication.views import AuthViewSet
 from core.views import AppViewSet, index, robots_txt
 from health.views import HealthViewSet
-from user.views import AuthViewSet, CurrentUserViewSet
+from user.views import CurrentUserViewSet
 
 router = routers.SimpleRouter()
 router.register("app", AppViewSet, basename="app")
