@@ -46,3 +46,17 @@ export const registerPasswordError = http.post(
 export const registerCrash = http.post(`${API_ROOT_URL}/auth/register/`, () => {
   return HttpResponse.json(null, { status: 500 });
 });
+
+export const passwordResetSuccess = http.post(
+  `${API_ROOT_URL}/auth/password_reset/`,
+  () => {
+    return HttpResponse.json(null, { status: 200 });
+  },
+);
+
+export const passwordResetError = http.post(
+  `${API_ROOT_URL}/auth/password_reset/`,
+  () => {
+    return HttpResponse.json(null, { status: 400 });
+  },
+);

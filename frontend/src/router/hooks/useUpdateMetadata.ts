@@ -14,6 +14,7 @@ export const useUpdateMetadata = () => {
       homepage: t("Django React Starter"),
       login: t("Login"),
       settings: t("Settings"),
+      passwordReset: t("Password reset"),
     }),
     [t],
   );

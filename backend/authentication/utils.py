@@ -15,7 +15,7 @@ PASSWORD_RESET_EMAIL = Email(
 
 def send_password_reset_email(user: "UserType") -> None:
     token = PasswordResetTokenGenerator().make_token(user)
-    url = f"{settings.SITE_DOMAIN}/password-reset-confirm?token={token}&uid={user.pk}"  # type: ignore
+    url = f"{settings.SITE_DOMAIN}/password-reset-confirm/{user.pk}/{token}"  # type: ignore
     duration_minute = int(settings.PASSWORD_RESET_TIMEOUT / 60)
     PASSWORD_RESET_EMAIL.send_async(
         to=[user.email],

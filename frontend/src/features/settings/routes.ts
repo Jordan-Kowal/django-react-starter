@@ -9,6 +9,6 @@ export const settingsRoutes: Record<SettingsRouteKey, RouteConfig> = {
     // component: lazy(() => import("./pages/SettingsPage")),
     component: SettingsPage,
     key: "settings",
-    requiresAuth: true,
+    authAccess: "private",
   },
 };

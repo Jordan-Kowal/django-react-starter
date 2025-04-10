@@ -11,6 +11,8 @@
 
 - Add dev containers
 - Allow password recovery
+  - Truly send email
+  - Refactor fieldset form
 - Auth with gmail
 - Add 2-step authentication
 - Add Sentry in frontend

@@ -18,7 +18,10 @@ export const Routes = memo(() => {
   const routes = useMemo(
     () =>
       Object.values(routeConfigMap)
-        .filter((route) => !(route.requiresAuth && !isAuthenticated))
+        .filter((route) => {
+          if (isAuthenticated) return route.authAccess !== "public-only";
+          return route.authAccess !== "private";
+        })
         .map((route) => (
           <Route key={route.key} path={route.path}>
             <Suspense fallback={<LoadingRing />}>

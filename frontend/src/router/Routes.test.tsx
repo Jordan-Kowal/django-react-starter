@@ -71,9 +71,12 @@ describe("Routes", () => {
   });
 
   test("should render the homepage when authenticated", async ({ expect }) => {
-    render(<Routes />);
+    const { container } = render(<Routes />);
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const homepage = getByTestId(container, "homepage");
+
     await waitFor(() => {
-      expect(navigateMock).toHaveBeenCalledWith("/");
+      expect(homepage).toBeVisible();
     });
   });
 });

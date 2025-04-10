@@ -91,9 +91,9 @@ describe("RegisterForm", () => {
       expect(toastSuccessMock).toHaveBeenCalledWith(
         "Account created successfully",
       );
-      expect(navigateMock).toHaveBeenCalledWith("/");
     });
 
+    expect(navigateMock).toHaveBeenCalledWith("/");
     expect(performRequest).toHaveBeenCalledWith("/api/v1/auth/register/", {
       data: { email: "test@email.com", password: "password" },
       method: "POST",

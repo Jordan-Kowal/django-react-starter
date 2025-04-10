@@ -1,6 +1,4 @@
 import { navigateMock } from "@/tests/mocks/globals";
-import { selfError } from "@/tests/mocks/handlers/shared";
-import { server } from "@/tests/server";
 import { render } from "@/tests/utils";
 import { act, fireEvent, getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
@@ -10,7 +8,6 @@ describe("LoginPage", () => {
   test("should render the page with login form by default", async ({
     expect,
   }) => {
-    server.use(selfError);
     const { container } = render(<LoginPage />);
     const loginPage = getByTestId<HTMLDivElement>(container, "login-page");
 
@@ -26,7 +23,6 @@ describe("LoginPage", () => {
   test("should switch to register form when register toggle is clicked", async ({
     expect,
   }) => {
-    server.use(selfError);
     const { container } = render(<LoginPage />);
     const loginPage = getByTestId<HTMLDivElement>(container, "login-page");
 
@@ -58,7 +54,9 @@ describe("LoginPage", () => {
     });
   });
 
-  test("should redirect if user is already logged in", async ({ expect }) => {
+  test("should switch to password reset page when link is clicked", async ({
+    expect,
+  }) => {
     const { container } = render(<LoginPage />);
     const loginPage = getByTestId<HTMLDivElement>(container, "login-page");
 
@@ -66,8 +64,9 @@ describe("LoginPage", () => {
       expect(loginPage).toBeVisible();
     });
 
-    await waitFor(() => {
-      expect(navigateMock).toHaveBeenCalledWith("/");
-    });
+    expect(getByTestId(container, "password-reset-link")).toHaveAttribute(
+      "href",
+      "/password-reset",
+    );
   });
 });

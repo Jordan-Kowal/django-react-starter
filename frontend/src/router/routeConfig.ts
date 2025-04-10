@@ -6,12 +6,13 @@ import {
 } from "@/features/settings/routes";
 
 export type RouteKey = HomeRouteKey | LoginRouteKey | SettingsRouteKey;
+export type AuthAccess = "public" | "private" | "public-only";
 
 export type RouteConfig = {
   path: string;
   component: React.ComponentType<any>;
   key: RouteKey;
-  requiresAuth?: boolean;
+  authAccess: AuthAccess;
 };
 
 export type RouteConfigMap = Record<RouteKey, RouteConfig>;

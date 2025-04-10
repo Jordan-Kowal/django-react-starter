@@ -9,6 +9,6 @@ export const homeRoutes: Record<HomeRouteKey, RouteConfig> = {
     // component: lazy(() => import("./pages/Homepage")),
     component: Homepage,
     key: "homepage",
-    requiresAuth: true,
+    authAccess: "private",
   },
 };

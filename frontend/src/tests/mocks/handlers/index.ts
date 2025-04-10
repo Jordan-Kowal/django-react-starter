@@ -1,4 +1,4 @@
-import { loginSuccess, registerSuccess } from "./login";
+import { loginSuccess, passwordResetSuccess, registerSuccess } from "./login";
 import {
   deleteAccountSuccess,
   updatePasswordSuccess,
@@ -15,6 +15,7 @@ export const defaultHandlers = [
   loginSuccess,
   registerSuccess,
   logout,
+  passwordResetSuccess,
   // Settings
   updateSelfSuccess,
   deleteAccountSuccess,

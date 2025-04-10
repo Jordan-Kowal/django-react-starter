@@ -1,28 +1,18 @@
-import { useSelf } from "@/api/queries";
 import { Main } from "@/components/layout";
 import { Logo } from "@/components/ui";
-import { routeConfigMap } from "@/router";
-import { memo, useEffect, useState } from "react";
+import { memo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "wouter";
+import { Link } from "wouter";
 import { LoginForm, RegisterForm } from "../components";
 
 type AuthMode = "login" | "register";
 
 const LoginPage: React.FC = memo(() => {
   const { t } = useTranslation();
-  const { data: self } = useSelf();
-  const [, navigate] = useLocation();
   const [mode, setMode] = useState<AuthMode>("login");
 
-  useEffect(() => {
-    if (self) {
-      navigate(routeConfigMap.homepage.path);
-    }
-  }, [self, navigate]);
-
   return (
-    <Main dataTestId="login-page">
+    <Main dataTestId="login-page" className="w-full max-w-lg mx-auto">
       <div className="max-w-50 mx-auto mb-6">
         <Logo />
       </div>
@@ -50,6 +40,11 @@ const LoginPage: React.FC = memo(() => {
         </div>
       </div>
       {mode === "login" ? <LoginForm /> : <RegisterForm />}
+      <div className="text-center mt-2 italic text-sm">
+        <Link to="/password-reset" data-testid="password-reset-link">
+          {t("Forgot your password?")}
+        </Link>
+      </div>
     </Main>
   );
 });
