@@ -12,7 +12,7 @@ const LoginPage: React.FC = memo(() => {
   const [mode, setMode] = useState<AuthMode>("login");
 
   return (
-    <Main dataTestId="login-page" className="w-full max-w-lg mx-auto">
+    <Main dataTestId="login-page">
       <div className="max-w-50 mx-auto mb-6">
         <Logo />
       </div>

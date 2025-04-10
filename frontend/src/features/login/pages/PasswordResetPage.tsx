@@ -7,7 +7,7 @@ import { PasswordResetForm } from "../components";
 const PasswordResetPage: React.FC = memo(() => {
   const { t } = useTranslation();
   return (
-    <Main dataTestId="password-reset-page" className="w-full max-w-lg mx-auto">
+    <Main dataTestId="password-reset-page">
       <div className="max-w-50 mx-auto mb-6">
         <Logo />
       </div>
