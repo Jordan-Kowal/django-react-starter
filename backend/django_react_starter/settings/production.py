@@ -14,6 +14,7 @@ FLY_VOLUME_DIR = os.getenv("FLY_VOLUME_DIR", None)
 # --------------------------------------------------------------------------------
 # > HTTP
 # --------------------------------------------------------------------------------
+SITE_DOMAIN = os.getenv("SITE_DOMAIN")
 HOST_DNS_NAMES = os.getenv("HOST_DNS_NAMES", "").split(",")
 INTERNAL_IPS = os.getenv("INTERNAL_IPS", "").split(",")
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", *HOST_DNS_NAMES, *INTERNAL_IPS]

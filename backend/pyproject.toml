@@ -66,7 +66,13 @@ quote-style = "double"
 docstring-code-format = true
 
 [tool.ruff.lint.isort]
-known-first-party = ["core", "health", "django_react_starter", "user"]
+known-first-party = [
+    "core",
+    "health",
+    "django_react_starter",
+    "user",
+    "authentication",
+]
 force-sort-within-sections = true
 section-order = [
     "future",

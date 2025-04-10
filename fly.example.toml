@@ -13,6 +13,7 @@ strategy = 'rolling'
 DJANGO_SETTINGS_MODULE = 'django_react_starter.settings.production'
 ENVIRONMENT = 'production'
 FLY_VOLUME_DIR = '/home/app/data'                                              # like the mount destination
+SITE_DOMAIN = 'django_react_starter.jkdev.app'
 HOST_DNS_NAMES = 'django_react_starter.fly.dev,django_react_starter.jkdev.app'
 INTERNAL_IPS = '172.19.4.106'                                                  # Add prometheus internal IP (check sentry error on first boot)
 GUNICORN_WORKERS = '1'

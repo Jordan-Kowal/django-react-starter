@@ -30,7 +30,8 @@
 
 ### 🔧 Others
 
-- 💫 **DX**: Added `.cursorrules` file for easier prompting in Cursor
+- 💫 **DX**: Added `.github/copilot-instructions.md` file for easier prompting in Cursor
+- 💫 **DX**: Added `make start` command to run project in docker
 - 💻 **Backend**: Changed Django default language to English
 - 💻 **Backend**: Changed DRF's error messages to English
 - 💻 **Backend**: Made API tests more reliable and robust

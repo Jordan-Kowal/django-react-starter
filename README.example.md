@@ -50,10 +50,12 @@ cp backend/.env.test.example backend/.env.test
 Then you can start the application:
 
 ```shell
-docker-compose up
+docker compose up
+# or
+make start
 ```
 
-_While the entire project runs with `docker-compose`, you might want to_
+_While the entire project runs with `docker compose`, you might want to_
 _install a python virtual environment and the node modules locally_
 _for a better IDE experience._
 
@@ -63,7 +65,7 @@ _for a better IDE experience._
 
 Regarding the way we boot the Django app:
 
-- `docker-compose up` will built and boot all of our **containers**
+- `docker compose up` will built and boot all of our **containers**
 - The **django container** will call `supervisord` to boot the Django app
 - The `supervisord.conf` will call both `run-app.sh` and `run-celery-worker.sh`
 - `run-app.sh` will run a few commands and start the app

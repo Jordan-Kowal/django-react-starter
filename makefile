@@ -85,6 +85,9 @@ frontend.test.coverage:
 # --------------------------------------------------
 # Others
 # --------------------------------------------------
+start:
+	@docker compose up --build
+
 setup_hooks:
 	@git config core.hooksPath .githooks
 
@@ -108,5 +111,6 @@ help:
 	@echo "frontend.test: 				Runs tests"
 	@echo "frontend.test:coverage:		Runs tests and generates coverage report"
 	@echo "----- OTHERS --------------------------------------------------------------------------"
+	@echo "start: 						Starts the containers using docker compose"
 	@echo "setup_hooks: 				Setups the git pre-commit hooks"
 	@echo "help: 						Prints this help message"

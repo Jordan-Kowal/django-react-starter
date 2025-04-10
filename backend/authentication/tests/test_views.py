@@ -1,4 +1,8 @@
+from time import sleep
+
 from django.contrib.auth import get_user_model
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core import mail
 from rest_framework.reverse import reverse
 
 from core.tests import BaseActionTestCase
@@ -10,6 +14,8 @@ AUTH_CHECK_URL = reverse("auth-check")
 AUTH_LOGIN_URL = reverse("auth-login")
 AUTH_LOGOUT_URL = reverse("auth-logout")
 AUTH_REGISTER_URL = reverse("auth-register")
+AUTH_PASSWORD_RESET_URL = reverse("auth-password-reset")
+AUTH_PASSWORD_RESET_CONFIRM_URL = reverse("auth-password-reset-confirm")
 
 
 class AuthViewSetTestCase(BaseActionTestCase):
@@ -133,3 +139,71 @@ class AuthViewSetTestCase(BaseActionTestCase):
             response.data["detail"],
             "You must be logged out to use this service",
         )
+
+    def test_password_reset_with_valid_email(self) -> None:
+        user = UserFactory(email="reset@test.com")
+        payload = {"email": user.email}
+        response = self.api_client.post(AUTH_PASSWORD_RESET_URL, data=payload)
+        self.assertEqual(response.status_code, 204)
+        sleep(0.1)  # Email is sent asynchronously
+        self.assertEqual(len(mail.outbox), 1)
+
+    def test_password_reset_with_invalid_email(self) -> None:
+        payload = {"email": "nonexistent@test.com"}
+        response = self.api_client.post(AUTH_PASSWORD_RESET_URL, data=payload)
+        self.assertEqual(response.status_code, 204)
+        self.assertEqual(len(mail.outbox), 0)
+
+    def test_password_reset_confirm_with_valid_token(self) -> None:
+        user = UserFactory(email="reset_confirm@test.com", password="oldpassword")
+        token_generator = PasswordResetTokenGenerator()
+        token = token_generator.make_token(user)  # type: ignore
+        payload = {
+            "uid": user.id,
+            "token": token,
+            "password": "NewSecurePassword123!",
+        }
+        response = self.api_client.post(AUTH_PASSWORD_RESET_CONFIRM_URL, data=payload)
+        self.assertEqual(response.status_code, 204)
+        # Verify password was changed
+        user.refresh_from_db()
+        self.assertTrue(user.check_password("NewSecurePassword123!"))
+
+    def test_password_reset_confirm_with_invalid_token(self) -> None:
+        user = UserFactory(email="reset_invalid@test.com", password="oldpassword")
+        payload = {
+            "uid": user.id,
+            "token": "invalid-token",
+            "password": "NewSecurePassword123!",
+        }
+        response = self.api_client.post(AUTH_PASSWORD_RESET_CONFIRM_URL, data=payload)
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.data["non_field_errors"][0], "Invalid information")
+        # Verify password was not changed
+        user.refresh_from_db()
+        self.assertTrue(user.check_password("oldpassword"))
+
+    def test_password_reset_confirm_with_invalid_user(self) -> None:
+        payload = {
+            "uid": 9999,  # non-existent user ID
+            "token": "some-token",
+            "password": "NewSecurePassword123!",
+        }
+        response = self.api_client.post(AUTH_PASSWORD_RESET_CONFIRM_URL, data=payload)
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.data["non_field_errors"][0], "Invalid information")
+
+    def test_password_reset_confirm_with_weak_password(self) -> None:
+        user = UserFactory(email="reset_weak@test.com", password="oldpassword")
+        token_generator = PasswordResetTokenGenerator()
+        token = token_generator.make_token(user)  # type: ignore
+        payload = {"uid": user.id, "token": token, "password": "weak"}
+        response = self.api_client.post(AUTH_PASSWORD_RESET_CONFIRM_URL, data=payload)
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(
+            response.data["password"][0],
+            "This password is too short. It must contain at least 8 characters.",
+        )
+        # Verify password was not changed
+        user.refresh_from_db()
+        self.assertTrue(user.check_password("oldpassword"))
