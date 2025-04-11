@@ -37,6 +37,7 @@
 - 💻 **Backend**: Made API tests more reliable and robust
 - 💻 **Backend**: Changed `self/` API to use `self/account/` for cleaner routing in viewset
 - 💻 **Backend**: Added parallelization to backend tests with the `Makefile`
+- 💻 **Backend**: Upgraded `rabbitmq` docker image to version 4
 - 💫 **DX**: Added `.github/copilot-instructions.md` file for easier prompting with Copilot
 - 💫 **DX**: Added `make start` command to run project in docker
 
