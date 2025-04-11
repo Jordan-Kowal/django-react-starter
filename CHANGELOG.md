@@ -20,7 +20,7 @@
 
 ### 🚀 Features
 
-- 🍬 **Backend**: Added email support with `django-anymail` (with default config set with `sendinblue`)
+- 💻 **Backend**: Added email support with `django-anymail` (with default config set with `sendinblue`)
 - 🍬 **UX**: Added register form allowing users to create an account
 - 🍬 **UX**: Added "Danger Zone" in settings page to allow users to delete their account
 - 🍬 **UX**: Added password reset workflow
