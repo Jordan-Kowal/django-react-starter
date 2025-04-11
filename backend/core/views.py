@@ -30,6 +30,6 @@ class AppViewSet(ImprovedViewSet):
     }
 
     @action(detail=False, methods=["GET"])
-    def config(self, request: Request) -> Response:
+    def config(self, _request: Request) -> Response:
         serializer = self.get_serializer()
         return Response(serializer.data)

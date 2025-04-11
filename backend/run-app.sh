@@ -21,6 +21,6 @@ if [[ "$RUN_AS_DEV_SERVER" == 1 ]]; then
 else
   echo "[run-app] Running app in production mode"
   gunicorn django_react_starter.wsgi:application \
-    --bind=:${PORT:-8000} \
-    --workers=${GUNICORN_WORKERS:-4}
+    --bind=:"${PORT:-8000}" \
+    --workers="${GUNICORN_WORKERS:-4}"
 fi

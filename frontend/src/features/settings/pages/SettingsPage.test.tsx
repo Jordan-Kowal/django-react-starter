@@ -12,11 +12,12 @@ describe.concurrent("SettingsPage", () => {
       container,
       "settings-page",
     );
+
     await waitFor(() => {
       expect(settingsPage).toBeVisible();
-      expect(settingsPage).toHaveTextContent("Django React Starter");
     });
 
+    expect(settingsPage).toHaveTextContent("Django React Starter");
     expect(settingsPage).toHaveTextContent("Preferences");
     expect(settingsPage).toHaveTextContent("Information");
     expect(settingsPage).toHaveTextContent("Security");

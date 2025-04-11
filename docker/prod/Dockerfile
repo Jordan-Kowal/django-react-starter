@@ -7,8 +7,8 @@ RUN yarn install && yarn build
 FROM python:3.13.2-slim
 
 # Python environment variables
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
 ENV UV_PROJECT_ENVIRONMENT="/usr/local/"
 
 # Update OS

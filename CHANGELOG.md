@@ -11,10 +11,25 @@
 ### 🔧 Others
 
 - 💫 **DX**:
-- 🍬 **UX**:
 - 💻 **Backend**:
-- 🎨 **Frontend**:
 - 🚂 **Deploy**:
+- 🎨 **Frontend**:
+- 🍬 **UX**:
+
+## [v4.1.1] - 2025-04-11
+
+### ✨ Improvements
+
+- 💫 **DX**: Added `make stop` command to stop docker containers
+
+### 🐞 Bugfixes
+
+- 💻 **Backend**: Added `tblib` for traceback in parallel Django tests
+- 🎨 **Frontend**: Added `sans-serif` fallback font everywhere
+
+### 🔧 Others
+
+- 🚂 **Deploy**: Removed "production" variables from `.env*` as they are listed in `fly.example.toml`
 
 ## [v4.1.0] - 2025-04-11
 

@@ -56,9 +56,6 @@ backend.test.coverage:
 		coverage report && \
 		coverage html"
 
-backend.test.debug:
-	@$(MAKE) -s _manage_py cmd=test env_file='.env.test' opts="--tag=debug --parallel"
-
 
 # --------------------------------------------------
 # Frontend
@@ -82,11 +79,14 @@ frontend.test.coverage:
 # --------------------------------------------------
 # Others
 # --------------------------------------------------
+setup_hooks:
+	@git config core.hooksPath .githooks
+
 start:
 	@docker compose up --build
 
-setup_hooks:
-	@git config core.hooksPath .githooks
+stop:
+	@docker compose down
 
 help:
 	@echo "Usage: make [TARGET]"
@@ -98,15 +98,15 @@ help:
 	@echo "backend.quality: 			Runs ruff and mypy"
 	@echo "backend.shell: 				Opens the Django shell for the running instance"
 	@echo "backend.test: 				Runs tests"
-	@echo "backend.test:coverage:		Runs tests and generates coverage report"
-	@echo "backend.test:debug: 			Runs only the tests with debug tag"
+	@echo "backend.test.coverage:		Runs tests and generates coverage report"
 	@echo "----- FRONTEND ------------------------------------------------------------------------"
 	@echo "frontend.bash: 				Opens a bash session in the frontend container"
 	@echo "frontend.i18n: 				Runs i18n to generate translations"
 	@echo "frontend.quality: 			Runs biome, tsc, and translation checks"
 	@echo "frontend.test: 				Runs tests"
-	@echo "frontend.test:coverage:		Runs tests and generates coverage report"
+	@echo "frontend.test.coverage:		Runs tests and generates coverage report"
 	@echo "----- OTHERS --------------------------------------------------------------------------"
-	@echo "start: 						Starts the containers using docker compose"
 	@echo "setup_hooks: 				Setups the git pre-commit hooks"
+	@echo "start: 						Starts the containers using docker compose"
+	@echo "stop: 						Stops the containers using docker compose"
 	@echo "help: 						Prints this help message"

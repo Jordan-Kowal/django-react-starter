@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
 @plugin "daisyui" {
   /* biome-ignore lint/correctness/noUnknownProperty: This is valid DaisyUI plugin syntax */
   themes: bumblebee --default, coffee --prefersdark;
@@ -10,6 +11,6 @@ html {
 }
 
 :root {
-  --default-font-family: "Nunito Sans";
-  --toastify-font-family: "Nunito Sans";
+  --default-font-family: "Nunito Sans", sans-serif;
+  --toastify-font-family: "Nunito Sans", sans-serif;
 }

@@ -1,8 +1,8 @@
 FROM python:3.13.2-slim
 
 # Python environment variables
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
 ENV UV_PROJECT_ENVIRONMENT="/usr/local/"
 
 # Update OS
@@ -34,4 +34,4 @@ USER app
 
 # Run the app
 EXPOSE 8000
-CMD supervisord -c ./backend/supervisord.conf
+CMD ["supervisord", "-c", "./backend/supervisord.conf"]

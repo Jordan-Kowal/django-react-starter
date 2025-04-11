@@ -1,7 +1,7 @@
 # ✨ Django React Starter ✨
 
 ![Coverage](https://badgen.net/badge/coverage/%3E90%25/pink)
-![Tag](https://badgen.net/badge/tag/4.1.0/orange)
+![Tag](https://badgen.net/badge/tag/4.1.1/orange)
 ![Licence](https://badgen.net/badge/licence/MIT)
 
 - [✨ Django React Starter ✨](#-django-react-starter-)
