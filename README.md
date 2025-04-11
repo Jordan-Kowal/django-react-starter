@@ -55,15 +55,15 @@ Simply follow these steps to get started:
 
 🎬 **Ready-to-use fully-tested application with multiple features:**
 
-- Login
-- User management
+- Login / Register / Password reset
+- Profile management
 - Health checks
 - Example of Celery/RabbitMQ/Meilisearch integration
 
 🐳 **Docker integration:**
 
 - `Dockerfile` for both development and production
-- `docker-compose` to run the entire app locally
+- `docker compose` to run the entire app locally
 - `Makefile` for easy access to frequent commands
 
 ✨ **Quality tools:**

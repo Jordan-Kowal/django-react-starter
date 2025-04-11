@@ -33,7 +33,7 @@ and served by the backend directly, meaning we only deploy 1 application.
 
 ### Pre-requisites
 
-This application is build using `docker` and `docker-compose`. Make sure to install them:
+This application is build using `docker` and `docker compose`. Make sure to install them:
 
 - [Docker](https://docs.docker.com/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
