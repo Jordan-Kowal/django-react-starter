@@ -6,7 +6,7 @@ import { useLocalStorage } from "./useLocalStorage";
 
 const TEMPORARY_KEY = "django-react-starter-test-temp";
 
-describe("useLocalStorage", () => {
+describe.concurrent("useLocalStorage", () => {
   beforeEach(() => {
     localStorage.removeItem(LOCALE_STORAGE_KEY);
   });

@@ -4,8 +4,8 @@ import { waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import { useLocale } from "./useLocale";
 
-describe("useLocale", () => {
-  describe("initLocale", () => {
+describe.concurrent("useLocale", () => {
+  describe.concurrent("initLocale", () => {
     test("should use the default locale if no locale is stored", async ({
       expect,
     }) => {
@@ -40,7 +40,7 @@ describe("useLocale", () => {
     });
   });
 
-  describe("setLocale", () => {
+  describe.concurrent("setLocale", () => {
     test("should set the locale", async ({ expect }) => {
       const { result } = renderHook(() => useLocale());
       const setLocale = result.current?.setLocale;

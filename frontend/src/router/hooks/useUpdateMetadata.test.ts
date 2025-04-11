@@ -3,7 +3,7 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { beforeEach, describe, it, vi } from "vitest";
 import { useUpdateMetadata } from "./useUpdateMetadata";
 
-describe("useUpdateMetadata", () => {
+describe.concurrent("useUpdateMetadata", () => {
   beforeEach(() => {
     document.title = "Title";
     document.documentElement.lang = "fr";

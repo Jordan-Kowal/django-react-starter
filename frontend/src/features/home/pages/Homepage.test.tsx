@@ -4,7 +4,7 @@ import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import Homepage from "./Homepage";
 
-describe("Homepage", () => {
+describe.concurrent("Homepage", () => {
   test("should render the page", async ({ expect }) => {
     const { container } = render(<Homepage />);
     const homepage = getByTestId<HTMLDivElement>(container, "homepage");

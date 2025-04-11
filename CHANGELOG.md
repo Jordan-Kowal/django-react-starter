@@ -40,6 +40,7 @@
 - 💻 **Backend**: Upgraded `rabbitmq` docker image to version 4
 - 💫 **DX**: Added `.github/copilot-instructions.md` file for easier prompting with Copilot
 - 💫 **DX**: Added `make start` command to run project in docker
+- 🎨 **Frontend**: Added parallelization to some frontend tests
 
 ## [v4.0.0] - 2025-03-28
 

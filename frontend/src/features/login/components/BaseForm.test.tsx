@@ -6,7 +6,7 @@ import { BaseForm } from "./BaseForm";
 
 const onSubmit = vi.fn();
 
-describe("LoginForm", () => {
+describe.concurrent("LoginForm", () => {
   test("should render the component", async ({ expect }) => {
     const { container } = render(
       <BaseForm dataTestId="base-form" onSubmit={onSubmit}>

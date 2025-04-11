@@ -3,7 +3,7 @@ import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import SettingsPage from "./SettingsPage";
 
-describe("SettingsPage", () => {
+describe.concurrent("SettingsPage", () => {
   test("should render the settings page with all sections", async ({
     expect,
   }) => {

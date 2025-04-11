@@ -3,7 +3,7 @@ import { getByTestId, queryByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import { Main } from "./Main";
 
-describe("Main", () => {
+describe.concurrent("Main", () => {
   test("should render the component without navbar", async ({ expect }) => {
     const { container } = render(
       <Main dataTestId="main">

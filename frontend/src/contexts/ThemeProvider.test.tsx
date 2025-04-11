@@ -16,7 +16,7 @@ const TestComponent: React.FC = () => {
   );
 };
 
-describe("ThemeProvider", () => {
+describe.concurrent("ThemeProvider", () => {
   beforeEach(() => {
     localStorage.removeItem(THEME_STORAGE_KEY);
   });

@@ -3,7 +3,7 @@ import { waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import { Toaster } from "./Toaster";
 
-describe("Toaster", () => {
+describe.concurrent("Toaster", () => {
   test("should render the component", async ({ expect }) => {
     render(<Toaster />);
 

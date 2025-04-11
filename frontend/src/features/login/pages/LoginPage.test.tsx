@@ -4,7 +4,7 @@ import { act, fireEvent, getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import LoginPage from "./LoginPage";
 
-describe("LoginPage", () => {
+describe.concurrent("LoginPage", () => {
   test("should render the page with login form by default", async ({
     expect,
   }) => {

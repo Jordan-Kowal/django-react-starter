@@ -32,7 +32,7 @@ const TestModalWrapper = ({ onConfirm = onConfirmMock, closable = false }) => {
   );
 };
 
-describe("Modal", () => {
+describe.concurrent("Modal", () => {
   test("should render the component with children", async ({ expect }) => {
     const { container } = render(<TestModalWrapper />);
     const openButton = getByTestId(container, "modal-trigger");

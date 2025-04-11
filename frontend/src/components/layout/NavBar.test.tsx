@@ -4,7 +4,7 @@ import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import { NavBar } from "./NavBar";
 
-describe("NavBar", () => {
+describe.concurrent("NavBar", () => {
   test("should render the component", async ({ expect }) => {
     const { container } = render(<NavBar />);
     const navbar = getByTestId<HTMLDivElement>(container, "navbar");

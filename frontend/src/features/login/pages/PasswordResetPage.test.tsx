@@ -3,7 +3,7 @@ import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import PasswordResetPage from "./PasswordResetPage";
 
-describe("PasswordResetPage", () => {
+describe.concurrent("PasswordResetPage", () => {
   test("should render the page ", async ({ expect }) => {
     const { container } = render(<PasswordResetPage />);
     const passwordResetPage = getByTestId<HTMLDivElement>(
@@ -15,7 +15,7 @@ describe("PasswordResetPage", () => {
       expect(passwordResetPage).toBeVisible();
     });
 
-    expect(passwordResetPage).toHaveTextContent("Django React Starter");
+    expect(passwordResetPage).toHaveTextContent("Forgot your password?");
     expect(getByTestId(container, "password-reset-form")).toBeInTheDocument();
   });
 });

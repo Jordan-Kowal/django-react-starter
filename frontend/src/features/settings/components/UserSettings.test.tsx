@@ -19,7 +19,7 @@ const getElements = (
   themeDark: getByTestId<HTMLInputElement>(container, "theme-dark"),
 });
 
-describe("UserSettings", () => {
+describe.concurrent("UserSettings", () => {
   test("should render the component", async ({ expect }) => {
     const { container } = render(<UserSettings />);
     const { userSettings } = getElements(container);

@@ -4,7 +4,7 @@ import { LogOut } from "lucide-react";
 import { describe, test, vi } from "vitest";
 import { FieldsetInput } from "./FieldsetInput";
 
-describe("FieldsetInput", () => {
+describe.concurrent("FieldsetInput", () => {
   test("should render the component", async ({ expect }) => {
     const { container } = render(
       <FieldsetInput

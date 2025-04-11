@@ -16,7 +16,7 @@ vi.mock("@/api/queries", async () => {
   };
 });
 
-describe("Routes", () => {
+describe.concurrent("Routes", () => {
   test("should render the component", async ({ expect }) => {
     const { container } = render(<Routes />);
     await waitFor(() => {
@@ -56,19 +56,20 @@ describe("Routes", () => {
     });
   });
 
-  test("should render the login page when not authenticated", async ({
-    expect,
-  }) => {
-    server.use(selfError);
-    const { container } = render(<Routes />);
-    await new Promise((resolve) => setTimeout(resolve, 100));
-    const loginPage = getByTestId(container, "login-page");
+  test.sequential(
+    "should render the login page when not authenticated",
+    async ({ expect }) => {
+      server.use(selfError);
+      const { container } = render(<Routes />);
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      const loginPage = getByTestId(container, "login-page");
 
-    await waitFor(() => {
-      expect(loginPage).toBeVisible();
-    });
-    expect(navigateMock).not.toHaveBeenCalledWith("/");
-  });
+      await waitFor(() => {
+        expect(loginPage).toBeVisible();
+      });
+      expect(navigateMock).not.toHaveBeenCalledWith("/");
+    },
+  );
 
   test("should render the homepage when authenticated", async ({ expect }) => {
     const { container } = render(<Routes />);
