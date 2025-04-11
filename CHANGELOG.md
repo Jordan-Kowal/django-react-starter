@@ -37,6 +37,7 @@
 - 💻 **Backend**: Changed DRF's error messages to English
 - 💻 **Backend**: Made API tests more reliable and robust
 - 💻 **Backend**: Changed `self/` API to use `self/account/` for cleaner routing in viewset
+- 💻 **Backend**: Added parallelization to backend tests with the `Makefile`
 
 ## [v4.0.0] - 2025-03-28
 

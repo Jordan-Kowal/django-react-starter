@@ -46,21 +46,18 @@ backend.shell:
 	@$(MAKE) -s _manage_py cmd=shell
 
 backend.test:
-	@$(MAKE) -s _manage_py cmd=test env_file='.env.test' opts="--exclude-tag=integration"
+	@$(MAKE) -s _manage_py cmd=test env_file='.env.test' opts="--parallel"
 
 backend.test.coverage:
 	$(BACKEND_BASH_EXEC) "\
 		cd backend && \
 		source .env.test && \
-		coverage run --source='.' manage.py test && \
+		coverage run --source='.' manage.py test --parallel && \
 		coverage report && \
 		coverage html"
 
 backend.test.debug:
-	@$(MAKE) -s _manage_py cmd=test env_file='.env.test' opts="--tag=debug"
-
-backend.test.integration:
-	@$(MAKE) -s _manage_py cmd=test env_file='.env.test' opts="--tag=integration"
+	@$(MAKE) -s _manage_py cmd=test env_file='.env.test' opts="--tag=debug --parallel"
 
 
 # --------------------------------------------------
@@ -103,7 +100,6 @@ help:
 	@echo "backend.test: 				Runs tests"
 	@echo "backend.test:coverage:		Runs tests and generates coverage report"
 	@echo "backend.test:debug: 			Runs only the tests with debug tag"
-	@echo "backend.test:integration:	Runs only the tests with integration tag"
 	@echo "----- FRONTEND ------------------------------------------------------------------------"
 	@echo "frontend.bash: 				Opens a bash session in the frontend container"
 	@echo "frontend.i18n: 				Runs i18n to generate translations"
