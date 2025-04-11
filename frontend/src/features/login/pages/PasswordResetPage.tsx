@@ -12,7 +12,7 @@ const PasswordResetPage: React.FC = memo(() => {
         <Logo />
       </div>
       <div className="text-center">
-        <h1>{t("Django React Starter")}</h1>
+        <h2>{t("Forgot your password?")}</h2>
       </div>
       <PasswordResetForm />
     </Main>
