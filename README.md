@@ -19,13 +19,17 @@ Django-React starter with Docker support for fast and easy web development with:
 🗨️ **Messaging**: RabbitMQ<br/>
 🚀 **Deployment**: Fly.io<br/>
 
-| Login                       | Homepage                          | Settings                          |
-|-----------------------------|-----------------------------------|-----------------------------------|
-| ![login](docs/00_login.png) | ![homepage](docs/01_homepage.png) | ![settings](docs/02_settings.png) |
+| Login                    | Responsive                         |
+|--------------------------|------------------------------------|
+| ![login](docs/login.png) | ![responsive](docs/responsive.png) |
 
-| Dark mode and i18n French               | Responsive                            |
-|-----------------------------------------|---------------------------------------|
-| ![french_dark](docs/03_french_dark.png) | ![responsive](docs/04_responsive.png) |
+| Register                       | Password reset                             | Password reset confirm                                     |
+|--------------------------------|--------------------------------------------|------------------------------------------------------------|
+| ![register](docs/register.png) | ![password_reset](docs/password_reset.png) | ![password_reset_confirm](docs/password_reset_confirm.png) |
+
+| Homepage                       | Settings                       | Dark mode and i18n French            |
+|--------------------------------|--------------------------------|--------------------------------------|
+| ![homepage](docs/homepage.png) | ![settings](docs/settings.png) | ![french_dark](docs/french_dark.png) |
 
 ## ⚡ Getting started
 
