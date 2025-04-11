@@ -178,7 +178,7 @@ class AuthViewSetTestCase(BaseActionTestCase):
         }
         response = self.api_client.post(AUTH_PASSWORD_RESET_CONFIRM_URL, data=payload)
         self.assertEqual(response.status_code, 400)
-        self.assertEqual(response.data["non_field_errors"][0], "Invalid information")
+        self.assertEqual(response.data["non_field_errors"][0], "Invalid token")
         # Verify password was not changed
         user.refresh_from_db()
         self.assertTrue(user.check_password("oldpassword"))
@@ -191,7 +191,7 @@ class AuthViewSetTestCase(BaseActionTestCase):
         }
         response = self.api_client.post(AUTH_PASSWORD_RESET_CONFIRM_URL, data=payload)
         self.assertEqual(response.status_code, 400)
-        self.assertEqual(response.data["non_field_errors"][0], "Invalid information")
+        self.assertEqual(response.data["non_field_errors"][0], "Invalid token")
 
     def test_password_reset_confirm_with_weak_password(self) -> None:
         user = UserFactory(email="reset_weak@test.com", password="oldpassword")

@@ -92,11 +92,11 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
         try:
             user = User.objects.get(pk=user_id)
         except User.DoesNotExist:
-            raise serializers.ValidationError("Invalid information")
+            raise serializers.ValidationError("Invalid token")
         # Validate token
         token_generator = PasswordResetTokenGenerator()
         if not token_generator.check_token(user, token):
-            raise serializers.ValidationError("Invalid information")
+            raise serializers.ValidationError("Invalid token")
 
         data["user"] = user
         return data

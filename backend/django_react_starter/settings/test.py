@@ -8,7 +8,7 @@ SECRET_KEY = "+qbi539m9lip0yf5t97a8n4o(_3h@3&3u30kaw@ou5ydav+s_t"
 DJANGO_SUPERUSER_EMAIL = "random-email@for-test.com"
 DJANGO_SUPERUSER_PASSWORD = "random-password-for-test"
 EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
-SITE_DOMAIN = "localhost"
+SITE_DOMAIN = "http://localhost:8000/"
 
 # Media
 MEDIA_ROOT = MEDIA_ROOT + "-test"

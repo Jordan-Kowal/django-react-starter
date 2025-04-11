@@ -15,6 +15,7 @@ export const useUpdateMetadata = () => {
       login: t("Login"),
       settings: t("Settings"),
       passwordReset: t("Password reset"),
+      passwordResetConfirm: t("Password reset confirm"),
     }),
     [t],
   );

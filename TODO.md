@@ -12,6 +12,7 @@
 - Add dev containers
 - Allow password recovery
   - Truly send email
+  - Subtitle on pages?
 - Auth with gmail
 - Add 2-step authentication
 - Add Sentry in frontend

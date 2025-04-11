@@ -50,7 +50,7 @@ export const registerCrash = http.post(`${API_ROOT_URL}/auth/register/`, () => {
 export const passwordResetSuccess = http.post(
   `${API_ROOT_URL}/auth/password_reset/`,
   () => {
-    return HttpResponse.json(null, { status: 200 });
+    return HttpResponse.json(null, { status: 204 });
   },
 );
 
@@ -58,5 +58,33 @@ export const passwordResetError = http.post(
   `${API_ROOT_URL}/auth/password_reset/`,
   () => {
     return HttpResponse.json(null, { status: 400 });
+  },
+);
+
+export const passwordResetConfirmSuccess = http.post(
+  `${API_ROOT_URL}/auth/password_reset_confirm/`,
+  () => {
+    return HttpResponse.json(null, { status: 204 });
+  },
+);
+
+export const passwordResetConfirmPasswordError = http.post(
+  `${API_ROOT_URL}/auth/password_reset_confirm/`,
+  () => {
+    return HttpResponse.json({ password: "error" }, { status: 400 });
+  },
+);
+
+export const passwordResetConfirmGenericError = http.post(
+  `${API_ROOT_URL}/auth/password_reset_confirm/`,
+  () => {
+    return HttpResponse.json({}, { status: 400 });
+  },
+);
+
+export const passwordResetConfirmCrash = http.post(
+  `${API_ROOT_URL}/auth/password_reset_confirm/`,
+  () => {
+    return HttpResponse.json(null, { status: 500 });
   },
 );
