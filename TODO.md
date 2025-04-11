@@ -8,7 +8,6 @@
 
 ## Features
 
-- Add dev containers
 - Auth with gmail
 - Add 2-step authentication
 - Add Sentry in frontend
