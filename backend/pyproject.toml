@@ -18,6 +18,7 @@ dependencies = [
     "whitenoise>=6.7.0",
     "django-utils-kit>=1.0.0",
     "django-meilisearch-indexer>=1.0.1",
+    "django-anymail[sendinblue]>=13.0",
 ]
 
 # ------------------------------

@@ -23,6 +23,7 @@ CELERY_WORKERS = '1'
 RABBITMQ_HOSTNAME = '[fdaa:1:a00d:a7b:10f:e769:75cf:2]'                        # Must use private ipv6 hostname within brackets
 RABBITMQ_PORT = '5672'
 RABBITMQ_ADMIN_URL = 'https://rabbitmq.jkdev.app'
+SENDINBLUE_API_KEY = 'your_sendinblue_api_key'
 # >>> Secrets (fly secrets list) <<<
 # DATABASE_URL
 # DEFAULT_FROM_EMAIL

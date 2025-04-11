@@ -52,6 +52,19 @@ DATABASES = {
 }
 
 # --------------------------------------------------------------------------------
+# > Email
+# --------------------------------------------------------------------------------
+# To use the SendInBlue API, the IP must be whitelisted in the SendInBlue GUI
+# https://app.sendinblue.com/account/security/authorised_ips/
+# Make sure to add the server's IP address
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
+EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
+SENDINBLUE_API_URL = "https://api.sendinblue.com/v3/"
+ANYMAIL = {
+    "SENDINBLUE_API_KEY": os.getenv("SENDINBLUE_API_KEY"),
+}
+
+# --------------------------------------------------------------------------------
 # > Logging
 # --------------------------------------------------------------------------------
 if FLY_VOLUME_DIR is not None:

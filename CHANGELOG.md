@@ -20,24 +20,25 @@
 
 ### 🚀 Features
 
+- 🍬 **Backend**: Added email support with `django-anymail` (with default config set with `sendinblue`)
 - 🍬 **UX**: Added register form allowing users to create an account
-- 🍬 **UX**: Added password reset workflow
 - 🍬 **UX**: Added "Danger Zone" in settings page to allow users to delete their account
+- 🍬 **UX**: Added password reset workflow
 
 ### 🐞 Bugfixes
 
-- 🎨 **Frontend**: Fixed default font family not being applied to toasts and some texts
 - 💻 **Backend**: Fixed user being disconnected after password update
+- 🎨 **Frontend**: Fixed default font family not being applied to toasts and some texts
 
 ### 🔧 Others
 
-- 💫 **DX**: Added `.github/copilot-instructions.md` file for easier prompting in Cursor
-- 💫 **DX**: Added `make start` command to run project in docker
 - 💻 **Backend**: Changed Django default language to English
 - 💻 **Backend**: Changed DRF's error messages to English
 - 💻 **Backend**: Made API tests more reliable and robust
 - 💻 **Backend**: Changed `self/` API to use `self/account/` for cleaner routing in viewset
 - 💻 **Backend**: Added parallelization to backend tests with the `Makefile`
+- 💫 **DX**: Added `.github/copilot-instructions.md` file for easier prompting with Copilot
+- 💫 **DX**: Added `make start` command to run project in docker
 
 ## [v4.0.0] - 2025-03-28
 

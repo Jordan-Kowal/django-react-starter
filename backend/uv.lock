@@ -49,6 +49,7 @@ dependencies = [
     { name = "celery" },
     { name = "dj-database-url" },
     { name = "django" },
+    { name = "django-anymail" },
     { name = "django-celery-results" },
     { name = "django-meilisearch-indexer" },
     { name = "django-prometheus" },
@@ -80,6 +81,7 @@ requires-dist = [
     { name = "celery", specifier = ">=5.4.0" },
     { name = "dj-database-url", specifier = ">=2.2.0" },
     { name = "django", specifier = ">=5.1.1" },
+    { name = "django-anymail", extras = ["sendinblue"], specifier = ">=13.0" },
     { name = "django-celery-results", specifier = ">=2.5.1" },
     { name = "django-meilisearch-indexer", specifier = ">=1.0.1" },
     { name = "django-prometheus", specifier = ">=2.3.1" },
@@ -291,6 +293,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/4c/1b/c6da718c65228eb3a7ff7ba6a32d8e80fa840ca9057490504e099e4dd1ef/Django-5.2.tar.gz", hash = "sha256:1a47f7a7a3d43ce64570d350e008d2949abe8c7e21737b351b6a1611277c6d89", size = 10824891 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/63/e0/6a5b5ea350c5bd63fe94b05e4c146c18facb51229d9dee42aa39f9fc2214/Django-5.2-py3-none-any.whl", hash = "sha256:91ceed4e3a6db5aedced65e3c8f963118ea9ba753fc620831c77074e620e7d83", size = 8301361 },
+]
+
+[[package]]
+name = "django-anymail"
+version = "13.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+    { name = "requests" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e3/8f/c5c8e0c952797247c763edfd02346a9f989489d54a3debd717ecb0abb55a/django_anymail-13.0.tar.gz", hash = "sha256:87f42d9ff12a9a029d5e88edaaf62a4b880aa9a6a7ef937042b7e96579e6db07", size = 94298 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c5/32/c9691a478ca0460131c2f0bfadbb0e20cd316588aa24f809aebdaa7a79b2/django_anymail-13.0-py3-none-any.whl", hash = "sha256:6da4465eff18f679955f74332501a3a4299e34079015d91e1fce9c049d784d6c", size = 130285 },
 ]
 
 [[package]]

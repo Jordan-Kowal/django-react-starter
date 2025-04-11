@@ -11,8 +11,6 @@
 ## Features
 
 - Add dev containers
-- Allow password recovery
-  - Truly send email
 - Auth with gmail
 - Add 2-step authentication
 - Add Sentry in frontend
