@@ -1,0 +1,35 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Django tests" type="DjangoTestsConfigurationType">
+    <module name="django-react-starter" />
+    <option name="ENV_FILES" value="" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="PARENT_ENVS" value="true" />
+    <envs>
+      <env name="PYTHONUNBUFFERED" value="1" />
+    </envs>
+    <option name="SDK_HOME" value="$PROJECT_DIR$/backend/.venv/bin/python" />
+    <option name="SDK_NAME" value="Python 3.13 virtualenv at ~/Projets/django-react-starter/backend/.venv" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
+    <option name="IS_MODULE_SDK" value="false" />
+    <option name="ADD_CONTENT_ROOTS" value="true" />
+    <option name="ADD_SOURCE_ROOTS" value="true" />
+    <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+    <EXTENSION ID="net.ashald.envfile">
+      <option name="IS_ENABLED" value="true" />
+      <option name="IS_SUBST" value="false" />
+      <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+      <option name="IS_IGNORE_MISSING_FILES" value="false" />
+      <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+      <ENTRIES>
+        <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        <ENTRY IS_ENABLED="true" PARSER="env" IS_EXECUTABLE="false" PATH="backend/.env" />
+      </ENTRIES>
+    </EXTENSION>
+    <option name="TARGET" value="" />
+    <option name="SETTINGS_FILE" value="$PROJECT_DIR$/backend/django_react_starter/settings/test.py" />
+    <option name="CUSTOM_SETTINGS" value="true" />
+    <option name="USE_OPTIONS" value="true" />
+    <option name="OPTIONS" value="--parallel=8" />
+    <method v="2" />
+  </configuration>
+</component>

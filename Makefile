@@ -77,36 +77,47 @@ frontend.test.coverage:
 
 
 # --------------------------------------------------
+# Docker
+# --------------------------------------------------
+start:
+	@docker compose --profile=all up --build
+
+start.lite:
+	@docker compose --profile=lite up --build
+
+stop:
+	@docker compose down
+
+
+# --------------------------------------------------
 # Others
 # --------------------------------------------------
 setup_hooks:
 	@git config core.hooksPath .githooks
 
-start:
-	@docker compose up --build
-
-stop:
-	@docker compose down
-
+# Outputs is not aligned in IDE but will be in terminal
 help:
 	@echo "Usage: make [TARGET]"
 	@echo ""
 	@echo "----- BACKEND -------------------------------------------------------------------------"
-	@echo "backend.bash: 				Opens a bash session in the api container"
-	@echo "backend.makemigrations: 		Generates new migrations based on models"
-	@echo "backend.migrate: 			Runs the migration"
-	@echo "backend.quality: 			Runs ruff and mypy"
+	@echo "backend.bash:				Opens a bash session in the api container"
+	@echo "backend.makemigrations:			Generates new migrations based on models"
+	@echo "backend.migrate:			Runs the migration"
+	@echo "backend.quality:			Runs ruff and mypy"
 	@echo "backend.shell: 				Opens the Django shell for the running instance"
-	@echo "backend.test: 				Runs tests"
-	@echo "backend.test.coverage:		Runs tests and generates coverage report"
+	@echo "backend.test:				Runs tests"
+	@echo "backend.test.coverage:			Runs tests and generates coverage report"
 	@echo "----- FRONTEND ------------------------------------------------------------------------"
 	@echo "frontend.bash: 				Opens a bash session in the frontend container"
 	@echo "frontend.i18n: 				Runs i18n to generate translations"
 	@echo "frontend.quality: 			Runs biome, tsc, and translation checks"
 	@echo "frontend.test: 				Runs tests"
-	@echo "frontend.test.coverage:		Runs tests and generates coverage report"
+	@echo "frontend.test.coverage:			Runs tests and generates coverage report"
+	@echo "----- DOCKER --------------------------------------------------------------------------"
+	@echo "start: 					Starts all containers using docker compose"
+	@echo "start.lite: 				Starts only dependencies containers using docker compose"
+	@echo "					(postgres, rabbitmq, meilisearch, ...)"
+	@echo "stop: 					Stops the containers using docker compose"
 	@echo "----- OTHERS --------------------------------------------------------------------------"
 	@echo "setup_hooks: 				Setups the git pre-commit hooks"
-	@echo "start: 						Starts the containers using docker compose"
-	@echo "stop: 						Stops the containers using docker compose"
-	@echo "help: 						Prints this help message"
+	@echo "help: 					Prints this help message"

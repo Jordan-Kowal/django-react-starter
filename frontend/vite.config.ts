@@ -1,7 +1,7 @@
+import { resolve } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import million from "million/compiler";
-import { resolve } from "node:path";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 
@@ -21,8 +21,14 @@ export default defineConfig(({ mode }) => ({
     port: 3000,
     cors: true,
     proxy: {
+      // Docker setup
+      // "^/(api)|(media)|(static)/": {
+      //   target: "http://api:8000",
+      //   changeOrigin: true,
+      // },
+      // Local setup
       "^/(api)|(media)|(static)/": {
-        target: "http://api:8000",
+        target: "http://localhost:8000",
         changeOrigin: true,
       },
     },

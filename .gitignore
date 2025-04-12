@@ -8,6 +8,7 @@
 ## Env
 .env
 .env.test
+.python-version
 
 ## Postgres
 data/

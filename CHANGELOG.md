@@ -16,6 +16,14 @@
 - 🎨 **Frontend**:
 - 🍬 **UX**:
 
+## [v4.1.2] - 2025-04-12
+
+### ✨ Improvements
+
+- 💫 **DX**: Added profiles to `docker compose` containers
+- 💫 **DX**: Added new `make start.lite` command to run only services in `docker compose`
+- 💫 **DX**: Added 5 run configurations for `JetBrains` IDE in `.run` folder
+
 ## [v4.1.1] - 2025-04-11
 
 ### ✨ Improvements
@@ -285,10 +293,10 @@ See the full list of changes below
 ### 🚀 Features
 
 - 💻 **Backend**: Handles and serves media files:
-  - Updated `MEDIA_ROOT`, `MEDIA_URL` and `urls.py`
-  - Updated **production** settings to store media files on the **fly** volume
-  - Updated **test** settings to use a different folder and delete it after tests
-  - Updated `vite` config to proxy **media** and **static** files as well
+    - Updated `MEDIA_ROOT`, `MEDIA_URL` and `urls.py`
+    - Updated **production** settings to store media files on the **fly** volume
+    - Updated **test** settings to use a different folder and delete it after tests
+    - Updated `vite` config to proxy **media** and **static** files as well
 - 💻 **Backend**: New `AppViewSet` to provide app-wide information
 
 ### ✨ Improvements
@@ -297,8 +305,8 @@ See the full list of changes below
 - 💻 **Backend**: Updated API tests to use `reverse` urls
 - 💻 **Backend**: `UserSerializer` now provides more fields like `is_staff` and `is_superuser` as read-only
 - 💫 **DX**:Improved Postgres integration:
-  - `depends_on` postgres in `docker-compose.yml`
-  - `wait_for_db.py` and its usage in `run-app.sh` and `run-scheduler.sh`
+    - `depends_on` postgres in `docker-compose.yml`
+    - `wait_for_db.py` and its usage in `run-app.sh` and `run-scheduler.sh`
 - 💫 **DX**: Improved `makefile` to better for with `docker-compose`
 - 💫 **DX**:Updated `README.example.md` to provide a step-by-step guide to deploy the app with `fly`
 - 💫 **DX**:QA improvements with separate jobs

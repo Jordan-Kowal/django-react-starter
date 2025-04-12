@@ -17,6 +17,8 @@ services:
       - "8000:8000"
     volumes:
       - ./backend:/home/app/backend
+    profiles:
+      - all
 
   front:
     image: node:22.14.0-slim
@@ -29,6 +31,8 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend:/app
+    profiles:
+      - all
 
   postgres:
     container_name: django_react_starter_postgres
@@ -43,6 +47,9 @@ services:
       - "5432:5432"
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
+    profiles:
+      - all
+      - lite
 
   rabbitmq:
     container_name: django_react_starter_rabbitmq
@@ -57,6 +64,9 @@ services:
       - "5672:5672"
     volumes:
       - ./data/rabbitmq:/var/lib/rabbitmq/mnesia
+    profiles:
+      - all
+      - lite
 
   meilisearch:
     container_name: django_react_starter_meilisearch
@@ -79,7 +89,9 @@ services:
       - django_react_starter_network
     ports:
       - "24900:24900"
-
+    profiles:
+      - all
+      - lite
 networks:
   django_react_starter_network:
     driver: bridge
