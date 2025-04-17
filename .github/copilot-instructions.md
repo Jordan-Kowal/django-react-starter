@@ -19,17 +19,17 @@ Django-Specific Guidelines
 
 - Use Django's and DRF's built-in features and tools wherever possible to leverage its full capabilities.
 - Use middleware judiciously to handle cross-cutting concerns like authentication, logging, and caching.
-- Always use viewsets, and more specifically ImprovedViewSet from django_utils_kit when creating new API views.
+- Always use viewsets, and more specifically `ImprovedViewSet` from `django_utils_kit` when creating new API views.
 - Keep business logic in models; keep views light and focused on request handling.
-- Use Django's URL dispatcher (urls.py) to define clear and RESTful URL patterns.
+- Use Django's URL dispatcher (`urls.py`) to define clear and RESTful URL patterns.
 - Apply Django's security best practices (e.g., CSRF protection, SQL injection protection, XSS prevention).
-- Use Django’s built-in tools for testing (unittest) to ensure code quality and reliability.
+- Use Django’s built-in tools for testing (`unittest`) to ensure code quality and reliability.
 - Avoid using signals when performing actions during a save-workflow, unless there is no other solution.
 
 Performance and Database Optimization
 
 - Leverage Django’s ORM for database interactions; avoid raw SQL queries unless necessary for performance.
-- Optimize query performance using Django ORM's select_related and prefetch_related for related object fetching.
+- Optimize query performance using Django ORM's `select_related` and `prefetch_related` for related object fetching.
 - Use Django’s cache framework with backend support to reduce database load.
 - Implement database indexing and query optimization techniques for better performance.
 - Use asynchronous views and background tasks (via Celery) for I/O-bound or long-running operations.
@@ -60,16 +60,13 @@ Key Principles
 
 Response Constraints
 
-- Do not remove any existing code unless necessary.
-- Do not remove my comments or commented-out code unless necessary.
 - Do not change the formatting of my imports.
-- Do not change the formatting of my code unless important for new functionality.
 - Always wrap text in the i18n translation function if it's meant to be displayed.
 - Never update the translation files (in the i18n folder).
 
 Syntax and Formatting
 
-- Use TypeScript for all code; prefer types over interfaces.
+- Use TypeScript for all code and prefer types to interfaces.
 - Always use named exports for components, except for page components.
 - Use the arrow functions for pure functions.
 - Use curly braces for all conditionals. Favor simplicity over cleverness.
@@ -85,12 +82,6 @@ UI and Styling
 
 Performance Optimization
 
-- Use of useCallback and useMemo for fewer rerenders and better performances
+- Use of `useCallback` and `useMemo` for fewer rerenders and better performances
 - Always wrap components in a memo call
-- Use immutable data structures
-- Use efficient data structures
-- Use efficient data fetching strategies
-- Use efficient algorithms
-- Use efficient state management
-- Use efficient rendering strategies
-- Optimize network requests
+- Use efficient data structures and algorithms

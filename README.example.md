@@ -110,8 +110,7 @@ make setup_hooks
 
 We use GitHub actions to verify, build, and deploy the application. We currently have:
 
-- [dependabot](.github/dependabot.yml): Dependabot configuration for frontend dependencies
-- [update-python-dependencies](.github/workflows/update-python-deps.yml): Updates the python dependencies using `uv`
+- [dependabot](.github/dependabot.yml): Dependabot configuration for frontend/backend dependencies
 - [qa-backend](.github/workflows/qa-backend.yml): runs ruff, mypy, and tests
 - [qa-frontend](.github/workflows/qa-frontend.yml): runs biome, tsc, translations, and frontend tests
 - [rebase-check](.github/workflows/rebase-check.yml): checks if the branch can be rebased on `main`

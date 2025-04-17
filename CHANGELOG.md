@@ -16,6 +16,13 @@
 - 🎨 **Frontend**:
 - 🍬 **UX**:
 
+## TBD
+
+### ✨ Improvements
+
+- 💫 **DX**: Improved instructions in `copilot-instructions.md`
+- 💫 **DX**: Removed custom `update-python-deps` action now that `dependabot` supports `uv`
+
 ## [v4.1.2] - 2025-04-12
 
 ### ✨ Improvements

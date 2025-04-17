@@ -12,3 +12,15 @@ updates:
       - "Jordan-Kowal"
     commit-message:
       prefix: "[Frontend] "
+  - package-ecosystem: "uv"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all:
+        patterns: ["*"]
+    reviewers:
+      - "Jordan-Kowal"
+    commit-message:
+      prefix: "[Backend] "

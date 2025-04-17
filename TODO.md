@@ -3,7 +3,6 @@
 ## Improvements
 
 - Password reset email translation and design
-- UV dependabot
 
 ## Features
 
