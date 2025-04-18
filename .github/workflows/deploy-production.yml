@@ -2,8 +2,8 @@ name: Deploy to production
 
 on:
   workflow_dispatch:
-  release:
-    types: [ created ]
+#  release:
+#    types: [ created ]
 
 jobs:
   qa_backend:
