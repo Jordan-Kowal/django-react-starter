@@ -61,6 +61,7 @@ export default defineConfig(({ mode }) => ({
         "i18n/**",
         "i18next-parser.config.ts",
         "vite.config.ts",
+        "src/config/sentry.ts",
         // Types
         "src/types/**",
         "src/api/types.ts",
