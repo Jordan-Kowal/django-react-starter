@@ -53,6 +53,7 @@ Simply follow these steps to get started:
   - Use `docker-compose up` to run the application locally
 - Deployment:
   - Create your own **fly.toml** file using `fly launch` (see [Fly.io](https://fly.io) for more information)
+  - Or use the templated files in the `fly` folder
 - Start coding!
 
 ## 📕 Main Features
@@ -66,7 +67,7 @@ Simply follow these steps to get started:
 
 🐳 **Docker integration:**
 
-- `Dockerfile` for both development and production
+- `Dockerfiles` for both development and production
 - `docker compose` to run the entire app locally
 - `Makefile` for easy access to frequent commands
 

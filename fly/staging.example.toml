@@ -1,0 +1,94 @@
+app = 'django_react_starter'
+primary_region = 'cdg'
+console_command = '/home/app/backend/manage.py shell'
+
+[build]
+dockerfile = '../docker/Dockerfile.prod'
+ignorefile = '.dockerignore'
+
+[deploy]
+strategy = 'rolling'
+
+[env]
+DJANGO_SETTINGS_MODULE = 'django_react_starter.settings.production'
+ENVIRONMENT = 'production'
+FLY_VOLUME_DIR = '/home/app/data'                                              # like the mount destination
+SITE_DOMAIN = 'django_react_starter.jkdev.app'
+HOST_DNS_NAMES = 'django_react_starter.jkdev.app,django_react_starter.fly.dev'
+INTERNAL_IPS = '172.19.4.106'                                                  # Add prometheus internal IP (check sentry error on first boot)
+GUNICORN_WORKERS = '1'
+PORT = '8000'
+MEILISEARCH_HOST = 'https://meilisearch.jkdev.app'                             # Must use public hostname
+CELERY_WORKERS = '1'
+RABBITMQ_HOSTNAME = '[fdaa:1:a00d:a7b:10f:e769:75cf:2]'                        # Must use private ipv6 hostname within brackets
+RABBITMQ_PORT = '5672'
+RABBITMQ_ADMIN_URL = 'https://rabbitmq.jkdev.app'
+# >>> Secrets (fly secrets list) <<<
+# DATABASE_URL
+# DEFAULT_FROM_EMAIL
+# DJANGO_SUPERUSER_EMAIL
+# DJANGO_SUPERUSER_PASSWORD
+# MEILISEARCH_API_KEY
+# RABBITMQ_USERNAME
+# RABBITMQ_PASSWORD
+# SECRET_KEY
+# SENTRY_DSN
+# SENDINBLUE_API_KEY
+# >>> Generated during GitHub actions <<<
+# APP_VERSION
+
+[http_service]
+internal_port = 8000
+force_https = true
+auto_stop_machines = true
+auto_start_machines = true
+min_machines_running = 1
+processes = ['app']
+
+[[http_service.checks]]
+grace_period = "15s"
+interval = "60s"
+method = "GET"
+timeout = "5s"
+path = "/api/v1/health/api/"
+
+[[http_service.checks]]
+grace_period = "15s"
+interval = "60s"
+method = "GET"
+timeout = "5s"
+path = "/api/v1/health/database/"
+
+[[http_service.checks]]
+grace_period = "15s"
+interval = "60s"
+method = "GET"
+timeout = "5s"
+path = "/api/v1/health/rabbitmq/"
+
+[[http_service.checks]]
+grace_period = "15s"
+interval = "60s"
+method = "GET"
+timeout = "5s"
+path = "/api/v1/health/celery/"
+
+[[http_service.checks]]
+grace_period = "15s"
+interval = "60s"
+method = "GET"
+timeout = "5s"
+path = "/api/v1/health/meilisearch/"
+
+[[vm]]
+cpu_kind = 'shared'
+cpus = 1
+memory_mb = 512
+
+[mounts]
+source = 'django_react_starter_data'
+destination = '/home/app/data'
+
+[metrics]
+port = 8000
+path = "/metrics"

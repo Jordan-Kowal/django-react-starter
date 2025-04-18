@@ -3,7 +3,7 @@ primary_region = 'cdg'
 console_command = '/home/app/backend/manage.py shell'
 
 [build]
-dockerfile = 'docker/prod/Dockerfile'
+dockerfile = '../docker/Dockerfile.prod'
 ignorefile = '.dockerignore'
 
 [deploy]

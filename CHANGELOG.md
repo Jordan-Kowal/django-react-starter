@@ -5,14 +5,14 @@
 ### 🚀 Features
 
 ### ✨ Improvements
-
+ 
 ### 🐞 Bugfixes
 
 ### 🔧 Others
 
-- 💫 **DX**:
 - 💻 **Backend**:
 - 🚂 **Deploy**:
+- 💫 **DX**:
 - 🎨 **Frontend**:
 - 🍬 **UX**:
 
@@ -20,12 +20,14 @@
 
 ### ✨ Improvements
 
+- 🚂 **Deploy**: Deployment now handles both **staging** and **production** (2 GitHub actions and 2 `.toml` files)
 - 💫 **DX**: Improved instructions in `copilot-instructions.md`
 - 💫 **DX**: Removed custom `update-python-deps` action now that `dependabot` supports `uv`
 
 ### 🔧 Others
 
 - 💫 **DX**: Removed `rebase-check` github action
+- 💫 **DX**: Removed `markdownlint.json` config
 
 ## [v4.1.2] - 2025-04-12
 

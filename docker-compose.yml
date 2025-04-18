@@ -4,7 +4,7 @@ services:
     container_name: django_react_starter_api
     build:
       context: .
-      dockerfile: ./docker/dev/Dockerfile
+      dockerfile: ./docker/Dockerfile.dev
     env_file:
       - ./backend/.env
     depends_on:
@@ -15,8 +15,8 @@ services:
       - django_react_starter_network
     ports:
       - "8000:8000"
-    volumes:
-      - ./backend:/home/app/backend
+#    volumes:
+#      - ./backend:/home/app/backend
     profiles:
       - all
 
@@ -79,6 +79,9 @@ services:
       - "7700:7700"
     volumes:
       - ./data/meilisearch:/meili_data
+    profiles:
+      - all
+      - lite
 
   meilisearch-ui:
     container_name: django_react_starter_meilisearch_ui
@@ -92,6 +95,7 @@ services:
     profiles:
       - all
       - lite
+
 networks:
   django_react_starter_network:
     driver: bridge

@@ -113,7 +113,8 @@ We use GitHub actions to verify, build, and deploy the application. We currently
 - [dependabot](.github/dependabot.yml): Dependabot configuration for frontend/backend dependencies
 - [qa-backend](.github/workflows/qa-backend.yml): runs ruff, mypy, and tests
 - [qa-frontend](.github/workflows/qa-frontend.yml): runs biome, tsc, translations, and frontend tests
-- [deploy](.github/workflows/deploy.yml): deploys the application on **fly.io**
+- [deploy-staging](.github/workflows/deploy-staging.yml): deploys the application on staging using **fly.io**
+- [deploy-production](.github/workflows/deploy-production.yml): deploys the application on production using **fly.io**
 
 ## Available URLs
 
