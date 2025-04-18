@@ -74,7 +74,7 @@ Simply follow these steps to get started:
 
 - Tests, linters, and formatters for both backend and frontend
 - Pre-commits hooks
-- CI/CD for QA, dependencies, rebase, and deployment
+- CI/CD for QA, dependencies, and deployment
 
 ...and many other utilities!
 

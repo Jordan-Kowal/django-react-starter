@@ -23,6 +23,10 @@
 - 💫 **DX**: Improved instructions in `copilot-instructions.md`
 - 💫 **DX**: Removed custom `update-python-deps` action now that `dependabot` supports `uv`
 
+### 🔧 Others
+
+- 💫 **DX**: Removed `rebase-check` github action
+
 ## [v4.1.2] - 2025-04-12
 
 ### ✨ Improvements
