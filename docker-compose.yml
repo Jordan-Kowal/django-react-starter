@@ -15,8 +15,8 @@ services:
       - django_react_starter_network
     ports:
       - "8000:8000"
-#    volumes:
-#      - ./backend:/home/app/backend
+    volumes:
+      - ./backend:/home/app/backend
     profiles:
       - all
 

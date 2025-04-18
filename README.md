@@ -1,7 +1,7 @@
 # ✨ Django React Starter ✨
 
 ![Coverage](https://badgen.net/badge/coverage/%3E90%25/pink)
-![Tag](https://badgen.net/badge/tag/4.1.2/orange)
+![Tag](https://badgen.net/badge/tag/4.2.0/orange)
 ![Licence](https://badgen.net/badge/licence/MIT)
 
 - [✨ Django React Starter ✨](#-django-react-starter-)
@@ -41,19 +41,18 @@ Simply follow these steps to get started:
   - Use the `README.example.md` file as a template for your own `README.md` file
   - Use the `CHANGELOG.example.md` file as a template for your own `CHANGELOG.md` file
   - Update the `LICENSE` file
-  - Remove `yarn.lock` file
 - Update the code:
   - Replace all occurrences of `django_react_starter` with `your_project_name`
   - Replace all occurrences of `django-react-starter` with `your-project-name`
   - Replace all occurrences of `Django React Starter` with `Your Project Name`
-  - Provide a `DEPENDABOT_PAT` token in your GitHub repository secrets (used in GitHub actions)
   - Replace all occurrences of `Jordan-Kowal` with `Your GitHub Username` (used in GitHub actions)
-  - Replace all occurrences of `kowaljordan@gmail.com` with `email address`
+  - Replace all occurrences of `Jordan Kowal` with `Your Name`
+  - Replace all occurrences of `kowaljordan@gmail.com` with `your email address`
   - Update whatever you see fit
-  - Use `docker-compose up` to run the application locally
+  - Use `docker compose up` or `make start` or `make start.lite` to run the application locally
 - Deployment:
-  - Create your own **fly.toml** file using `fly launch` (see [Fly.io](https://fly.io) for more information)
-  - Or use the templated files in the `fly` folder
+  - Create your own **fly.toml** file using `fly launch` (see [Fly.io](https://fly.io) for more information) or use the templated files in the `fly` folder
+  - If you want to use sentry for the frontend, add the required `VITE_SENTRY_DSN` GitHub repository secrets
 - Start coding!
 
 ## 📕 Main Features

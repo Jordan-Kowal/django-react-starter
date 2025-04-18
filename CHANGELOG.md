@@ -16,7 +16,11 @@
 - 🎨 **Frontend**:
 - 🍬 **UX**:
 
-## TBD
+## [v4.2.0] - 2025-04-18
+
+### 🚀 Features
+
+- 🎨 **Frontend**: Added **sentry** in frontend
 
 ### ✨ Improvements
 
@@ -26,8 +30,10 @@
 
 ### 🔧 Others
 
+- 💻 **Backend**: Upgraded dependencies
 - 💫 **DX**: Removed `rebase-check` github action
 - 💫 **DX**: Removed `markdownlint.json` config
+- 🎨 **Frontend**: Upgraded dependencies
 
 ## [v4.1.2] - 2025-04-12
 

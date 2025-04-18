@@ -53,9 +53,14 @@ Then you can start the application:
 docker compose up
 # or
 make start
+# or
+make start.lite
 ```
 
-_While the entire project runs with `docker compose`, you might want to_
+You might need to update the frontend's `vite.config.ts` **server** options based on
+whether the backend is running locally or within docker.
+
+_Also, while the entire project runs with `docker compose`, you might want to_
 _install a python virtual environment and the node modules locally_
 _for a better IDE experience._
 

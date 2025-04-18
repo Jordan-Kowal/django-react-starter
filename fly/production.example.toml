@@ -11,7 +11,6 @@ strategy = 'rolling'
 
 [env]
 DJANGO_SETTINGS_MODULE = 'django_react_starter.settings.production'
-ENVIRONMENT = 'production'
 FLY_VOLUME_DIR = '/home/app/data'                                              # like the mount destination
 SITE_DOMAIN = 'django_react_starter.jkdev.app'
 HOST_DNS_NAMES = 'django_react_starter.jkdev.app,django_react_starter.fly.dev'
@@ -34,8 +33,9 @@ RABBITMQ_ADMIN_URL = 'https://rabbitmq.jkdev.app'
 # SECRET_KEY
 # SENTRY_DSN
 # SENDINBLUE_API_KEY
-# >>> Generated during GitHub actions <<<
+# >>> Generated during GitHub actions with --env <<<
 # APP_VERSION
+# ENVIRONMENT
 
 [http_service]
 internal_port = 8000

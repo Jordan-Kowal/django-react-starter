@@ -85,7 +85,8 @@ if SENTRY_DSN:
         send_default_pii=False,  # GDPR
         traces_sampler=traces_sampler,
         profiles_sample_rate=0.2,
-        release=f"django_react_starter_api@{APP_VERSION}",
+        sample_rate=0.2,
+        release=f"django_react_starter@{APP_VERSION}",
     )
     SENTRY_INITIALIZED = True
 else:

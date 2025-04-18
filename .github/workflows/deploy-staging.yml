@@ -19,13 +19,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - name: Set APP_VERSION in github environment
-        run: |
-          echo "APP_VERSION=${{ github.ref_name }}" >> $GITHUB_ENV
       - run: |
           flyctl deploy \
           --remote-only \
-          --env APP_VERSION=$APP_VERSION \
+          --build-arg VITE_ENVIRONMENT=staging \
+          --build-arg VITE_APP_VERSION=staging \
+          --build-arg VITE_SENTRY_DSN=${{ secrets.REACT_SENTRY_DSN }} \
+          --env ENVIRONMENT=staging \
+          --env APP_VERSION=staging \
           --config ./fly/staging.toml
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_ACCESS_TOKEN }}
