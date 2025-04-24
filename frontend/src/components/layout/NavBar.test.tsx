@@ -5,18 +5,16 @@ import { describe, test } from "vitest";
 import { NavBar } from "./NavBar";
 
 describe.concurrent("NavBar", () => {
-  test("should render the component", async ({ expect }) => {
+  test("should render the component", ({ expect }) => {
     const { container } = render(<NavBar />);
     const navbar = getByTestId<HTMLDivElement>(container, "navbar");
 
-    await waitFor(() => {
-      expect(navbar).toBeVisible();
-    });
+    expect(navbar).toBeVisible();
 
     expect(navbar).toHaveTextContent("Django React Starter");
   });
 
-  test("should handle redirects", async ({ expect }) => {
+  test("should handle redirects", ({ expect }) => {
     const { container } = render(<NavBar />);
 
     const navbar = getByTestId<HTMLDivElement>(container, "navbar");
@@ -33,10 +31,7 @@ describe.concurrent("NavBar", () => {
       "navbar-settings-link",
     );
 
-    await waitFor(() => {
-      expect(navbar).toBeVisible();
-    });
-
+    expect(navbar).toBeVisible();
     expect(logoLink.href).toMatch(/\/$/);
     expect(homeLink.href).toMatch(/\/$/);
     expect(settingsLink.href).toMatch(/\/settings$/);
@@ -49,9 +44,7 @@ describe.concurrent("NavBar", () => {
       "navbar-logout-button",
     );
 
-    await waitFor(() => {
-      expect(logoutButton).toBeVisible();
-    });
+    expect(logoutButton).toBeVisible();
 
     logoutButton.click();
 

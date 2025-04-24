@@ -54,14 +54,11 @@ const fillAndSubmitForm = ({
 };
 
 describe("RegisterForm", () => {
-  test("should render the component", async ({ expect }) => {
+  test("should render the component", ({ expect }) => {
     const { container } = render(<RegisterForm />);
     const { form, submitButton } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
-
+    expect(form).toBeVisible();
     expect(form).toHaveTextContent("Register");
     expect(submitButton).toBeDisabled();
   });
@@ -76,9 +73,7 @@ describe("RegisterForm", () => {
       submitButton,
     } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({
       emailInput,
@@ -111,9 +106,7 @@ describe("RegisterForm", () => {
       submitButton,
     } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({
       emailInput,
@@ -143,9 +136,7 @@ describe("RegisterForm", () => {
       submitButton,
     } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({
       emailInput,
@@ -175,9 +166,7 @@ describe("RegisterForm", () => {
       submitButton,
     } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({
       emailInput,

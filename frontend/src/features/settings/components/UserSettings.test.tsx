@@ -1,5 +1,5 @@
 import { render } from "@/tests/utils";
-import { act, getByTestId, waitFor } from "@testing-library/react";
+import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import { UserSettings } from "./UserSettings";
 
@@ -20,14 +20,11 @@ const getElements = (
 });
 
 describe.concurrent("UserSettings", () => {
-  test("should render the component", async ({ expect }) => {
+  test("should render the component", ({ expect }) => {
     const { container } = render(<UserSettings />);
     const { userSettings } = getElements(container);
 
-    await waitFor(() => {
-      expect(userSettings).toBeVisible();
-    });
-
+    expect(userSettings).toBeVisible();
     expect(userSettings).toHaveTextContent("Language");
   });
 
@@ -35,23 +32,16 @@ describe.concurrent("UserSettings", () => {
     const { container } = render(<UserSettings />);
     const { userSettings, localeFr, localeEn } = getElements(container);
 
-    await waitFor(() => {
-      expect(userSettings).toBeVisible();
-    });
-
+    expect(userSettings).toBeVisible();
     expect(userSettings).toHaveTextContent("Language");
 
-    act(() => {
-      localeFr.click();
-    });
+    localeFr.click();
 
     await waitFor(() => {
       expect(userSettings).toHaveTextContent("Langue");
     });
 
-    act(() => {
-      localeEn.click();
-    });
+    localeEn.click();
 
     await waitFor(() => {
       expect(userSettings).toHaveTextContent("Language");
@@ -63,23 +53,16 @@ describe.concurrent("UserSettings", () => {
     const themeProvider = getByTestId(container, "theme-provider");
     const { userSettings, themeLight, themeDark } = getElements(container);
 
-    await waitFor(() => {
-      expect(userSettings).toBeVisible();
-    });
-
+    expect(userSettings).toBeVisible();
     expect(themeProvider).toHaveAttribute("data-theme", "bumblebee");
 
-    act(() => {
-      themeDark.click();
-    });
+    themeDark.click();
 
     await waitFor(() => {
       expect(themeProvider).toHaveAttribute("data-theme", "coffee");
     });
 
-    act(() => {
-      themeLight.click();
-    });
+    themeLight.click();
 
     await waitFor(() => {
       expect(themeProvider).toHaveAttribute("data-theme", "bumblebee");

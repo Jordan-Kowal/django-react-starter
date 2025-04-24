@@ -38,14 +38,11 @@ const fillAndSubmitForm = ({
 };
 
 describe("LoginForm", () => {
-  test("should render the component", async ({ expect }) => {
+  test("should render the component", ({ expect }) => {
     const { container } = render(<LoginForm />);
     const { form, submitButton } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
-
+    expect(form).toBeVisible();
     expect(form).toHaveTextContent("Login");
     expect(submitButton).toBeDisabled();
   });
@@ -55,9 +52,7 @@ describe("LoginForm", () => {
     const { form, emailInput, passwordInput, submitButton } =
       getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({ emailInput, passwordInput, submitButton });
 
@@ -77,9 +72,7 @@ describe("LoginForm", () => {
     const { form, emailInput, passwordInput, submitButton } =
       getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({ emailInput, passwordInput, submitButton });
 
@@ -99,9 +92,7 @@ describe("LoginForm", () => {
     const { form, emailInput, passwordInput, submitButton } =
       getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({ emailInput, passwordInput, submitButton });
 

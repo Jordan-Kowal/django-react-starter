@@ -3,7 +3,7 @@ import { navigateMock } from "@/tests/mocks/globals";
 import { selfError } from "@/tests/mocks/handlers/shared";
 import { server } from "@/tests/server";
 import { render } from "@/tests/utils";
-import { getByTestId, waitFor } from "@testing-library/react";
+import { getByTestId } from "@testing-library/react";
 import { describe, test, vi } from "vitest";
 import { Routes } from "./Routes";
 
@@ -17,14 +17,12 @@ vi.mock("@/api/queries", async () => {
 });
 
 describe.concurrent("Routes", () => {
-  test("should render the component", async ({ expect }) => {
+  test("should render the component", ({ expect }) => {
     const { container } = render(<Routes />);
-    await waitFor(() => {
-      expect(container).toBeDefined();
-    });
+    expect(container).toBeDefined();
   });
 
-  test("should show loading when appConfig is pending", async ({ expect }) => {
+  test("should show loading when appConfig is pending", ({ expect }) => {
     vi.spyOn(apiQueries, "useAppConfig").mockReturnValue({
       isPending: true,
       isError: false,
@@ -35,12 +33,10 @@ describe.concurrent("Routes", () => {
     const { container } = render(<Routes />);
     const loadingElement = getByTestId(container, "loading");
 
-    await waitFor(() => {
-      expect(loadingElement).toBeVisible();
-    });
+    expect(loadingElement).toBeVisible();
   });
 
-  test("should show loading when user is pending", async ({ expect }) => {
+  test("should show loading when user is pending", ({ expect }) => {
     vi.spyOn(apiQueries, "useSelf").mockReturnValue({
       isPending: true,
       isError: false,
@@ -51,9 +47,7 @@ describe.concurrent("Routes", () => {
     const { container } = render(<Routes />);
     const loadingElement = getByTestId(container, "loading");
 
-    await waitFor(() => {
-      expect(loadingElement).toBeVisible();
-    });
+    expect(loadingElement).toBeVisible();
   });
 
   test.sequential(
@@ -64,9 +58,7 @@ describe.concurrent("Routes", () => {
       await new Promise((resolve) => setTimeout(resolve, 100));
       const loginPage = getByTestId(container, "login-page");
 
-      await waitFor(() => {
-        expect(loginPage).toBeVisible();
-      });
+      expect(loginPage).toBeVisible();
       expect(navigateMock).not.toHaveBeenCalledWith("/");
     },
   );
@@ -76,8 +68,6 @@ describe.concurrent("Routes", () => {
     await new Promise((resolve) => setTimeout(resolve, 100));
     const homepage = getByTestId(container, "homepage");
 
-    await waitFor(() => {
-      expect(homepage).toBeVisible();
-    });
+    expect(homepage).toBeVisible();
   });
 });

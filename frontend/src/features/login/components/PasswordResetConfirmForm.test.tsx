@@ -53,14 +53,10 @@ const fillAndSubmitForm = ({
 };
 
 describe("PasswordResetConfirmForm", () => {
-  test("should render the component", async ({ expect }) => {
+  test("should render the component", ({ expect }) => {
     const { container } = render(<PasswordResetConfirmForm />);
     const { form, submitButton } = getElements(container);
-
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
-
+    expect(form).toBeVisible();
     expect(form).toHaveTextContent("Save");
     expect(submitButton).toBeDisabled();
   });
@@ -70,9 +66,7 @@ describe("PasswordResetConfirmForm", () => {
     const { form, passwordInput, confirmPasswordInput, submitButton } =
       getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({ passwordInput, confirmPasswordInput, submitButton });
 
@@ -104,9 +98,7 @@ describe("PasswordResetConfirmForm", () => {
     const { form, passwordInput, confirmPasswordInput, submitButton } =
       getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({ passwordInput, confirmPasswordInput, submitButton });
 
@@ -135,9 +127,7 @@ describe("PasswordResetConfirmForm", () => {
     const { form, passwordInput, confirmPasswordInput, submitButton } =
       getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({ passwordInput, confirmPasswordInput, submitButton });
 
@@ -164,9 +154,7 @@ describe("PasswordResetConfirmForm", () => {
     const { form, passwordInput, confirmPasswordInput, submitButton } =
       getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({ passwordInput, confirmPasswordInput, submitButton });
 
@@ -187,16 +175,13 @@ describe("PasswordResetConfirmForm", () => {
     expect(toastErrorMock).toHaveBeenCalledWith("Something went wrong");
   });
 
-  test("should redirect to login page on go back button click", async ({
+  test("should redirect to login page on go back button click", ({
     expect,
   }) => {
     const { container } = render(<PasswordResetConfirmForm />);
     const { goBackButton } = getElements(container);
 
-    await waitFor(() => {
-      expect(goBackButton).toBeVisible();
-    });
-
+    expect(goBackButton).toBeVisible();
     expect(goBackButton).toHaveAttribute("href", "/login");
   });
 });

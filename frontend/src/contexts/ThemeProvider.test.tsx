@@ -1,5 +1,5 @@
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/config/daisyui";
-import { act, getByTestId, render, waitFor } from "@testing-library/react";
+import { getByTestId, render, waitFor } from "@testing-library/react";
 import { beforeEach, describe, test } from "vitest";
 import { ThemeProvider, useTheme } from "./ThemeProvider";
 
@@ -21,7 +21,7 @@ describe.concurrent("ThemeProvider", () => {
     localStorage.removeItem(THEME_STORAGE_KEY);
   });
 
-  test("renders children with default theme", async ({ expect }) => {
+  test("renders children with default theme", ({ expect }) => {
     const { container } = render(
       <ThemeProvider>
         <div data-testid="child">Test Child</div>
@@ -31,11 +31,9 @@ describe.concurrent("ThemeProvider", () => {
     const provider = getByTestId(container, "theme-provider");
     const child = getByTestId(container, "child");
 
-    await waitFor(() => {
-      expect(provider).toBeInTheDocument();
-      expect(provider).toHaveAttribute("data-theme", DEFAULT_THEME);
-      expect(child).toBeInTheDocument();
-    });
+    expect(provider).toBeInTheDocument();
+    expect(provider).toHaveAttribute("data-theme", DEFAULT_THEME);
+    expect(child).toBeInTheDocument();
   });
 
   test("should allow theme switching", async ({ expect }) => {
@@ -48,15 +46,10 @@ describe.concurrent("ThemeProvider", () => {
     const button = getByTestId(container, "button");
     const provider = getByTestId(container, "theme-provider");
 
-    await waitFor(() => {
-      expect(provider).toHaveAttribute("data-theme", DEFAULT_THEME);
-    });
-
+    expect(provider).toHaveAttribute("data-theme", DEFAULT_THEME);
     expect(button).toHaveTextContent(DEFAULT_THEME);
 
-    act(() => {
-      button.click();
-    });
+    button.click();
 
     await waitFor(() => {
       expect(button).toHaveTextContent("coffee");
@@ -65,7 +58,7 @@ describe.concurrent("ThemeProvider", () => {
     expect(provider).toHaveAttribute("data-theme", "coffee");
   });
 
-  test("persists theme in localStorage", async ({ expect }) => {
+  test("persists theme in localStorage", ({ expect }) => {
     const { container } = render(
       <ThemeProvider>
         <TestComponent />
@@ -74,16 +67,10 @@ describe.concurrent("ThemeProvider", () => {
 
     const button = getByTestId(container, "button");
 
-    await waitFor(() => {
-      expect(localStorage.getItem(THEME_STORAGE_KEY)).toBeNull();
-    });
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBeNull();
 
-    act(() => {
-      button.click();
-    });
+    button.click();
 
-    await waitFor(() => {
-      expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe("coffee");
-    });
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe("coffee");
   });
 });

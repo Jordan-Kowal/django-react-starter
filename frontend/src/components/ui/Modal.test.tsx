@@ -1,6 +1,5 @@
 import { render } from "@/tests/utils";
 import {
-  act,
   fireEvent,
   getByTestId,
   queryByTestId,
@@ -33,76 +32,48 @@ const TestModalWrapper = ({ onConfirm = onConfirmMock, closable = false }) => {
 };
 
 describe.concurrent("Modal", () => {
-  test("should render the component with children", async ({ expect }) => {
+  test("should render the component with children", ({ expect }) => {
     const { container } = render(<TestModalWrapper />);
     const openButton = getByTestId(container, "modal-trigger");
     const modal = getByTestId(container, "modal");
 
-    await waitFor(() => {
-      expect(openButton).toBeVisible();
-    });
+    expect(openButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(openButton);
-    });
+    fireEvent.click(openButton);
 
-    await waitFor(() => {
-      expect(modal).toHaveAttribute("open");
-    });
-
+    expect(modal).toHaveAttribute("open");
     expect(modal).toHaveTextContent("Test Modal Title");
     expect(modal).toHaveTextContent("Test Modal Content");
   });
 
-  test("should show close button when closable is true", async ({ expect }) => {
+  test("should show close button when closable is true", ({ expect }) => {
     const { container } = render(<TestModalWrapper closable={true} />);
     const openButton = getByTestId(container, "modal-trigger");
     const modal = getByTestId(container, "modal");
     const closeButton = getByTestId(container, "modal-close-button");
 
-    await waitFor(() => {
-      expect(openButton).toBeVisible();
-    });
+    expect(openButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(openButton);
-    });
+    fireEvent.click(openButton);
 
-    await waitFor(() => {
-      expect(modal).toHaveAttribute("open");
-    });
-
+    expect(modal).toHaveAttribute("open");
     expect(closeButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(closeButton as Element);
-    });
+    fireEvent.click(closeButton as Element);
 
-    await waitFor(() => {
-      expect(modal).not.toHaveAttribute("open");
-    });
+    expect(modal).not.toHaveAttribute("open");
   });
 
-  test("should not show close button when closable is false", async ({
-    expect,
-  }) => {
+  test("should not show close button when closable is false", ({ expect }) => {
     const { container } = render(<TestModalWrapper />);
     const openButton = getByTestId(container, "modal-trigger");
     const modal = getByTestId(container, "modal");
     const closeButton = queryByTestId(container, "modal-close-button");
+    expect(openButton).toBeVisible();
 
-    await waitFor(() => {
-      expect(openButton).toBeVisible();
-    });
+    fireEvent.click(openButton);
 
-    act(() => {
-      fireEvent.click(openButton);
-    });
-
-    await waitFor(() => {
-      expect(modal).toHaveAttribute("open");
-    });
-
+    expect(modal).toHaveAttribute("open");
     expect(closeButton).toBeNull();
   });
 
@@ -116,23 +87,14 @@ describe.concurrent("Modal", () => {
     const modal = getByTestId(container, "modal");
     const confirmButton = getByTestId(container, "modal-confirm-button");
 
-    await waitFor(() => {
-      expect(openButton).toBeVisible();
-    });
+    expect(openButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(openButton);
-    });
+    fireEvent.click(openButton);
 
-    await waitFor(() => {
-      expect(modal).toHaveAttribute("open");
-    });
-
+    expect(modal).toHaveAttribute("open");
     expect(confirmButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(confirmButton);
-    });
+    fireEvent.click(confirmButton);
 
     await waitFor(() => {
       expect(modal).not.toHaveAttribute("open");
@@ -156,9 +118,7 @@ describe.concurrent("Modal", () => {
       expect(openButton).toBeVisible();
     });
 
-    act(() => {
-      fireEvent.click(openButton);
-    });
+    fireEvent.click(openButton);
 
     await waitFor(() => {
       expect(modal).toHaveAttribute("open");
@@ -166,9 +126,7 @@ describe.concurrent("Modal", () => {
 
     expect(confirmButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(confirmButton);
-    });
+    fireEvent.click(confirmButton);
 
     await waitFor(() => {
       expect(crashMock).toHaveBeenCalled();
@@ -185,13 +143,9 @@ describe.concurrent("Modal", () => {
     const modal = getByTestId(container, "modal");
     const cancelButton = getByTestId(container, "modal-cancel-button");
 
-    await waitFor(() => {
-      expect(openButton).toBeVisible();
-    });
+    expect(openButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(openButton);
-    });
+    fireEvent.click(openButton);
 
     await waitFor(() => {
       expect(modal).toHaveAttribute("open");
@@ -199,9 +153,7 @@ describe.concurrent("Modal", () => {
 
     expect(cancelButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(cancelButton);
-    });
+    fireEvent.click(cancelButton);
 
     await waitFor(() => {
       expect(modal).not.toHaveAttribute("open");

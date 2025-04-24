@@ -58,14 +58,11 @@ const fillAndSubmitForm = ({
 };
 
 describe("PasswordForm", () => {
-  test("should render the component", async ({ expect }) => {
+  test("should render the component", ({ expect }) => {
     const { container } = render(<PasswordForm />);
     const { form, submitButton } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
-
+    expect(form).toBeVisible();
     expect(form).toHaveTextContent("New password");
     expect(submitButton).toBeDisabled();
   });
@@ -80,9 +77,7 @@ describe("PasswordForm", () => {
       submitButton,
     } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({
       currentPasswordInput,
@@ -115,9 +110,7 @@ describe("PasswordForm", () => {
       confirmPasswordInput,
     } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({
       currentPasswordInput,
@@ -150,9 +143,7 @@ describe("PasswordForm", () => {
       confirmPasswordInput,
     } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({
       currentPasswordInput,
@@ -185,9 +176,7 @@ describe("PasswordForm", () => {
       confirmPasswordInput,
     } = getElements(container);
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
     fillAndSubmitForm({
       currentPasswordInput,

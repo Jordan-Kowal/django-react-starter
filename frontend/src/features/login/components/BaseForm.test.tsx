@@ -1,13 +1,12 @@
 import { render } from "@/tests/utils";
-import { getByTestId, waitFor } from "@testing-library/react";
-import { act } from "react";
+import { getByTestId } from "@testing-library/react";
 import { describe, test, vi } from "vitest";
 import { BaseForm } from "./BaseForm";
 
 const onSubmit = vi.fn();
 
 describe.concurrent("LoginForm", () => {
-  test("should render the component", async ({ expect }) => {
+  test("should render the component", ({ expect }) => {
     const { container } = render(
       <BaseForm dataTestId="base-form" onSubmit={onSubmit}>
         Submit
@@ -16,14 +15,11 @@ describe.concurrent("LoginForm", () => {
 
     const form = getByTestId(container, "base-form");
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
-
+    expect(form).toBeVisible();
     expect(form).toHaveTextContent("Submit");
   });
 
-  test("should call onSubmit on form submission", async ({ expect }) => {
+  test("should call onSubmit on form submission", ({ expect }) => {
     const { container } = render(
       <BaseForm dataTestId="base-form" onSubmit={onSubmit}>
         <button type="submit" data-testid="submit-button">
@@ -35,16 +31,10 @@ describe.concurrent("LoginForm", () => {
     const form = getByTestId(container, "base-form");
     const submitButton = getByTestId(container, "submit-button");
 
-    await waitFor(() => {
-      expect(form).toBeVisible();
-    });
+    expect(form).toBeVisible();
 
-    act(() => {
-      submitButton.click();
-    });
+    submitButton.click();
 
-    await waitFor(() => {
-      expect(onSubmit).toHaveBeenCalled();
-    });
+    expect(onSubmit).toHaveBeenCalled();
   });
 });

@@ -1,11 +1,11 @@
 import { render } from "@/tests/utils";
-import { act, fireEvent, getByTestId, waitFor } from "@testing-library/react";
+import { fireEvent, getByTestId } from "@testing-library/react";
 import { LogOut } from "lucide-react";
 import { describe, test, vi } from "vitest";
 import { FieldsetInput } from "./FieldsetInput";
 
 describe.concurrent("FieldsetInput", () => {
-  test("should render the component", async ({ expect }) => {
+  test("should render the component", ({ expect }) => {
     const { container } = render(
       <FieldsetInput
         dataTestId="fieldset"
@@ -20,10 +20,7 @@ describe.concurrent("FieldsetInput", () => {
     const input = getByTestId<HTMLInputElement>(container, "fieldset-input");
     const error = getByTestId<HTMLDivElement>(container, "fieldset-error");
 
-    await waitFor(() => {
-      expect(label).toBeVisible();
-    });
-
+    expect(label).toBeVisible();
     expect(label).toHaveTextContent("Label");
     expect(icon).toBeNull();
     expect(input).toBeVisible();
@@ -36,7 +33,7 @@ describe.concurrent("FieldsetInput", () => {
     expect(error).toBeEmptyDOMElement();
   });
 
-  test("should handle onChange and onBlur", async ({ expect }) => {
+  test("should handle onChange and onBlur", ({ expect }) => {
     const onChange = vi.fn();
     const onBlur = vi.fn();
 
@@ -52,21 +49,16 @@ describe.concurrent("FieldsetInput", () => {
     );
 
     const input = getByTestId<HTMLInputElement>(container, "fieldset-input");
+    expect(input).toBeVisible();
 
-    await waitFor(() => {
-      expect(input).toBeVisible();
-    });
-
-    act(() => {
-      fireEvent.blur(input);
-      fireEvent.change(input, { target: { value: "test" } });
-    });
+    fireEvent.blur(input);
+    fireEvent.change(input, { target: { value: "test" } });
 
     expect(onBlur).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  test("should show the provided icon", async ({ expect }) => {
+  test("should show the provided icon", ({ expect }) => {
     const { container } = render(
       <FieldsetInput
         dataTestId="fieldset"
@@ -79,15 +71,11 @@ describe.concurrent("FieldsetInput", () => {
 
     const label = getByTestId<HTMLLabelElement>(container, "fieldset-label");
     const icon = label.querySelector("svg");
-
-    await waitFor(() => {
-      expect(label).toBeVisible();
-    });
-
+    expect(label).toBeVisible();
     expect(icon).toBeVisible();
   });
 
-  test("should display the error when it exists", async ({ expect }) => {
+  test("should display the error when it exists", ({ expect }) => {
     const { container } = render(
       <FieldsetInput
         dataTestId="fieldset"
@@ -100,11 +88,7 @@ describe.concurrent("FieldsetInput", () => {
 
     const input = getByTestId<HTMLInputElement>(container, "fieldset-input");
     const error = getByTestId<HTMLDivElement>(container, "fieldset-error");
-
-    await waitFor(() => {
-      expect(error).toBeVisible();
-    });
-
+    expect(error).toBeVisible();
     expect(input).toHaveClass("input w-full input-error");
     expect(error).toHaveTextContent("This is an error message");
   });

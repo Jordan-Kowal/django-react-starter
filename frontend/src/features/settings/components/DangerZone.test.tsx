@@ -7,19 +7,16 @@ import {
 import { deleteAccountCrash } from "@/tests/mocks/handlers/settings";
 import { server } from "@/tests/server";
 import { render } from "@/tests/utils";
-import { act, fireEvent, getByTestId, waitFor } from "@testing-library/react";
+import { fireEvent, getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
 import { DangerZone } from "./DangerZone";
 
 describe("DangerZone", () => {
-  test("should render the component correctly", async ({ expect }) => {
+  test("should render the component correctly", ({ expect }) => {
     const { container } = render(<DangerZone />);
     const dangerZone = getByTestId(container, "danger-zone");
 
-    await waitFor(() => {
-      expect(dangerZone).toBeVisible();
-    });
-
+    expect(dangerZone).toBeVisible();
     expect(dangerZone).toHaveTextContent("Delete your account");
   });
 
@@ -29,23 +26,14 @@ describe("DangerZone", () => {
     const modal = getByTestId(container, "modal");
     const confirmButton = getByTestId(container, "modal-confirm-button");
 
-    await waitFor(() => {
-      expect(deleteButton).toBeVisible();
-    });
+    expect(deleteButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(deleteButton);
-    });
+    fireEvent.click(deleteButton);
 
-    await waitFor(() => {
-      expect(modal).toHaveAttribute("open");
-    });
-
+    expect(modal).toHaveAttribute("open");
     expect(confirmButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(confirmButton);
-    });
+    fireEvent.click(confirmButton);
 
     await waitFor(() => {
       expect(performRequest).toHaveBeenCalledWith("/api/v1/self/account/", {
@@ -68,23 +56,14 @@ describe("DangerZone", () => {
     const modal = getByTestId(container, "modal");
     const confirmButton = getByTestId(container, "modal-confirm-button");
 
-    await waitFor(() => {
-      expect(deleteButton).toBeVisible();
-    });
+    expect(deleteButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(deleteButton);
-    });
+    fireEvent.click(deleteButton);
 
-    await waitFor(() => {
-      expect(modal).toHaveAttribute("open");
-    });
-
+    expect(modal).toHaveAttribute("open");
     expect(confirmButton).toBeVisible();
 
-    act(() => {
-      fireEvent.click(confirmButton);
-    });
+    fireEvent.click(confirmButton);
 
     await waitFor(() => {
       expect(performRequest).toHaveBeenCalledWith("/api/v1/self/account/", {

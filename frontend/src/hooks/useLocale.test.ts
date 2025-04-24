@@ -6,28 +6,22 @@ import { useLocale } from "./useLocale";
 
 describe.concurrent("useLocale", () => {
   describe.concurrent("initLocale", () => {
-    test("should use the default locale if no locale is stored", async ({
+    test("should use the default locale if no locale is stored", ({
       expect,
     }) => {
       const { result } = renderHook(() => useLocale());
       const initLocale = result.current?.initLocale;
       // Starts as default
-      await waitFor(() => {
-        expect(result.current?.currentLocale).toBe(DEFAULT_LOCALE);
-      });
+      expect(result.current?.currentLocale).toBe(DEFAULT_LOCALE);
       // Does nothing
       initLocale();
-      await waitFor(() => {
-        expect(result.current?.currentLocale).toBe(DEFAULT_LOCALE);
-      });
+      expect(result.current?.currentLocale).toBe(DEFAULT_LOCALE);
     });
 
     test("should use stored locale if valid", async ({ expect }) => {
       const { result } = renderHook(() => useLocale());
       // Starts as default
-      await waitFor(() => {
-        expect(result.current?.currentLocale).toBe(DEFAULT_LOCALE);
-      });
+      expect(result.current?.currentLocale).toBe(DEFAULT_LOCALE);
       // Should update
       localStorage.setItem(LOCALE_STORAGE_KEY, "fr");
       const { result: newResult } = renderHook(() => useLocale());

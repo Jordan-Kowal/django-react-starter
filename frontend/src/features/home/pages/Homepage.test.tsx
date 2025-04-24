@@ -5,28 +5,22 @@ import { describe, test } from "vitest";
 import Homepage from "./Homepage";
 
 describe.concurrent("Homepage", () => {
-  test("should render the page", async ({ expect }) => {
+  test("should render the page", ({ expect }) => {
     const { container } = render(<Homepage />);
     const homepage = getByTestId<HTMLDivElement>(container, "homepage");
 
-    await waitFor(() => {
-      expect(homepage).toBeVisible();
-    });
-
+    expect(homepage).toBeVisible();
     expect(homepage).toHaveTextContent("Django React Starter");
   });
 
-  test("should redirect to settings", async ({ expect }) => {
+  test("should redirect to settings", ({ expect }) => {
     const { container } = render(<Homepage />);
     const settingsLink = getByTestId<HTMLLinkElement>(
       container,
       "settings-link",
     );
 
-    await waitFor(() => {
-      expect(settingsLink).toBeVisible();
-    });
-
+    expect(settingsLink).toBeVisible();
     expect(settingsLink.href).toMatch(/\/settings$/);
   });
 
@@ -36,10 +30,7 @@ describe.concurrent("Homepage", () => {
       container,
       "logout-button",
     );
-
-    await waitFor(() => {
-      expect(logoutButton).toBeVisible();
-    });
+    expect(logoutButton).toBeVisible();
 
     logoutButton.click();
 

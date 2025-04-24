@@ -1,5 +1,5 @@
 import { useLocationMock } from "@/tests/mocks/globals";
-import { renderHook, waitFor } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
 import { beforeEach, describe, it, vi } from "vitest";
 import { useUpdateMetadata } from "./useUpdateMetadata";
 
@@ -9,27 +9,21 @@ describe.concurrent("useUpdateMetadata", () => {
     document.documentElement.lang = "fr";
   });
 
-  it("should update document title based on route staticData", async ({
-    expect,
-  }) => {
+  it("should update document title based on route staticData", ({ expect }) => {
     useLocationMock.mockImplementation(() => ["/settings", vi.fn()]);
     document.title = "Initial Title";
     renderHook(() => useUpdateMetadata());
 
-    await waitFor(() => {
-      expect(document.title).toBe("Settings");
-    });
+    expect(document.title).toBe("Settings");
   });
 
-  it("should fallback to default title if route is not handled", async ({
+  it("should fallback to default title if route is not handled", ({
     expect,
   }) => {
     useLocationMock.mockImplementation(() => ["/unknown", vi.fn()]);
     document.title = "Initial Title";
     renderHook(() => useUpdateMetadata());
 
-    await waitFor(() => {
-      expect(document.title).toBe("Django React Starter");
-    });
+    expect(document.title).toBe("Django React Starter");
   });
 });
