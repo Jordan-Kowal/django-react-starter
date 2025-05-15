@@ -8,8 +8,6 @@ updates:
     groups:
       all:
         patterns: ["*"]
-    reviewers:
-      - "Jordan-Kowal"
     commit-message:
       prefix: "[Frontend] "
   - package-ecosystem: "uv"
@@ -20,7 +18,5 @@ updates:
     groups:
       all:
         patterns: ["*"]
-    reviewers:
-      - "Jordan-Kowal"
     commit-message:
       prefix: "[Backend] "
