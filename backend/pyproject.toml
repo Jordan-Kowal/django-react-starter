@@ -30,35 +30,18 @@ dev-dependencies = [
     "django-stubs>=5.0.4",
     "djangorestframework-stubs>=3.15.0",
     "factory-boy>=3.3.1",
-    "mypy>=1.11.2",
     "ruff>=0.6.4",
     "tblib>=3.1.0",
+    "ty>=0.0.1a3",
     "types-pytz>=2024.1.0.20240417",
     "types-requests>=2.32.0.20240907",
 ]
 
 # ------------------------------
-# MYPY
+# TY
 # ------------------------------
-[tool.mypy]
-python_version = "3.13"
-mypy_path = "./backend"
-
-check_untyped_defs = true
-disallow_untyped_defs = true
-follow_imports = "silent"
-ignore_missing_imports = false
-show_column_numbers = true
-strict_optional = false
-warn_redundant_casts = true
-warn_unused_ignores = true
-disable_error_code = "attr-defined,import-untyped"
-
-plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
-
-[tool.django-stubs]
-django_settings_module = "django_react_starter.settings.base"
-
+[tool.ty.rules]
+unresolved-attribute = "ignore"
 
 # ------------------------------
 # RUFF

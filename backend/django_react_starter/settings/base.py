@@ -16,9 +16,6 @@ CSRF_COOKIE_NAME = f"{APP_NAME}-csrftoken"
 DEBUG = False
 SECRET_KEY = os.getenv("SECRET_KEY")
 ENVIRONMENT = os.getenv("ENVIRONMENT")
-IS_RUNNING_MYPY = bool(
-    os.getenv("MYPY_CONFIG_FILE_DIR")
-)  # Automatically set when running mypy
 
 INSTALLED_APPS = [
     # Django
@@ -126,7 +123,7 @@ DATABASES = {
 AUTH_USER_MODEL = "user.User"
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -242,9 +239,9 @@ RABBITMQ_HOSTNAME = os.getenv("RABBITMQ_HOSTNAME", "rabbitmq")
 RABBITMQ_PORT = os.getenv("RABBITMQ_PORT", 5672)
 RABBITMQ_USERNAME = os.getenv("RABBITMQ_USERNAME", "")
 RABBITMQ_PASSWORD = os.getenv("RABBITMQ_PASSWORD", "")
-RABBITMQ_URL = f"amqp://{RABBITMQ_USERNAME}:{RABBITMQ_PASSWORD}@{RABBITMQ_HOSTNAME}:{RABBITMQ_PORT}"  # noqa
-RABBITMQ_ADMIN_URL = os.getenv("RABBITMQ_ADMIN_URL", "http://rabbitmq:15672")  # noqa
-RABBITMQ_HEALTHCHECK_URL = f"{RABBITMQ_ADMIN_URL}/api/healthchecks/node"  # noqa
+RABBITMQ_URL = f"amqp://{RABBITMQ_USERNAME}:{RABBITMQ_PASSWORD}@{RABBITMQ_HOSTNAME}:{RABBITMQ_PORT}"
+RABBITMQ_ADMIN_URL = os.getenv("RABBITMQ_ADMIN_URL", "http://rabbitmq:15672")
+RABBITMQ_HEALTHCHECK_URL = f"{RABBITMQ_ADMIN_URL}/api/healthchecks/node"
 
 # Celery
 CELERY_CONFIG_PREFIX = "CELERY"

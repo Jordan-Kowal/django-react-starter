@@ -9,7 +9,7 @@ from core.tests import BaseTestCase
 if TYPE_CHECKING:
     from user.models import User as UserType
 
-User: "UserType" = get_user_model()  # type: ignore
+User: "UserType" = get_user_model()
 
 
 class CreateSUCommandTestCase(BaseTestCase):

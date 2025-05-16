@@ -1,5 +1,3 @@
 {
-  "ruff.configuration": "./backend/pyproject.toml",
-  "mypy-type-checker.args": ["--config-file=./backend/pyproject.toml"],
-  "python-envs.pythonProjects": []
+  "ruff.configuration": "./backend/pyproject.toml"
 }

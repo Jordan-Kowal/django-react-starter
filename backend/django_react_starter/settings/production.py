@@ -6,7 +6,7 @@ from sentry_sdk.integrations.django import DjangoIntegration
 
 from ..sentry import traces_sampler
 from .base import *  # noqa
-from .base import APP_VERSION, ENVIRONMENT, LOGGING  # noqa
+from .base import APP_VERSION, ENVIRONMENT, LOGGING
 
 FLY_VOLUME_DIR = os.getenv("FLY_VOLUME_DIR", None)
 
@@ -46,7 +46,7 @@ db_config = dj_database_url.config(
 )
 DATABASES = {
     "default": {
-        **db_config,  # type: ignore
+        **db_config,
         "ENGINE": "django_prometheus.db.backends.postgis",
     }
 }
@@ -68,7 +68,7 @@ ANYMAIL = {
 # > Logging
 # --------------------------------------------------------------------------------
 if FLY_VOLUME_DIR is not None:
-    LOGGING["handlers"]["console.log"]["filename"] = os.path.join(  # type: ignore
+    LOGGING["handlers"]["console.log"]["filename"] = os.path.join(
         FLY_VOLUME_DIR, "console.log"
     )
 

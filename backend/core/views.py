@@ -14,7 +14,7 @@ def index(request: HttpRequest) -> HttpResponse:
     return render(request, "dist/index.html")
 
 
-@require_GET
+@require_GET  # ty: ignore
 def robots_txt(request: HttpRequest) -> HttpResponse:
     lines = [
         "User-agent: *",

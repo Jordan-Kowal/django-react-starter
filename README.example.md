@@ -116,7 +116,7 @@ make setup_hooks
 We use GitHub actions to verify, build, and deploy the application. We currently have:
 
 - [dependabot](.github/dependabot.yml): Dependabot configuration for frontend/backend dependencies
-- [qa-backend](.github/workflows/qa-backend.yml): runs ruff, mypy, and tests
+- [qa-backend](.github/workflows/qa-backend.yml): runs ruff, ty, and tests
 - [qa-frontend](.github/workflows/qa-frontend.yml): runs biome, tsc, translations, and frontend tests
 - [deploy-staging](.github/workflows/deploy-staging.yml): deploys the application on staging using **fly.io**
 - [deploy-production](.github/workflows/deploy-production.yml): deploys the application on production using **fly.io**

@@ -1,4 +1,4 @@
-from .base import *  # noqa type: ignore
+from .base import *  # noqa
 
 DEBUG = True
 ENVIRONMENT = "development"

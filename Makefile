@@ -40,7 +40,7 @@ backend.quality:
 		&& ruff check --select I . \
 		&& ruff check . \
 		&& ruff format --check . \
-		&& mypy . \
+		&& ty check . --error-on-warning \
 
 backend.shell:
 	@$(MAKE) -s _manage_py cmd=shell
@@ -103,7 +103,7 @@ help:
 	@echo "backend.bash:				Opens a bash session in the api container"
 	@echo "backend.makemigrations:			Generates new migrations based on models"
 	@echo "backend.migrate:			Runs the migration"
-	@echo "backend.quality:			Runs ruff and mypy"
+	@echo "backend.quality:			Runs ruff and ty"
 	@echo "backend.shell: 				Opens the Django shell for the running instance"
 	@echo "backend.test:				Runs tests"
 	@echo "backend.test.coverage:			Runs tests and generates coverage report"

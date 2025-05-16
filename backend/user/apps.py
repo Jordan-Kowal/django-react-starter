@@ -9,7 +9,7 @@ class UserConfig(AppConfig):
 
         from user.indexers import UserIndexer
 
-        if settings.IS_RUNNING_MYPY or settings.ENVIRONMENT == "test":
+        if settings.ENVIRONMENT == "test":
             return
 
         UserIndexer.maybe_create_index()  # pragma: no cover

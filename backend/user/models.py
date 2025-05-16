@@ -9,7 +9,7 @@ from django_prometheus.models import ExportModelOperationsMixin
 LOGGER = logging.getLogger("default")
 
 
-class User(ExportModelOperationsMixin("user"), AbstractUser):  # type: ignore
+class User(ExportModelOperationsMixin("user"), AbstractUser):  # ty: ignore
     profile: "Profile"
 
     email = models.EmailField(unique=True, null=False, blank=False)

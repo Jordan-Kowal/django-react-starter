@@ -21,6 +21,7 @@
 ### 🔧 Others
 
 - 💫 **DX**: Added `CODEOWNERS` file
+- 💫 **DX**: Replaced `mypy` with `ty` as our type-checker
 
 ## [v4.2.0] - 2025-04-18
 

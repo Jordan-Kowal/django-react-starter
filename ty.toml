@@ -1,0 +1,12 @@
+# Used by the ty server from the ty-vscode extension
+# Must have the same [rules] as the ones in "backend/pyproject.toml"
+# [src] and [environment] are set to help the correctly setup the server since the app is nested
+
+[src]
+root = "./backend"
+
+[environment]
+python = "./backend/.venv"
+
+[rules]
+unresolved-attribute = "ignore"

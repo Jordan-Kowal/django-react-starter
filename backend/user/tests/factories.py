@@ -1,30 +1,31 @@
 from typing import Any
 
 from django.contrib.auth import get_user_model
-import factory
+from factory import Sequence, post_generation
+from factory.django import DjangoModelFactory
 
 User = get_user_model()
 
 
-class UserFactory(factory.django.DjangoModelFactory):
+class UserFactory(DjangoModelFactory):
     class Meta:
         model = User
         exclude = ("is_staff", "is_superuser")
 
-    username = factory.Sequence(lambda x: f"username{x}")
-    email = factory.Sequence(lambda x: f"fake-email-{x}@fake-domain.com")
-    password = factory.Sequence(lambda x: f"Str0ngP4ssw0rd!{x}")
-    first_name = factory.Sequence(lambda x: f"Firstname{x}")
-    last_name = factory.Sequence(lambda x: f"Lastname{x}")
+    username = Sequence(lambda x: f"username{x}")
+    email = Sequence(lambda x: f"fake-email-{x}@fake-domain.com")
+    password = Sequence(lambda x: f"Str0ngP4ssw0rd!{x}")
+    first_name = Sequence(lambda x: f"Firstname{x}")
+    last_name = Sequence(lambda x: f"Lastname{x}")
     is_staff = False
     is_superuser = False
 
-    @factory.post_generation
+    @post_generation
     def set_user_password(self, create: bool, extracted: str, **kwargs: Any) -> None:
         self.set_password(self.password)
         self.save()
 
-    @factory.post_generation
+    @post_generation
     def resource_id(self, create: bool, extracted: str, **kwargs: Any) -> None:
         if create and extracted:
             self.profile.resource_id = extracted

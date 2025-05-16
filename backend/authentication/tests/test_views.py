@@ -157,7 +157,7 @@ class AuthViewSetTestCase(BaseActionTestCase):
     def test_password_reset_confirm_with_valid_token(self) -> None:
         user = UserFactory(email="reset_confirm@test.com", password="oldpassword")
         token_generator = PasswordResetTokenGenerator()
-        token = token_generator.make_token(user)  # type: ignore
+        token = token_generator.make_token(user)
         payload = {
             "uid": user.id,
             "token": token,
@@ -196,7 +196,7 @@ class AuthViewSetTestCase(BaseActionTestCase):
     def test_password_reset_confirm_with_weak_password(self) -> None:
         user = UserFactory(email="reset_weak@test.com", password="oldpassword")
         token_generator = PasswordResetTokenGenerator()
-        token = token_generator.make_token(user)  # type: ignore
+        token = token_generator.make_token(user)
         payload = {"uid": user.id, "token": token, "password": "weak"}
         response = self.api_client.post(AUTH_PASSWORD_RESET_CONFIRM_URL, data=payload)
         self.assertEqual(response.status_code, 400)

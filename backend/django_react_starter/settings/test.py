@@ -1,5 +1,5 @@
-from .base import *  # noqa type: ignore
-from .base import MEDIA_ROOT  # noqa type: ignore
+from .base import *  # noqa
+from .base import MEDIA_ROOT
 
 DEBUG = False
 ENVIRONMENT = "test"

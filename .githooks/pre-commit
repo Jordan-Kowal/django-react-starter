@@ -22,9 +22,9 @@ echo ">>> [4/5] Running Ruff on backend"
 (cd backend && ruff check .)
 (cd backend && ruff format --check .)
 
-# MyPy (type checking)
+# Ty (type checking)
 echo ""
-echo ">>> [5/5] Running MyPy on backend"
-(cd backend && mypy .)
+echo ">>> [5/5] Running Ty on backend"
+(cd backend && ty check . --error-on-warning)
 
 echo "------------------------------------------"
