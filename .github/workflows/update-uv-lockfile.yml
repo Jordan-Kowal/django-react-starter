@@ -1,0 +1,12 @@
+name: Update uv lockfile
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 1'  # Run weekly on Monday
+
+jobs:
+  update-uv-lockfile:
+    uses: Jordan-Kowal/github-workflows/.github/workflows/update-uv-lockfile.yml@main
+    with:
+      working_directory: ./backend

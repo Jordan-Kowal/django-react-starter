@@ -22,6 +22,7 @@
 
 - 💫 **DX**: Added `CODEOWNERS` file
 - 💫 **DX**: Replaced `mypy` with `ty` as our type-checker
+- 💫 **DX**: Fallback to `update-uv-lockfile` action for backend dependency upgrades
 
 ## [v4.2.0] - 2025-04-18
 
