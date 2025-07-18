@@ -1,3 +1,4 @@
 {
-  "ruff.configuration": "./backend/pyproject.toml"
+  "ruff.configuration": "./backend/pyproject.toml",
+  "djlint.showInstallError": false
 }

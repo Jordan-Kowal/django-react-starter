@@ -1,11 +1,11 @@
-import { useLogout } from "@/api/queries";
-import { Main } from "@/components/layout";
-import { Logo } from "@/components/ui";
-import { routeConfigMap } from "@/router";
 import { LogOut, Settings } from "lucide-react";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "wouter";
+import { useLogout } from "@/api/queries";
+import { Main } from "@/components/layout";
+import { Logo } from "@/components/ui";
+import { routeConfigMap } from "@/router";
 
 const Homepage: React.FC = memo(() => {
   const { t } = useTranslation();

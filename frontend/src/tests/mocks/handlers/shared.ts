@@ -1,7 +1,7 @@
+import { HttpResponse, http } from "msw";
 import { API_ROOT_URL } from "@/api/config";
 import { APP_CONFIG_MOCK } from "@/api/queries/__mocks__/useAppConfig";
 import { SELF_MOCK } from "@/api/queries/__mocks__/useSelf";
-import { http, HttpResponse } from "msw";
 
 export const appConfig = http.get(`${API_ROOT_URL}/app/config/`, () => {
   return HttpResponse.json(APP_CONFIG_MOCK, { status: 200 });

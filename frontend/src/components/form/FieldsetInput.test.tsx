@@ -1,7 +1,7 @@
-import { render } from "@/tests/utils";
 import { fireEvent, getByTestId } from "@testing-library/react";
 import { LogOut } from "lucide-react";
 import { describe, test, vi } from "vitest";
+import { render } from "@/tests/utils";
 import { FieldsetInput } from "./FieldsetInput";
 
 describe.concurrent("FieldsetInput", () => {

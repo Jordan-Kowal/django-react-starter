@@ -1,7 +1,7 @@
-import { Main } from "@/components/layout";
-import { Logo } from "@/components/ui";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
+import { Main } from "@/components/layout";
+import { Logo } from "@/components/ui";
 import { PasswordResetConfirmForm } from "../components";
 
 const PasswordResetConfirmPage: React.FC = memo(() => {

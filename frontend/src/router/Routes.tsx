@@ -1,8 +1,8 @@
+import { memo, Suspense, useMemo } from "react";
+import { Redirect, Route, Switch } from "wouter";
 import { useAppConfig, useCheckAuth, useSelf } from "@/api/queries";
 import { Main } from "@/components/layout";
 import { LoadingRing } from "@/components/ui";
-import { Suspense, memo, useMemo } from "react";
-import { Redirect, Route, Switch } from "wouter";
 import { useUpdateMetadata } from "./hooks";
 import { routeConfigMap } from "./routeConfig";
 

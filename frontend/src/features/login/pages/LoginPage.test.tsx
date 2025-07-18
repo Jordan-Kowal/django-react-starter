@@ -1,7 +1,7 @@
-import { navigateMock } from "@/tests/mocks/globals";
-import { render } from "@/tests/utils";
 import { fireEvent, getByTestId } from "@testing-library/react";
 import { describe, test } from "vitest";
+import { navigateMock } from "@/tests/mocks/globals";
+import { render } from "@/tests/utils";
 import LoginPage from "./LoginPage";
 
 describe.concurrent("LoginPage", () => {

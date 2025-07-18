@@ -1,3 +1,5 @@
+import { act, fireEvent, getByTestId, waitFor } from "@testing-library/react";
+import { describe, test } from "vitest";
 import { performRequest } from "@/api/utils";
 import {
   navigateMock,
@@ -7,8 +9,6 @@ import {
 import { passwordResetError } from "@/tests/mocks/handlers/login";
 import { server } from "@/tests/server";
 import { render } from "@/tests/utils";
-import { act, fireEvent, getByTestId, waitFor } from "@testing-library/react";
-import { describe, test } from "vitest";
 import { PasswordResetForm } from "./PasswordResetForm";
 
 const getElements = (

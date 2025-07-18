@@ -24,7 +24,7 @@ export const Modal = memo(
           setIsLoading(true);
           await onConfirm();
           closeModal();
-        } catch (e) {
+        } catch (_e) {
           setIsLoading(false);
         }
       }, [onConfirm, closeModal]);

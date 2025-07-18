@@ -1,5 +1,3 @@
-import { FieldsetInput } from "@/components/form";
-import { routeConfigMap } from "@/router";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeftToLine, LockKeyhole, Save } from "lucide-react";
 import { memo, useEffect, useMemo, useState } from "react";
@@ -7,6 +5,8 @@ import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "wouter";
 import { z } from "zod";
+import { FieldsetInput } from "@/components/form";
+import { routeConfigMap } from "@/router";
 import { usePasswordResetConfirm } from "../api";
 import { BaseForm } from "./BaseForm";
 
@@ -62,7 +62,7 @@ export const PasswordResetConfirmForm: React.FC = memo(() => {
     setIsLoading(true);
     try {
       await passwordResetConfirm(data);
-    } catch (e) {
+    } catch (_e) {
       setIsLoading(false);
     }
   };

@@ -1,7 +1,7 @@
-import { performRequest } from "@/api/utils";
-import { render } from "@/tests/utils";
 import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
+import { performRequest } from "@/api/utils";
+import { render } from "@/tests/utils";
 import Homepage from "./Homepage";
 
 describe.concurrent("Homepage", () => {

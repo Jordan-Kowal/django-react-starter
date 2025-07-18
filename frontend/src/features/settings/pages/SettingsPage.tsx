@@ -1,6 +1,6 @@
-import { Main } from "@/components/layout";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
+import { Main } from "@/components/layout";
 import {
   DangerZone,
   GoBackButton,

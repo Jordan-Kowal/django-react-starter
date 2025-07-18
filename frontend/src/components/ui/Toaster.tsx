@@ -1,7 +1,7 @@
-import { useTheme } from "@/contexts";
 import type React from "react";
 import { memo } from "react";
 import { Bounce, ToastContainer } from "react-toastify";
+import { useTheme } from "@/contexts";
 
 export const Toaster: React.FC = memo(() => {
   const { isDarkMode } = useTheme();

@@ -1,8 +1,8 @@
-import { Main } from "@/components/layout";
-import { Logo } from "@/components/ui";
 import { memo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "wouter";
+import { Main } from "@/components/layout";
+import { Logo } from "@/components/ui";
 import { LoginForm, RegisterForm } from "../components";
 
 type AuthMode = "login" | "register";

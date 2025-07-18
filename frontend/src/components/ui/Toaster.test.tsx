@@ -1,5 +1,5 @@
-import { render } from "@/tests/utils";
 import { describe, test } from "vitest";
+import { render } from "@/tests/utils";
 import { Toaster } from "./Toaster";
 
 describe.concurrent("Toaster", () => {

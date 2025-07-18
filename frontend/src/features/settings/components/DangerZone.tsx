@@ -1,7 +1,7 @@
-import { Modal } from "@/components/ui";
 import { Trash2 } from "lucide-react";
 import { memo, useCallback, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Modal } from "@/components/ui";
 import { useDeleteAccount } from "../api";
 
 export const DangerZone: React.FC = memo(() => {

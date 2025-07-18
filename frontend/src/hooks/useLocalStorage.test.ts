@@ -1,6 +1,6 @@
+import { beforeEach, describe, test } from "vitest";
 import { LOCALE_STORAGE_KEY } from "@/config/i18n";
 import { renderHook } from "@/tests/utils";
-import { beforeEach, describe, test } from "vitest";
 import { useLocalStorage } from "./useLocalStorage";
 
 const TEMPORARY_KEY = "django-react-starter-test-temp";

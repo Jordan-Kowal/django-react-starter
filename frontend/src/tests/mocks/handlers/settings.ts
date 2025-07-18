@@ -1,6 +1,6 @@
+import { HttpResponse, http } from "msw";
 import { API_ROOT_URL } from "@/api/config";
 import { SELF_MOCK } from "@/api/queries/__mocks__/useSelf";
-import { http, HttpResponse } from "msw";
 
 export const updateSelfSuccess = http.put(
   `${API_ROOT_URL}/self/account/`,

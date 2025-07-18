@@ -1,8 +1,3 @@
-import { API_ROOT_URL } from "@/api/config";
-import type { Self } from "@/api/queries";
-import { deserializeSelf } from "@/api/queries/useSelf";
-import type { ApiError } from "@/api/types";
-import { performRequest } from "@/api/utils";
 import {
   type UseMutationResult,
   useMutation,
@@ -10,6 +5,11 @@ import {
 } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
+import { API_ROOT_URL } from "@/api/config";
+import type { Self } from "@/api/queries";
+import { deserializeSelf } from "@/api/queries/useSelf";
+import type { ApiError } from "@/api/types";
+import { performRequest } from "@/api/utils";
 
 export type UpdateSelfRequestData = {
   email: string;

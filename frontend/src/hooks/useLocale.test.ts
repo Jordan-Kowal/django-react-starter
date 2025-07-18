@@ -1,7 +1,7 @@
-import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from "@/config/i18n";
-import { renderHook } from "@/tests/utils";
 import { waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
+import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from "@/config/i18n";
+import { renderHook } from "@/tests/utils";
 import { useLocale } from "./useLocale";
 
 describe.concurrent("useLocale", () => {

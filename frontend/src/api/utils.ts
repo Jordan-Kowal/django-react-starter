@@ -1,5 +1,5 @@
-import { CSRF_TOKEN_COOKIE_NAME, CSRF_TOKEN_HEADER_NAME } from "@/api/config";
 import Cookies from "js-cookie";
+import { CSRF_TOKEN_COOKIE_NAME, CSRF_TOKEN_HEADER_NAME } from "@/api/config";
 
 type FetchOptions = {
   data?: Record<string, any>;

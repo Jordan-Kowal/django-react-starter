@@ -1,6 +1,6 @@
-import { render } from "@/tests/utils";
 import { getByTestId } from "@testing-library/react";
 import { describe, test } from "vitest";
+import { render } from "@/tests/utils";
 import SettingsPage from "./SettingsPage";
 
 describe.concurrent("SettingsPage", () => {

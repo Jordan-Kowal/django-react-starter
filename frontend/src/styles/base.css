@@ -3,7 +3,9 @@
 
 @plugin "daisyui" {
   /* biome-ignore lint/correctness/noUnknownProperty: This is valid DaisyUI plugin syntax */
-  themes: bumblebee --default, coffee --prefersdark;
+  themes:
+    bumblebee --default,
+    coffee --prefersdark;
 }
 
 html {

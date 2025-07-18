@@ -1,10 +1,10 @@
-import { FieldsetInput } from "@/components/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { KeyRound, LogIn, Mail } from "lucide-react";
 import { memo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
+import { FieldsetInput } from "@/components/form";
 import { useLogin } from "../api";
 import { BaseForm } from "./BaseForm";
 
@@ -34,7 +34,7 @@ export const LoginForm: React.FC = memo(() => {
     setIsLoading(true);
     try {
       await login(data);
-    } catch (e) {
+    } catch (_e) {
       setIsLoading(false);
     }
   };

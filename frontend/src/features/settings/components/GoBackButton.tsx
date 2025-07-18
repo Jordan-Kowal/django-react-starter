@@ -1,8 +1,8 @@
-import { routeConfigMap } from "@/router";
 import { ArrowLeftToLine } from "lucide-react";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "wouter";
+import { routeConfigMap } from "@/router";
 
 export const GoBackButton: React.FC = memo(() => {
   const { t } = useTranslation();

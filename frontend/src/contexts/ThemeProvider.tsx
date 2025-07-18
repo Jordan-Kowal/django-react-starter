@@ -1,5 +1,5 @@
+import { createContext, memo, type ReactNode, useContext } from "react";
 import { DEFAULT_THEME, THEME_STORAGE_KEY, type Theme } from "@/config/daisyui";
-import { type ReactNode, createContext, memo, useContext } from "react";
 import { useLocalStorage } from "../hooks";
 
 export type ThemeContextProps = {

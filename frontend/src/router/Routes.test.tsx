@@ -1,10 +1,10 @@
+import { getByTestId } from "@testing-library/react";
+import { describe, test, vi } from "vitest";
 import * as apiQueries from "@/api/queries";
 import { navigateMock } from "@/tests/mocks/globals";
 import { selfError } from "@/tests/mocks/handlers/shared";
 import { server } from "@/tests/server";
 import { render } from "@/tests/utils";
-import { getByTestId } from "@testing-library/react";
-import { describe, test, vi } from "vitest";
 import { Routes } from "./Routes";
 
 vi.mock("@/api/queries", async () => {

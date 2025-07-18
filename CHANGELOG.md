@@ -23,6 +23,8 @@
 - 💫 **DX**: Added `CODEOWNERS` file
 - 💫 **DX**: Replaced `mypy` with `ty` as our type-checker
 - 💫 **DX**: Fallback to `update-uv-lockfile` action for backend dependency upgrades
+- 💫 **DX**: Migrated `biome` to v2 and applied linter changes
+- 🎨 **Frontend**: Reverted zod to v3 as zod-i18n is not compatible with v4 for now
 
 ## [v4.2.0] - 2025-04-18
 

@@ -1,11 +1,11 @@
-import { useSelf } from "@/api/queries";
-import { FieldsetInput } from "@/components/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Save, User } from "lucide-react";
 import { memo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
+import { useSelf } from "@/api/queries";
+import { FieldsetInput } from "@/components/form";
 import { useUpdateSelf } from "../api";
 
 const schema = z.object({
@@ -43,7 +43,7 @@ export const UserForm: React.FC = memo(() => {
     try {
       await updateSelf(data);
       reset(data, { keepValues: false });
-    } catch (e) {}
+    } catch (_e) {}
     setIsLoading(false);
   };
 

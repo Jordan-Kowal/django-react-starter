@@ -1,3 +1,5 @@
+import { act, fireEvent, getByTestId, waitFor } from "@testing-library/react";
+import { describe, test } from "vitest";
 import { performRequest } from "@/api/utils";
 import { toastErrorMock, toastSuccessMock } from "@/tests/mocks/globals";
 import {
@@ -6,8 +8,6 @@ import {
 } from "@/tests/mocks/handlers/settings";
 import { server } from "@/tests/server";
 import { render } from "@/tests/utils";
-import { act, fireEvent, getByTestId, waitFor } from "@testing-library/react";
-import { describe, test } from "vitest";
 import { UserForm } from "./UserForm";
 
 const getElements = (

@@ -1,6 +1,7 @@
 import * as apiUtils from "@/api/utils";
 import i18n, { DEFAULT_LOCALE } from "@/config/i18n";
 import "@testing-library/jest-dom/vitest";
+import { cleanup } from "@testing-library/react";
 import { HttpResponse } from "msw";
 import { afterAll, afterEach, beforeAll, beforeEach, vi } from "vitest";
 import { registerGlobalMocks } from "./mocks";
@@ -18,6 +19,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
+  cleanup();
   vi.restoreAllMocks();
   testQueryClient.clear();
   localStorage.clear();

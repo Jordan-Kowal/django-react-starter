@@ -1,6 +1,6 @@
-import { render } from "@/tests/utils";
 import { getByTestId, queryByTestId } from "@testing-library/react";
 import { describe, test } from "vitest";
+import { render } from "@/tests/utils";
 import { Main } from "./Main";
 
 describe.concurrent("Main", () => {

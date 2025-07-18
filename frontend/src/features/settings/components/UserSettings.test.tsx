@@ -1,6 +1,6 @@
-import { render } from "@/tests/utils";
 import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
+import { render } from "@/tests/utils";
 import { UserSettings } from "./UserSettings";
 
 const getElements = (
@@ -28,7 +28,7 @@ describe.concurrent("UserSettings", () => {
     expect(userSettings).toHaveTextContent("Language");
   });
 
-  test("should change locale on click", async ({ expect }) => {
+  test.sequential("should change locale on click", async ({ expect }) => {
     const { container } = render(<UserSettings />);
     const { userSettings, localeFr, localeEn } = getElements(container);
 

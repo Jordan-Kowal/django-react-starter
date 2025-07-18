@@ -1,6 +1,6 @@
 export { useDeleteAccount } from "./useDeleteAccount";
 export {
-  useUpdatePassword,
   type UpdatePasswordRequestData,
+  useUpdatePassword,
 } from "./useUpdatePassword";
-export { useUpdateSelf, type UpdateSelfRequestData } from "./useUpdateSelf";
+export { type UpdateSelfRequestData, useUpdateSelf } from "./useUpdateSelf";

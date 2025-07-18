@@ -1,3 +1,5 @@
+import { fireEvent, getByTestId, waitFor } from "@testing-library/react";
+import { describe, test } from "vitest";
 import { performRequest } from "@/api/utils";
 import {
   navigateMock,
@@ -7,8 +9,6 @@ import {
 import { deleteAccountCrash } from "@/tests/mocks/handlers/settings";
 import { server } from "@/tests/server";
 import { render } from "@/tests/utils";
-import { fireEvent, getByTestId, waitFor } from "@testing-library/react";
-import { describe, test } from "vitest";
 import { DangerZone } from "./DangerZone";
 
 describe("DangerZone", () => {

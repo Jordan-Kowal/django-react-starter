@@ -1,7 +1,7 @@
-import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY, type Locale } from "@/config/i18n";
 import dayjs from "dayjs";
 import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY, type Locale } from "@/config/i18n";
 import { useLocalStorage } from "./useLocalStorage";
 
 export type UseLocaleReturn = {

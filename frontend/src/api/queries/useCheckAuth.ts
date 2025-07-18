@@ -1,10 +1,10 @@
-import { API_ROOT_URL } from "@/api/config";
-import { routeConfigMap } from "@/router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { useLocation } from "wouter";
+import { API_ROOT_URL } from "@/api/config";
+import { routeConfigMap } from "@/router";
 import type { ApiError } from "../types";
 import { performRequest } from "../utils";
 import { useSelf } from "./useSelf";

@@ -1,6 +1,6 @@
-import { render } from "@/tests/utils";
 import { getByTestId } from "@testing-library/react";
 import { describe, test, vi } from "vitest";
+import { render } from "@/tests/utils";
 import { BaseForm } from "./BaseForm";
 
 const onSubmit = vi.fn();

@@ -1,7 +1,3 @@
-import { API_ROOT_URL } from "@/api/config";
-import type { ApiError } from "@/api/types";
-import { performRequest } from "@/api/utils";
-import { routeConfigMap } from "@/router";
 import {
   type UseMutationResult,
   useMutation,
@@ -10,6 +6,10 @@ import {
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { useLocation } from "wouter";
+import { API_ROOT_URL } from "@/api/config";
+import type { ApiError } from "@/api/types";
+import { performRequest } from "@/api/utils";
+import { routeConfigMap } from "@/router";
 
 export type RegisterRequestData = {
   email: string;

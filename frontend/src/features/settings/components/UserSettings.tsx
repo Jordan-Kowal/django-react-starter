@@ -1,8 +1,8 @@
-import { useTheme } from "@/contexts";
-import { useLocale } from "@/hooks";
 import { Languages, SunMoon } from "lucide-react";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "@/contexts";
+import { useLocale } from "@/hooks";
 
 export const UserSettings: React.FC = memo(() => {
   const { t } = useTranslation();

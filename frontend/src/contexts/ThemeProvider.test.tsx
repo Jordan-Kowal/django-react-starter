@@ -1,6 +1,6 @@
-import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/config/daisyui";
 import { getByTestId, render, waitFor } from "@testing-library/react";
 import { beforeEach, describe, test } from "vitest";
+import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/config/daisyui";
 import { ThemeProvider, useTheme } from "./ThemeProvider";
 
 const TestComponent: React.FC = () => {

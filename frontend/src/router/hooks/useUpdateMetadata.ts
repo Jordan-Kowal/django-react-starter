@@ -1,8 +1,8 @@
-import { useLocale } from "@/hooks";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "wouter";
-import { type RouteKey, pathToRoute } from "../routeConfig";
+import { useLocale } from "@/hooks";
+import { pathToRoute, type RouteKey } from "../routeConfig";
 
 export const useUpdateMetadata = () => {
   const { t } = useTranslation();

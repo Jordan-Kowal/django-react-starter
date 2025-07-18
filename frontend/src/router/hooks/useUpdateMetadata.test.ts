@@ -1,6 +1,6 @@
-import { useLocationMock } from "@/tests/mocks/globals";
 import { renderHook } from "@testing-library/react";
 import { beforeEach, describe, it, vi } from "vitest";
+import { useLocationMock } from "@/tests/mocks/globals";
 import { useUpdateMetadata } from "./useUpdateMetadata";
 
 describe.concurrent("useUpdateMetadata", () => {

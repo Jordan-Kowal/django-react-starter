@@ -1,6 +1,6 @@
-import { render } from "@/tests/utils";
 import { getByTestId, waitFor } from "@testing-library/react";
 import { describe, test } from "vitest";
+import { render } from "@/tests/utils";
 import { FadeIn } from "./FadeIn";
 
 describe.concurrent("FadeIn", () => {

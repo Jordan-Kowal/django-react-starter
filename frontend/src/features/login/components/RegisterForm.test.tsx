@@ -1,3 +1,5 @@
+import { act, fireEvent, getByTestId, waitFor } from "@testing-library/react";
+import { describe, test } from "vitest";
 import { performRequest } from "@/api/utils";
 import {
   navigateMock,
@@ -11,8 +13,6 @@ import {
 } from "@/tests/mocks/handlers/login";
 import { server } from "@/tests/server";
 import { render } from "@/tests/utils";
-import { act, fireEvent, getByTestId, waitFor } from "@testing-library/react";
-import { describe, test } from "vitest";
 import { RegisterForm } from "./RegisterForm";
 
 const getElements = (

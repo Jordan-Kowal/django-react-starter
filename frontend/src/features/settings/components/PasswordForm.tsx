@@ -1,10 +1,10 @@
-import { FieldsetInput } from "@/components/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { KeyRound, LockKeyhole, Save } from "lucide-react";
 import { memo, useEffect, useMemo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
+import { FieldsetInput } from "@/components/form";
 import { useUpdatePassword } from "../api";
 
 const schema = z.object({
@@ -61,7 +61,7 @@ export const PasswordForm: React.FC = memo(() => {
         { currentPassword: "", newPassword: "", confirmPassword: "" },
         { keepValues: false },
       );
-    } catch (e) {}
+    } catch (_e) {}
     setIsLoading(false);
   };
 

@@ -1,10 +1,10 @@
-import { useLogout } from "@/api/queries";
-import { routeConfigMap } from "@/router";
 import { LogOut, Settings } from "lucide-react";
 import type React from "react";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "wouter";
+import { useLogout } from "@/api/queries";
+import { routeConfigMap } from "@/router";
 import { Logo } from "../ui";
 
 export const NavBar: React.FC = memo(() => {
