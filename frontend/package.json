@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "5.2.1",
-    "@sentry/react": "^10.0.0",
+    "@sentry/react": "^10.1.0",
     "@tanstack/react-query": "5.84.1",
     "dayjs": "1.11.13",
     "i18next": "25.3.2",
